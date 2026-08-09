@@ -39,8 +39,8 @@ NAV=lambda active:f'''<header class="top">
       <a href="index.html"{' class="active"' if active=="home" else ''}>Home</a>
       <a href="about.html"{' class="active"' if active=="about" else ''}>About</a>
       <a href="services.html"{' class="active"' if active=="services" else ''}>Clinical Services</a>
+      <a href="coaching.html"{' class="active"' if active=="coaching" else ''}>Consulting</a>
       <a href="faq.html"{' class="active"' if active=="faq" else ''}>FAQ</a>
-      <a href="coaching.html"{' class="active"' if active=="coaching" else ''}>Coaching &amp; Consulting</a>
       <a href="index.html#contact" class="btn">Contact</a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -87,7 +87,7 @@ META={
              'Individual, couples & family therapy, concierge care, and intensives — virtual, private, and tailored to high-demand lives. Florida & New York.'),
  'faq':('faq.html','FAQ — Therapy with Dr. Alina Schulhofer',
         'Common questions about virtual concierge psychotherapy with Dr. Alina Schulhofer — insurance, fees, scheduling, and how to begin.'),
- 'coaching':('coaching.html','Coaching & Consulting — Dr. Alina Schulhofer',
+ 'coaching':('coaching.html','Consulting — Dr. Alina Schulhofer',
              'Organizational consulting, education, and executive coaching through Architecture of Excellence™, founded by Dr. Alina Schulhofer — separate from her clinical practice.'),
 }
 

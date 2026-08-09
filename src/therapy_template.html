@@ -28,6 +28,8 @@ em{font-style:italic;}
 /* on the home page (header sits directly above the editorial hero), float transparent
    over the hero like AOE's nav, solidifying only once the page scrolls past it */
 .top:has(+ .eh){position:fixed;top:0;left:0;right:0;border-bottom-color:transparent;background:transparent;backdrop-filter:none;transition:background .4s ease, backdrop-filter .4s ease, border-color .4s ease, box-shadow .4s ease;}
+/* match the hero text's wider container so the wordmark lines up with the hero headline below it */
+.top:has(+ .eh) .container{max-width:1320px;padding-left:clamp(1.5rem,5vw,5rem);padding-right:clamp(1.5rem,5vw,5rem);}
 .top:has(+ .eh)::before{content:'';position:absolute;inset:0;height:220%;background:linear-gradient(to bottom, rgba(243,239,230,.72) 0%, transparent 100%);pointer-events:none;z-index:-1;opacity:1;transition:opacity .4s ease;}
 .top:has(+ .eh).scrolled{background:rgba(252,251,248,.94);backdrop-filter:blur(8px);border-bottom-color:var(--line);box-shadow:0 1px 0 var(--line);}
 .top:has(+ .eh).scrolled::before{opacity:0;}
@@ -109,7 +111,7 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 .hero .hphoto{flex:none;width:350px;}
 .hero .hphoto img{width:350px;height:350px;border-radius:50%;object-fit:cover;object-position:center 16%;box-shadow:0 20px 52px rgba(34,31,27,.18);display:block;}
 
-.trust-head{flex:1;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(28px,3.4vw,38px);line-height:1.15;color:var(--accent);margin:0;}
+.trust-head{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(28px,3.4vw,38px);line-height:1.15;color:var(--accent);margin:0;}
 
 /* ══ EDITORIAL HERO — transferred from the Architecture of Excellence™ homepage hero ══
    Portrait-led, left-text/right-photo composition. Colors below are AOE's own ivory/ink/gold
@@ -145,11 +147,7 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 
 /* trusted split with circle portrait */
 .trust-split{display:flex;gap:56px;align-items:center;margin-bottom:14px;}
-.tphoto{flex:none;}
-.tphoto img{width:300px;height:300px;border-radius:50%;object-fit:cover;object-position:center 15%;box-shadow:0 20px 52px rgba(21,21,26,.16);display:block;}
 .trust-txt{flex:1;}
-.trust3{display:flex;gap:52px;align-items:flex-start;}
-.trust3-body{flex:1;max-width:760px;}
 
 /* AOE cross-link */
 .aoe-note{background:var(--bg2);border:1px solid var(--line);border-radius:3px;padding:26px 32px;display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap;}
@@ -303,9 +301,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   .eh-scroll{display:none;}
   .eh-actions{flex-direction:column;align-items:flex-start;gap:1rem;}
   .begin .steps{flex-direction:column;gap:26px;}
-  .trust3{flex-direction:column;gap:26px;text-align:center;}
-  .trust3-body{text-align:left;}
-  .tphoto img{margin:0 auto;}
   .prose p.lead{font-size:23px;}
   .pg-head h1,.about-head-row h1{font-size:40px!important;}
   .contact-band{padding:56px 0;}
@@ -321,9 +316,8 @@ footer .foot-link:hover{color:var(--accent);}
 .hr-sep{border:none;border-top:1px solid var(--line);margin:0;}
 
 @media(max-width:820px){
-  .hero .container,.split .container,.about-hero .container,.trust-split,.trust3{flex-direction:column;text-align:center;}
-  .hero .hphoto,.split img,.about-hero img,.tphoto img{width:100%;max-width:300px;}
-  .trust3-body{text-align:left;}
+  .hero .container,.split .container,.about-hero .container,.trust-split{flex-direction:column;text-align:center;}
+  .hero .hphoto,.split img,.about-hero img{width:100%;max-width:300px;}
   .hero h1{font-size:56px;}
   .creds{grid-template-columns:1fr;}
   .cred{padding:0;}
@@ -397,16 +391,13 @@ footer .foot-link:hover{color:var(--accent);}
 
   <section class="section" style="padding-top:72px;padding-bottom:24px;">
     <div class="container">
-      <div class="trust3">
-        <div class="tphoto"><img src="data:image/jpeg;base64,__PABOUT__" alt="Dr. Alina Schulhofer" /></div>
-        <div class="prose trust3-body">
+      <div class="trust-prose prose" style="max-width:820px;margin:0 auto;">
           <h2 class="trust-head" style="margin-bottom:16px;">Trusted by Pro Athletes, Executives, and Elite Professionals</h2>
           <p class="lead" style="margin-bottom:16px;">Welcome!</p>
           <p>I'm a licensed psychologist in Florida and New York. I specialize in working with high-performers and high-profile individuals — including executives, entrepreneurs, creatives, founders, and professional athletes — who often navigate complex inner lives alongside demanding professional responsibilities.</p>
           <p>Behind outward success, many carry internal struggles they rarely feel permitted to voice: pressure, self-doubt, relationship difficulties, or a sense of disconnection from themselves. I offer a confidential space to explore what lies beneath the surface.</p>
           <p>My approach goes beyond symptom management, supporting long-lasting transformation and overall wellbeing. Within my clinical practice, my areas of expertise include trauma, relationship difficulties, and personality.</p>
           <p>I work well with all kinds of individuals, couples, and families who are willing to explore their inner world and ready to take responsibility for their growth. My approach is best suited for those who are willing to be honest with themselves and explore their patterns, even if it's uncomfortable at times.</p>
-        </div>
       </div>
     </div>
   </section>
@@ -681,9 +672,9 @@ footer .foot-link:hover{color:var(--accent);}
 
   /* animations: hero entrance + scroll reveal */
   document.body.classList.add('anim');
-  var revealSel=['.trust3','.helpwith .container','.philosophy-band .prose','.founder .container','.contact-band .container','.about-head-row','#about .prose','#services .pg-head','#services .container.narrow','#faq .pg-head','#faq .container.narrow'];
+  var revealSel=['.trust-prose','.helpwith .container','.philosophy-band .prose','.founder .container','.contact-band .container','.about-head-row','#about .prose','#services .pg-head','#services .container.narrow','#faq .pg-head','#faq .container.narrow'];
   revealSel.forEach(function(sel){ document.querySelectorAll(sel).forEach(function(el){ el.classList.add('reveal'); }); });
-  document.querySelectorAll('.tphoto img, .about-face').forEach(function(el){ el.classList.add('reveal-img'); });
+  document.querySelectorAll('.about-face').forEach(function(el){ el.classList.add('reveal-img'); });
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(entries){
       entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); } });

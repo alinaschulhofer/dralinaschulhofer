@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dr. Alina Schulhofer — Psychotherapy (Preview)</title>
+<style>
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:400;src:url('data:font/ttf;base64,__COR400__') format('truetype');}
+@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:400;src:url('data:font/ttf;base64,__CORIT__') format('truetype');}
+@font-face{font-family:'Jost';font-style:normal;font-weight:300;src:url('data:font/ttf;base64,__JOST3__') format('truetype');}
+@font-face{font-family:'Jost';font-style:normal;font-weight:500;src:url('data:font/ttf;base64,__JOST5__') format('truetype');}
+:root{
+  --bg:#FCFBF8; --bg2:#F1EFEA; --bg3:#E6E3DB;
+  --ink:#15151A; --ink2:#494842; --ink3:#8A897F;
+  --accent:#A9843F; --accent2:#C9A96F; --line:rgba(21,21,26,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--ink);font-family:'Jost',sans-serif;font-weight:300;line-height:1.85;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+.container{max-width:1080px;margin:0 auto;padding:0 40px;}
+.narrow{max-width:760px;}
+.eyebrow{font-family:'Jost',sans-serif;font-weight:500;font-size:12.5px;letter-spacing:4px;text-transform:uppercase;color:var(--accent);}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:400;line-height:1.12;letter-spacing:.4px;}
+em{font-style:italic;}
+
+/* nav */
+.top{padding:26px 0;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(252,251,248,.94);backdrop-filter:blur(8px);z-index:50;}
+.top .container{display:flex;align-items:center;justify-content:space-between;}
+.wordmark{font-family:'Cormorant Garamond',serif;font-size:23px;color:var(--ink);text-decoration:none;letter-spacing:.5px;cursor:pointer;}
+.nav{display:flex;gap:28px;align-items:center;}
+.nav a{font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--ink2);text-decoration:none;cursor:pointer;transition:color .2s;}
+.nav a:hover{color:var(--accent);}
+.nav a.active{color:var(--accent);}
+.nav a.btn{background:var(--ink);color:#fff;padding:11px 20px;border-radius:2px;}
+.nav a.btn:hover{background:var(--accent);color:#fff;}
+
+/* page switching */
+.page{display:none;}
+.page.active{display:block;animation:fade .5s cubic-bezier(.2,.7,.2,1);}
+@keyframes fade{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+
+/* ornament */
+.orn{display:flex;align-items:center;gap:16px;margin:32px 0;}
+/* full-width edge-to-edge gold divider */
+.divider-full{width:100vw;position:relative;left:50%;margin-left:-50vw;height:1px;background:rgba(169,132,63,.42);border:none;}
+/* animated down-arrow section cue */
+.arrow-cue{display:flex;justify-content:center;margin:48px 0 0;}
+.arrow-cue a{display:inline-block;padding:10px;line-height:0;}
+.arrow-cue .chev{display:block;width:16px;height:16px;border-right:1.6px solid var(--accent);border-bottom:1.6px solid var(--accent);transform:rotate(45deg);animation:arrowBob 1.9s ease-in-out infinite;}
+@keyframes arrowBob{0%,100%{transform:rotate(45deg) translate(-2.5px,-2.5px);}50%{transform:rotate(45deg) translate(2.5px,2.5px);}}
+
+/* ===== animations & transitions ===== */
+html{scroll-behavior:smooth;}
+#contact{scroll-margin-top:96px;}
+/* hero staggered entrance */
+@keyframes heroIn{to{opacity:1;transform:none;}}
+body.anim .hero2-inner>*{opacity:0;transform:translateY(16px);animation:heroIn .9s cubic-bezier(.2,.7,.2,1) forwards;}
+body.anim .hero2-inner>*:nth-child(1){animation-delay:.12s;}
+body.anim .hero2-inner>*:nth-child(2){animation-delay:.26s;}
+body.anim .hero2-inner>*:nth-child(3){animation-delay:.40s;}
+body.anim .hero2-inner>*:nth-child(4){animation-delay:.54s;}
+/* scroll-reveal fade-ups */
+.reveal{transition:opacity .7s ease, transform .7s ease;}
+body.anim .reveal{opacity:0;transform:translateY(22px);}
+body.anim .reveal.is-visible{opacity:1;transform:none;}
+/* image reveal (fade + scale) */
+.reveal-img{transition:opacity .9s ease, transform .9s ease;}
+body.anim .reveal-img{opacity:0;transform:scale(.97);}
+body.anim .reveal-img.is-visible{opacity:1;transform:none;}
+/* button lift micro-interaction */
+.hero2 .cta,.cform button{transition:background .25s ease, transform .25s ease, box-shadow .25s ease;}
+.hero2 .cta:hover,.cform button:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(21,21,26,.16);}
+/* nav underline wipe */
+.nav a:not(.btn){position:relative;}
+.nav a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:1px;background:#8C6A2E;transform:scaleX(0);transform-origin:left center;transition:transform .28s ease;}
+.nav a:not(.btn):hover::after{transform:scaleX(1);}
+/* respect reduced motion */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  body.anim .reveal,body.anim .reveal-img{opacity:1!important;transform:none!important;}
+  body.anim .hero2-inner>*{opacity:1!important;transform:none!important;animation:none!important;}
+  .arrow-cue .chev,.scroll-cue .a{animation:none!important;}
+}
+.orn.center{justify-content:center;}
+.orn .line{width:90px;height:1px;background:var(--accent);opacity:.5;}
+.orn .line.grad{background:linear-gradient(90deg,transparent,var(--accent));}
+.orn .line.gradr{background:linear-gradient(90deg,var(--accent),transparent);}
+.orn .dia{width:8px;height:8px;border:1px solid var(--accent);transform:rotate(45deg);flex:none;}
+
+/* prose */
+.prose p{font-size:16.5px;color:var(--ink2);margin-bottom:20px;}
+.prose p.lead{font-family:'Cormorant Garamond',serif;font-size:27px;line-height:1.5;color:var(--ink);}
+.prose h2{font-size:34px;color:var(--accent);margin:8px 0 18px;}
+
+/* HERO */
+.hero{padding:70px 0 40px;}
+.hero .container{display:flex;gap:64px;align-items:center;}
+.hero .htext{flex:1;}
+.hero .eyebrow{margin-bottom:18px;display:block;}
+.hero h1{font-size:54px;line-height:1.05;margin-bottom:20px;color:var(--ink);}
+.hero .sub{font-size:18px;color:var(--ink2);max-width:440px;margin-bottom:34px;}
+.hero .cta{display:inline-block;font-family:'Jost',sans-serif;font-weight:500;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#fff;background:var(--ink);padding:16px 34px;border-radius:2px;text-decoration:none;}
+.hero .cta:hover{background:var(--accent);}
+.hero .hphoto{flex:none;width:350px;}
+.hero .hphoto img{width:350px;height:350px;border-radius:50%;object-fit:cover;object-position:center 16%;box-shadow:0 20px 52px rgba(34,31,27,.18);display:block;}
+
+/* HERO2 — full-bleed centered */
+.hero2{min-height:72vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;border-bottom:1px solid var(--line);background:radial-gradient(75% 65% at 82% 88%, rgba(169,132,63,.12) 0%, rgba(169,132,63,0) 58%), radial-gradient(95% 75% at 22% 10%, #FFFFFF 0%, rgba(255,255,255,0) 55%), linear-gradient(160deg, var(--bg) 0%, var(--bg2) 48%, var(--bg3) 100%);}
+.hero2-inner{position:relative;width:100%;min-width:0;max-width:860px;padding:80px 40px;}
+.trust-head{flex:1;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(28px,3.4vw,38px);line-height:1.15;color:var(--accent);margin:0;}
+.hero2 .eyebrow{display:block;margin-bottom:26px;}
+.hero2 h1{font-size:clamp(46px,7vw,84px);line-height:1.03;margin-bottom:22px;color:var(--ink);}
+.hero2 .sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:23px;line-height:1.45;letter-spacing:.3px;color:var(--accent);margin:0 auto 38px;max-width:600px;}
+.hero2 .cta{display:inline-block;font-family:'Jost',sans-serif;font-weight:500;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#fff;background:var(--ink);padding:17px 40px;border-radius:2px;text-decoration:none;transition:background .2s;}
+.hero2 .cta:hover{background:var(--accent);}
+
+/* trusted split with circle portrait */
+.trust-split{display:flex;gap:56px;align-items:center;margin-bottom:14px;}
+.tphoto{flex:none;}
+.tphoto img{width:300px;height:300px;border-radius:50%;object-fit:cover;object-position:center 15%;box-shadow:0 20px 52px rgba(21,21,26,.16);display:block;}
+.trust-txt{flex:1;}
+.trust3{display:flex;gap:52px;align-items:flex-start;}
+.trust3-body{flex:1;max-width:760px;}
+
+/* AOE cross-link */
+.aoe-note{background:var(--bg2);border:1px solid var(--line);border-radius:3px;padding:26px 32px;display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap;}
+.aoe-note .t{max-width:640px;}
+.aoe-note .t strong{color:var(--ink);font-weight:500;}
+.aoe-note p{font-size:14.5px;color:var(--ink2);margin:0;}
+.aoe-note a.aoe-link{flex:none;font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);text-decoration:none;border:1px solid var(--accent);padding:12px 22px;border-radius:2px;white-space:nowrap;transition:all .2s;}
+.aoe-note a.aoe-link:hover{background:var(--accent);color:#F7F9F7;}
+
+/* split */
+.split{padding:60px 0 20px;}
+.split .container{display:flex;gap:60px;align-items:center;}
+.split img{width:300px;flex:none;border-radius:3px;box-shadow:0 18px 48px rgba(35,43,43,.14);}
+.split .txt h2{font-size:36px;color:var(--accent);margin-bottom:20px;line-height:1.15;}
+.split .txt p{font-size:15.5px;color:var(--ink2);margin-bottom:16px;}
+
+.section{padding:56px 0;}
+/* What I help with — two-column diamond list */
+.helpwith{text-align:center;padding:20px 0 46px;}
+.helpwith .eyebrow{display:block;margin-bottom:12px;}
+.helpwith h2{font-size:34px;color:var(--accent);margin-bottom:30px;}
+.help-list{list-style:none;columns:2;column-gap:56px;max-width:760px;margin:0 auto;text-align:left;}
+.help-list li{position:relative;padding:10px 0 10px 26px;font-size:16px;color:var(--ink2);break-inside:avoid;}
+.help-list li::before{content:"";position:absolute;left:0;top:15px;width:5px;height:5px;border-radius:50%;background:var(--accent);}
+@media(max-width:600px){.help-list{columns:1;max-width:340px;}}
+/* philosophy band — fluid fade in AND out of soft ivory */
+.philosophy-band{background:linear-gradient(180deg, var(--bg) 0%, var(--bg2) 20%, var(--bg2) 80%, var(--bg) 100%);padding:40px 0 26px;}
+/* founder callout — clean centered note on white, hairline-framed */
+/* founder — full-width charcoal "chapter break" band */
+.founder{background:#1B1A18;padding:40px 0;text-align:center;margin-top:12px;}
+.founder-line{font-family:'Cormorant Garamond',serif;font-size:20px;color:#CFC7B8;max-width:860px;margin:0 auto;line-height:1.6;}
+.founder-line strong{color:inherit;font-weight:400;}
+.founder-link{font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#D8B876;text-decoration:none;border-bottom:1px solid rgba(216,184,118,.6);padding-bottom:2px;white-space:nowrap;margin-left:6px;transition:all .2s;}
+.founder-link:hover{color:#fff;border-bottom-color:#fff;}
+.contact-band{background:transparent;text-align:center;padding:44px 0 86px;margin-top:0;}
+.contact-band h2{font-size:42px;color:var(--accent);margin-bottom:16px;}
+.contact-band p{font-size:16px;color:var(--ink2);max-width:560px;margin:0 auto 30px;}
+.contact-band a{display:inline-block;font-family:'Jost',sans-serif;font-weight:500;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#fff;background:var(--ink);padding:16px 34px;border-radius:2px;text-decoration:none;}
+.contact-band a:hover{background:var(--accent);}
+
+/* about */
+.pg-head{padding:76px 0 8px;text-align:center;background:linear-gradient(180deg, var(--bg2) 0%, var(--bg) 78%);}
+.pg-head h1{font-size:56px;margin:14px 0 14px;}
+.pg-head .sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--ink2);max-width:640px;margin:0 auto;}
+.about-hero{padding:60px 0 8px;}
+.about-hero .container{display:flex;gap:56px;align-items:center;}
+.about-hero img{width:270px;flex:none;border-radius:3px;box-shadow:0 18px 48px rgba(35,43,43,.14);}
+.about-hero h1{font-size:54px;margin:12px 0 12px;}
+.about-hero .sub{font-size:16px;color:var(--ink2);}
+.creds-label{margin-top:52px;color:var(--accent);}
+.creds{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:16px 0 0;padding:34px 0 0;border-top:1px solid var(--line);}
+.cred{padding:0 36px;}
+.cred:first-child{padding-left:0;}
+.cred + .cred{border-left:1px solid var(--line);}
+.cred .k{font-family:'Jost',sans-serif;font-weight:500;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:8px;}
+.cred .v{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--ink);line-height:1.35;}
+
+/* accordion */
+.acc{margin:40px auto 0;}
+.svc-acc{margin-top:46px;}
+.svc-acc details:first-child{border-top:1px solid rgba(169,132,63,.5);}
+details{border-top:1px solid var(--line);}
+details:last-of-type{border-bottom:1px solid var(--line);}
+summary{list-style:none;cursor:pointer;padding:24px 4px;display:flex;justify-content:space-between;align-items:center;font-family:'Cormorant Garamond',serif;font-size:25px;color:var(--ink);}
+summary::-webkit-details-marker{display:none;}
+summary .plus{color:var(--accent);font-family:'Jost',sans-serif;font-weight:300;font-size:24px;transition:transform .2s;}
+details[open] summary .plus{transform:rotate(45deg);}
+.acc-body{padding:4px 4px 30px;}
+.acc-body p{font-size:15.5px;color:var(--ink2);margin-bottom:14px;}
+.acc-body p .b{color:var(--ink);font-weight:500;}
+.acc-body ul{list-style:none;margin:8px 0 16px;}
+.acc-body ul li{position:relative;padding:7px 0 7px 26px;font-size:15.5px;color:var(--ink2);}
+.acc-body ul li::before{content:"";position:absolute;left:0;top:15px;width:6px;height:6px;border:1px solid var(--accent);transform:rotate(45deg);}
+.acc-body .feat{margin-bottom:16px;}
+.acc-body .feat .ft{color:var(--ink);font-weight:500;display:block;}
+#faq summary{font-size:22px;}
+.about-head-row{display:flex;align-items:center;justify-content:space-between;gap:48px;}
+.about-face{width:180px;height:180px;border-radius:50%;object-fit:cover;object-position:center center;flex:none;box-shadow:0 16px 42px rgba(21,21,26,.16);}
+@media(max-width:700px){.about-head-row{flex-direction:column-reverse;align-items:flex-start;}}
+
+/* section rhythm — alternating soft ivory band */
+.section-alt{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.section-alt .aoe-note{background:#FFFFFF;}
+
+/* hero scroll cue */
+.scroll-cue{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;pointer-events:none;}
+.scroll-cue .l{width:1px;height:32px;background:var(--accent);opacity:.4;}
+.scroll-cue .a{font-size:13px;color:var(--accent);opacity:.75;animation:cuebounce 1.9s ease-in-out infinite;}
+@keyframes cuebounce{0%,100%{transform:translateY(0);}50%{transform:translateY(5px);}}
+
+/* accordion polish — hover tint + open animation */
+summary{transition:background .2s ease;border-radius:2px;}
+summary:hover{background:rgba(169,132,63,.07);}
+details[open] .acc-body{animation:accfade .32s ease;}
+@keyframes accfade{from{opacity:0;transform:translateY(-6px);}to{opacity:1;transform:none;}}
+
+/* accessibility — focus states + higher-contrast gold for small text */
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid #8C6A2E;outline-offset:3px;border-radius:2px;}
+.eyebrow{color:#8C6A2E;}
+.nav a.active,.nav a:hover{color:#8C6A2E;}
+.aoe-note a.aoe-link{color:#8C6A2E;border-color:#8C6A2E;}
+.cred .k{color:#8C6A2E;}
+
+/* mobile nav toggle */
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px;}
+.nav-toggle span{display:block;width:24px;height:2px;background:var(--ink);transition:.25s;}
+.nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-toggle.open span:nth-child(2){opacity:0;}
+.nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+/* How to Begin strip */
+.begin{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center;}
+.begin .eyebrow{display:block;margin-bottom:12px;}
+.begin h2{font-size:34px;color:var(--accent);margin-bottom:38px;}
+.begin .steps{display:flex;gap:36px;justify-content:center;max-width:880px;margin:0 auto;}
+.begin .step{flex:1;}
+.begin .num{font-family:'Cormorant Garamond',serif;font-size:44px;color:var(--accent);line-height:1;margin-bottom:12px;}
+.begin .st{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--ink);margin-bottom:8px;}
+.begin .sd{font-size:14.5px;color:var(--ink2);line-height:1.7;}
+
+/* contact form */
+.cform{max-width:480px;margin:0 auto 22px;display:flex;flex-direction:column;gap:12px;text-align:left;}
+.cform input,.cform textarea{font-family:'Jost',sans-serif;font-weight:300;font-size:15px;padding:14px 15px;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:2px;}
+.cform textarea{min-height:110px;resize:vertical;}
+.cform button{font-family:'Jost',sans-serif;font-weight:500;font-size:13px;letter-spacing:2px;text-transform:uppercase;background:var(--ink);color:#fff;border:none;padding:16px;border-radius:2px;cursor:pointer;transition:background .2s;}
+.cform button:hover{background:var(--accent);}
+.contact-band .or{font-size:13px;letter-spacing:1px;color:var(--ink3);margin:0 0 8px;}
+.contact-band .email-link{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:#8C6A2E;text-decoration:none;}
+.contact-band .email-link:hover{color:var(--accent);}
+.contact-direct{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;}
+.contact-direct .cd-sep{color:var(--ink3);}
+.contact-band .inline-link{display:inline;background:none;padding:0;border-radius:0;text-transform:none;letter-spacing:normal;font-family:'Jost',sans-serif;font-weight:400;font-size:inherit;color:#8C6A2E;text-decoration:none;border-bottom:1px solid rgba(140,106,46,.4);white-space:nowrap;}
+.contact-band .inline-link:hover{border-bottom-color:#8C6A2E;}
+@media(max-width:520px){.contact-direct{flex-direction:column;gap:6px;}.contact-direct .cd-sep{display:none;}}
+
+/* ── responsive / mobile ── */
+@media(max-width:760px){
+  .container{padding:0 24px;}
+  .nav-toggle{display:flex;}
+  .nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;align-items:stretch;background:var(--bg);border-bottom:1px solid var(--line);padding:6px 24px 18px;box-shadow:0 14px 26px rgba(21,21,26,.08);}
+  .nav.open{display:flex;}
+  .nav a{padding:14px 0;border-top:1px solid var(--line);width:100%;}
+  .nav a.btn{text-align:center;margin-top:10px;border-top:none;}
+  .top .container{position:relative;}
+  .hero2{min-height:auto;padding:56px 0;}
+  .hero2-inner{padding:20px 24px;max-width:100%;}
+  .hero2 .eyebrow{letter-spacing:2px;font-size:11px;}
+  .hero2 h1{font-size:clamp(30px,8.5vw,50px);word-break:break-word;}
+  .scroll-cue{display:none;}
+  .begin .steps{flex-direction:column;gap:26px;}
+  .trust3{flex-direction:column;gap:26px;text-align:center;}
+  .trust3-body{text-align:left;}
+  .tphoto img{margin:0 auto;}
+  .prose p.lead{font-size:23px;}
+  .pg-head h1,.about-head-row h1{font-size:40px!important;}
+  .contact-band{padding:56px 0;}
+  .section{padding:44px 0;}
+}
+
+footer{margin-top:0;padding:44px 0;border-top:1px solid var(--line);text-align:center;background:var(--bg);}
+footer .fnote{font-size:12px;color:var(--ink3);letter-spacing:.5px;line-height:1.9;}
+footer .foot-link{color:#8C6A2E;text-decoration:none;}
+footer .foot-link:hover{color:var(--accent);}
+
+.banner-note{background:var(--accent);color:#F7F9F7;text-align:center;font-family:'Jost',sans-serif;font-weight:500;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:8px;}
+.hr-sep{border:none;border-top:1px solid var(--line);margin:0;}
+
+@media(max-width:820px){
+  .hero .container,.split .container,.about-hero .container,.trust-split,.trust3{flex-direction:column;text-align:center;}
+  .hero .hphoto,.split img,.about-hero img,.tphoto img{width:100%;max-width:300px;}
+  .trust3-body{text-align:left;}
+  .hero h1{font-size:56px;}
+  .creds{grid-template-columns:1fr;}
+  .cred{padding:0;}
+  .cred + .cred{border-left:none;border-top:1px solid var(--line);padding-top:22px;margin-top:22px;}
+  .nav{gap:16px;}
+}
+</style>
+</head>
+<body>
+
+<div class="banner-note">Private Preview — not published</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["Psychologist","MedicalBusiness"],
+  "name": "Dr. Alina Schulhofer — Concierge Psychological Services",
+  "description": "Depth-oriented virtual psychotherapy for high achievers — executives, entrepreneurs, creatives, founders, and professional athletes. Licensed clinical psychologist in Florida and New York.",
+  "url": "https://dralinaschulhofer.com",
+  "areaServed": [{"@type":"State","name":"Florida"},{"@type":"State","name":"New York"}],
+  "availableService": [
+    {"@type":"MedicalTherapy","name":"Individual Therapy"},
+    {"@type":"MedicalTherapy","name":"Couples & Family Therapy"},
+    {"@type":"MedicalTherapy","name":"Concierge Therapy"},
+    {"@type":"MedicalTherapy","name":"Therapy Intensives"}
+  ],
+  "founder": {"@type":"Person","name":"Dr. Alina Schulhofer","jobTitle":"Licensed Clinical Psychologist (PsyD)","alumniOf":"Nova Southeastern University"},
+  "knowsAbout": ["Psychotherapy","Trauma","Personality Disorders","Relationships","High Performance Psychology","Executive Wellbeing"]
+}
+</script>
+
+<header class="top">
+  <div class="container">
+    <span class="wordmark" data-go="home">Dr. Alina Schulhofer</span>
+    <nav class="nav" id="nav">
+      <a data-go="home" class="active">Home</a>
+      <a data-go="about">About</a>
+      <a data-go="services">Clinical Services</a>
+      <a data-go="faq">FAQ</a>
+      <a href="mailto:alina@dralinaschulhofer.com?subject=Therapy%20Inquiry" class="btn">Contact</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ================= HOME ================= -->
+<div class="page active" id="home">
+  <section class="hero2">
+    <div class="hero2-inner">
+      <span class="eyebrow">Virtual Therapy · Florida &amp; New York</span>
+      <h1>Concierge Psychological Services</h1>
+      <p class="sub">Depth-oriented therapy for high achievers.</p>
+      <a href="#contact" class="cta">Get in Touch</a>
+    </div>
+    <div class="scroll-cue" aria-hidden="true"><span class="l"></span><span class="a">↓</span></div>
+  </section>
+
+  <section class="section" style="padding-top:72px;padding-bottom:24px;">
+    <div class="container">
+      <div class="trust3">
+        <div class="tphoto"><img src="data:image/jpeg;base64,__PABOUT__" alt="Dr. Alina Schulhofer" /></div>
+        <div class="prose trust3-body">
+          <h2 class="trust-head" style="margin-bottom:16px;">Trusted by Pro Athletes, Executives, and Elite Professionals</h2>
+          <p class="lead" style="margin-bottom:16px;">Welcome!</p>
+          <p>I'm a licensed psychologist in Florida and New York. I specialize in working with high-performers and high-profile individuals — including executives, entrepreneurs, creatives, founders, and professional athletes — who often navigate complex inner lives alongside demanding professional responsibilities.</p>
+          <p>Behind outward success, many carry internal struggles they rarely feel permitted to voice: pressure, self-doubt, relationship difficulties, or a sense of disconnection from themselves. I offer a confidential space to explore what lies beneath the surface.</p>
+          <p>My approach goes beyond symptom management, supporting long-lasting transformation and overall wellbeing. Within my clinical practice, my areas of expertise include trauma, relationship difficulties, and personality.</p>
+          <p>I work well with all kinds of individuals, couples, and families who are willing to explore their inner world and ready to take responsibility for their growth. My approach is best suited for those who are willing to be honest with themselves and explore their patterns, even if it's uncomfortable at times.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="philosophy-band">
+    <div class="container">
+      <div class="prose" style="max-width:820px;margin:0 auto;">
+        <hr class="divider-full" style="margin-top:0;margin-bottom:56px;" />
+        <h2 style="font-size:32px;margin-bottom:30px;">My Philosophy</h2>
+        <p>My approach to therapy is relational psychoanalytic and founded on the premise that healing occurs within the context of a safe and consistent relationship that allows for the exploration and expression of your true self.</p>
+        <p>I believe that the therapeutic process offers the opportunity to become more truthful with ourselves and others, and to gain a better understanding of the repetitive thoughts, feelings, and patterns that prevent us from living a healthier, more successful and fulfilled life.</p>
+        <p>While my practice has emphasized trauma, relationship issues, and personal growth, I work with individuals, couples, and families navigating a range of concerns. These include: borderline and narcissistic personality styles, identity issues, anxiety, depression, life transitions, and neurodiverse couples.</p>
+        <p>I take a holistic and individualized approach, recognizing that each person is shaped by their unique history and experiences. Yet, my way of working remains the same regardless of the presenting problem: insight-oriented and committed to creating long-lasting transformation.</p>
+        <hr class="divider-full" style="margin-top:56px;margin-bottom:0;" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section helpwith">
+    <div class="container">
+      <h2>Areas of Focus</h2>
+      <ul class="help-list">
+        <li>Relationship problems</li>
+        <li>Identity beyond achievement</li>
+        <li>Connecting accomplishments with deeper values</li>
+        <li>Life &amp; career transitions</li>
+        <li>Perfectionism &amp; self-criticism</li>
+        <li>Low self-esteem</li>
+        <li>Building a more meaningful life</li>
+        <li>Legacy &amp; purpose</li>
+        <li>Burnout</li>
+        <li>Emotional dysregulation</li>
+        <li>Anxiety and depression</li>
+        <li>Neurodiverse couples</li>
+      </ul>
+      <div class="arrow-cue"><a href="#contact" aria-label="Continue to booking"><span class="chev"></span></a></div>
+    </div>
+  </section>
+
+  <section class="contact-band" id="contact">
+    <div class="container">
+      <p class="eyebrow" style="margin-bottom:14px;">Get Started</p>
+      <h2>Book a Free 15-Minute Consultation</h2>
+      <p>I am currently accepting new clients on a limited basis. Please share a little about what brings you here, and I will respond personally to arrange your complimentary consultation.</p>
+      <form class="cform" id="contactForm">
+        <input type="text" id="cf-name" placeholder="Your name" aria-label="Your name" required />
+        <input type="email" id="cf-email" placeholder="Your email" aria-label="Your email" required />
+        <input type="tel" id="cf-phone" placeholder="Phone" aria-label="Phone" required />
+        <textarea id="cf-msg" placeholder="A little about what you're looking for" aria-label="Message" required></textarea>
+        <button type="submit">Request My Free Consultation</button>
+      </form>
+      <p id="cf-success" style="display:none;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:#8C6A2E;margin-top:6px;">Thank you — your request has been received. I will respond personally, usually within a couple of business days.</p>
+    </div>
+  </section>
+
+  <section class="founder">
+    <div class="container">
+      <p class="founder-line"><strong>Dr. Schulhofer is also the founder of Architecture of Excellence™</strong>, offering 1:1 coaching, speaking engagements, &amp; consulting for high-performing individuals, teams &amp; organizations. <a href="https://architectureofexcellence.com" target="_blank" rel="noopener" class="founder-link">Explore →</a></p>
+    </div>
+  </section>
+</div>
+
+<!-- ================= ABOUT ================= -->
+<div class="page" id="about">
+  <section class="pg-head" style="text-align:left;">
+    <div class="container narrow about-head-row">
+      <div>
+        <p class="eyebrow">About Me</p>
+        <h1 style="font-size:54px;margin:12px 0 10px;">Dr. Alina Schulhofer</h1>
+        <p style="font-size:16px;color:var(--ink2);">Licensed Clinical Psychologist · Florida &amp; New York</p>
+      </div>
+      <img class="about-face" src="data:image/jpeg;base64,__FACE__" alt="Dr. Alina Schulhofer" />
+    </div>
+  </section>
+  <section class="section" style="padding-top:14px;">
+    <div class="container narrow prose">
+      <hr class="divider-full" style="margin-top:10px;margin-bottom:56px;" />
+      <p>I'm a Florida + New York licensed psychologist and high-performance consultant. I earned my doctorate in clinical psychology from Nova Southeastern University in Fort Lauderdale, Florida, with a concentration in psychodynamic psychotherapy, specializing in the treatment of trauma and dissociation, narcissistic and borderline personality disorders, and relationship difficulties.</p>
+      <p>My clinical experience has entailed treating patients with a wide range of difficulties in inpatient and outpatient settings, including private practice, diverse community mental health centers, and training at Jackson Health System/University of Miami Miller School of Medicine.</p>
+      <p>I have worked with high-performers and high-profile individuals worldwide, including professional athletes in the NFL and NBA, C-suite executives, academics, medical professionals, entrepreneurs, and creatives to improve performance, leadership, relationships, and wellbeing.</p>
+      <p>As the founder of <em>Architecture of Excellence™</em>, a six-pillar proprietary system designed to reflect the art and science of actualizing human potential, my 1:1 coaching and consulting services focus on performance optimization rather than clinical treatment.</p>
+      <p>Being a former swimmer on an international and collegiate level, I have integrated my personal experiences with my clinical background to inform my work. Having lived in Miami, New York City, Austria, and Portugal, I bring a global and multicultural perspective.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ================= SERVICES ================= -->
+<div class="page" id="services">
+  <section class="pg-head">
+    <div class="container">
+      <p class="eyebrow">Virtual Therapy · FL + NY</p>
+      <h1>Services &amp; Investment</h1>
+      <p class="sub">Virtual therapy designed to fit your life and schedule—sessions that meet you where you are.</p>
+    </div>
+  </section>
+  <section class="section" style="padding-top:40px;">
+    <div class="container narrow">
+      <div class="prose">
+        <p>I offer a concierge-style approach to psychotherapy for those seeking highly personalized, flexible, and discreet psychological care. While I work with a range of concerns, my areas of specialty include trauma, relationship difficulties, and personal development.</p>
+        <p>I treat a variety of individuals, couples, and families, but specialize in working with high-performers and high-profile individuals, including executives, entrepreneurs, creatives, and professional athletes.</p>
+        <p>To provide the highest level of care, I intentionally maintain a limited caseload. This allows me to offer my clients dedicated time, flexible scheduling, and seamless coordination with other providers when needed.</p>
+        <p>Clients may engage in therapy through either a retainer-based concierge arrangement or on a fee-for-service basis, depending on their needs and preferences. Concierge care offers greater flexibility and access.</p>
+        <p>This model is best suited for individuals who value discretion, depth, and a therapeutic relationship that can adapt to the realities of a high-demand life. I provide all clients with my direct contact information.</p>
+      </div>
+
+      <div class="acc svc-acc">
+        <details>
+          <summary>Individual Therapy <span class="plus">+</span></summary>
+          <div class="acc-body">
+            <p>Designed to address your unique story and specific goals, we will explore the experiences that have shaped you, identify the cycles you feel stuck in, and help you gain a deeper understanding of yourself.</p>
+            <p>For your initial session, we will meet for 60-minutes to establish an understanding of who you are, your past and present, current concerns, and what you hope to gain from therapy. This initial meeting is also an opportunity to determine goodness of fit between us.</p>
+            <p>Therapy sessions are typically held on a weekly basis, though frequency will be determined collaboratively based on your individual needs and desires. For various reasons, some may benefit from deeper, more intensive treatment where sessions take place multiple times per week.</p>
+            <p>I generally do not recommend meeting less than once per week, as infrequent sessions make it more difficult to facilitate change and experience notable improvements. While standard therapy sessions are 50-minutes in length, extended sessions may be preferable and can be arranged on a case-by-case basis.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Couples &amp; Family Therapy <span class="plus">+</span></summary>
+          <div class="acc-body">
+            <p>Understanding that every relationship comes with its unique challenges, my approach focuses on your current issues while also promoting long-term relational growth and greater intimacy.</p>
+            <p>We will begin with a comprehensive initial evaluation, designed to help me understand your relationship dynamic and determine the most effective path forward. This process consists of:</p>
+            <ul><li>One 60-minute joint session, followed by</li><li>Two individual 60-minute sessions</li></ul>
+            <p>These sessions ideally take place within the same week so that we can identify patterns, clarify goals, and establish a therapeutic direction.</p>
+            <p>Following the initial evaluation, couples typically meet with me weekly for 50-minute sessions. Extended sessions (90-minutes) or intensives may also be arranged for those seeking more support or accelerated progress.</p>
+            <p>I draw from a variety of approaches, including psychodynamic therapy, attachment theory, and emotionally-focused therapy (EFT), to help couples and families understand their patterns, communicate more effectively, and build a stronger, more connected relationship.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Concierge Services <span class="plus">+</span></summary>
+          <div class="acc-body">
+            <p><span class="b">A high-touch, flexible level of support with expanded access and deeper continuity of care.</span></p>
+            <p>Concierge therapy is a monthly, subscription-based service designed for those who want a more flexible and exclusive therapeutic experience. This offering provides a higher level of access and availability than standard therapy, allowing us to work at greater depth and with more attunement to the realities of your life, schedule, and emotional needs.</p>
+            <p>As a concierge client, you receive:</p>
+            <div class="feat"><span class="ft">Priority scheduling — including early mornings and weekends</span>Your sessions are scheduled with maximum flexibility to fit your lifestyle.</div>
+            <div class="feat"><span class="ft">Sessions that don't end "at the clock"</span>While standard therapy ends at 50 minutes, concierge sessions include built-in flexibility. If we are processing something important or in the midst of meaningful work, we extend the session as needed without interruption.</div>
+            <div class="feat"><span class="ft">Reserved second weekly slot</span>To accommodate your busy or unpredictable schedule, a second session time is held for you each week. Even if you do not need it every week, the time remains available should additional scheduling needs arise.</div>
+            <div class="feat"><span class="ft">Access between sessions</span>You may reach out between sessions for brief check-ins via phone or text.</div>
+            <div class="feat"><span class="ft">Limited caseload</span>Concierge therapy is offered to a very small number of clients at a time to ensure a high level of availability, presence, and responsiveness.</div>
+            <p>This level of care is ideal for:</p>
+            <ul><li>High performers with unpredictable or demanding schedules</li><li>Individuals or couples looking for deeper emotional access and continuity</li><li>Clients navigating a crisis or major transition</li><li>People who value privacy, flexibility, and a more exclusive experience</li></ul>
+            <p>Concierge therapy is offered on a flat-fee, monthly subscription basis and includes both individual and couples options.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Intensive Sessions <span class="plus">+</span></summary>
+          <div class="acc-body">
+            <p>Therapy intensives offer a more focused and transformative experience than standard weekly sessions. Designed for individuals and couples seeking greater depth or momentum, intensives allow us to work for extended periods in a contained way.</p>
+            <p><span class="b">An intensive may be helpful if you are experiencing:</span></p>
+            <ul><li>A significant life transition</li><li>An interpersonal crisis</li><li>Trauma that feels difficult to approach in shorter sessions</li><li>Feeling stuck in ongoing patterns</li><li>A desire for accelerated personal or relational growth</li><li>A schedule that makes weekly therapy challenging</li></ul>
+            <p><span class="b">Intensives can take place as:</span></p>
+            <ul><li>Extended 90-minute or 2-hour sessions</li><li>Full-day (4–5 hour) intensives with breaks</li></ul>
+            <p>Intensives are available for both individuals and couples and are tailored to your goals. They can be scheduled as standalone experiences or integrated into ongoing therapy.</p>
+            <p>Please inquire directly for a quote.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Investment <span class="plus">+</span></summary>
+          <div class="acc-body">
+            <p>Therapy is an investment in yourself—your inner world, your relationships, your long-term wellbeing, and the quality of your success.</p>
+            <p>I am a private-pay provider. While I do not accept insurance, psychotherapy clients may request a Superbill for possible out-of-network reimbursement.</p>
+            <p>Please inquire directly for details regarding fees and availability.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="founder">
+    <div class="container">
+      <p class="founder-line"><strong>Looking for executive coaching or organizational consulting rather than clinical therapy?</strong> Dr. Schulhofer is also the founder of Architecture of Excellence™ — a framework for leaders, teams &amp; organizations. <a href="https://architectureofexcellence.com" target="_blank" rel="noopener" class="founder-link">Explore →</a></p>
+    </div>
+  </section>
+</div>
+
+<!-- ================= FAQ ================= -->
+<div class="page" id="faq">
+  <section class="pg-head">
+    <div class="container">
+      <p class="eyebrow">Common Questions</p>
+      <h1>Frequently Asked Questions</h1>
+    </div>
+  </section>
+  <section class="section" style="padding-top:30px;">
+    <div class="container narrow acc">
+      <details><summary>What type of clients do you work with? <span class="plus">+</span></summary><div class="acc-body">
+        <p>I work mainly with high-performing individuals who are navigating personal or professional transitions, relationship issues, leadership challenges, or those who simply have a desire for deeper fulfillment and want to work toward actualizing their maximum potential. This includes executives, entrepreneurs, creatives, founders, athletes, and leaders operating in high-stakes environments.</p>
+        <p>However, I work well with all kinds of individuals who are willing to explore their inner world and ready to take responsibility for their growth. My approach is best suited for those who are willing to be honest with themselves and explore their patterns, even if it's uncomfortable at times.</p>
+      </div></details>
+      <details><summary>Do you accept insurance? <span class="plus">+</span></summary><div class="acc-body">
+        <p>At this time, I am private pay only. However, I can provide a monthly invoice (Superbill) for you to submit to your insurance provider if you have out-of-network benefits. Please note that reimbursement varies based on your plan, so I encourage you to contact your insurance company directly to determine your specific coverage.</p>
+      </div></details>
+      <details><summary>Do you offer sliding scale fees? <span class="plus">+</span></summary><div class="acc-body">
+        <p>I offer a limited number of sliding-scale spots for clients who are unable to afford my full fee. Reduced rates are determined based on financial need and availability. If you would like to be considered, please reach out to discuss your circumstances.</p>
+      </div></details>
+      <details><summary>What is your cancellation policy? <span class="plus">+</span></summary><div class="acc-body">
+        <p>I require at least 24 hours to cancel an appointment free of charge. Cancellations within 24 hours of the scheduled session time, as well as no-shows, will be charged the full session fee to the card on file. If scheduling permits, you may be able to reschedule free of charge within the same week.</p>
+      </div></details>
+      <details><summary>How long will I be in therapy? <span class="plus">+</span></summary><div class="acc-body">
+        <p>Therapy is highly individualized. Some clients work short-term around specific goals, while others engage in longer-term, deeper exploration. Due to the nature of my work and my depth-oriented approach, I tend to work with clients in the long-term. We will discuss your needs and pace together.</p>
+      </div></details>
+      <details><summary>Why invest in therapy? <span class="plus">+</span></summary><div class="acc-body">
+        <p>Therapy is an investment in yourself—in your emotional well-being, relationships, success, and long-term quality of life. Meaningful change requires time, consistency, and a willingness to explore your inner world with honesty. The work we do together is designed to support lasting transformation, and the investment you make reflects the depth and intention of that process.</p>
+      </div></details>
+      <details><summary>Do you offer in-person sessions? <span class="plus">+</span></summary><div class="acc-body">
+        <p>My practice is fully virtual at this time. Sessions are held via Zoom.</p>
+      </div></details>
+      <details><summary>Do you offer 1:1 coaching? <span class="plus">+</span></summary><div class="acc-body">
+        <p>I offer non-clinical individual and relationship coaching for clients worldwide.</p>
+        <p>My personalized coaching services are designed to empower you to cultivate self-awareness, enhance your emotional intelligence, and build stronger, more meaningful connections.</p>
+        <p>I also support couples, families, or business partners in developing more satisfying relational patterns, communication skills, conflict resolution abilities, or seeking to enhance intimacy.</p>
+        <p>Coaching is not therapy. It is a non-clinical process focused on your goals and personal development, rather than addressing diagnosable mental health conditions.</p>
+        <p>If at any point therapeutic support is needed, I will assist with referrals to the appropriate professionals.</p>
+      </div></details>
+      <details><summary>How do I get started? <span class="plus">+</span></summary><div class="acc-body">
+        <p>Please schedule a free initial 15 minute phone consultation with me to get started. This is an opportunity for us to begin to determine whether working together is a good fit prior to scheduling an initial appointment.</p>
+      </div></details>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="container">
+    <p class="fnote">
+      <a href="mailto:alina@dralinaschulhofer.com" class="foot-link">alina@dralinaschulhofer.com</a> &nbsp;·&nbsp; +1 786-671-4945<br />
+      <a href="https://architectureofexcellence.com" target="_blank" rel="noopener" class="foot-link">Architecture of Excellence ↗</a><br />
+      © 2026 Dr. Alina Schulhofer. All rights reserved.
+    </p>
+  </div>
+</footer>
+
+<script>
+  var nav=document.getElementById('nav'), navToggle=document.getElementById('navToggle');
+  function closeMenu(){ if(nav) nav.classList.remove('open'); if(navToggle){navToggle.classList.remove('open');navToggle.setAttribute('aria-expanded','false');} }
+  function go(id){
+    document.querySelectorAll('.page').forEach(function(p){p.classList.toggle('active',p.id===id);});
+    document.querySelectorAll('.nav a[data-go]').forEach(function(a){a.classList.toggle('active',a.getAttribute('data-go')===id);});
+    closeMenu();
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  document.querySelectorAll('[data-go]').forEach(function(el){
+    el.addEventListener('click',function(){go(el.getAttribute('data-go'));});
+  });
+  if(navToggle){ navToggle.addEventListener('click',function(){
+    var open=nav.classList.toggle('open');
+    navToggle.classList.toggle('open',open);
+    navToggle.setAttribute('aria-expanded',open?'true':'false');
+  }); }
+  var cf=document.getElementById('contactForm');
+  if(cf){ cf.addEventListener('submit',function(e){
+    e.preventDefault();
+    var name=(document.getElementById('cf-name').value||'').trim();
+    var email=(document.getElementById('cf-email').value||'').trim();
+    var phone=(document.getElementById('cf-phone').value||'').trim();
+    var msg=(document.getElementById('cf-msg').value||'').trim();
+    var btn=cf.querySelector('button');
+    btn.disabled=true; btn.textContent='Sending…';
+    var payload={name:name, email:email, phone:phone, message:msg, _subject:'Free Consultation Request — '+name};
+    fetch('https://formspree.io/f/xzdwqnvk',{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify(payload)})
+      .then(function(r){
+        if(!r.ok){ throw new Error('submit failed'); }
+        cf.style.display='none';
+        var s=document.getElementById('cf-success'); if(s){ s.style.display='block'; }
+      })
+      .catch(function(){
+        // fallback (e.g. blocked in this sandbox preview): open the visitor's email client
+        var body='Name: '+name+'%0D%0AEmail: '+email+'%0D%0APhone: '+phone+'%0D%0A%0D%0A'+encodeURIComponent(msg);
+        window.location.href='mailto:alina@dralinaschulhofer.com?subject='+encodeURIComponent('Free Consultation Request — '+name)+'&body='+body;
+        btn.disabled=false; btn.textContent='Request My Free Consultation';
+      });
+  }); }
+
+  /* animations: hero entrance + scroll reveal */
+  document.body.classList.add('anim');
+  var revealSel=['.trust3','.helpwith .container','.philosophy-band .prose','.founder .container','.contact-band .container','.about-head-row','#about .prose','#services .pg-head','#services .container.narrow','#faq .pg-head','#faq .container.narrow'];
+  revealSel.forEach(function(sel){ document.querySelectorAll(sel).forEach(function(el){ el.classList.add('reveal'); }); });
+  document.querySelectorAll('.tphoto img, .about-face').forEach(function(el){ el.classList.add('reveal-img'); });
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+    }, {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+    document.querySelectorAll('.reveal, .reveal-img').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal, .reveal-img').forEach(function(el){ el.classList.add('is-visible'); });
+  }
+</script>
+</body>
+</html>

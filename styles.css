@@ -306,6 +306,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   .prose p.lead{font-size:23px;}
   .pg-head h1,.about-head-row h1{font-size:40px!important;}
   .pg-head{padding-top:32px;}
+  .pg-head-simple{padding-top:56px;}
   .contact-band{padding:56px 0;}
   .section{padding:44px 0;}
 }

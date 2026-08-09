@@ -283,6 +283,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 .contact-direct .cd-sep{color:var(--ink3);}
 .inline-link{display:inline;background:none;padding:0;border-radius:0;text-transform:none;letter-spacing:normal;font-family:'Jost',sans-serif;font-weight:400;font-size:inherit;color:#8C6A2E;text-decoration:none;border-bottom:1px solid rgba(140,106,46,.4);white-space:nowrap;}
 .inline-link:hover{border-bottom-color:#8C6A2E;}
+.btn-solid{display:inline-block;font-family:'Jost',sans-serif;font-weight:500;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#fff;background:var(--ink);padding:16px 34px;border-radius:2px;text-decoration:none;transition:background .2s;}
+.btn-solid:hover{background:var(--accent);}
 @media(max-width:520px){.contact-direct{flex-direction:column;gap:6px;}.contact-direct .cd-sep{display:none;}}
 
 /* ── responsive / mobile ── */
@@ -367,6 +369,7 @@ footer .foot-link:hover{color:var(--accent);}
       <a data-go="about">About</a>
       <a data-go="services">Clinical Services</a>
       <a data-go="faq">FAQ</a>
+      <a data-go="coaching">Coaching &amp; Consulting</a>
       <a href="mailto:alina@dralinaschulhofer.com?subject=Therapy%20Inquiry" class="btn">Contact</a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -630,6 +633,28 @@ footer .foot-link:hover{color:var(--accent);}
   </section>
 </div>
 
+<!-- ================= COACHING & CONSULTING ================= -->
+<div class="page" id="coaching">
+  <section class="pg-head">
+    <div class="container">
+      <p class="eyebrow">Beyond Clinical Practice</p>
+      <h1>Coaching &amp; Consulting</h1>
+      <p class="sub">Organizational consulting, education, and executive coaching — separate from my clinical practice.</p>
+    </div>
+  </section>
+  <section class="section" style="padding-top:14px;">
+    <div class="container narrow prose">
+      <hr class="divider-full" style="margin-top:10px;margin-bottom:56px;" />
+      <p>Alongside my clinical practice, I'm the founder of <a href="https://architectureofexcellence.com" target="_blank" rel="noopener" class="inline-link">Architecture of Excellence™</a>, offering organizational consulting, education, and executive coaching for high-performing individuals, teams &amp; organizations worldwide.</p>
+      <p>This work is distinct from clinical therapy — it's focused on performance, leadership, and organizational excellence, rather than the treatment of mental health conditions.</p>
+      <p>If you're looking for executive coaching, leadership development, or organizational consulting rather than clinical therapy, Architecture of Excellence™ is the place to start.</p>
+      <div style="text-align:center;margin-top:44px;">
+        <a href="https://architectureofexcellence.com" target="_blank" rel="noopener" class="btn-solid">Visit Architecture of Excellence →</a>
+      </div>
+    </div>
+  </section>
+</div>
+
 <footer>
   <div class="container">
     <p class="fnote">
@@ -685,7 +710,7 @@ footer .foot-link:hover{color:var(--accent);}
 
   /* animations: hero entrance + scroll reveal */
   document.body.classList.add('anim');
-  var revealSel=['.trust3','.helpwith .container','.philosophy-band .prose','.founder .container','.contact-band .container','.about-head-row','#about .prose','#services .pg-head','#services .container.narrow','#faq .pg-head','#faq .container.narrow'];
+  var revealSel=['.trust3','.helpwith .container','.philosophy-band .prose','.founder .container','.contact-band .container','.about-head-row','#about .prose','#services .pg-head','#services .container.narrow','#faq .pg-head','#faq .container.narrow','#coaching .pg-head','#coaching .container.narrow'];
   revealSel.forEach(function(sel){ document.querySelectorAll(sel).forEach(function(el){ el.classList.add('reveal'); }); });
   document.querySelectorAll('.tphoto img, .about-face').forEach(function(el){ el.classList.add('reveal-img'); });
   if('IntersectionObserver' in window){

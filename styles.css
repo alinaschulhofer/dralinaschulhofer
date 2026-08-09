@@ -313,7 +313,6 @@ footer .fnote{font-size:12px;color:var(--ink3);letter-spacing:.5px;line-height:1
 footer .foot-link{color:#8C6A2E;text-decoration:none;}
 footer .foot-link:hover{color:var(--accent);}
 
-.banner-note{background:var(--accent);color:#F7F9F7;text-align:center;font-family:'Jost',sans-serif;font-weight:500;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:8px;}
 .hr-sep{border:none;border-top:1px solid var(--line);margin:0;}
 
 @media(max-width:820px){

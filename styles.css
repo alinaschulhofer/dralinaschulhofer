@@ -271,8 +271,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 .contact-band .email-link:hover{color:var(--accent);}
 .contact-direct{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;}
 .contact-direct .cd-sep{color:var(--ink3);}
-.contact-band .inline-link{display:inline;background:none;padding:0;border-radius:0;text-transform:none;letter-spacing:normal;font-family:'Jost',sans-serif;font-weight:400;font-size:inherit;color:#8C6A2E;text-decoration:none;border-bottom:1px solid rgba(140,106,46,.4);white-space:nowrap;}
-.contact-band .inline-link:hover{border-bottom-color:#8C6A2E;}
+.inline-link{display:inline;background:none;padding:0;border-radius:0;text-transform:none;letter-spacing:normal;font-family:'Jost',sans-serif;font-weight:400;font-size:inherit;color:#8C6A2E;text-decoration:none;border-bottom:1px solid rgba(140,106,46,.4);white-space:nowrap;}
+.inline-link:hover{border-bottom-color:#8C6A2E;}
 @media(max-width:520px){.contact-direct{flex-direction:column;gap:6px;}.contact-direct .cd-sep{display:none;}}
 
 /* ── responsive / mobile ── */

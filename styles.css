@@ -14,14 +14,16 @@ em{font-style:italic;}
 
 /* nav */
 .top{padding:26px 0;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(252,251,248,.94);backdrop-filter:blur(8px);z-index:50;}
-/* on the home page (header sits directly above the editorial hero), float transparent
-   over the hero like AOE's nav, solidifying only once the page scrolls past it */
-.top:has(+ .eh){position:fixed;top:0;left:0;right:0;border-bottom-color:transparent;background:transparent;backdrop-filter:none;transition:background .4s ease, backdrop-filter .4s ease, border-color .4s ease, box-shadow .4s ease;}
+/* on the home page (header sits above the editorial hero), float transparent over the
+   hero like AOE's nav, solidifying only once the page scrolls past it. Matches both the
+   deployed multi-page site (.eh is a direct sibling of .top) and the SPA preview (.eh is
+   nested inside the active .page wrapper). */
+.top:has(~ .eh, ~ .page.active .eh){position:fixed;top:0;left:0;right:0;border-bottom-color:transparent;background:transparent;backdrop-filter:none;transition:background .4s ease, backdrop-filter .4s ease, border-color .4s ease, box-shadow .4s ease;}
 /* match the hero text's wider container so the wordmark lines up with the hero headline below it */
-.top:has(+ .eh) .container{max-width:1320px;padding-left:clamp(1.5rem,5vw,5rem);padding-right:clamp(1.5rem,5vw,5rem);}
-.top:has(+ .eh)::before{content:'';position:absolute;inset:0;height:220%;background:linear-gradient(to bottom, rgba(243,239,230,.72) 0%, transparent 100%);pointer-events:none;z-index:-1;opacity:1;transition:opacity .4s ease;}
-.top:has(+ .eh).scrolled{background:rgba(252,251,248,.94);backdrop-filter:blur(8px);border-bottom-color:var(--line);box-shadow:0 1px 0 var(--line);}
-.top:has(+ .eh).scrolled::before{opacity:0;}
+.top:has(~ .eh, ~ .page.active .eh) .container{max-width:1320px;padding-left:clamp(1.5rem,5vw,5rem);padding-right:clamp(1.5rem,5vw,5rem);}
+.top:has(~ .eh, ~ .page.active .eh)::before{content:'';position:absolute;inset:0;height:220%;background:linear-gradient(to bottom, rgba(243,239,230,.72) 0%, transparent 100%);pointer-events:none;z-index:-1;opacity:1;transition:opacity .4s ease;}
+.top:has(~ .eh, ~ .page.active .eh).scrolled{background:rgba(252,251,248,.94);backdrop-filter:blur(8px);border-bottom-color:var(--line);box-shadow:0 1px 0 var(--line);}
+.top:has(~ .eh, ~ .page.active .eh).scrolled::before{opacity:0;}
 .top .container{display:flex;align-items:center;justify-content:space-between;}
 .wordmark{font-family:'Cormorant Garamond',serif;font-size:23px;color:var(--ink);text-decoration:none;letter-spacing:.5px;cursor:pointer;}
 .nav{display:flex;gap:28px;align-items:center;}

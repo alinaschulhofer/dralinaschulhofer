@@ -48,6 +48,8 @@ NAV=lambda active:f'''<header class="top">
 
 SCRIPT='''<script>
   var nav=document.getElementById('nav'), navToggle=document.getElementById('navToggle');
+  var topBar=document.querySelector('.top');
+  if(topBar){ var onTopScroll=function(){ topBar.classList.toggle('scrolled', window.scrollY>40); }; window.addEventListener('scroll', onTopScroll, {passive:true}); onTopScroll(); }
   if(navToggle){ navToggle.addEventListener('click',function(){
     var open=nav.classList.toggle('open'); navToggle.classList.toggle('open',open);
     navToggle.setAttribute('aria-expanded',open?'true':'false');

@@ -38,12 +38,12 @@
     </div>
     <div class="eh-body">
       <div class="eh-text">
-        <p class="t-eyebrow reveal">CLINICAL PSYCHOLOGIST · PSYD</p>
+        <p class="t-eyebrow reveal">Virtual Therapy · Florida &amp; New York</p>
         <h1 class="eh-headline reveal" data-delay="1">
-          [Headline — pending your selection below]
+          Concierge <em>Psychological Services.</em>
         </h1>
         <p class="eh-sub reveal" data-delay="2">
-          [Supporting copy — pending your selection below]
+          Depth-oriented therapy for high achievers.
         </p>
         <div class="eh-actions reveal" data-delay="3">
           <a href="#contact" class="eh-btn">Request a Consultation</a>
@@ -139,6 +139,8 @@
 </footer>
 <script>
   var nav=document.getElementById('nav'), navToggle=document.getElementById('navToggle');
+  var topBar=document.querySelector('.top');
+  if(topBar){ var onTopScroll=function(){ topBar.classList.toggle('scrolled', window.scrollY>40); }; window.addEventListener('scroll', onTopScroll, {passive:true}); onTopScroll(); }
   if(navToggle){ navToggle.addEventListener('click',function(){
     var open=nav.classList.toggle('open'); navToggle.classList.toggle('open',open);
     navToggle.setAttribute('aria-expanded',open?'true':'false');

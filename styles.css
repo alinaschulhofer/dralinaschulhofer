@@ -2,6 +2,7 @@
   --bg:#FCFBF8; --bg2:#F1EFEA; --bg3:#E6E3DB;
   --ink:#15151A; --ink2:#494842; --ink3:#8A897F;
   --accent:#A9843F; --accent2:#C9A96F; --line:rgba(21,21,26,.14);
+  --nav-h:80px;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:var(--bg);color:var(--ink);font-family:'Jost',sans-serif;font-weight:300;line-height:1.85;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
@@ -13,6 +14,12 @@ em{font-style:italic;}
 
 /* nav */
 .top{padding:26px 0;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(252,251,248,.94);backdrop-filter:blur(8px);z-index:50;}
+/* on the home page (header sits directly above the editorial hero), float transparent
+   over the hero like AOE's nav, solidifying only once the page scrolls past it */
+.top:has(+ .eh){position:fixed;top:0;left:0;right:0;border-bottom-color:transparent;background:transparent;backdrop-filter:none;transition:background .4s ease, backdrop-filter .4s ease, border-color .4s ease, box-shadow .4s ease;}
+.top:has(+ .eh)::before{content:'';position:absolute;inset:0;height:220%;background:linear-gradient(to bottom, rgba(243,239,230,.72) 0%, transparent 100%);pointer-events:none;z-index:-1;opacity:1;transition:opacity .4s ease;}
+.top:has(+ .eh).scrolled{background:rgba(252,251,248,.94);backdrop-filter:blur(8px);border-bottom-color:var(--line);box-shadow:0 1px 0 var(--line);}
+.top:has(+ .eh).scrolled::before{opacity:0;}
 .top .container{display:flex;align-items:center;justify-content:space-between;}
 .wordmark{font-family:'Cormorant Garamond',serif;font-size:23px;color:var(--ink);text-decoration:none;letter-spacing:.5px;cursor:pointer;}
 .nav{display:flex;gap:28px;align-items:center;}
@@ -97,8 +104,8 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
    Portrait-led, left-text/right-photo composition. Colors below are AOE's own ivory/ink/gold
    values (not this site's --bg/--ink/--accent tokens) so the transferred look is preserved
    exactly, scoped to this section only. */
-.eh{position:relative;overflow:hidden;background:#F3EFE6;min-height:calc(100svh - 90px);}
-.eh-photo{position:absolute;right:0;top:0;bottom:0;width:52%;z-index:0;overflow:hidden;}
+.eh{position:relative;overflow:hidden;background:#F3EFE6;min-height:100svh;}
+.eh-photo{position:absolute;right:0;top:var(--nav-h);bottom:0;width:52%;z-index:0;overflow:hidden;}
 .eh-photo img{width:100%;height:100%;object-fit:cover;object-position:48% 15%;display:block;}
 .eh-photo::after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:
   linear-gradient(to bottom, #F3EFE6 0%, rgba(243,239,230,.85) 6%, rgba(243,239,230,.3) 14%, transparent 22%),
@@ -109,7 +116,7 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
   linear-gradient(to right, transparent 78%, rgba(243,239,230,.45) 88%, rgba(243,239,230,.90) 96%, #F3EFE6 100%),
   linear-gradient(to bottom, #F3EFE6 0%, rgba(243,239,230,.70) 7%, transparent 14%),
   linear-gradient(to top, #F3EFE6 0%, #F3EFE6 16%, rgba(243,239,230,.65) 28%, transparent 42%);}
-.eh-body{position:relative;z-index:2;min-height:calc(100svh - 90px);display:flex;align-items:flex-start;padding-top:8vh;}
+.eh-body{position:relative;z-index:2;min-height:100svh;display:flex;align-items:flex-start;padding-top:calc(var(--nav-h) + 8vh);}
 .eh-text{max-width:1320px;margin-inline:auto;width:100%;padding-inline:clamp(1.5rem,5vw,5rem);padding-block:clamp(4rem,9vw,8rem);box-sizing:border-box;}
 .eh-text>*{max-width:560px;}
 .eh .t-eyebrow{font-family:'Jost',sans-serif;font-size:.72rem;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:#A8824E;margin-bottom:1.5rem;}
@@ -273,7 +280,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   .nav a.btn{text-align:center;margin-top:10px;border-top:none;}
   .top .container{position:relative;}
   /* editorial hero — stack photo above text on mobile, matching AOE's mobile treatment */
-  .eh{display:flex;flex-direction:column;min-height:unset;}
+  .eh{display:flex;flex-direction:column;min-height:unset;padding-top:var(--nav-h);}
   .eh::before{display:none;}
   .eh-photo{position:relative;width:100%;height:83vw;top:unset;right:unset;bottom:unset;order:-1;}
   .eh-photo img{object-position:50% 10%;}

@@ -339,6 +339,30 @@ footer .foot-link:hover{color:var(--accent);}
   .cred + .cred{border-left:none;border-top:1px solid var(--line);padding-top:22px;margin-top:22px;}
   .nav{gap:16px;}
 }
+
+/* ── blog meta (shared by index cards + article header) ── */
+.blog-meta{display:flex;align-items:center;justify-content:center;gap:14px;}
+.blog-tag{font-family:'Jost',sans-serif;font-weight:500;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#8C6A2E;}
+.blog-date{font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.5px;color:var(--ink3);}
+
+/* ── blog index ── */
+.blog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px 40px;margin-top:44px;}
+.blog-card{background:var(--bg);border:1px solid var(--line);padding:34px 32px;text-decoration:none;display:block;transition:background .2s ease, border-color .2s ease;}
+.blog-card:hover{background:var(--bg2);border-color:var(--accent);}
+.blog-card .blog-meta{justify-content:flex-start;margin-bottom:16px;}
+.blog-title{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:26px;line-height:1.28;color:var(--ink);margin-bottom:14px;}
+.blog-excerpt{font-size:14.5px;color:var(--ink2);line-height:1.75;margin-bottom:18px;}
+.blog-read{font-family:'Jost',sans-serif;font-weight:500;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#8C6A2E;transition:color .2s;}
+.blog-card:hover .blog-read{color:var(--accent);}
+.blog-empty{text-align:center;padding:50px 0 20px;color:var(--ink3);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;}
+@media(max-width:760px){.blog-grid{grid-template-columns:1fr;}.blog-card{padding:30px 26px;}}
+
+/* ── blog article ── */
+.article-back{display:inline-block;font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#8C6A2E;text-decoration:none;margin-bottom:32px;}
+.article-back:hover{color:var(--accent);}
+.pg-head .blog-meta{margin-bottom:14px;}
+.article-pull{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:26px;line-height:1.5;color:var(--accent);text-align:center;max-width:680px;margin:44px auto;padding:0 20px;}
+@media(max-width:760px){.article-pull{font-size:21px;}}
 </style>
 </head>
 <body>
@@ -371,6 +395,7 @@ footer .foot-link:hover{color:var(--accent);}
       <a data-go="services">Clinical Services</a>
       <a data-go="coaching">Consulting</a>
       <a data-go="faq">FAQ</a>
+      <a href="blog.html">Blog</a>
       <a href="mailto:alina@dralinaschulhofer.com?subject=Therapy%20Inquiry" class="btn">Contact</a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>

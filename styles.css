@@ -130,6 +130,7 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 .eh-btn:hover{background:#1C1916;color:#FCFBF8;}
 .eh-photo{flex:0 0 50%;position:relative;overflow:hidden;background:#1C1916;aspect-ratio:2345/2950;}
 .eh-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 0%;display:block;}
+.eh-divider{border:none;height:1px;background:rgba(169,132,63,.42);margin:48px 0 0 50%;}
 
 /* trusted split with circle portrait */
 .trust-split{display:flex;gap:56px;align-items:center;margin-bottom:14px;}
@@ -305,6 +306,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   .eh-photo{aspect-ratio:2345/1900;order:-1;}
   .eh-text{padding:2.5rem 1.5rem 3rem;}
   .eh-headline{font-size:clamp(2.4rem,9vw,3rem)!important;}
+  .eh-divider{margin-left:0;}
   .begin .steps{flex-direction:column;gap:26px;}
   .prose p.lead{font-size:23px;}
   .pg-head h1,.about-head-row h1{font-size:40px!important;}

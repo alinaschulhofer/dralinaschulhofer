@@ -6,7 +6,7 @@ DOMAIN = 'https://www.dralinaschulhofer.com'
 
 # Bump this on every deploy that changes styles.css — the link tag below embeds it as
 # ?v=N so browsers/CDNs treat it as a new URL instead of serving a stale cached copy.
-CSS_VERSION = 4
+CSS_VERSION = 5
 CSS_LINK = f'<link rel="stylesheet" href="styles.css?v={CSS_VERSION}" />'
 
 def get_footer():
@@ -20,7 +20,7 @@ FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="p
 
 # Blog nav link is held back until there's at least one real post — flip this to True
 # (and re-run build_site.py + build_blog.py) to relaunch it site-wide.
-SHOW_BLOG_NAV = False
+SHOW_BLOG_NAV = True
 
 def NAV(active):
     blog_link = ''

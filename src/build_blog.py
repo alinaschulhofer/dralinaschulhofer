@@ -100,8 +100,7 @@ def render_index(posts):
 
 
 def render_post(post):
-    paragraphs = '\n      '.join(f'<p>{p}</p>' for p in post['body'])
-    pull = f'\n    <p class="article-pull">{html.escape(post["pull_quote"])}</p>\n' if post.get('pull_quote') else ''
+    paragraphs = '\n      '.join(post['body'])
     body = f'''<section class="pg-head">
   <div class="container narrow">
     <a href="blog.html" class="article-back">← All Posts</a>
@@ -117,7 +116,7 @@ def render_post(post):
   <div class="container narrow prose">
     <hr class="divider-full" style="margin-top:10px;margin-bottom:44px;" />
       {paragraphs}
-{pull}  </div>
+  </div>
 </section>
 <section class="contact-band">
   <div class="container">

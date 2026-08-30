@@ -13,7 +13,16 @@ def get_footer():
 
 FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;500&display=swap" rel="stylesheet">'
 
-NAV = lambda active: f'''<header class="top">
+# Blog nav link is held back until there's at least one real post — flip this to True
+# (and re-run build_site.py + build_blog.py) to relaunch it site-wide.
+SHOW_BLOG_NAV = False
+
+def NAV(active):
+    blog_link = ''
+    if SHOW_BLOG_NAV:
+        blog_cls = ' class="active"' if active == 'blog' else ''
+        blog_link = f'<a href="blog.html"{blog_cls}>Blog</a>\n      '
+    return f'''<header class="top">
   <div class="container">
     <a href="index.html" class="wordmark">Dr. Alina Schulhofer</a>
     <nav class="nav" id="nav">
@@ -22,8 +31,7 @@ NAV = lambda active: f'''<header class="top">
       <a href="services.html"{' class="active"' if active=="services" else ''}>Clinical Services</a>
       <a href="coaching.html"{' class="active"' if active=="coaching" else ''}>Consulting</a>
       <a href="faq.html"{' class="active"' if active=="faq" else ''}>FAQ</a>
-      <a href="blog.html"{' class="active"' if active=="blog" else ''}>Blog</a>
-      <a href="index.html#contact" class="btn">Contact</a>
+      {blog_link}<a href="index.html#contact" class="btn">Contact</a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>

@@ -185,7 +185,7 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 /* founder — full-width charcoal "chapter break" band */
 .founder{background:#1B1A18;padding:40px 0;text-align:center;margin-top:12px;}
 .founder-line{font-family:'Jost',sans-serif;font-weight:300;font-size:16px;color:#CFC7B8;max-width:860px;margin:0 auto;line-height:1.85;}
-.founder-line strong{color:inherit;font-weight:500;}
+.founder-line strong{color:inherit;font-weight:300;}
 .founder-link{font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#D8B876;text-decoration:none;border-bottom:1px solid rgba(216,184,118,.6);padding-bottom:2px;white-space:nowrap;margin-left:6px;transition:all .2s;}
 .founder-link:hover{color:#fff;border-bottom-color:#fff;}
 .contact-band{background:transparent;text-align:center;padding:44px 0 40px;margin-top:0;}

@@ -154,7 +154,7 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 .section{padding:56px 0;}
 /* What I help with — two-column diamond list */
 .svc-teaser{text-align:center;padding:16px 0 46px;}
-.svc-teaser h2{font-size:34px;color:var(--accent);margin-bottom:34px;}
+.svc-teaser h2{font-size:34px;color:var(--accent);margin-bottom:34px;position:relative;display:inline-block;padding-bottom:12px;}
 .helpwith{text-align:center;padding:20px 0 46px;}
 .helpwith .eyebrow{display:block;margin-bottom:12px;}
 .helpwith h2{font-size:34px;color:var(--accent);margin-bottom:30px;position:relative;display:inline-block;padding-bottom:12px;}
@@ -167,9 +167,9 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 .philosophy-band{background:var(--bg);padding:40px 0 26px;text-align:center;}
 .philosophy-band .trust3{text-align:left;}
 .philosophy-band h2{position:relative;display:inline-block;padding-bottom:12px;}
-.philosophy-band h2::after,.helpwith h2::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--accent);transform-origin:left;transform:scaleX(0);transition:transform 1s cubic-bezier(.2,.7,.2,1) .2s;}
-.philosophy-band .prose.is-visible h2::after,.helpwith .container.is-visible h2::after{transform:scaleX(1);}
-@media(prefers-reduced-motion:reduce){.philosophy-band h2::after,.helpwith h2::after{transform:scaleX(1);transition:none;}}
+.philosophy-band h2::after,.helpwith h2::after,.svc-teaser h2::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--accent);transform-origin:left;transform:scaleX(0);transition:transform 1s cubic-bezier(.2,.7,.2,1) .2s;}
+.philosophy-band .prose.is-visible h2::after,.helpwith .container.is-visible h2::after,.svc-teaser .container.is-visible h2::after{transform:scaleX(1);}
+@media(prefers-reduced-motion:reduce){.philosophy-band h2::after,.helpwith h2::after,.svc-teaser h2::after{transform:scaleX(1);transition:none;}}
 /* founder callout — clean centered note on white, hairline-framed */
 /* founder — full-width charcoal "chapter break" band */
 .founder{background:#1B1A18;padding:40px 0;text-align:center;margin-top:12px;}
@@ -207,6 +207,16 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 .svc-acc{margin-top:46px;}
 .svc-acc details:first-child{border-top:1px solid rgba(169,132,63,.5);}
 .svc-acc details{scroll-margin-top:100px;}
+.svc-acc summary{align-items:flex-start;gap:22px;padding:30px 4px;}
+.svc-acc .svc-icon{flex:none;width:34px;height:34px;margin-top:6px;}
+.svc-acc .svc-icon svg{width:100%;height:100%;fill:none;stroke:var(--accent);stroke-width:1.15;}
+.svc-acc .svc-head{flex:1;display:block;}
+.svc-acc .svc-name{display:block;font-family:'Cormorant Garamond',serif;font-size:25px;color:var(--ink);margin-bottom:8px;}
+.svc-acc .svc-desc{display:block;text-align:left;font-family:'Jost',sans-serif;font-weight:300;font-size:14.5px;line-height:1.7;color:var(--ink2);}
+.svc-acc .svc-toggle{flex:none;display:flex;align-items:center;gap:9px;font-family:'Jost',sans-serif;font-weight:500;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-top:8px;white-space:nowrap;}
+.svc-acc .svc-toggle .chev2{width:8px;height:8px;border-right:1.4px solid var(--accent);border-bottom:1.4px solid var(--accent);transform:rotate(45deg);transition:transform .25s ease;}
+.svc-acc details[open] .svc-toggle .chev2{transform:rotate(-135deg);}
+@media(max-width:640px){.svc-acc summary{gap:14px;}.svc-acc .svc-toggle span:first-child{display:none;}}
 
 /* services menu — jump links down to each accordion item */
 .svc-menu{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;max-width:900px;margin:36px auto 0;padding:0 40px;}

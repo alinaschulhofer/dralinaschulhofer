@@ -165,7 +165,7 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 .section{padding:56px 0;}
 /* What I help with — two-column diamond list */
 .svc-teaser{text-align:center;padding:16px 0 46px;}
-.svc-teaser h2{font-size:34px;color:var(--accent);margin-bottom:34px;}
+.svc-teaser h2{font-size:34px;color:var(--accent);margin-bottom:34px;position:relative;display:inline-block;padding-bottom:12px;}
 .helpwith{text-align:center;padding:20px 0 46px;}
 .helpwith .eyebrow{display:block;margin-bottom:12px;}
 .helpwith h2{font-size:34px;color:var(--accent);margin-bottom:30px;position:relative;display:inline-block;padding-bottom:12px;}
@@ -178,9 +178,9 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 .philosophy-band{background:var(--bg);padding:40px 0 26px;text-align:center;}
 .philosophy-band .trust3{text-align:left;}
 .philosophy-band h2{position:relative;display:inline-block;padding-bottom:12px;}
-.philosophy-band h2::after,.helpwith h2::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--accent);transform-origin:left;transform:scaleX(0);transition:transform 1s cubic-bezier(.2,.7,.2,1) .2s;}
-.philosophy-band .prose.is-visible h2::after,.helpwith .container.is-visible h2::after{transform:scaleX(1);}
-@media(prefers-reduced-motion:reduce){.philosophy-band h2::after,.helpwith h2::after{transform:scaleX(1);transition:none;}}
+.philosophy-band h2::after,.helpwith h2::after,.svc-teaser h2::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--accent);transform-origin:left;transform:scaleX(0);transition:transform 1s cubic-bezier(.2,.7,.2,1) .2s;}
+.philosophy-band .prose.is-visible h2::after,.helpwith .container.is-visible h2::after,.svc-teaser .container.is-visible h2::after{transform:scaleX(1);}
+@media(prefers-reduced-motion:reduce){.philosophy-band h2::after,.helpwith h2::after,.svc-teaser h2::after{transform:scaleX(1);transition:none;}}
 /* founder callout — clean centered note on white, hairline-framed */
 /* founder — full-width charcoal "chapter break" band */
 .founder{background:#1B1A18;padding:40px 0;text-align:center;margin-top:12px;}
@@ -218,6 +218,16 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 .svc-acc{margin-top:46px;}
 .svc-acc details:first-child{border-top:1px solid rgba(169,132,63,.5);}
 .svc-acc details{scroll-margin-top:100px;}
+.svc-acc summary{align-items:flex-start;gap:22px;padding:30px 4px;}
+.svc-acc .svc-icon{flex:none;width:34px;height:34px;margin-top:6px;}
+.svc-acc .svc-icon svg{width:100%;height:100%;fill:none;stroke:var(--accent);stroke-width:1.15;}
+.svc-acc .svc-head{flex:1;display:block;}
+.svc-acc .svc-name{display:block;font-family:'Cormorant Garamond',serif;font-size:25px;color:var(--ink);margin-bottom:8px;}
+.svc-acc .svc-desc{display:block;text-align:left;font-family:'Jost',sans-serif;font-weight:300;font-size:14.5px;line-height:1.7;color:var(--ink2);}
+.svc-acc .svc-toggle{flex:none;display:flex;align-items:center;gap:9px;font-family:'Jost',sans-serif;font-weight:500;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-top:8px;white-space:nowrap;}
+.svc-acc .svc-toggle .chev2{width:8px;height:8px;border-right:1.4px solid var(--accent);border-bottom:1.4px solid var(--accent);transform:rotate(45deg);transition:transform .25s ease;}
+.svc-acc details[open] .svc-toggle .chev2{transform:rotate(-135deg);}
+@media(max-width:640px){.svc-acc summary{gap:14px;}.svc-acc .svc-toggle span:first-child{display:none;}}
 
 /* services menu — jump links down to each accordion item */
 .svc-menu{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;max-width:900px;margin:36px auto 0;padding:0 40px;}
@@ -466,31 +476,19 @@ footer .foot-link:hover{color:var(--accent);}
         <a href="services.html#svc-intensives" class="svc-menu-item"><span class="svc-menu-icon"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="13"/><path d="M20 12v8l6 4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="svc-menu-label">Intensive<br />Sessions</span></a>
         <a href="coaching.html" class="svc-menu-item"><span class="svc-menu-icon"><svg viewBox="0 0 40 40"><path d="M7 28l8-8 6 6 12-14" stroke-linecap="round" stroke-linejoin="round"/><path d="M25 12h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="svc-menu-label">Coaching &amp;<br />Consulting</span></a>
       </nav>
-      <div class="arrow-cue"><a href="#areas-of-focus" aria-label="Scroll to Areas of Focus"><span class="chev"></span></a></div>
+      <div class="arrow-cue"><a href="#areas-of-focus" aria-label="Scroll to Areas of Specialty"><span class="chev"></span></a></div>
     </div>
   </section>
 
   <section class="section helpwith" id="areas-of-focus">
     <div class="container">
-      <h2>Areas of Focus</h2>
-      <div class="help-cols">
-        <ul class="help-list">
-          <li>Relationship problems</li>
-          <li>Identity beyond achievement</li>
-          <li>Connecting accomplishments with deeper values</li>
-          <li>Life &amp; career transitions</li>
-          <li>Perfectionism &amp; self-criticism</li>
-          <li>Low self-esteem</li>
-        </ul>
-        <ul class="help-list">
-          <li>Building a more meaningful life</li>
-          <li>Legacy &amp; purpose</li>
-          <li>Burnout</li>
-          <li>Emotional dysregulation</li>
-          <li>Anxiety and depression</li>
-          <li>Neurodiverse couples</li>
-        </ul>
-      </div>
+      <h2>Areas of Specialty</h2>
+      <ul class="help-list" style="max-width:280px;margin:0 auto;">
+        <li>High-Performers</li>
+        <li>Trauma</li>
+        <li>Relationship Problems</li>
+        <li>Couples</li>
+      </ul>
       <div class="arrow-cue"><a href="#contact" aria-label="Continue to booking"><span class="chev"></span></a></div>
     </div>
   </section>
@@ -562,7 +560,11 @@ footer .foot-link:hover{color:var(--accent);}
 
       <div class="acc svc-acc">
         <details id="svc-individual">
-          <summary>Individual Therapy <span class="plus">+</span></summary>
+          <summary>
+            <span class="svc-icon"><svg viewBox="0 0 40 40"><circle cx="20" cy="13" r="6.5"/><path d="M8 33c0-8 5.4-13 12-13s12 5 12 13"/></svg></span>
+            <span class="svc-head"><span class="svc-name">Individual Therapy</span><span class="svc-desc">A depth-oriented, personalized approach — beginning with a comprehensive initial session to explore your story and determine fit.</span></span>
+            <span class="svc-toggle">Read More<span class="chev2"></span></span>
+          </summary>
           <div class="acc-body">
             <p>Designed to address your unique story and specific goals, we will explore the experiences that have shaped you, identify the cycles you feel stuck in, and help you gain a deeper understanding of yourself.</p>
             <p>For your initial session, we will meet for 60-minutes to establish an understanding of who you are, your past and present, current concerns, and what you hope to gain from therapy. This initial meeting is also an opportunity to determine goodness of fit between us.</p>
@@ -571,7 +573,11 @@ footer .foot-link:hover{color:var(--accent);}
           </div>
         </details>
         <details id="svc-couples">
-          <summary>Couples &amp; Family Therapy <span class="plus">+</span></summary>
+          <summary>
+            <span class="svc-icon"><svg viewBox="0 0 40 40"><circle cx="15" cy="12" r="5.5"/><circle cx="26" cy="12" r="5.5"/><path d="M6 33c0-6.5 4.3-10.5 9.5-10.5S25 26.5 25 33"/><path d="M18 33c0-6.5 4-10.5 9-10.5s9 4 9 10.5"/></svg></span>
+            <span class="svc-head"><span class="svc-name">Couples &amp; Family Therapy</span><span class="svc-desc">Relational and attachment-informed care — starting with a joint and individual evaluation, then weekly sessions.</span></span>
+            <span class="svc-toggle">Read More<span class="chev2"></span></span>
+          </summary>
           <div class="acc-body">
             <p>Understanding that every relationship comes with its unique challenges, my approach focuses on your current issues while also promoting long-term relational growth and greater intimacy.</p>
             <p>We will begin with a comprehensive initial evaluation, designed to help me understand your relationship dynamic and determine the most effective path forward. This process consists of:</p>
@@ -582,9 +588,12 @@ footer .foot-link:hover{color:var(--accent);}
           </div>
         </details>
         <details id="svc-concierge">
-          <summary>Concierge Services <span class="plus">+</span></summary>
+          <summary>
+            <span class="svc-icon"><svg viewBox="0 0 40 40"><path d="M20 6c-3 4-3 7 0 9s3 5 0 9" stroke-linecap="round"/><path d="M12 34h16" stroke-linecap="round"/><path d="M14 34c0-6 2.7-9 6-9s6 3 6 9" /></svg></span>
+            <span class="svc-head"><span class="svc-name">Concierge Services</span><span class="svc-desc">A high-touch, flexible level of support with expanded access and deeper continuity of care.</span></span>
+            <span class="svc-toggle">Read More<span class="chev2"></span></span>
+          </summary>
           <div class="acc-body">
-            <p><span class="b">A high-touch, flexible level of support with expanded access and deeper continuity of care.</span></p>
             <p>Concierge therapy is a monthly, subscription-based service designed for those who want a more flexible and exclusive therapeutic experience. This offering provides a higher level of access and availability than standard therapy, allowing us to work at greater depth and with more attunement to the realities of your life, schedule, and emotional needs.</p>
             <p>As a concierge client, you receive:</p>
             <div class="feat"><span class="ft">Priority scheduling — including early mornings and weekends</span>Your sessions are scheduled with maximum flexibility to fit your lifestyle.</div>
@@ -598,7 +607,11 @@ footer .foot-link:hover{color:var(--accent);}
           </div>
         </details>
         <details id="svc-intensives">
-          <summary>Intensive Sessions <span class="plus">+</span></summary>
+          <summary>
+            <span class="svc-icon"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="13"/><path d="M20 12v8l6 4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="svc-head"><span class="svc-name">Intensive Sessions</span><span class="svc-desc">A focused, transformative alternative to weekly sessions — for depth, momentum, or a demanding schedule.</span></span>
+            <span class="svc-toggle">Read More<span class="chev2"></span></span>
+          </summary>
           <div class="acc-body">
             <p>Therapy intensives offer a more focused and transformative experience than standard weekly sessions. Designed for individuals and couples seeking greater depth or momentum, intensives allow us to work for extended periods in a contained way.</p>
             <p><span class="b">An intensive may be helpful if you are experiencing:</span></p>
@@ -610,7 +623,11 @@ footer .foot-link:hover{color:var(--accent);}
           </div>
         </details>
         <details id="svc-investment">
-          <summary>Investment <span class="plus">+</span></summary>
+          <summary>
+            <span class="svc-icon"><svg viewBox="0 0 40 40"><path d="M20 6l4 8.5 9 1.3-6.5 6.3 1.5 9-8-4.2-8 4.2 1.5-9L7 15.8l9-1.3z" stroke-linejoin="round"/></svg></span>
+            <span class="svc-head"><span class="svc-name">Investment</span><span class="svc-desc">Private-pay care, with Superbills available for potential out-of-network reimbursement.</span></span>
+            <span class="svc-toggle">Read More<span class="chev2"></span></span>
+          </summary>
           <div class="acc-body">
             <p>Therapy is an investment in yourself—your inner world, your relationships, your long-term wellbeing, and the quality of your success.</p>
             <p>I am a private-pay provider. While I do not accept insurance, psychotherapy clients may request a Superbill for possible out-of-network reimbursement.</p>

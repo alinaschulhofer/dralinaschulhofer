@@ -74,11 +74,29 @@ def render_card(post):
       </a>'''
 
 
+def render_featured(post):
+    return f'''    <a href="{post['slug']}.html" class="blog-featured">
+      <div class="blog-meta">
+        <span class="blog-tag">{html.escape(post['tag'])}</span>
+        <span class="blog-date">{human_date(post['date'])}</span>
+      </div>
+      <h2 class="blog-featured-title">{html.escape(post['title'])}</h2>
+      <p class="blog-featured-excerpt">{html.escape(post['excerpt'])}</p>
+      <span class="blog-read">Read →</span>
+    </a>'''
+
+
 def render_index(posts):
     if posts:
-        grid = '\n'.join(render_card(p) for p in posts)
-        grid_html = f'    <div class="blog-grid">\n{grid}\n    </div>'
+        featured_html = render_featured(posts[0])
+        rest = posts[1:]
+        if rest:
+            grid = '\n'.join(render_card(p) for p in rest)
+            grid_html = f'    <div class="blog-grid">\n{grid}\n    </div>'
+        else:
+            grid_html = ''
     else:
+        featured_html = ''
         grid_html = '    <p class="blog-empty">New reflections are on their way — check back soon.</p>'
 
     body = f'''<section class="pg-head">
@@ -89,6 +107,7 @@ def render_index(posts):
 </section>
 <section class="section" style="padding-top:14px;">
   <div class="container">
+{featured_html}
 {grid_html}
   </div>
 </section>'''

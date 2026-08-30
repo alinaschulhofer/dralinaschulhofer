@@ -174,6 +174,10 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 
 .section{padding:56px 0;}
 /* What I help with — two-column diamond list */
+.svc-teaser{text-align:center;padding:16px 0 46px;}
+.svc-teaser h2{font-size:34px;color:var(--accent);margin-bottom:34px;}
+.svc-teaser-circle{display:inline-flex;align-items:center;justify-content:center;width:150px;height:150px;border-radius:50%;border:1px solid rgba(169,132,63,.45);text-decoration:none;font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);text-align:center;line-height:1.7;transition:background .25s ease, border-color .25s ease, transform .25s ease;}
+.svc-teaser-circle:hover{background:rgba(169,132,63,.08);border-color:var(--accent);transform:translateY(-4px);}
 .helpwith{text-align:center;padding:20px 0 46px;}
 .helpwith .eyebrow{display:block;margin-bottom:12px;}
 .helpwith h2{font-size:34px;color:var(--accent);margin-bottom:30px;position:relative;display:inline-block;padding-bottom:12px;}
@@ -221,11 +225,17 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 
 /* accordion */
 .acc{margin:40px auto 0;}
-.faq-cols{display:flex;gap:56px;align-items:flex-start;}
-.faq-col{flex:1;min-width:0;}
-@media(max-width:760px){.faq-cols{flex-direction:column;gap:0;}}
 .svc-acc{margin-top:46px;}
 .svc-acc details:first-child{border-top:1px solid rgba(169,132,63,.5);}
+.svc-acc details{scroll-margin-top:100px;}
+
+/* services circle menu — jump links down to each accordion item */
+.svc-menu{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;max-width:900px;margin:36px auto 0;padding:0 40px;}
+.svc-menu-item{display:flex;flex-direction:column;align-items:center;gap:16px;width:130px;text-decoration:none;}
+.svc-menu-circle{width:104px;height:104px;border-radius:50%;border:1px solid rgba(169,132,63,.45);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:25px;color:var(--accent);transition:background .25s ease, border-color .25s ease, transform .25s ease;}
+.svc-menu-item:hover .svc-menu-circle{background:rgba(169,132,63,.08);border-color:var(--accent);transform:translateY(-3px);}
+.svc-menu-label{font-family:'Jost',sans-serif;font-weight:300;font-size:13px;color:var(--ink2);text-align:center;line-height:1.5;}
+@media(max-width:760px){.svc-menu{gap:20px;padding:0 24px;}.svc-menu-item{width:100px;}.svc-menu-circle{width:82px;height:82px;font-size:21px;}.svc-menu-label{font-size:12px;}}
 details{border-top:1px solid var(--line);}
 details:last-of-type{border-bottom:1px solid var(--line);}
 summary{list-style:none;cursor:pointer;padding:24px 4px;display:flex;justify-content:space-between;align-items:center;font-family:'Cormorant Garamond',serif;font-size:25px;color:var(--ink);}
@@ -240,10 +250,10 @@ details[open] summary .plus{transform:rotate(45deg);}
 .acc-body ul li::before{content:"";position:absolute;left:0;top:15px;width:6px;height:6px;border:1px solid var(--accent);transform:rotate(45deg);}
 .acc-body .feat{margin-bottom:16px;}
 .acc-body .feat .ft{color:var(--ink);font-weight:500;display:block;}
-#faq summary{font-size:14px;padding:13px 4px;}
-#faq summary .plus{font-size:18px;}
-#faq .acc-body{padding:0 4px 16px;}
-#faq .acc-body p{font-size:13px;margin-bottom:8px;}
+#faq summary{font-size:13px;padding:11px 4px;}
+#faq summary .plus{font-size:16px;}
+#faq .acc-body{padding:0 4px 14px;}
+#faq .acc-body p{font-size:12px;margin-bottom:7px;}
 .about-head-row{display:flex;align-items:center;justify-content:space-between;gap:48px;}
 .about-face{width:180px;height:180px;border-radius:50%;object-fit:cover;object-position:center 70%;flex:none;box-shadow:0 16px 42px rgba(21,21,26,.16);}
 @media(max-width:700px){.about-head-row{flex-direction:column-reverse;align-items:flex-start;}.about-face{align-self:center;}}
@@ -472,6 +482,13 @@ footer .foot-link:hover{color:var(--accent);}
     </div>
   </section>
 
+  <section class="section svc-teaser">
+    <div class="container">
+      <h2>Services</h2>
+      <a href="services.html" class="svc-teaser-circle"><span>Explore<br />Services</span></a>
+    </div>
+  </section>
+
   <section class="section helpwith">
     <div class="container">
       <h2>Areas of Focus</h2>
@@ -552,6 +569,13 @@ footer .foot-link:hover{color:var(--accent);}
       <p class="sub">Virtual therapy designed to fit your life and schedule—sessions that meet you where you are.</p>
     </div>
   </section>
+  <nav class="svc-menu reveal" aria-label="Jump to a service">
+    <a href="#svc-individual" class="svc-menu-item"><span class="svc-menu-circle">01</span><span class="svc-menu-label">Individual<br />Therapy</span></a>
+    <a href="#svc-couples" class="svc-menu-item"><span class="svc-menu-circle">02</span><span class="svc-menu-label">Couples &amp; Family<br />Therapy</span></a>
+    <a href="#svc-concierge" class="svc-menu-item"><span class="svc-menu-circle">03</span><span class="svc-menu-label">Concierge<br />Services</span></a>
+    <a href="#svc-intensives" class="svc-menu-item"><span class="svc-menu-circle">04</span><span class="svc-menu-label">Intensive<br />Sessions</span></a>
+    <a href="#svc-investment" class="svc-menu-item"><span class="svc-menu-circle">05</span><span class="svc-menu-label">Investment</span></a>
+  </nav>
   <section class="section" style="padding-top:14px;">
     <div class="container narrow">
       <hr class="divider-full" style="margin-top:10px;margin-bottom:56px;" />
@@ -564,7 +588,7 @@ footer .foot-link:hover{color:var(--accent);}
       </div>
 
       <div class="acc svc-acc">
-        <details>
+        <details id="svc-individual">
           <summary>Individual Therapy <span class="plus">+</span></summary>
           <div class="acc-body">
             <p>Designed to address your unique story and specific goals, we will explore the experiences that have shaped you, identify the cycles you feel stuck in, and help you gain a deeper understanding of yourself.</p>
@@ -573,7 +597,7 @@ footer .foot-link:hover{color:var(--accent);}
             <p>I generally do not recommend meeting less than once per week, as infrequent sessions make it more difficult to facilitate change and experience notable improvements. While standard therapy sessions are 50-minutes in length, extended sessions may be preferable and can be arranged on a case-by-case basis.</p>
           </div>
         </details>
-        <details>
+        <details id="svc-couples">
           <summary>Couples &amp; Family Therapy <span class="plus">+</span></summary>
           <div class="acc-body">
             <p>Understanding that every relationship comes with its unique challenges, my approach focuses on your current issues while also promoting long-term relational growth and greater intimacy.</p>
@@ -584,7 +608,7 @@ footer .foot-link:hover{color:var(--accent);}
             <p>I draw from a variety of approaches, including psychodynamic therapy, attachment theory, and emotionally-focused therapy (EFT), to help couples and families understand their patterns, communicate more effectively, and build a stronger, more connected relationship.</p>
           </div>
         </details>
-        <details>
+        <details id="svc-concierge">
           <summary>Concierge Services <span class="plus">+</span></summary>
           <div class="acc-body">
             <p><span class="b">A high-touch, flexible level of support with expanded access and deeper continuity of care.</span></p>
@@ -600,7 +624,7 @@ footer .foot-link:hover{color:var(--accent);}
             <p>Concierge therapy is offered on a flat-fee, monthly subscription basis and includes both individual and couples options.</p>
           </div>
         </details>
-        <details>
+        <details id="svc-intensives">
           <summary>Intensive Sessions <span class="plus">+</span></summary>
           <div class="acc-body">
             <p>Therapy intensives offer a more focused and transformative experience than standard weekly sessions. Designed for individuals and couples seeking greater depth or momentum, intensives allow us to work for extended periods in a contained way.</p>
@@ -612,7 +636,7 @@ footer .foot-link:hover{color:var(--accent);}
             <p>Please inquire directly for a quote.</p>
           </div>
         </details>
-        <details>
+        <details id="svc-investment">
           <summary>Investment <span class="plus">+</span></summary>
           <div class="acc-body">
             <p>Therapy is an investment in yourself—your inner world, your relationships, your long-term wellbeing, and the quality of your success.</p>
@@ -640,43 +664,39 @@ footer .foot-link:hover{color:var(--accent);}
     </div>
   </section>
   <section class="section" style="padding-top:30px;">
-    <div class="container faq-cols">
-      <div class="acc faq-col">
-        <details><summary>What type of clients do you work with? <span class="plus">+</span></summary><div class="acc-body">
-          <p>I work mainly with high-performing individuals who are navigating personal or professional transitions, relationship issues, leadership challenges, or those who simply have a desire for deeper fulfillment and want to work toward actualizing their maximum potential. This includes executives, entrepreneurs, creatives, founders, athletes, and leaders operating in high-stakes environments.</p>
-          <p>However, I work well with all kinds of individuals who are willing to explore their inner world and ready to take responsibility for their growth. My approach is best suited for those who are willing to be honest with themselves and explore their patterns, even if it's uncomfortable at times.</p>
-        </div></details>
-        <details><summary>Do you accept insurance? <span class="plus">+</span></summary><div class="acc-body">
-          <p>At this time, I am private pay only. However, I can provide a monthly invoice (Superbill) for you to submit to your insurance provider if you have out-of-network benefits. Please note that reimbursement varies based on your plan, so I encourage you to contact your insurance company directly to determine your specific coverage.</p>
-        </div></details>
-        <details><summary>Do you offer sliding scale fees? <span class="plus">+</span></summary><div class="acc-body">
-          <p>I offer a limited number of sliding-scale spots for clients who are unable to afford my full fee. Reduced rates are determined based on financial need and availability. If you would like to be considered, please reach out to discuss your circumstances.</p>
-        </div></details>
-        <details><summary>What is your cancellation policy? <span class="plus">+</span></summary><div class="acc-body">
-          <p>I require at least 24 hours to cancel an appointment free of charge. Cancellations within 24 hours of the scheduled session time, as well as no-shows, will be charged the full session fee to the card on file. If scheduling permits, you may be able to reschedule free of charge within the same week.</p>
-        </div></details>
-        <details><summary>How long will I be in therapy? <span class="plus">+</span></summary><div class="acc-body">
-          <p>Therapy is highly individualized. Some clients work short-term around specific goals, while others engage in longer-term, deeper exploration. Due to the nature of my work and my depth-oriented approach, I tend to work with clients in the long-term. We will discuss your needs and pace together.</p>
-        </div></details>
-      </div>
-      <div class="acc faq-col">
-        <details><summary>Why invest in therapy? <span class="plus">+</span></summary><div class="acc-body">
-          <p>Therapy is an investment in yourself—in your emotional well-being, relationships, success, and long-term quality of life. Meaningful change requires time, consistency, and a willingness to explore your inner world with honesty. The work we do together is designed to support lasting transformation, and the investment you make reflects the depth and intention of that process.</p>
-        </div></details>
-        <details><summary>Do you offer in-person sessions? <span class="plus">+</span></summary><div class="acc-body">
-          <p>My practice is fully virtual at this time. Sessions are held via Zoom.</p>
-        </div></details>
-        <details><summary>Do you offer 1:1 coaching? <span class="plus">+</span></summary><div class="acc-body">
-          <p>I offer non-clinical individual and relationship coaching for clients worldwide.</p>
-          <p>My personalized coaching services are designed to empower you to cultivate self-awareness, enhance your emotional intelligence, and build stronger, more meaningful connections.</p>
-          <p>I also support couples, families, or business partners in developing more satisfying relational patterns, communication skills, conflict resolution abilities, or seeking to enhance intimacy.</p>
-          <p>Coaching is not therapy. It is a non-clinical process focused on your goals and personal development, rather than addressing diagnosable mental health conditions.</p>
-          <p>If at any point therapeutic support is needed, I will assist with referrals to the appropriate professionals.</p>
-        </div></details>
-        <details><summary>How do I get started? <span class="plus">+</span></summary><div class="acc-body">
-          <p>Please schedule a free initial 15 minute phone consultation with me to get started. This is an opportunity for us to begin to determine whether working together is a good fit prior to scheduling an initial appointment.</p>
-        </div></details>
-      </div>
+    <div class="container narrow acc">
+      <details><summary>What type of clients do you work with? <span class="plus">+</span></summary><div class="acc-body">
+        <p>I work mainly with high-performing individuals who are navigating personal or professional transitions, relationship issues, leadership challenges, or those who simply have a desire for deeper fulfillment and want to work toward actualizing their maximum potential. This includes executives, entrepreneurs, creatives, founders, athletes, and leaders operating in high-stakes environments.</p>
+        <p>However, I work well with all kinds of individuals who are willing to explore their inner world and ready to take responsibility for their growth. My approach is best suited for those who are willing to be honest with themselves and explore their patterns, even if it's uncomfortable at times.</p>
+      </div></details>
+      <details><summary>Do you accept insurance? <span class="plus">+</span></summary><div class="acc-body">
+        <p>At this time, I am private pay only. However, I can provide a monthly invoice (Superbill) for you to submit to your insurance provider if you have out-of-network benefits. Please note that reimbursement varies based on your plan, so I encourage you to contact your insurance company directly to determine your specific coverage.</p>
+      </div></details>
+      <details><summary>Do you offer sliding scale fees? <span class="plus">+</span></summary><div class="acc-body">
+        <p>I offer a limited number of sliding-scale spots for clients who are unable to afford my full fee. Reduced rates are determined based on financial need and availability. If you would like to be considered, please reach out to discuss your circumstances.</p>
+      </div></details>
+      <details><summary>What is your cancellation policy? <span class="plus">+</span></summary><div class="acc-body">
+        <p>I require at least 24 hours to cancel an appointment free of charge. Cancellations within 24 hours of the scheduled session time, as well as no-shows, will be charged the full session fee to the card on file. If scheduling permits, you may be able to reschedule free of charge within the same week.</p>
+      </div></details>
+      <details><summary>How long will I be in therapy? <span class="plus">+</span></summary><div class="acc-body">
+        <p>Therapy is highly individualized. Some clients work short-term around specific goals, while others engage in longer-term, deeper exploration. Due to the nature of my work and my depth-oriented approach, I tend to work with clients in the long-term. We will discuss your needs and pace together.</p>
+      </div></details>
+      <details><summary>Why invest in therapy? <span class="plus">+</span></summary><div class="acc-body">
+        <p>Therapy is an investment in yourself—in your emotional well-being, relationships, success, and long-term quality of life. Meaningful change requires time, consistency, and a willingness to explore your inner world with honesty. The work we do together is designed to support lasting transformation, and the investment you make reflects the depth and intention of that process.</p>
+      </div></details>
+      <details><summary>Do you offer in-person sessions? <span class="plus">+</span></summary><div class="acc-body">
+        <p>My practice is fully virtual at this time. Sessions are held via Zoom.</p>
+      </div></details>
+      <details><summary>Do you offer 1:1 coaching? <span class="plus">+</span></summary><div class="acc-body">
+        <p>I offer non-clinical individual and relationship coaching for clients worldwide.</p>
+        <p>My personalized coaching services are designed to empower you to cultivate self-awareness, enhance your emotional intelligence, and build stronger, more meaningful connections.</p>
+        <p>I also support couples, families, or business partners in developing more satisfying relational patterns, communication skills, conflict resolution abilities, or seeking to enhance intimacy.</p>
+        <p>Coaching is not therapy. It is a non-clinical process focused on your goals and personal development, rather than addressing diagnosable mental health conditions.</p>
+        <p>If at any point therapeutic support is needed, I will assist with referrals to the appropriate professionals.</p>
+      </div></details>
+      <details><summary>How do I get started? <span class="plus">+</span></summary><div class="acc-body">
+        <p>Please schedule a free initial 15 minute phone consultation with me to get started. This is an opportunity for us to begin to determine whether working together is a good fit prior to scheduling an initial appointment.</p>
+      </div></details>
     </div>
   </section>
 </div>

@@ -383,5 +383,4 @@ footer .foot-link:hover{color:var(--accent);}
 .article-back{display:inline-block;font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#8C6A2E;text-decoration:none;margin-bottom:32px;}
 .article-back:hover{color:var(--accent);}
 .pg-head .blog-meta{margin-bottom:14px;}
-.article-pull{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:26px;line-height:1.5;color:var(--accent);text-align:center;max-width:680px;margin:44px auto;padding:0 20px;}
-@media(max-width:760px){.article-pull{font-size:21px;}}
+.article-pull{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16.5px;line-height:1.85;color:var(--accent);text-align:center;max-width:680px;margin:32px auto;padding:0 20px;}

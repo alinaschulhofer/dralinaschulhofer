@@ -84,8 +84,7 @@ def render_index(posts):
     body = f'''<section class="pg-head">
   <div class="container">
     <p class="eyebrow">Blog</p>
-    <h1>Reflections</h1>
-    <p class="sub">Occasional writing on psychology, high performance, and the inner work behind lasting change.</p>
+    <h1>Insights</h1>
   </div>
 </section>
 <section class="section" style="padding-top:14px;">
@@ -94,7 +93,7 @@ def render_index(posts):
   </div>
 </section>'''
     title = 'Blog — Dr. Alina Schulhofer'
-    desc = 'Reflections on psychology, high performance, and the inner work behind lasting change, from Dr. Alina Schulhofer.'
+    desc = 'Insights on psychology, high performance, and the inner work behind lasting change, from Dr. Alina Schulhofer.'
     canon = DOMAIN + '/blog.html'
     return page_shell('blog', title, desc, canon, body)
 

@@ -165,8 +165,6 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 /* What I help with — two-column diamond list */
 .svc-teaser{text-align:center;padding:16px 0 46px;}
 .svc-teaser h2{font-size:34px;color:var(--accent);margin-bottom:34px;}
-.svc-teaser-circle{display:inline-flex;align-items:center;justify-content:center;width:150px;height:150px;border-radius:50%;border:1px solid rgba(169,132,63,.45);text-decoration:none;font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);text-align:center;line-height:1.7;transition:background .25s ease, border-color .25s ease, transform .25s ease;}
-.svc-teaser-circle:hover{background:rgba(169,132,63,.08);border-color:var(--accent);transform:translateY(-4px);}
 .helpwith{text-align:center;padding:20px 0 46px;}
 .helpwith .eyebrow{display:block;margin-bottom:12px;}
 .helpwith h2{font-size:34px;color:var(--accent);margin-bottom:30px;position:relative;display:inline-block;padding-bottom:12px;}
@@ -239,10 +237,10 @@ details[open] summary .plus{transform:rotate(45deg);}
 .acc-body ul li::before{content:"";position:absolute;left:0;top:15px;width:6px;height:6px;border:1px solid var(--accent);transform:rotate(45deg);}
 .acc-body .feat{margin-bottom:16px;}
 .acc-body .feat .ft{color:var(--ink);font-weight:500;display:block;}
-#faq summary{font-size:13px;padding:11px 4px;}
-#faq summary .plus{font-size:16px;}
-#faq .acc-body{padding:0 4px 14px;}
-#faq .acc-body p{font-size:12px;margin-bottom:7px;}
+.faq-acc summary{font-size:13px;padding:11px 4px;}
+.faq-acc summary .plus{font-size:16px;}
+.faq-acc .acc-body{padding:0 4px 14px;}
+.faq-acc .acc-body p{font-size:12px;margin-bottom:7px;}
 .about-head-row{display:flex;align-items:center;justify-content:space-between;gap:48px;}
 .about-face{width:180px;height:180px;border-radius:50%;object-fit:cover;object-position:center 70%;flex:none;box-shadow:0 16px 42px rgba(21,21,26,.16);}
 @media(max-width:700px){.about-head-row{flex-direction:column-reverse;align-items:flex-start;}.about-face{align-self:center;}}

@@ -13,7 +13,7 @@
 <meta property="og:image" content="https://www.dralinaschulhofer.com/assets/portrait-about.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="styles.css?v=2" />
 
 </head>
 <body>
@@ -68,10 +68,15 @@
   }); }
   document.querySelectorAll('.svc-menu-item').forEach(function(a){
     a.addEventListener('click',function(){
-      var target=document.getElementById(a.getAttribute('href').slice(1));
+      var hash=a.getAttribute('href').split('#')[1];
+      var target=hash && document.getElementById(hash);
       if(target && target.tagName==='DETAILS'){ target.open=true; }
     });
   });
+  if(location.hash){
+    var hashTarget=document.getElementById(location.hash.slice(1));
+    if(hashTarget && hashTarget.tagName==='DETAILS'){ hashTarget.open=true; }
+  }
   var cf=document.getElementById('contactForm');
   if(cf){ cf.addEventListener('submit',function(e){
     e.preventDefault();

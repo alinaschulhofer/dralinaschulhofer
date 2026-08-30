@@ -176,8 +176,6 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 /* What I help with — two-column diamond list */
 .svc-teaser{text-align:center;padding:16px 0 46px;}
 .svc-teaser h2{font-size:34px;color:var(--accent);margin-bottom:34px;}
-.svc-teaser-circle{display:inline-flex;align-items:center;justify-content:center;width:150px;height:150px;border-radius:50%;border:1px solid rgba(169,132,63,.45);text-decoration:none;font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);text-align:center;line-height:1.7;transition:background .25s ease, border-color .25s ease, transform .25s ease;}
-.svc-teaser-circle:hover{background:rgba(169,132,63,.08);border-color:var(--accent);transform:translateY(-4px);}
 .helpwith{text-align:center;padding:20px 0 46px;}
 .helpwith .eyebrow{display:block;margin-bottom:12px;}
 .helpwith h2{font-size:34px;color:var(--accent);margin-bottom:30px;position:relative;display:inline-block;padding-bottom:12px;}
@@ -250,10 +248,10 @@ details[open] summary .plus{transform:rotate(45deg);}
 .acc-body ul li::before{content:"";position:absolute;left:0;top:15px;width:6px;height:6px;border:1px solid var(--accent);transform:rotate(45deg);}
 .acc-body .feat{margin-bottom:16px;}
 .acc-body .feat .ft{color:var(--ink);font-weight:500;display:block;}
-#faq summary{font-size:13px;padding:11px 4px;}
-#faq summary .plus{font-size:16px;}
-#faq .acc-body{padding:0 4px 14px;}
-#faq .acc-body p{font-size:12px;margin-bottom:7px;}
+.faq-acc summary{font-size:13px;padding:11px 4px;}
+.faq-acc summary .plus{font-size:16px;}
+.faq-acc .acc-body{padding:0 4px 14px;}
+.faq-acc .acc-body p{font-size:12px;margin-bottom:7px;}
 .about-head-row{display:flex;align-items:center;justify-content:space-between;gap:48px;}
 .about-face{width:180px;height:180px;border-radius:50%;object-fit:cover;object-position:center 70%;flex:none;box-shadow:0 16px 42px rgba(21,21,26,.16);}
 @media(max-width:700px){.about-head-row{flex-direction:column-reverse;align-items:flex-start;}.about-face{align-self:center;}}
@@ -485,7 +483,12 @@ footer .foot-link:hover{color:var(--accent);}
   <section class="section svc-teaser">
     <div class="container">
       <h2>Services</h2>
-      <a href="services.html" class="svc-teaser-circle"><span>Explore<br />Services</span></a>
+      <nav class="svc-menu" aria-label="Explore a service">
+        <a href="services.html#svc-individual" class="svc-menu-item"><span class="svc-menu-circle">01</span><span class="svc-menu-label">Individual<br />Therapy</span></a>
+        <a href="services.html#svc-couples" class="svc-menu-item"><span class="svc-menu-circle">02</span><span class="svc-menu-label">Couples &amp; Family<br />Therapy</span></a>
+        <a href="services.html#svc-intensives" class="svc-menu-item"><span class="svc-menu-circle">03</span><span class="svc-menu-label">Intensive<br />Sessions</span></a>
+        <a href="coaching.html" class="svc-menu-item"><span class="svc-menu-circle">04</span><span class="svc-menu-label">Consulting</span></a>
+      </nav>
     </div>
   </section>
 
@@ -567,6 +570,7 @@ footer .foot-link:hover{color:var(--accent);}
       <p class="eyebrow">Virtual Therapy · FL + NY</p>
       <h1>Services &amp; Investment</h1>
       <p class="sub">Virtual therapy designed to fit your life and schedule—sessions that meet you where you are.</p>
+      <div class="arrow-cue"><a href="#svc-individual" aria-label="Scroll to services"><span class="chev"></span></a></div>
     </div>
   </section>
   <nav class="svc-menu reveal" aria-label="Jump to a service">
@@ -664,7 +668,7 @@ footer .foot-link:hover{color:var(--accent);}
     </div>
   </section>
   <section class="section" style="padding-top:30px;">
-    <div class="container narrow acc">
+    <div class="container narrow acc faq-acc">
       <details><summary>What type of clients do you work with? <span class="plus">+</span></summary><div class="acc-body">
         <p>I work mainly with high-performing individuals who are navigating personal or professional transitions, relationship issues, leadership challenges, or those who simply have a desire for deeper fulfillment and want to work toward actualizing their maximum potential. This includes executives, entrepreneurs, creatives, founders, athletes, and leaders operating in high-stakes environments.</p>
         <p>However, I work well with all kinds of individuals who are willing to explore their inner world and ready to take responsibility for their growth. My approach is best suited for those who are willing to be honest with themselves and explore their patterns, even if it's uncomfortable at times.</p>

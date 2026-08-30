@@ -4,6 +4,11 @@ import re, pathlib
 
 DOMAIN = 'https://www.dralinaschulhofer.com'
 
+# Bump this on every deploy that changes styles.css — the link tag below embeds it as
+# ?v=N so browsers/CDNs treat it as a new URL instead of serving a stale cached copy.
+CSS_VERSION = 2
+CSS_LINK = f'<link rel="stylesheet" href="styles.css?v={CSS_VERSION}" />'
+
 def get_footer():
     """Footer markup lives once in therapy_template.html — extract it so build_blog.py
     never drifts from what build_site.py puts on the marketing pages."""
@@ -47,10 +52,15 @@ SCRIPT = '''<script>
   }); }
   document.querySelectorAll('.svc-menu-item').forEach(function(a){
     a.addEventListener('click',function(){
-      var target=document.getElementById(a.getAttribute('href').slice(1));
+      var hash=a.getAttribute('href').split('#')[1];
+      var target=hash && document.getElementById(hash);
       if(target && target.tagName==='DETAILS'){ target.open=true; }
     });
   });
+  if(location.hash){
+    var hashTarget=document.getElementById(location.hash.slice(1));
+    if(hashTarget && hashTarget.tagName==='DETAILS'){ hashTarget.open=true; }
+  }
   var cf=document.getElementById('contactForm');
   if(cf){ cf.addEventListener('submit',function(e){
     e.preventDefault();

@@ -2,7 +2,7 @@ import re, pathlib, sys
 HERE=pathlib.Path(__file__).resolve().parent
 ROOT=HERE.parent  # deploy files live at repo root; master source lives in src/
 sys.path.insert(0, str(HERE))
-from common import DOMAIN, FONTS, NAV, SCRIPT
+from common import DOMAIN, FONTS, NAV, SCRIPT, CSS_LINK
 src=open(HERE/'therapy_template.html',encoding='utf-8').read()
 
 # --- 1. extract <style> content, drop embedded base64 @font-face (we use Google Fonts) ---
@@ -64,7 +64,7 @@ for pid,content in pages.items():
 <meta property="og:image" content="{DOMAIN}/assets/portrait-about.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 {FONTS}
-<link rel="stylesheet" href="styles.css" />
+{CSS_LINK}
 {JSONLD if pid=='home' else ''}
 </head>
 <body>

@@ -218,13 +218,13 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 @media(max-width:640px){.svc-acc summary{gap:14px;}}
 
 /* services menu — jump links down to each accordion item */
-.svc-menu{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;max-width:900px;margin:36px auto 0;padding:0 40px;}
-.svc-menu-item{display:flex;flex-direction:column;align-items:center;gap:14px;width:120px;text-decoration:none;}
-.svc-menu-icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;transition:transform .25s ease;}
-.svc-menu-icon svg{width:100%;height:100%;fill:none;stroke:var(--accent);stroke-width:1.15;}
+.svc-menu{display:flex;justify-content:center;gap:52px;flex-wrap:wrap;max-width:960px;margin:36px auto 0;padding:0 40px;}
+.svc-menu-item{display:flex;flex-direction:column;align-items:center;gap:16px;width:134px;text-decoration:none;}
+.svc-menu-icon{width:48px;height:48px;display:flex;align-items:center;justify-content:center;transition:transform .25s ease;}
+.svc-menu-icon svg{width:100%;height:100%;fill:none;stroke:var(--accent);stroke-width:1.1;}
 .svc-menu-item:hover .svc-menu-icon{transform:translateY(-3px);}
-.svc-menu-label{font-family:'Jost',sans-serif;font-weight:300;font-size:13px;color:var(--ink2);text-align:center;line-height:1.5;}
-@media(max-width:760px){.svc-menu{gap:26px;padding:0 24px;}.svc-menu-item{width:96px;}.svc-menu-icon{width:30px;height:30px;}.svc-menu-label{font-size:12px;}}
+.svc-menu-label{font-family:'Jost',sans-serif;font-weight:300;font-size:15px;color:var(--ink2);text-align:center;line-height:1.5;}
+@media(max-width:760px){.svc-menu{gap:30px;padding:0 24px;}.svc-menu-item{width:110px;}.svc-menu-icon{width:40px;height:40px;}.svc-menu-label{font-size:13.5px;}}
 details{border-top:1px solid var(--line);}
 details:last-of-type{border-bottom:1px solid var(--line);}
 summary{list-style:none;cursor:pointer;padding:24px 4px;display:flex;justify-content:space-between;align-items:center;font-family:'Cormorant Garamond',serif;font-size:25px;color:var(--ink);}

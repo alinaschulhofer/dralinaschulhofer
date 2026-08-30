@@ -62,6 +62,8 @@ em{font-style:italic;}
 /* ===== animations & transitions ===== */
 html{scroll-behavior:smooth;}
 #contact{scroll-margin-top:96px;}
+#areas-of-focus{scroll-margin-top:96px;}
+#svc-intro{scroll-margin-top:96px;}
 /* editorial hero — cinematic staggered entrance (reuses site's .reveal/.is-visible engine) */
 body.anim .eh .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(0,.55,.45,1), transform .9s cubic-bezier(0,.55,.45,1);}
 body.anim .eh .reveal.is-visible{opacity:1;transform:none;}
@@ -179,11 +181,11 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 .helpwith{text-align:center;padding:20px 0 46px;}
 .helpwith .eyebrow{display:block;margin-bottom:12px;}
 .helpwith h2{font-size:34px;color:var(--accent);margin-bottom:30px;position:relative;display:inline-block;padding-bottom:12px;}
-.help-cols{display:flex;gap:56px;justify-content:center;max-width:760px;margin:0 auto;}
+.help-cols{display:flex;gap:56px;justify-content:center;max-width:760px;margin:0 auto;transform:translateX(20px);}
 .help-list{list-style:none;flex:1;text-align:left;}
 .help-list li{position:relative;padding:10px 0 10px 26px;font-size:16px;color:var(--ink2);}
 .help-list li::before{content:"";position:absolute;left:0;top:15px;width:5px;height:5px;border-radius:50%;background:var(--accent);}
-@media(max-width:600px){.help-cols{flex-direction:column;gap:0;max-width:340px;}}
+@media(max-width:600px){.help-cols{flex-direction:column;gap:0;max-width:340px;transform:none;}}
 /* philosophy band — fluid fade in AND out of soft ivory */
 .philosophy-band{background:linear-gradient(180deg, var(--bg) 0%, var(--bg2) 20%, var(--bg2) 80%, var(--bg) 100%);padding:40px 0 26px;text-align:center;}
 .philosophy-band h2{position:relative;display:inline-block;padding-bottom:12px;}
@@ -248,10 +250,10 @@ details[open] summary .plus{transform:rotate(45deg);}
 .acc-body ul li::before{content:"";position:absolute;left:0;top:15px;width:6px;height:6px;border:1px solid var(--accent);transform:rotate(45deg);}
 .acc-body .feat{margin-bottom:16px;}
 .acc-body .feat .ft{color:var(--ink);font-weight:500;display:block;}
-.faq-acc summary{font-size:13px;padding:11px 4px;}
-.faq-acc summary .plus{font-size:16px;}
-.faq-acc .acc-body{padding:0 4px 14px;}
-.faq-acc .acc-body p{font-size:12px;margin-bottom:7px;}
+.faq-acc summary{font-size:23px;padding:20px 4px;}
+.faq-acc summary .plus{font-size:22px;}
+.faq-acc .acc-body{padding:2px 4px 24px;}
+.faq-acc .acc-body p{font-size:15px;margin-bottom:12px;}
 .about-head-row{display:flex;align-items:center;justify-content:space-between;gap:48px;}
 .about-face{width:180px;height:180px;border-radius:50%;object-fit:cover;object-position:center 70%;flex:none;box-shadow:0 16px 42px rgba(21,21,26,.16);}
 @media(max-width:700px){.about-head-row{flex-direction:column-reverse;align-items:flex-start;}.about-face{align-self:center;}}
@@ -489,10 +491,11 @@ footer .foot-link:hover{color:var(--accent);}
         <a href="services.html#svc-intensives" class="svc-menu-item"><span class="svc-menu-circle">03</span><span class="svc-menu-label">Intensive<br />Sessions</span></a>
         <a href="coaching.html" class="svc-menu-item"><span class="svc-menu-circle">04</span><span class="svc-menu-label">Consulting</span></a>
       </nav>
+      <div class="arrow-cue"><a href="#areas-of-focus" aria-label="Scroll to Areas of Focus"><span class="chev"></span></a></div>
     </div>
   </section>
 
-  <section class="section helpwith">
+  <section class="section helpwith" id="areas-of-focus">
     <div class="container">
       <h2>Areas of Focus</h2>
       <div class="help-cols">
@@ -570,9 +573,9 @@ footer .foot-link:hover{color:var(--accent);}
       <p class="eyebrow">Virtual Therapy · FL + NY</p>
       <h1>Services &amp; Investment</h1>
       <p class="sub">Virtual therapy designed to fit your life and schedule—sessions that meet you where you are.</p>
-      <div class="arrow-cue"><a href="#svc-individual" aria-label="Scroll to services"><span class="chev"></span></a></div>
     </div>
   </section>
+  <hr class="divider-full" style="margin-top:10px;margin-bottom:0;" />
   <nav class="svc-menu reveal" aria-label="Jump to a service">
     <a href="#svc-individual" class="svc-menu-item"><span class="svc-menu-circle">01</span><span class="svc-menu-label">Individual<br />Therapy</span></a>
     <a href="#svc-couples" class="svc-menu-item"><span class="svc-menu-circle">02</span><span class="svc-menu-label">Couples &amp; Family<br />Therapy</span></a>
@@ -580,10 +583,10 @@ footer .foot-link:hover{color:var(--accent);}
     <a href="#svc-intensives" class="svc-menu-item"><span class="svc-menu-circle">04</span><span class="svc-menu-label">Intensive<br />Sessions</span></a>
     <a href="#svc-investment" class="svc-menu-item"><span class="svc-menu-circle">05</span><span class="svc-menu-label">Investment</span></a>
   </nav>
+  <div class="arrow-cue"><a href="#svc-intro" aria-label="Scroll to services overview"><span class="chev"></span></a></div>
   <section class="section" style="padding-top:14px;">
     <div class="container narrow">
-      <hr class="divider-full" style="margin-top:10px;margin-bottom:56px;" />
-      <div class="prose">
+      <div class="prose" id="svc-intro">
         <p>I offer a concierge-style approach to psychotherapy for those seeking highly personalized, flexible, and discreet psychological care. While I work with a range of concerns, my areas of specialty include trauma, relationship difficulties, and personal development.</p>
         <p>I treat a variety of individuals, couples, and families, but specialize in working with high-performers and high-profile individuals, including executives, entrepreneurs, creatives, and professional athletes.</p>
         <p>To provide the highest level of care, I intentionally maintain a limited caseload. This allows me to offer my clients dedicated time, flexible scheduling, and seamless coordination with other providers when needed.</p>

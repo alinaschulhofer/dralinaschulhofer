@@ -83,7 +83,6 @@ def render_index(posts):
 
     body = f'''<section class="pg-head">
   <div class="container">
-    <p class="eyebrow">Blog</p>
     <h1>Insights</h1>
   </div>
 </section>

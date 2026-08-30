@@ -119,39 +119,17 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 .trust3{display:flex;gap:52px;align-items:flex-start;}
 .trust3-body{flex:1;max-width:760px;}
 
-/* ══ EDITORIAL HERO — transferred from the Architecture of Excellence™ homepage hero ══
-   Portrait-led, left-text/right-photo composition. Text/accent colors below are AOE's own
-   ink/gold values (not this site's --ink/--accent tokens) so the transferred look is mostly
-   preserved, scoped to this section only — but the background/fade color was changed to this
-   site's own near-white (#FCFBF8, same as --bg) instead of AOE's warmer ivory, so the hero no
-   longer reads a shade darker/tanner than the rest of the site. */
-.eh{position:relative;overflow:hidden;background:#FCFBF8;min-height:100svh;}
-.eh-photo{position:absolute;right:0;top:var(--nav-h);bottom:0;width:52%;z-index:0;overflow:hidden;}
-.eh-photo img{width:100%;height:100%;object-fit:cover;object-position:48% 15%;display:block;}
-.eh-photo::after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:
-  linear-gradient(to bottom, #FCFBF8 0%, rgba(252,251,248,.85) 6%, rgba(252,251,248,.3) 14%, transparent 22%),
-  linear-gradient(to right, #FCFBF8 0%, rgba(252,251,248,.6) 8%, transparent 18%),
-  linear-gradient(to left, #FCFBF8 0%, rgba(252,251,248,.5) 5%, transparent 12%);}
-.eh::before{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:
-  linear-gradient(to right, #FCFBF8 0%, #FCFBF8 37%, rgba(252,251,248,.88) 46%, rgba(252,251,248,.40) 55%, rgba(252,251,248,.08) 63%, transparent 70%),
-  linear-gradient(to right, transparent 78%, rgba(252,251,248,.45) 88%, rgba(252,251,248,.90) 96%, #FCFBF8 100%),
-  linear-gradient(to bottom, #FCFBF8 0%, rgba(252,251,248,.70) 7%, transparent 14%),
-  linear-gradient(to top, #FCFBF8 0%, #FCFBF8 16%, rgba(252,251,248,.65) 28%, transparent 42%);}
-.eh-body{position:relative;z-index:2;min-height:100svh;display:flex;align-items:flex-start;padding-top:calc(var(--nav-h) + 8vh);}
-.eh-text{max-width:1320px;margin-inline:auto;width:100%;padding-inline:clamp(1.5rem,5vw,5rem);padding-block:clamp(4rem,9vw,8rem);box-sizing:border-box;}
-.eh-text>*{max-width:560px;}
-.eh .t-eyebrow{font-family:'Jost',sans-serif;font-size:.72rem;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:#A8824E;margin-bottom:1.5rem;}
-.eh-headline{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4.5vw,5rem);font-weight:300;line-height:1;letter-spacing:-.025em;color:#1C1916;margin-bottom:2rem;}
-.eh-headline em{font-style:italic;color:#A8824E;}
-.eh-sub{max-width:420px;color:#5A5248;font-size:.95rem;line-height:1.85;margin-bottom:3rem;}
-.eh-actions{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;}
-.eh-btn{display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 2.2rem;font-family:'Jost',sans-serif;font-size:.78rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;border:1px solid #1C1916;border-radius:999px;background:transparent;color:#1C1916;transition:background .25s cubic-bezier(.25,.46,.45,.94), color .25s;cursor:pointer;white-space:nowrap;text-decoration:none;}
+/* ══ HERO — portrait-led, centered text / photo side by side, classic + simple ══ */
+.eh{position:relative;background:#FCFBF8;}
+.eh-body{display:flex;align-items:stretch;max-width:1320px;margin-inline:auto;}
+.eh-text{flex:0 0 46%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4rem clamp(2rem,4vw,3.5rem);}
+.eh .t-eyebrow{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(1.15rem,1.8vw,1.4rem);color:#5A5248;margin-bottom:1.9rem;}
+.eh-headline{font-family:'Alex Brush',cursive;font-weight:400;font-size:clamp(2.3rem,4vw,3.4rem);line-height:1.22;color:#A8824E;margin-bottom:1.9rem;max-width:460px;}
+.eh-actions{display:flex;align-items:center;justify-content:center;}
+.eh-btn{display:inline-flex;align-items:center;gap:.6rem;padding:.95rem 2.3rem;font-family:'Jost',sans-serif;font-size:.78rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;border:1px solid #1C1916;border-radius:999px;background:transparent;color:#1C1916;transition:background .25s cubic-bezier(.25,.46,.45,.94), color .25s;cursor:pointer;white-space:nowrap;text-decoration:none;}
 .eh-btn:hover{background:#1C1916;color:#FCFBF8;}
-.eh-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:.5;z-index:3;font-family:'Jost',sans-serif;}
-.eh-scroll span{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:#1C1916;}
-.eh-scroll-line{width:1px;height:40px;background:linear-gradient(to bottom, #1C1916, transparent);animation:ehScrollLine 2s ease-in-out infinite;}
-@keyframes ehScrollLine{0%,100%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}50.001%{transform-origin:bottom;}}
-@media(prefers-reduced-motion:reduce){.eh-scroll-line{animation:none;}}
+.eh-photo{flex:0 0 54%;position:relative;overflow:hidden;background:#1C1916;aspect-ratio:2345/2950;}
+.eh-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 0%;display:block;}
 
 /* trusted split with circle portrait */
 .trust-split{display:flex;gap:56px;align-items:center;margin-bottom:14px;}
@@ -322,19 +300,11 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   .tphoto{display:flex;justify-content:center;align-self:center;}
   .trust3-body{text-align:left;}
   .tphoto img{margin:0 auto;}
-  /* editorial hero — stack photo above text on mobile, matching AOE's mobile treatment */
-  .eh{display:flex;flex-direction:column;min-height:unset;padding-top:28px;}
-  .eh .t-eyebrow{letter-spacing:.06em;font-size:.68rem;}
-  .eh::before{display:none;}
-  .eh-photo{position:relative;width:100%;height:83vw;top:unset;right:unset;bottom:unset;order:-1;}
-  .eh-photo img{object-position:50% 10%;}
-  .eh-photo::after{background:linear-gradient(to bottom, rgba(252,251,248,.6) 0%, transparent 16%, transparent 50%, rgba(252,251,248,.6) 75%, #FCFBF8 100%);}
-  .eh-body{position:relative;width:100%;padding-top:0;margin-top:-2rem;padding-bottom:1.5rem;min-height:unset;}
-  .eh-text>*{max-width:100%;}
-  .eh-headline{font-size:clamp(2.6rem,10vw,3.4rem)!important;line-height:1.05;margin-bottom:1.25rem!important;}
-  .eh-sub{font-size:1rem;line-height:2;margin-bottom:3rem!important;}
-  .eh-scroll{display:none;}
-  .eh-actions{flex-direction:column;align-items:flex-start;gap:1rem;}
+  /* hero — stack photo above text on mobile */
+  .eh-body{flex-direction:column;}
+  .eh-photo{aspect-ratio:2345/1900;order:-1;}
+  .eh-text{padding:2.5rem 1.5rem 3rem;}
+  .eh-headline{font-size:clamp(2.4rem,9vw,3rem)!important;}
   .begin .steps{flex-direction:column;gap:26px;}
   .prose p.lead{font-size:23px;}
   .pg-head h1,.about-head-row h1{font-size:40px!important;}

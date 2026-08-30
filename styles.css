@@ -116,7 +116,7 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 .trust-head{flex:1;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(28px,3.4vw,38px);line-height:1.15;color:var(--accent);margin:0;}
 .tphoto{flex:none;}
 .tphoto img{width:220px;height:220px;border-radius:50%;object-fit:cover;object-position:center 15%;box-shadow:0 20px 52px rgba(21,21,26,.16);display:block;}
-.trust3{display:flex;gap:52px;align-items:flex-start;}
+.trust3{display:flex;gap:88px;align-items:flex-start;}
 .trust3-body{flex:1;max-width:760px;}
 
 /* ══ HERO — portrait-led, centered text / photo side by side, classic + simple ══ */
@@ -130,7 +130,7 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 .eh-btn:hover{background:#1C1916;color:#FCFBF8;}
 .eh-photo{flex:0 0 50%;position:relative;overflow:hidden;background:#1C1916;aspect-ratio:2345/2950;}
 .eh-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 0%;display:block;}
-.eh-divider{border:none;height:1px;background:rgba(169,132,63,.42);margin:48px 0 0 50%;}
+.eh-divider{border:none;height:1px;background:rgba(169,132,63,.42);width:100vw;position:relative;left:50%;margin-left:-50vw;margin-top:48px;}
 
 /* trusted split with circle portrait */
 .trust-split{display:flex;gap:56px;align-items:center;margin-bottom:14px;}
@@ -306,7 +306,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   .eh-photo{aspect-ratio:2345/1900;order:-1;}
   .eh-text{padding:2.5rem 1.5rem 3rem;}
   .eh-headline{font-size:clamp(2.4rem,9vw,3rem)!important;}
-  .eh-divider{margin-left:0;}
   .begin .steps{flex-direction:column;gap:26px;}
   .prose p.lead{font-size:23px;}
   .pg-head h1,.about-head-row h1{font-size:40px!important;}

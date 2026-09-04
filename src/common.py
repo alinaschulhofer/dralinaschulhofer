@@ -18,6 +18,29 @@ def get_footer():
 
 FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;500&display=swap" rel="stylesheet">'
 
+# Traffic tracking — mirrors the setup on architectureofexcellence.com (see visitor-logger/SETUP.md).
+# Both are placeholders until Alina creates the GA4 property + deploys the Cloudflare Worker and
+# sends back the real values — replace them here, bump CSS_VERSION is not needed (this isn't CSS).
+GA_MEASUREMENT_ID = 'G-XXXXXXXXXX'
+GA_SCRIPT = f'''<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){{dataLayer.push(arguments);}}
+  gtag('js', new Date());
+  gtag('config', '{GA_MEASUREMENT_ID}');
+</script>'''
+
+VISITOR_LOGGER_WORKER_URL = 'https://dralinaschulhofer-visitor-logger.YOUR-SUBDOMAIN.workers.dev/log'
+VISITOR_LOGGER_SCRIPT = f'''<script>
+  (function(){{
+    var w = "{VISITOR_LOGGER_WORKER_URL}";
+    var p = encodeURIComponent(location.pathname);
+    var r = encodeURIComponent(document.referrer);
+    fetch(w + "?page=" + p + "&ref=" + r).catch(function(){{}});
+  }})();
+</script>'''
+
 # Blog nav link is held back until there's at least one real post — flip this to True
 # (and re-run build_site.py + build_blog.py) to relaunch it site-wide.
 SHOW_BLOG_NAV = True

@@ -16,6 +16,14 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BlogPosting","headline":"The Loneliness Problem of CEOs","description":"\u201cIt\u2019s lonely at the top\u201d sounds clich\u00e9, but for many CEOs it\u2019s a harsh reality \u2014 a weight of isolation that partners, family, and employees rarely see or understand.","datePublished":"2026-08-30","url":"https://www.dralinaschulhofer.com/loneliness-problem-of-ceos.html","image":"https://www.dralinaschulhofer.com/assets/portrait-about.jpg","author":{"@type":"Person","name":"Dr. Alina Schulhofer"},"publisher":{"@type":"Person","name":"Dr. Alina Schulhofer"}}
 </script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
 </head>
 <body>
 <header class="top">
@@ -124,6 +132,14 @@
     var io=new IntersectionObserver(function(en){ en.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target);} }); },{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
     document.querySelectorAll('.reveal,.reveal-img').forEach(function(el){ io.observe(el); });
   } else { document.querySelectorAll('.reveal,.reveal-img').forEach(function(el){ el.classList.add('is-visible'); }); }
+</script>
+<script>
+  (function(){
+    var w = "https://dralinaschulhofer-visitor-logger.YOUR-SUBDOMAIN.workers.dev/log";
+    var p = encodeURIComponent(location.pathname);
+    var r = encodeURIComponent(document.referrer);
+    fetch(w + "?page=" + p + "&ref=" + r).catch(function(){});
+  })();
 </script>
 </body>
 </html>

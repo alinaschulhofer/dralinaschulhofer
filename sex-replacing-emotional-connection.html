@@ -16,6 +16,14 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BlogPosting","headline":"Is Sex Replacing Emotional Connection in Your Relationships?","description":"Sexual closeness can become a substitute for emotional closeness rather than an extension of it \u2014 leaving physical intimacy feeling intense, yet still empty or alone.","datePublished":"2026-08-20","url":"https://www.dralinaschulhofer.com/sex-replacing-emotional-connection.html","image":"https://www.dralinaschulhofer.com/assets/portrait-about.jpg","author":{"@type":"Person","name":"Dr. Alina Schulhofer"},"publisher":{"@type":"Person","name":"Dr. Alina Schulhofer"}}
 </script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
 </head>
 <body>
 <header class="top">
@@ -113,6 +121,14 @@
     var io=new IntersectionObserver(function(en){ en.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target);} }); },{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
     document.querySelectorAll('.reveal,.reveal-img').forEach(function(el){ io.observe(el); });
   } else { document.querySelectorAll('.reveal,.reveal-img').forEach(function(el){ el.classList.add('is-visible'); }); }
+</script>
+<script>
+  (function(){
+    var w = "https://dralinaschulhofer-visitor-logger.YOUR-SUBDOMAIN.workers.dev/log";
+    var p = encodeURIComponent(location.pathname);
+    var r = encodeURIComponent(document.referrer);
+    fetch(w + "?page=" + p + "&ref=" + r).catch(function(){});
+  })();
 </script>
 </body>
 </html>

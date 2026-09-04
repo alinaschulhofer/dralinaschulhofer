@@ -11,7 +11,7 @@ import json, pathlib, sys, datetime, html
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parent
 sys.path.insert(0, str(HERE))
-from common import DOMAIN, FONTS, NAV, SCRIPT, get_footer, CSS_LINK
+from common import DOMAIN, FONTS, NAV, SCRIPT, get_footer, CSS_LINK, GA_SCRIPT, VISITOR_LOGGER_SCRIPT
 
 POSTS_DIR = HERE / 'posts'
 FOOTER = get_footer()
@@ -52,12 +52,14 @@ def page_shell(active, title, desc, canonical, body_html, extra_head=''):
 {FONTS}
 {CSS_LINK}
 {extra_head}
+{GA_SCRIPT}
 </head>
 <body>
 {NAV(active)}
 {body_html}
 {FOOTER}
 {SCRIPT}
+{VISITOR_LOGGER_SCRIPT}
 </body>
 </html>'''
 

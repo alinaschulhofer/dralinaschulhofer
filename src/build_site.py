@@ -2,7 +2,7 @@ import re, pathlib, sys, html
 HERE=pathlib.Path(__file__).resolve().parent
 ROOT=HERE.parent  # deploy files live at repo root; master source lives in src/
 sys.path.insert(0, str(HERE))
-from common import DOMAIN, FONTS, NAV, SCRIPT, CSS_LINK
+from common import DOMAIN, FONTS, NAV, SCRIPT, CSS_LINK, GA_SCRIPT, VISITOR_LOGGER_SCRIPT
 from build_blog import load_posts, human_date
 src=open(HERE/'therapy_template.html',encoding='utf-8').read()
 
@@ -78,12 +78,14 @@ for pid,content in pages.items():
 {FONTS}
 {CSS_LINK}
 {JSONLD if pid=='home' else ''}
+{GA_SCRIPT}
 </head>
 <body>
 {NAV(pid)}
 {content}
 {footer}
 {SCRIPT}
+{VISITOR_LOGGER_SCRIPT}
 </body>
 </html>'''
     open(ROOT/fn,'w',encoding='utf-8').write(head)

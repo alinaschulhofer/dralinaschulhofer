@@ -165,6 +165,17 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 /* What I help with — two-column diamond list */
 .svc-teaser{text-align:center;padding:16px 0 46px;}
 .svc-teaser h2{font-size:34px;color:var(--accent);margin-bottom:34px;position:relative;display:inline-block;padding-bottom:12px;}
+/* homepage featured blog post teaser */
+.featured-post{text-align:center;padding:16px 0 46px;}
+.featured-post .fp-kicker{font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;}
+.featured-post .fp-meta{font-family:'Jost',sans-serif;font-size:12.5px;letter-spacing:.04em;color:var(--ink3);margin-bottom:14px;}
+.featured-post .fp-meta .fp-tag{color:var(--accent);text-transform:uppercase;letter-spacing:.1em;font-weight:500;margin-right:8px;}
+.featured-post h2{font-size:30px;color:var(--ink);margin:0 auto 16px;max-width:640px;}
+.featured-post h2 a{color:inherit;text-decoration:none;}
+.featured-post h2 a:hover{color:var(--accent);}
+.featured-post .fp-excerpt{max-width:600px;margin:0 auto 24px;color:var(--ink2);font-size:15.5px;line-height:1.8;}
+.featured-post .fp-link{display:inline-flex;align-items:center;gap:.5rem;font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:3px;transition:color .2s,border-color .2s;}
+.featured-post .fp-link:hover{color:var(--accent);border-color:var(--accent);}
 .helpwith{text-align:center;padding:20px 0 46px;}
 .helpwith .eyebrow{display:block;margin-bottom:12px;}
 .helpwith h2{font-size:34px;color:var(--accent);margin-bottom:30px;position:relative;display:inline-block;padding-bottom:12px;}
@@ -378,7 +389,7 @@ footer .foot-link:hover{color:var(--accent);}
 .article-back{display:inline-block;font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#8C6A2E;text-decoration:none;margin-bottom:32px;}
 .article-back:hover{color:var(--accent);}
 .pg-head .blog-meta{margin-bottom:14px;}
-.article-pull{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16.5px;line-height:1.85;color:var(--accent);text-align:center;max-width:680px;margin:32px auto;padding:0 20px;}
+.article-pull{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;line-height:1.85;color:var(--accent);text-align:center;max-width:680px;margin:32px auto;padding:0 20px;}
 </style>
 </head>
 <body>
@@ -491,6 +502,12 @@ footer .foot-link:hover{color:var(--accent);}
         <button type="submit">Request My Free Consultation</button>
       </form>
       <p id="cf-success" style="display:none;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:#8C6A2E;margin-top:6px;">Thank you — your request has been received. I will respond personally, usually within a couple of business days.</p>
+    </div>
+  </section>
+
+  <section class="section featured-post">
+    <div class="container">
+      <!-- __FEATURED_POST__ -->
     </div>
   </section>
 

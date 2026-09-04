@@ -6,7 +6,7 @@ DOMAIN = 'https://www.dralinaschulhofer.com'
 
 # Bump this on every deploy that changes styles.css — the link tag below embeds it as
 # ?v=N so browsers/CDNs treat it as a new URL instead of serving a stale cached copy.
-CSS_VERSION = 20
+CSS_VERSION = 21
 CSS_LINK = f'<link rel="stylesheet" href="styles.css?v={CSS_VERSION}" />'
 
 def get_footer():
@@ -74,7 +74,7 @@ SCRIPT = '''<script>
     .catch(function(){ var body='Name: '+name+'%0D%0AEmail: '+email+'%0D%0APhone: '+phone+'%0D%0A%0D%0A'+encodeURIComponent(msg); window.location.href='mailto:alina@dralinaschulhofer.com?subject='+encodeURIComponent('Free Consultation Request \\u2014 '+name)+'&body='+body; btn.disabled=false; btn.textContent='Request My Free Consultation'; });
   }); }
   document.body.classList.add('anim');
-  var revealSel=['.trust3','.svc-teaser .container','.helpwith .container','.philosophy-band .prose','.founder .container','.contact-band .container','.about-head-row','#about .prose','.pg-head','.container.narrow'];
+  var revealSel=['.trust3','.svc-teaser .container','.helpwith .container','.philosophy-band .prose','.featured-post .container','.founder .container','.contact-band .container','.about-head-row','#about .prose','.pg-head','.container.narrow'];
   revealSel.forEach(function(sel){ document.querySelectorAll(sel).forEach(function(el){ el.classList.add('reveal'); }); });
   document.querySelectorAll('.tphoto img, .about-face').forEach(function(el){ el.classList.add('reveal-img'); });
   if('IntersectionObserver' in window){

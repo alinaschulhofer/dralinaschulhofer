@@ -1,8 +1,9 @@
-import re, pathlib, sys
+import re, pathlib, sys, html
 HERE=pathlib.Path(__file__).resolve().parent
 ROOT=HERE.parent  # deploy files live at repo root; master source lives in src/
 sys.path.insert(0, str(HERE))
 from common import DOMAIN, FONTS, NAV, SCRIPT, CSS_LINK
+from build_blog import load_posts, human_date
 src=open(HERE/'therapy_template.html',encoding='utf-8').read()
 
 # --- 1. extract <style> content, drop embedded base64 @font-face (we use Google Fonts) ---
@@ -23,6 +24,17 @@ def page_inner(pid):
     m=re.search(r'<div class="page[^"]*" id="'+pid+r'">(.*?)</div>\s*(?=<!-- =+ |<footer>)', body, re.S)
     return m.group(1).strip()
 pages={pid:page_inner(pid) for pid in ['home','about','services','faq','coaching']}
+
+# homepage — inject the newest blog post into the featured-post teaser
+posts=load_posts()
+if posts:
+    latest=posts[0]  # load_posts() sorts newest-first by date
+    fp_html=f'''<p class="fp-kicker">From the Blog</p>
+      <p class="fp-meta"><span class="fp-tag">{html.escape(latest['tag'])}</span>{human_date(latest['date'])}</p>
+      <h2><a href="{latest['slug']}.html">{html.escape(latest['title'])}</a></h2>
+      <p class="fp-excerpt">{html.escape(latest['excerpt'])}</p>
+      <a href="{latest['slug']}.html" class="fp-link">Read the Full Post →</a>'''
+    pages['home']=pages['home'].replace('<!-- __FEATURED_POST__ -->', fp_html)
 
 # footer
 footer='<footer>'+re.search(r'<footer>(.*?)</footer>', body, re.S).group(1)+'</footer>'

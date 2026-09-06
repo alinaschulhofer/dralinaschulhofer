@@ -56,7 +56,8 @@ def NAV(active):
     <nav class="nav" id="nav">
       <a href="index.html"{' class="active"' if active=="home" else ''}>Home</a>
       <a href="about.html"{' class="active"' if active=="about" else ''}>About</a>
-      <a href="services.html"{' class="active"' if active=="services" else ''}>Clinical Services</a>
+      <a href="services.html"{' class="active"' if active=="services" else ''}>Therapy</a>
+      <a href="executive-coaching.html"{' class="active"' if active=="execcoaching" else ''}>Executive Coaching</a>
       <a href="coaching.html"{' class="active"' if active=="coaching" else ''}>Consulting</a>
       <a href="faq.html"{' class="active"' if active=="faq" else ''}>FAQ</a>
       {blog_link}<a href="index.html#contact" class="btn">Contact</a>

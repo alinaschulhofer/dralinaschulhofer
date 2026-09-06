@@ -23,7 +23,7 @@ body=body.replace('data:image/jpeg;base64,__FACE__','assets/face.jpg')
 def page_inner(pid):
     m=re.search(r'<div class="page[^"]*" id="'+pid+r'">(.*?)</div>\s*(?=<!-- =+ |<footer>)', body, re.S)
     return m.group(1).strip()
-pages={pid:page_inner(pid) for pid in ['home','about','services','faq','coaching','execcoaching']}
+pages={pid:page_inner(pid) for pid in ['home','about','services','coaching','execcoaching']}
 
 # homepage — inject the newest blog post into the featured-post teaser
 posts=load_posts()
@@ -52,10 +52,8 @@ META={
           'Meet Dr. Alina Schulhofer, PsyD — a licensed clinical psychologist offering depth-oriented virtual therapy for high performers in Florida and New York.'),
  'services':('services.html','Services & Investment — Concierge Therapy | Dr. Alina Schulhofer',
              'Individual, couples & family therapy, concierge care, and intensives — virtual, private, and tailored to high-demand lives. Florida & New York.'),
- 'faq':('faq.html','FAQ — Therapy with Dr. Alina Schulhofer',
-        'Common questions about virtual concierge psychotherapy with Dr. Alina Schulhofer — insurance, fees, scheduling, and how to begin.'),
- 'coaching':('coaching.html','Organizational Consulting — Dr. Alina Schulhofer',
-             'Organizational consulting, leadership development, and education through Architecture of Excellence™, founded by Dr. Alina Schulhofer — separate from her clinical practice.'),
+ 'coaching':('coaching.html','Consulting — Dr. Alina Schulhofer',
+             'Organizational consulting, education, and executive coaching through Architecture of Excellence™, founded by Dr. Alina Schulhofer — separate from her clinical practice.'),
  'execcoaching':('executive-coaching.html','Executive Coaching — Dr. Alina Schulhofer',
              '1:1 executive and high-performance coaching for executives, founders, and leaders committed to sustainable excellence, through Architecture of Excellence™.'),
 }

@@ -59,7 +59,6 @@ def NAV(active):
       <a href="services.html"{' class="active"' if active=="services" else ''}>Therapy</a>
       <a href="executive-coaching.html"{' class="active"' if active=="execcoaching" else ''}>Executive Coaching</a>
       <a href="coaching.html"{' class="active"' if active=="coaching" else ''}>Consulting</a>
-      <a href="faq.html"{' class="active"' if active=="faq" else ''}>FAQ</a>
       {blog_link}<a href="index.html#contact" class="btn">Contact</a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>

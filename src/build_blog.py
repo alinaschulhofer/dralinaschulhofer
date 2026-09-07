@@ -110,6 +110,7 @@ def render_post(post):
     </div>
     <h1>{html.escape(post['title'])}</h1>
     {f'<p class="sub">{html.escape(post["subtitle"])}</p>' if post.get('subtitle') else ''}
+    <p class="blog-author">By Dr. Alina Schulhofer</p>
   </div>
 </section>
 <section class="section" style="padding-top:14px;">
@@ -128,7 +129,8 @@ def render_post(post):
     title = f'{html.escape(post["title"])} — Dr. Alina Schulhofer'
     desc = html.escape(post['excerpt'])
     canon = f'{DOMAIN}/{post["slug"]}.html'
-    ldjson = f'''<script type="application/ld+json">
+    ldjson = f'''<meta name="author" content="Dr. Alina Schulhofer" />
+<script type="application/ld+json">
 {{"@context":"https://schema.org","@type":"BlogPosting","headline":{json.dumps(post['title'])},"description":{json.dumps(post['excerpt'])},"datePublished":"{post['date']}","url":"{canon}","image":"{DOMAIN}/assets/portrait-about.jpg","author":{{"@type":"Person","name":"Dr. Alina Schulhofer"}},"publisher":{{"@type":"Person","name":"Dr. Alina Schulhofer"}}}}
 </script>'''
     return page_shell('blog', title, desc, canon, body, extra_head=ldjson)

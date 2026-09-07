@@ -113,11 +113,11 @@ def render_post(post):
     <p class="blog-author">By Dr. Alina Schulhofer</p>
   </div>
 </section>
-<section class="section" style="padding-top:14px;">
+<section class="section" style="padding:14px 0 0;">
   <div class="container narrow prose">
     <hr class="divider-full" style="margin-top:10px;margin-bottom:44px;" />
       {paragraphs}
-    <hr class="divider-full" style="margin-top:44px;margin-bottom:0;" />
+    <hr class="divider-full" style="margin-top:40px;margin-bottom:0;" />
   </div>
 </section>
 <section class="contact-band">

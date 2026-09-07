@@ -18,6 +18,8 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:var(--bg);color:var(--ink);font-family:'Jost',sans-serif;font-weight:300;line-height:1.85;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
 .container{max-width:1080px;margin:0 auto;padding:0 40px;}
+.grain{position:relative;}
+.grain::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.05;mix-blend-mode:multiply;pointer-events:none;}
 .narrow{max-width:760px;}
 .eyebrow{font-family:'Jost',sans-serif;font-weight:500;font-size:12.5px;letter-spacing:4px;text-transform:uppercase;color:var(--accent);}
 h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:400;line-height:1.12;letter-spacing:.4px;}
@@ -464,7 +466,7 @@ footer .foot-link:hover{color:var(--accent);}
     </div>
   </section>
 
-  <section class="section" style="text-align:center;padding:52px 0;">
+  <section class="section grain" style="text-align:center;padding:52px 0;">
     <div class="container">
       <p style="font-family:'Alex Brush',cursive;font-weight:400;color:#A8824E;font-size:clamp(2rem,3.8vw,2.9rem);line-height:1.4;max-width:820px;margin:0 auto 18px;">&ldquo;Nothing ever goes away until it teaches us what we need to know.&rdquo;</p>
       <p style="font-family:'Jost',sans-serif;font-weight:300;font-size:14px;letter-spacing:1.5px;color:var(--ink2);">&mdash; Pema Ch&ouml;dr&ouml;n</p>
@@ -481,6 +483,7 @@ footer .foot-link:hover{color:var(--accent);}
           <p>My approach is relational psychoanalytic in nature, a perspective that informs all aspects of my work. Whether in therapy, coaching, or consulting, I believe meaningful growth begins with a deeper understanding of ourselves: the experiences that have shaped us, our patterns, the ways we relate to ourselves and others, and the unconscious forces that influence how we see and navigate the world.</p>
           <p>Contrary to models focused on deficiencies and diagnosis of &ldquo;mental disorders,&rdquo; I take a holistic perspective that sees and treats the person as an interconnected being&mdash;including mind, body, spirit, and the broader systems in which we live and work. Understanding what gets in our way is important, but so is recognizing the strengths, possibilities, and meaning within our stories.</p>
           <p>While we will work to uncover the patterns that contribute to your challenges, my goal is also to help you discover the beauty in your story and remove the obstacles that prevent you from moving forward with greater purpose, meaning, and fulfillment.</p>
+          <a href="services.html" class="btn-solid" style="margin-top:12px;">Explore Therapy Services</a>
         </div>
       </div>
       <hr class="divider-full" style="margin-top:40px;margin-bottom:0;" />
@@ -747,7 +750,7 @@ footer .foot-link:hover{color:var(--accent);}
       </div>
 
       <div style="text-align:center;margin-top:44px;">
-        <p style="color:var(--ink2);font-style:italic;font-size:15px;margin-bottom:20px;">All coaching engagements are available internationally and are structured as private retainers. Investment details are discussed during the initial consultation.</p>
+        <p style="color:var(--accent);font-style:italic;font-size:15px;margin-bottom:20px;">All coaching engagements are available internationally and are structured as private retainers. Investment details are discussed during the initial consultation.</p>
         <a href="index.html#contact" class="btn-solid">Inquire</a>
       </div>
     </div>

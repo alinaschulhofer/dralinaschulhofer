@@ -117,6 +117,7 @@ def render_post(post):
   <div class="container narrow prose">
     <hr class="divider-full" style="margin-top:10px;margin-bottom:44px;" />
       {paragraphs}
+    <hr class="divider-full" style="margin-top:44px;margin-bottom:0;" />
   </div>
 </section>
 <section class="contact-band">

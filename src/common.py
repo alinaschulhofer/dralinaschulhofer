@@ -6,8 +6,13 @@ DOMAIN = 'https://www.dralinaschulhofer.com'
 
 # Bump this on every deploy that changes styles.css — the link tag below embeds it as
 # ?v=N so browsers/CDNs treat it as a new URL instead of serving a stale cached copy.
-CSS_VERSION = 32
+CSS_VERSION = 33
 CSS_LINK = f'<link rel="stylesheet" href="styles.css?v={CSS_VERSION}" />'
+
+# Bump this whenever a file in assets/ changes (photos, etc.) — same cache-busting trick as
+# CSS_VERSION. Browsers (especially Safari) cache images very aggressively with no other signal
+# that the file changed, since the filename itself stays the same.
+IMG_VERSION = 2
 
 def get_footer():
     """Footer markup lives once in therapy_template.html — extract it so build_blog.py

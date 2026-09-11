@@ -2,7 +2,7 @@ import re, pathlib, sys, html
 HERE=pathlib.Path(__file__).resolve().parent
 ROOT=HERE.parent  # deploy files live at repo root; master source lives in src/
 sys.path.insert(0, str(HERE))
-from common import DOMAIN, FONTS, NAV, SCRIPT, CSS_LINK, GA_SCRIPT, VISITOR_LOGGER_SCRIPT
+from common import DOMAIN, FONTS, NAV, SCRIPT, CSS_LINK, GA_SCRIPT, VISITOR_LOGGER_SCRIPT, IMG_VERSION
 from build_blog import load_posts, human_date
 src=open(HERE/'therapy_template.html',encoding='utf-8').read()
 
@@ -14,10 +14,10 @@ open(ROOT/'styles.css','w',encoding='utf-8').write(css)
 
 # --- 2. body content ---
 body=re.search(r'<body>(.*?)</body>', src, re.S).group(1)
-# swap embedded image data-uris for asset files
-body=body.replace('data:image/jpeg;base64,__PABOUT__','assets/portrait-about.jpg')
-body=body.replace('data:image/jpeg;base64,__PCIRCLE__','assets/portrait-circle.jpg')
-body=body.replace('data:image/jpeg;base64,__FACE__','assets/face.jpg')
+# swap embedded image data-uris for asset files (?v= busts Safari's aggressive image cache)
+body=body.replace('data:image/jpeg;base64,__PABOUT__',f'assets/portrait-about.jpg?v={IMG_VERSION}')
+body=body.replace('data:image/jpeg;base64,__PCIRCLE__',f'assets/portrait-circle.jpg?v={IMG_VERSION}')
+body=body.replace('data:image/jpeg;base64,__FACE__',f'assets/face.jpg?v={IMG_VERSION}')
 
 # extract each page's inner content
 def page_inner(pid):
@@ -73,7 +73,7 @@ for pid,content in pages.items():
 <meta property="og:description" content="{desc}" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="{canon}" />
-<meta property="og:image" content="{DOMAIN}/assets/portrait-about.jpg" />
+<meta property="og:image" content="{DOMAIN}/assets/portrait-about.jpg?v={IMG_VERSION}" />
 <meta name="twitter:card" content="summary_large_image" />
 {FONTS}
 {CSS_LINK}

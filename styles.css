@@ -87,7 +87,7 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 .orn .dia{width:8px;height:8px;border:1px solid var(--accent);transform:rotate(45deg);flex:none;}
 
 /* prose */
-.prose p{font-size:16.5px;color:var(--ink2);margin-bottom:20px;text-align:justify;-webkit-hyphens:auto;hyphens:auto;}
+.prose p{font-size:16.5px;color:var(--ink2);margin-bottom:20px;text-align:justify;}
 .prose p.lead{font-family:'Cormorant Garamond',serif;font-size:27px;line-height:1.5;color:var(--ink);}
 .prose h2{font-size:34px;color:var(--accent);margin:8px 0 18px;}
 .prose h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:23px;color:var(--ink);margin:28px 0 10px;text-align:left;}

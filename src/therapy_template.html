@@ -328,9 +328,13 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   .container{padding:0 24px;}
   .nav-toggle{display:flex;position:relative;z-index:2;}
   .nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;align-items:stretch;background:var(--bg);border-bottom:1px solid var(--line);padding:6px 24px 18px;box-shadow:0 14px 26px rgba(21,21,26,.08);}
-  /* open state becomes a full-screen sheet (not just a short dropdown) so the hero's own
-     "Request a Consultation" pill can't peek out directly beneath the Contact button */
-  .nav.open{display:flex;position:fixed;top:var(--nav-h,80px);left:0;right:0;bottom:0;overflow-y:auto;}
+  /* open state fills the rest of the screen (not just a short dropdown) so the hero's own
+     "Request a Consultation" pill can't peek out directly beneath the Contact button.
+     Deliberately height:100vh on the existing absolute box rather than position:fixed —
+     .top has backdrop-filter (for the scroll-blur effect), and backdrop-filter on an
+     ancestor makes it the containing block for fixed-position descendants, which collapsed
+     a fixed nav down to .top's own ~90px box instead of the viewport. absolute + vh avoids that. */
+  .nav.open{display:flex;height:100vh;overflow-y:auto;}
   .nav a{padding:14px 0;border-top:1px solid var(--line);width:100%;}
   .nav a.btn{text-align:center;margin-top:10px;border-top:none;}
   .top .container{position:relative;}

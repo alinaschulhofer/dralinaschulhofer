@@ -13,7 +13,7 @@
 <meta property="og:image" content="https://www.dralinaschulhofer.com/assets/portrait-about.jpg?v=4" />
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=36" />
+<link rel="stylesheet" href="styles.css?v=37" />
 
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VXF1MBZZHC"></script>
@@ -157,6 +157,7 @@
   var topBar=document.querySelector('.top');
   if(topBar){ var onTopScroll=function(){ topBar.classList.toggle('scrolled', window.scrollY>40); }; window.addEventListener('scroll', onTopScroll, {passive:true}); onTopScroll(); }
   if(navToggle){ navToggle.addEventListener('click',function(){
+    if(topBar){ document.documentElement.style.setProperty('--nav-h', topBar.getBoundingClientRect().height+'px'); }
     var open=nav.classList.toggle('open'); navToggle.classList.toggle('open',open);
     navToggle.setAttribute('aria-expanded',open?'true':'false');
   }); }

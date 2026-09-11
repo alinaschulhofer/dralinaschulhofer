@@ -329,12 +329,18 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   .nav-toggle{display:flex;position:relative;z-index:2;}
   .nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;align-items:stretch;background:var(--bg);border-bottom:1px solid var(--line);padding:6px 24px 18px;box-shadow:0 14px 26px rgba(21,21,26,.08);}
   /* open state fills the rest of the screen (not just a short dropdown) so the hero's own
-     "Request a Consultation" pill can't peek out directly beneath the Contact button.
-     Deliberately height:100vh on the existing absolute box rather than position:fixed —
-     .top has backdrop-filter (for the scroll-blur effect), and backdrop-filter on an
-     ancestor makes it the containing block for fixed-position descendants, which collapsed
-     a fixed nav down to .top's own ~90px box instead of the viewport. absolute + vh avoids that. */
-  .nav.open{display:flex;height:100vh;overflow-y:auto;}
+     "Request a Consultation" pill can't peek out directly beneath the Contact button, and
+     so the Contact button itself never sits right at a cut-off edge.
+     position:fixed (not height:100vh) — 100vh is computed against the browser's LARGEST
+     possible viewport (toolbars collapsed), which is taller than what's actually visible
+     when the address bar is showing, so it clipped/misplaced content. position:fixed with
+     top/bottom:0 tracks the real visible viewport instead.
+     .top normally has backdrop-filter (the scroll-blur effect), and an ancestor with
+     backdrop-filter becomes the containing block for position:fixed descendants — which
+     would collapse this fixed nav down to .top's own ~90px box. The rule below neutralizes
+     that only while the menu is open. --nav-h is measured in JS to the real header height. */
+  .nav.open{display:flex;position:fixed;top:var(--nav-h,90px);left:0;right:0;bottom:0;overflow-y:auto;}
+  .top:has(.nav.open){backdrop-filter:none!important;}
   .nav a{padding:14px 0;border-top:1px solid var(--line);width:100%;}
   .nav a.btn{text-align:center;margin-top:10px;border-top:none;}
   .top .container{position:relative;}

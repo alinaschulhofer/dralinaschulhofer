@@ -331,7 +331,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   .nav.open{display:flex;position:fixed;top:var(--nav-h,90px);left:0;right:0;bottom:0;overflow-y:auto;}
   .top:has(.nav.open){backdrop-filter:none!important;}
   .nav a{padding:14px 0;border-top:1px solid var(--line);width:100%;}
-  .nav a.btn{text-align:center;margin-top:10px;border-top:none;}
+  .nav a.btn{text-align:center;margin-top:10px;border-top:1px solid var(--ink);}
   .top .container{position:relative;}
   .trust3{flex-direction:column;gap:26px;text-align:center;}
   .tphoto{display:flex;justify-content:center;align-self:center;}

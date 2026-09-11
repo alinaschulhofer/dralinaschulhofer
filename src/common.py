@@ -12,7 +12,7 @@ CSS_LINK = f'<link rel="stylesheet" href="styles.css?v={CSS_VERSION}" />'
 # Bump this whenever a file in assets/ changes (photos, etc.) — same cache-busting trick as
 # CSS_VERSION. Browsers (especially Safari) cache images very aggressively with no other signal
 # that the file changed, since the filename itself stays the same.
-IMG_VERSION = 3
+IMG_VERSION = 4
 
 def get_footer():
     """Footer markup lives once in therapy_template.html — extract it so build_blog.py

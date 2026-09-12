@@ -529,8 +529,8 @@ footer .foot-link:hover{color:var(--accent);}
         <input type="text" id="cf-name" placeholder="Your name" aria-label="Your name" required />
         <input type="email" id="cf-email" placeholder="Your email" aria-label="Your email" required />
         <input type="tel" id="cf-phone" placeholder="Phone" aria-label="Phone" required />
-        <select id="cf-service" aria-label="What are you looking for?">
-          <option value="">What are you looking for? (optional)</option>
+        <select id="cf-service" aria-label="What are you looking for?" required>
+          <option value="" disabled selected>What are you looking for?</option>
           <option value="Individual Therapy">Individual Therapy</option>
           <option value="Couples & Family Therapy">Couples &amp; Family Therapy</option>
           <option value="Intensive Sessions">Intensive Sessions</option>
@@ -538,7 +538,7 @@ footer .foot-link:hover{color:var(--accent);}
           <option value="Organizational Consulting">Organizational Consulting</option>
           <option value="Speaking">Speaking</option>
         </select>
-        <textarea id="cf-msg" placeholder="A little about what you're looking for" aria-label="Message" required></textarea>
+        <textarea id="cf-msg" placeholder="Share a little bit about yourself and how you're hoping I can help" aria-label="Message" required></textarea>
         <button type="submit">Request My Free Consultation</button>
       </form>
       <p id="cf-success" style="display:none;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:#8C6A2E;margin-top:6px;">Thank you — your request has been received. I will respond personally, usually within a couple of business days.</p>

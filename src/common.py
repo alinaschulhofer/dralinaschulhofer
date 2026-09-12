@@ -6,7 +6,7 @@ DOMAIN = 'https://www.dralinaschulhofer.com'
 
 # Bump this on every deploy that changes styles.css — the link tag below embeds it as
 # ?v=N so browsers/CDNs treat it as a new URL instead of serving a stale cached copy.
-CSS_VERSION = 39
+CSS_VERSION = 40
 CSS_LINK = f'<link rel="stylesheet" href="styles.css?v={CSS_VERSION}" />'
 
 # Bump this whenever a file in assets/ changes (photos, etc.) — same cache-busting trick as
@@ -77,6 +77,8 @@ SCRIPT = '''<script>
     var open=nav.classList.toggle('open'); navToggle.classList.toggle('open',open);
     navToggle.setAttribute('aria-expanded',open?'true':'false');
   }); }
+  var cfService=document.getElementById('cf-service');
+  if(cfService){ var syncChosen=function(){ cfService.classList.toggle('chosen', !!cfService.value); }; cfService.addEventListener('change', syncChosen); syncChosen(); }
   document.querySelectorAll('.svc-menu-item').forEach(function(a){
     a.addEventListener('click',function(){
       var hash=a.getAttribute('href').split('#')[1];
@@ -94,11 +96,13 @@ SCRIPT = '''<script>
     var name=(document.getElementById('cf-name').value||'').trim();
     var email=(document.getElementById('cf-email').value||'').trim();
     var phone=(document.getElementById('cf-phone').value||'').trim();
+    var svcEl=document.getElementById('cf-service');
+    var service=svcEl?(svcEl.value||'').trim():'';
     var msg=(document.getElementById('cf-msg').value||'').trim();
     var btn=cf.querySelector('button'); btn.disabled=true; btn.textContent='Sending\\u2026';
-    fetch('https://formspree.io/f/xzdwqnvk',{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify({name:name,email:email,phone:phone,message:msg,_subject:'Free Consultation Request \\u2014 '+name})})
+    fetch('https://formspree.io/f/xzdwqnvk',{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify({name:name,email:email,phone:phone,service:service,message:msg,_subject:'Free Consultation Request \\u2014 '+name})})
     .then(function(r){ if(!r.ok){throw new Error('x');} cf.style.display='none'; var s=document.getElementById('cf-success'); if(s){s.style.display='block';} })
-    .catch(function(){ var body='Name: '+name+'%0D%0AEmail: '+email+'%0D%0APhone: '+phone+'%0D%0A%0D%0A'+encodeURIComponent(msg); window.location.href='mailto:alina@dralinaschulhofer.com?subject='+encodeURIComponent('Free Consultation Request \\u2014 '+name)+'&body='+body; btn.disabled=false; btn.textContent='Request My Free Consultation'; });
+    .catch(function(){ var body='Name: '+name+'%0D%0AEmail: '+email+'%0D%0APhone: '+phone+(service?'%0D%0ALooking for: '+encodeURIComponent(service):'')+'%0D%0A%0D%0A'+encodeURIComponent(msg); window.location.href='mailto:alina@dralinaschulhofer.com?subject='+encodeURIComponent('Free Consultation Request \\u2014 '+name)+'&body='+body; btn.disabled=false; btn.textContent='Request My Free Consultation'; });
   }); }
   document.body.classList.add('anim');
   var revealSel=['.trust3','.svc-teaser .container','.helpwith .container','.philosophy-band .prose','.featured-post .container','.founder .container','.contact-band .container','.about-head-row','#about .prose','.pg-head','.container.narrow'];

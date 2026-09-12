@@ -12,7 +12,7 @@
 <meta property="og:image" content="https://www.dralinaschulhofer.com/assets/portrait-about.jpg?v=4" />
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=39" />
+<link rel="stylesheet" href="styles.css?v=40" />
 <meta name="author" content="Dr. Alina Schulhofer" />
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BlogPosting","headline":"Why You Reached Out for Help... But Never Scheduled the First Session","description":"For many high performers, reaching out is the easy part \u2014 actually showing up for the first session requires a kind of vulnerability that feels unfamiliar, even risky.","datePublished":"2026-08-05","url":"https://www.dralinaschulhofer.com/reached-out-but-never-scheduled.html","image":"https://www.dralinaschulhofer.com/assets/portrait-about.jpg","author":{"@type":"Person","name":"Dr. Alina Schulhofer"},"publisher":{"@type":"Person","name":"Dr. Alina Schulhofer"}}
@@ -96,6 +96,8 @@
     var open=nav.classList.toggle('open'); navToggle.classList.toggle('open',open);
     navToggle.setAttribute('aria-expanded',open?'true':'false');
   }); }
+  var cfService=document.getElementById('cf-service');
+  if(cfService){ var syncChosen=function(){ cfService.classList.toggle('chosen', !!cfService.value); }; cfService.addEventListener('change', syncChosen); syncChosen(); }
   document.querySelectorAll('.svc-menu-item').forEach(function(a){
     a.addEventListener('click',function(){
       var hash=a.getAttribute('href').split('#')[1];
@@ -113,11 +115,13 @@
     var name=(document.getElementById('cf-name').value||'').trim();
     var email=(document.getElementById('cf-email').value||'').trim();
     var phone=(document.getElementById('cf-phone').value||'').trim();
+    var svcEl=document.getElementById('cf-service');
+    var service=svcEl?(svcEl.value||'').trim():'';
     var msg=(document.getElementById('cf-msg').value||'').trim();
     var btn=cf.querySelector('button'); btn.disabled=true; btn.textContent='Sending\u2026';
-    fetch('https://formspree.io/f/xzdwqnvk',{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify({name:name,email:email,phone:phone,message:msg,_subject:'Free Consultation Request \u2014 '+name})})
+    fetch('https://formspree.io/f/xzdwqnvk',{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify({name:name,email:email,phone:phone,service:service,message:msg,_subject:'Free Consultation Request \u2014 '+name})})
     .then(function(r){ if(!r.ok){throw new Error('x');} cf.style.display='none'; var s=document.getElementById('cf-success'); if(s){s.style.display='block';} })
-    .catch(function(){ var body='Name: '+name+'%0D%0AEmail: '+email+'%0D%0APhone: '+phone+'%0D%0A%0D%0A'+encodeURIComponent(msg); window.location.href='mailto:alina@dralinaschulhofer.com?subject='+encodeURIComponent('Free Consultation Request \u2014 '+name)+'&body='+body; btn.disabled=false; btn.textContent='Request My Free Consultation'; });
+    .catch(function(){ var body='Name: '+name+'%0D%0AEmail: '+email+'%0D%0APhone: '+phone+(service?'%0D%0ALooking for: '+encodeURIComponent(service):'')+'%0D%0A%0D%0A'+encodeURIComponent(msg); window.location.href='mailto:alina@dralinaschulhofer.com?subject='+encodeURIComponent('Free Consultation Request \u2014 '+name)+'&body='+body; btn.disabled=false; btn.textContent='Request My Free Consultation'; });
   }); }
   document.body.classList.add('anim');
   var revealSel=['.trust3','.svc-teaser .container','.helpwith .container','.philosophy-band .prose','.featured-post .container','.founder .container','.contact-band .container','.about-head-row','#about .prose','.pg-head','.container.narrow'];

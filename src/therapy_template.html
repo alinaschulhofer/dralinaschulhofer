@@ -313,7 +313,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 .cform select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23494842' stroke-width='1.6'%3E%3Cpath d='M5 7.5l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:16px;padding-right:40px;color:var(--ink3);}
 .cform select.chosen{color:var(--ink);}
 .cform select option{color:var(--ink);}
-.cform button{font-family:'Jost',sans-serif;font-weight:500;font-size:13px;letter-spacing:2px;text-transform:uppercase;background:transparent;color:var(--ink);border:1px solid var(--ink);padding:15px;border-radius:999px;cursor:pointer;transition:background .2s, color .2s;margin-top:10px;}
+.cform button{align-self:center;font-family:'Jost',sans-serif;font-weight:500;font-size:13px;letter-spacing:2px;text-transform:uppercase;background:transparent;color:var(--ink);border:1px solid var(--ink);padding:15px 34px;border-radius:999px;cursor:pointer;transition:background .2s, color .2s;margin-top:10px;white-space:nowrap;}
 .cform button:hover{background:var(--ink);color:#fff;}
 .contact-band .or{font-size:13px;letter-spacing:1px;color:var(--ink3);margin:0 0 8px;}
 .contact-band .email-link{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:#8C6A2E;text-decoration:none;}
@@ -539,7 +539,7 @@ footer .foot-link:hover{color:var(--accent);}
           <option value="Speaking">Speaking</option>
         </select>
         <textarea id="cf-msg" placeholder="Share a little bit about yourself and how you're hoping I can help" aria-label="Message" required></textarea>
-        <button type="submit">Request My Free Consultation</button>
+        <button type="submit">Request Consultation</button>
       </form>
       <p id="cf-success" style="display:none;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:#8C6A2E;margin-top:6px;">Thank you — your request has been received. I will respond personally, usually within a couple of business days.</p>
     </div>
@@ -836,7 +836,7 @@ footer .foot-link:hover{color:var(--accent);}
         // fallback (e.g. blocked in this sandbox preview): open the visitor's email client
         var body='Name: '+name+'%0D%0AEmail: '+email+'%0D%0APhone: '+phone+'%0D%0A%0D%0A'+encodeURIComponent(msg);
         window.location.href='mailto:alina@dralinaschulhofer.com?subject='+encodeURIComponent('Free Consultation Request — '+name)+'&body='+body;
-        btn.disabled=false; btn.textContent='Request My Free Consultation';
+        btn.disabled=false; btn.textContent='Request Consultation';
       });
   }); }
 

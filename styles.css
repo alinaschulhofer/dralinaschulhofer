@@ -431,6 +431,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   .split-text{padding:2.5rem 1.5rem 3rem;}
   .rhp-row{flex-direction:column;gap:16px;}
   .rhp-heading{margin-bottom:4px;text-align:center;}
+  .rhp-cta{text-align:center;}
   .cf-row{flex-direction:column;gap:40px;}
   .cf-photo{flex:none;width:100%;max-width:none;margin:0;order:-1;}
   /* the nav's readability gradient is sized for desktop's tall hero photo; on mobile

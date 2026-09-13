@@ -202,17 +202,18 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 @media(prefers-reduced-motion:reduce){.cf-text h2::after,.split-text h2::after,.helpwith h2::after,.svc-teaser h2::after{transform:scaleX(1);transition:none;}}
 
 /* My Philosophy (homepage) — back to the full-bleed editorial format, same idea as the hero (.eh)
-   but mirrored: photo on the left, text on the right. align-items:stretch so the photo always fills
-   the full row height regardless of text length (avoids a blank gap above/below a shorter photo). */
+   but mirrored: photo on the left, text on the right. align-items:flex-start (not stretch) so both
+   columns start flush at the top — stretching the photo to match text height via aspect-ratio was
+   rendering inconsistently and creating a large gap under the heading. */
 .split-band{position:relative;background:#FCFBF8;}
 .split-divider{border:none;height:1px;background:rgba(169,132,63,.42);width:50%;margin:0;}
 .split-divider-right{margin-left:auto;}
-.split-body{display:flex;align-items:stretch;}
+.split-body{display:flex;align-items:flex-start;}
 .split-photo{flex:0 0 50%;position:relative;overflow:hidden;background:#1C1916;aspect-ratio:2345/2950;}
 .split-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 75%;display:block;}
 .split-text{flex:0 0 50%;display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;padding:4rem clamp(2rem,4vw,3.5rem);}
 .split-text.prose p{text-align:left;}
-.split-text h2{position:relative;display:inline-block;padding-bottom:12px;}
+.split-text h2{position:relative;display:inline-block;padding-bottom:6px;}
 
 /* About page hero — reuses the homepage .eh hero (photo right, nav floats over it) but with a
    left-aligned gold pull-quote instead of the centered eyebrow/headline/button. */
@@ -228,8 +229,8 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 /* second Consulting row — a contained, moderately-sized photo (not full-bleed) beside the closing
    paragraphs, matching the "Redefining High Performance" row's container width and whitespace
    instead of the earlier edge-to-edge treatment, which read as too large/dominant. */
-.cf-row{display:flex;gap:clamp(2.5rem,6vw,5rem);align-items:center;}
-.cf-photo{flex:0 0 40%;position:relative;overflow:hidden;border-radius:16px;aspect-ratio:1800/1640;background:#1C1916;}
+.cf-row{display:flex;gap:clamp(2.5rem,6vw,5rem);align-items:flex-start;}
+.cf-photo{flex:0 0 46%;position:relative;overflow:hidden;border-radius:16px;aspect-ratio:1800/1640;background:#1C1916;}
 .cf-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block;}
 .cf-text{flex:1;}
 .cf-text.prose p{text-align:left;}

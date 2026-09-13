@@ -228,7 +228,7 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 
 /* About page hero — reuses the homepage .eh hero (photo right, nav floats over it) but with a
    left-aligned gold pull-quote instead of the centered eyebrow/headline/button. */
-.eh-text.ab-hero-text{align-items:flex-start;text-align:left;}
+.eh-text.ab-hero-text{align-items:flex-start;text-align:left;padding-left:calc(max(0px, (100vw - 1320px)/2) + clamp(1.5rem, 5vw, 5rem));}
 .ab-hero-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:clamp(1.75rem,2.7vw,2.45rem);line-height:1.4;color:var(--ink);margin:0;max-width:480px;}
 .ab-hero-sub{font-family:'Jost',sans-serif;font-weight:300;font-size:clamp(.95rem,1.3vw,1.05rem);line-height:1.65;color:var(--accent);margin:22px 0 0;max-width:440px;}
 

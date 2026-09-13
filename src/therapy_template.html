@@ -207,10 +207,9 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 .help-list li{position:relative;padding:10px 0 10px 26px;font-size:16px;color:var(--ink2);}
 .help-list li::before{content:"";position:absolute;left:0;top:15px;width:5px;height:5px;border-radius:50%;background:var(--accent);}
 @media(max-width:600px){.help-cols{flex-direction:column;gap:0;max-width:340px;transform:none;}}
-.cf-text h2{position:relative;display:inline-block;padding-bottom:12px;}
-.cf-text h2::after,.split-text h2::after,.helpwith h2::after,.svc-teaser h2::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--accent);transform-origin:left;transform:scaleX(0);transition:transform 1s cubic-bezier(.2,.7,.2,1) .2s;}
-.cf-text.is-visible h2::after,.split-text.is-visible h2::after,.helpwith .container.is-visible h2::after,.svc-teaser .container.is-visible h2::after{transform:scaleX(1);}
-@media(prefers-reduced-motion:reduce){.cf-text h2::after,.split-text h2::after,.helpwith h2::after,.svc-teaser h2::after{transform:scaleX(1);transition:none;}}
+.split-text h2::after,.helpwith h2::after,.svc-teaser h2::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--accent);transform-origin:left;transform:scaleX(0);transition:transform 1s cubic-bezier(.2,.7,.2,1) .2s;}
+.split-text.is-visible h2::after,.helpwith .container.is-visible h2::after,.svc-teaser .container.is-visible h2::after{transform:scaleX(1);}
+@media(prefers-reduced-motion:reduce){.split-text h2::after,.helpwith h2::after,.svc-teaser h2::after{transform:scaleX(1);transition:none;}}
 
 /* My Philosophy (homepage) — back to the full-bleed editorial format, same idea as the hero (.eh)
    but mirrored: photo on the left, text on the right. align-items:flex-start (not stretch) so both
@@ -232,20 +231,6 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 .ab-hero-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:clamp(1.75rem,2.7vw,2.45rem);line-height:1.4;color:var(--ink);margin:0;max-width:480px;}
 .ab-hero-sub{font-family:'Jost',sans-serif;font-weight:300;font-size:clamp(.95rem,1.3vw,1.05rem);line-height:1.65;color:var(--accent);margin:22px 0 0;max-width:440px;}
 
-/* "Redefining High Performance" intro row — large left-side label, paragraphs on the right (Consulting) */
-.rhp-row{display:flex;gap:clamp(2.5rem,6vw,5rem);align-items:flex-start;}
-.rhp-heading{flex:0 0 34%;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(1.9rem,3vw,2.5rem);line-height:1.22;color:var(--accent);margin:0;}
-.rhp-text{flex:1;}
-.rhp-text.prose p{text-align:left;}
-
-/* second Consulting row — a contained, moderately-sized photo (not full-bleed) beside the closing
-   paragraphs, matching the "Redefining High Performance" row's container width and whitespace
-   instead of the earlier edge-to-edge treatment, which read as too large/dominant. */
-.cf-row{display:flex;gap:clamp(2.5rem,6vw,5rem);align-items:flex-start;}
-.cf-photo{flex:0 0 46%;position:relative;overflow:hidden;border-radius:16px;aspect-ratio:1800/1640;background:#1C1916;}
-.cf-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block;}
-.cf-text{flex:1;}
-.cf-text.prose p{text-align:left;}
 /* founder callout — clean centered note on white, hairline-framed */
 /* founder — full-width charcoal "chapter break" band */
 .founder{background:#1B1A18;padding:40px 0;text-align:center;margin-top:12px;}
@@ -441,12 +426,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   .split-photo{aspect-ratio:2345/1900;}
   .split-photo img{object-position:50% 75%;}
   .split-text{padding:2.5rem 1.5rem 3rem;}
-  .rhp-row{flex-direction:column;gap:16px;}
-  .rhp-heading{margin-bottom:4px;text-align:center;}
-  .rhp-cta{text-align:center;}
-  .cf-row{flex-direction:column;gap:40px;}
   .ab-two-col{flex-direction:column;gap:8px;}
-  .cf-photo{flex:none;width:100%;max-width:none;margin:0;order:-1;}
   /* the nav's readability gradient is sized for desktop's tall hero photo; on mobile
      the photo panel is much shorter, so that same gradient height washes out her face */
   .top:has(~ .eh, ~ .page.active .eh)::before{height:90%;background:linear-gradient(to bottom, rgba(252,251,248,.55) 0%, transparent 100%);}
@@ -527,6 +507,11 @@ footer .foot-link:hover{color:var(--accent);}
 .ab-pull-quote{font-family:'Cormorant Garamond',serif;font-weight:400;font-style:italic;font-size:clamp(1.5rem,2.3vw,1.95rem);line-height:1.45;color:var(--accent);text-align:center;max-width:1180px;margin:0 auto;}
 .ab-two-col{display:flex;gap:clamp(2.5rem,6vw,5rem);align-items:flex-start;}
 .ab-col{flex:1;min-width:0;}
+
+/* Consulting page intro — centered heading + black subheader, same two-column body
+   treatment as the About page. */
+.cons-intro-head{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(2rem,3.4vw,2.8rem);color:var(--accent);text-align:center;margin:0 0 18px;}
+.cons-intro-sub{font-family:'Jost',sans-serif;font-weight:300;font-size:clamp(1rem,1.4vw,1.15rem);line-height:1.6;color:var(--ink);text-align:center;max-width:680px;margin:0 auto;}
 </style>
 </head>
 <body>
@@ -691,15 +676,14 @@ footer .foot-link:hover{color:var(--accent);}
     <div class="container">
       <div class="ab-two-col">
         <div class="ab-col prose">
-          <p>I'm a Florida + New York licensed psychologist, executive coach, and organizational consultant. I earned my doctorate in clinical psychology from Nova Southeastern University in Fort Lauderdale, Florida, with a concentration in psychodynamic psychotherapy and specialized training in trauma and dissociation, personality disorders, and relationship difficulties.</p>
-          <p>My clinical experience has included working with patients across inpatient and outpatient settings, including private practice, community mental health centers, and training at Jackson Health System/University of Miami Miller School of Medicine. This background has given me a depth of understanding of personality, relationships, emotional functioning, and the often-unconscious patterns that shape how people think, behave, lead, and relate to others.</p>
-
-          <p style="margin-top:26px;">Before my career in psychology, I competed as an athlete at the international and collegiate levels. My lived experience continues to inform my understanding of the unique demands faced by high performing individuals and organizations. Having lived across the United States and Europe, including Miami, New York City, Austria, and Portugal, I bring a global and multicultural perspective to my work.</p>
+          <p>I earned my doctorate in clinical psychology from Nova Southeastern University in Fort Lauderdale, Florida, with a concentration in psychodynamic psychotherapy, trauma, personality disorders, and relationship difficulties.</p>
+          <p>My clinical experience has included working with patients across inpatient and outpatient settings, including private practice, community mental health centers, and training at Jackson Health System/University of Miami Miller School of Medicine.</p>
+          <p style="margin-top:26px;">Before my career in psychology, I competed as an athlete at the international and collegiate levels, which continues to inform my understanding of the unique demands faced by high performing individuals and organizations. Having lived across the United States and Europe, including Miami, New York City, Austria, and Portugal, I bring a global and multicultural perspective to my work.</p>
         </div>
         <div class="ab-col prose">
-          <p>Today, I apply my training and experience both clinically and beyond the therapy room. My work with executives, leaders, and other high-performing individuals focuses not simply on developing skills, but on understanding the person behind the performance. I help clients develop greater self-awareness, capitalize on their strengths, address patterns that may limit their effectiveness, and build more sustainable ways of performing and leading.</p>
-          <p>I have worked with high-performing and high-profile individuals worldwide, including professional athletes in the NFL and NBA, C-suite executives, academics, medical professionals, entrepreneurs, and creatives. My work spans psychological wellbeing, executive coaching, leadership development, interpersonal and relational functioning, and high performance.</p>
-          <p>As the founder of <a href="https://architectureofexcellence.com" target="_blank" rel="noopener" class="inline-link">Architecture of Excellence™</a>, I extend this work to teams and organizations through leadership development, education, and organizational consulting. Drawing on psychoanalytic ideas alongside principles of organizational behavior and high performance, my approach examines both individual and systemic factors that influence how people function at work: from leadership and personality dynamics to communication, conflict, organizational culture, and the quality of relationships within teams.</p>
+          <p>Today, I apply my experience both clinically and beyond the therapy room. My work with high-performing individuals focuses not simply on developing skills, but on understanding the person behind the performance.</p>
+          <p>I help clients develop greater self-awareness, capitalize on their strengths, address patterns that may limit their effectiveness, and build more sustainable ways of performing and leading.</p>
+          <p>I have worked with high-performing and high-profile individuals worldwide, including professional athletes in the NFL and NBA, C-suite executives, academics, medical professionals, entrepreneurs, and creatives.</p>
         </div>
       </div>
     </div>
@@ -720,8 +704,8 @@ footer .foot-link:hover{color:var(--accent);}
     <img src="data:image/jpeg;base64,__PABOUT__" alt="" />
     <div class="container">
       <h1>Services</h1>
-      <p class="sub">Therapy from <em>Your</em> Couch: Secure, confidential online sessions that meet you where you are.</p>
-      <p class="pg-hero-note">Available virtually for clients across Florida and New York.</p>
+      <p class="sub">Secure, confidential online sessions that meet you where you are.</p>
+      <p class="pg-hero-note">Available for clients across Florida and New York.</p>
     </div>
   </section>
   <section class="section" style="padding-top:36px;">
@@ -831,30 +815,22 @@ footer .foot-link:hover{color:var(--accent);}
       <p class="sub">Consulting, education, and leadership advisory — for teams and organizations seeking sustainable excellence and wellbeing.</p>
     </div>
   </section>
-  <section class="section" style="padding-top:64px;padding-bottom:0;">
+  <section class="section" style="padding-top:64px;padding-bottom:64px;">
     <div class="container">
-      <div class="rhp-row">
-        <h2 class="rhp-heading">Redefining High Performance</h2>
-        <div class="rhp-text prose">
+      <h2 class="cons-intro-head reveal">Redefining High Performance</h2>
+      <p class="cons-intro-sub reveal">Actualizing potential demands more than strategy or skill &mdash; it requires becoming the person or system capable of sustaining excellence.</p>
+      <div class="ab-two-col" style="margin-top:48px;">
+        <div class="ab-col prose">
           <p>Alongside my clinical practice, I am the founder of <a href="https://architectureofexcellence.com" target="_blank" rel="noopener" class="inline-link">Architecture of Excellence™</a>, offering organizational consulting, education, leadership advisory, and executive coaching for high-performing individuals, teams, and organizations worldwide.</p>
-          <p>Architecture of Excellence is grounded in the understanding that there is often more to organizational behavior than meets the eye. Drawing on clinical psychology and psychoanalytic thought, my approach looks beyond surface-level challenges to the psychological, relational, and often unconscious dynamics that shape how people lead, collaborate, make decisions, and perform.</p>
-          <div class="rhp-cta" style="margin-top:24px;">
-            <a href="https://architectureofexcellence.com" target="_blank" rel="noopener" class="btn-solid">More</a>
-          </div>
+          <p>Architecture of Excellence is grounded in the understanding that there is often more to organizational behavior than meets the eye. Drawing on psychoanalytic ideas alongside principles of organizational behavior and high performance, my approach examines both individual and systemic factors that influence how people function at work: from leadership and personality dynamics to communication, conflict, organizational culture, and the quality of relationships within teams.</p>
         </div>
-      </div>
-      <hr class="divider-full" style="margin-top:48px;margin-bottom:48px;" />
-    </div>
-  </section>
-
-  <section class="section" style="padding-top:0;padding-bottom:64px;">
-    <div class="container">
-      <div class="cf-row">
-        <div class="cf-photo"><img src="data:image/jpeg;base64,__CONSULTSPLIT__" alt="Dr. Alina Schulhofer" /></div>
-        <div class="cf-text prose">
+        <div class="ab-col prose">
           <p>Through a framework that integrates psychological depth with high-performance strategy, I focus on developing the people and social processes that form the foundations of effective leadership, high-performing teams, and sustainable organizations. This work is informed by my clinical background, my experience working with high performers across industries, and my own background as a former elite athlete.</p>
           <p>My executive coaching and consulting services are distinct from clinical therapy. Rather than the diagnosis or treatment of mental health conditions, this work focuses on leadership development, performance, interpersonal and organizational effectiveness, and the conditions that enable individuals and organizations to perform and develop sustainably.</p>
         </div>
+      </div>
+      <div style="text-align:center;margin-top:40px;">
+        <a href="https://architectureofexcellence.com" target="_blank" rel="noopener" class="btn-solid">More</a>
       </div>
     </div>
   </section>

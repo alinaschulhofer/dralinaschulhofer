@@ -214,6 +214,11 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 .split-text.prose p{text-align:left;}
 .split-text h2{position:relative;display:inline-block;padding-bottom:12px;}
 
+/* About page hero — reuses the homepage .eh hero (photo right, nav floats over it) but with a
+   left-aligned gold pull-quote instead of the centered eyebrow/headline/button. */
+.eh-text.ab-hero-text{align-items:flex-start;text-align:left;}
+.ab-hero-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:clamp(1.75rem,2.7vw,2.45rem);line-height:1.4;color:var(--accent);margin:0;max-width:480px;}
+
 /* "Redefining High Performance" intro row — large left-side label, paragraphs on the right (Consulting) */
 .rhp-row{display:flex;gap:clamp(2.5rem,6vw,5rem);align-items:flex-start;}
 .rhp-heading{flex:0 0 34%;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(1.9rem,3vw,2.5rem);line-height:1.22;color:var(--accent);margin:0;}
@@ -224,7 +229,7 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
    paragraphs, matching the "Redefining High Performance" row's container width and whitespace
    instead of the earlier edge-to-edge treatment, which read as too large/dominant. */
 .cf-row{display:flex;gap:clamp(2.5rem,6vw,5rem);align-items:center;}
-.cf-photo{flex:0 0 34%;position:relative;overflow:hidden;border-radius:16px;aspect-ratio:3/4;background:#1C1916;}
+.cf-photo{flex:0 0 40%;position:relative;overflow:hidden;border-radius:16px;aspect-ratio:3/4;background:#1C1916;}
 .cf-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block;}
 .cf-text{flex:1;}
 .cf-text.prose p{text-align:left;}
@@ -418,6 +423,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
      the nav was covering the top of the photo. A small top margin gives it that buffer. */
   .split-band{margin-top:28px;}
   .split-divider{width:100%;}
+  .split-divider-top{display:none;}
   .split-body{flex-direction:column;}
   .split-photo{aspect-ratio:2345/1900;}
   .split-photo img{object-position:50% 75%;}
@@ -425,7 +431,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   .rhp-row{flex-direction:column;gap:16px;}
   .rhp-heading{margin-bottom:4px;}
   .cf-row{flex-direction:column;gap:40px;}
-  .cf-photo{flex:none;width:100%;max-width:280px;margin:0 auto;}
+  .cf-photo{flex:none;width:100%;max-width:280px;margin:0 auto;order:-1;}
   /* the nav's readability gradient is sized for desktop's tall hero photo; on mobile
      the photo panel is much shorter, so that same gradient height washes out her face */
   .top:has(~ .eh, ~ .page.active .eh)::before{height:90%;background:linear-gradient(to bottom, rgba(252,251,248,.55) 0%, transparent 100%);}

@@ -220,16 +220,14 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 .split-divider-right{margin-left:auto;}
 .split-body{display:flex;align-items:center;}
 .split-photo{flex:0 0 50%;position:relative;overflow:hidden;background:#1C1916;aspect-ratio:2345/2950;}
-.split-photo.ec-photo{aspect-ratio:2345/2300;}
 .split-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 75%;display:block;}
-.split-photo img.ec-img{object-position:50% 8%;}
 .split-text{flex:0 0 50%;display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;padding:4rem clamp(2rem,4vw,3.5rem);}
 .split-text.prose p{text-align:left;}
 .split-text h2{position:relative;display:inline-block;padding-bottom:6px;}
-.split-band.ec-band .split-body,.split-band.th-band .split-body{align-items:flex-start;}
-.split-text.ec-text{align-items:center;text-align:center;}
-.ec-text h2::after{display:none;}
+.split-band.th-band .split-body{align-items:flex-start;}
 .ec-text ul{text-align:left;}
+.ec-standalone-photo{display:inline-block;width:100%;max-width:560px;border-radius:16px;overflow:hidden;aspect-ratio:1800/1640;background:#1C1916;}
+.ec-standalone-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 8%;display:block;}
 
 /* About page hero — reuses the homepage .eh hero (photo right, nav floats over it) but with a
    left-aligned gold pull-quote instead of the centered eyebrow/headline/button. */
@@ -866,22 +864,25 @@ footer .foot-link:hover{color:var(--accent);}
     </div>
   </section>
 
-  <section class="split-band ec-band">
-    <div class="split-body">
-      <div class="split-photo ec-photo"><img class="ec-img" src="data:image/jpeg;base64,__ECPHOTO__" alt="Dr. Alina Schulhofer" /></div>
-      <div class="split-text prose ec-text">
-        <h2 class="trust-head" style="margin-bottom:40px;">Designed for Those Who Demand Excellence</h2>
-        <p>One-on-one engagements go far beyond strategy and skill-building. This work is designed to address the internal structures&mdash;including psychological patterns and relational dynamics&mdash;that can either accelerate or constrain what an individual is able to achieve, while shaping their wellbeing, relationships, and personal life.</p>
-        <p style="margin-top:26px;"><span class="b">Common Areas of Focus:</span></p>
-        <ul>
-          <li>Identification of patterns limiting leadership and performance growth</li>
-          <li>Relational challenges and emotional intelligence</li>
-          <li>Leadership presence, clarity, and decision-making</li>
-          <li>Navigating pressure, burnout, and complex organizational demands</li>
-          <li>Clarification of vision, values, and legacy</li>
-          <li>Ongoing strategic support and accountability</li>
-        </ul>
-      </div>
+  <section class="section" style="padding-top:56px;padding-bottom:0;">
+    <div class="container narrow prose ec-text" style="text-align:center;">
+      <h2 class="trust-head" style="margin-bottom:40px;">Designed for Those Who Demand Excellence</h2>
+      <p>One-on-one engagements go far beyond strategy and skill-building. This work is designed to address the internal structures&mdash;including psychological patterns and relational dynamics&mdash;that can either accelerate or constrain what an individual is able to achieve, while shaping their wellbeing, relationships, and personal life.</p>
+      <p style="margin-top:26px;"><span class="b">Common Areas of Focus:</span></p>
+      <ul style="display:inline-block;text-align:left;">
+        <li>Identification of patterns limiting leadership and performance growth</li>
+        <li>Relational challenges and emotional intelligence</li>
+        <li>Leadership presence, clarity, and decision-making</li>
+        <li>Navigating pressure, burnout, and complex organizational demands</li>
+        <li>Clarification of vision, values, and legacy</li>
+        <li>Ongoing strategic support and accountability</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:48px;padding-bottom:0;">
+    <div class="container" style="text-align:center;">
+      <div class="ec-standalone-photo"><img src="data:image/jpeg;base64,__ECPHOTO__" alt="Dr. Alina Schulhofer" /></div>
     </div>
   </section>
 

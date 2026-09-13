@@ -217,6 +217,7 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 .split-text h2{position:relative;display:inline-block;padding-bottom:6px;}
 .split-band.ec-band .split-body,.split-band.th-band .split-body{align-items:flex-start;}
 .split-text.ec-text{align-items:center;text-align:center;}
+.ec-text h2::after{display:none;}
 .ec-text ul{text-align:left;}
 
 /* About page hero — reuses the homepage .eh hero (photo right, nav floats over it) but with a

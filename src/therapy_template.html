@@ -228,6 +228,7 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 .split-text h2{position:relative;display:inline-block;padding-bottom:6px;}
 .split-band.ec-band .split-body,.split-band.th-band .split-body{align-items:flex-start;}
 .split-text.ec-text{align-items:center;text-align:center;}
+.ec-text h2::after{display:none;}
 .ec-text ul{text-align:left;}
 
 /* About page hero — reuses the homepage .eh hero (photo right, nav floats over it) but with a
@@ -723,12 +724,17 @@ footer .foot-link:hover{color:var(--accent);}
         <p>Derived from the two ancient Greek words <em>psyche</em> (&ldquo;spirit&rdquo; or &ldquo;soul&rdquo;) and <em>therapeia</em> (&ldquo;healing&rdquo;), psychotherapy is literally defined as &ldquo;healing of the soul.&rdquo; Trauma, loss, and other difficult experiences can cause us to lose touch with our innermost selves, leading to suffering, feelings of isolation and disconnection. Depression, anxiety, loneliness, relationship problems, and lack of purpose often result from difficulty knowing and understanding ourselves and the dynamics of our unconscious.</p>
         <p>My approach to therapy is relational psychoanalytic and founded on the premise that healing occurs within the context of a safe and consistent relationship that allows for the exploration and expression of your true self. The therapeutic process offers the opportunity to become more truthful with ourselves and others, and to gain a better understanding of the repetitive thoughts, feelings, and patterns that prevent us from living a healthier and more fulfilled life.</p>
         <p>My hope is to help facilitate the experience of creative self-discovery, to help you be and become more fully alive, and more fully yourself. I believe that you have innate knowledge that makes you your own greatest teacher, and combine my clinical training with my intuitive abilities to help you reconnect with the most authentic parts of you that have become lost or buried over time.</p>
-        <div class="arrow-cue"><a href="#svc-services" aria-label="Continue to Services"><span class="chev"></span></a></div>
       </div>
     </div>
   </section>
 
-  <section class="section" style="padding-top:64px;" id="svc-services">
+  <section class="section" style="padding-top:36px;padding-bottom:0;">
+    <div class="container">
+      <div class="arrow-cue" style="margin-top:0;"><a href="#svc-services" aria-label="Continue to Services"><span class="chev"></span></a></div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:36px;" id="svc-services">
     <div class="container narrow">
       <div class="acc svc-acc">
         <details id="svc-individual">
@@ -884,7 +890,7 @@ footer .foot-link:hover{color:var(--accent);}
     </div>
   </section>
 
-  <section class="section" style="padding-top:36px;" id="ec-expect">
+  <section class="section" style="padding-top:36px;padding-bottom:0;" id="ec-expect">
     <div class="container narrow prose">
       <h3 style="text-align:center;">What to Expect</h3>
       <p>Each engagement is highly individualized. We begin with an in-depth conversation to understand your current context, your goals, and the specific obstacles shaping your performance, wellbeing, relationships, and leadership.</p>
@@ -892,10 +898,9 @@ footer .foot-link:hover{color:var(--accent);}
     </div>
   </section>
 
-  <section class="section" style="padding-top:40px;">
+  <section class="section" style="padding-top:16px;">
     <div class="container">
       <div style="text-align:center;">
-        <p style="color:var(--accent);font-style:italic;font-size:15px;margin-bottom:20px;">All coaching engagements are available internationally and are structured as private retainers. Investment details are discussed during the initial consultation.</p>
         <a href="index.html#contact" class="btn-solid">Inquire</a>
       </div>
     </div>

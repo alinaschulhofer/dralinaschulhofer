@@ -253,6 +253,7 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 /* photo page-header — full-bleed image + dark scrim, headline over it (Services/Executive Coaching/Consulting) */
 .pg-hero{position:relative;min-height:440px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:#1C1916;padding:150px 0 64px;}
 .pg-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 18%;display:block;}
+.pg-hero img.th-hero-img{object-position:50% 100%;}
 .pg-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(21,20,18,.62) 0%, rgba(21,20,18,.74) 100%);}
 .pg-hero .container{position:relative;z-index:1;}
 .pg-hero h1{font-family:'Cormorant Garamond',serif;font-weight:400;color:#FCFBF8;font-size:clamp(2.6rem,5vw,4.1rem);line-height:1.14;margin:0 0 20px;}
@@ -709,7 +710,7 @@ footer .foot-link:hover{color:var(--accent);}
 <!-- ================= SERVICES ================= -->
 <div class="page" id="services">
   <section class="pg-hero">
-    <img src="data:image/jpeg;base64,__PABOUT__" alt="" />
+    <img class="th-hero-img" src="data:image/jpeg;base64,__PABOUT__" alt="" />
     <div class="container">
       <h1>Therapy Services</h1>
       <p class="sub">Secure, confidential online sessions that meet you where you are.</p>

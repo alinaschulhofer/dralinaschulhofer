@@ -413,8 +413,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   .split-divider-top{display:none;}
   .split-body{flex-direction:column;}
   .split-photo{aspect-ratio:2345/1900;}
+  .split-photo.th-phil-photo{aspect-ratio:2345/2500;}
   .split-photo img{object-position:50% 75%;}
-  .split-photo img.th-phil-img{object-position:50% 20%;}
+  .split-photo img.th-phil-img{object-position:50% 12%;}
   .split-text{padding:2.5rem 1.5rem 3rem;}
   .ab-two-col{flex-direction:column;gap:8px;}
   /* the nav's readability gradient is sized for desktop's tall hero photo; on mobile
@@ -501,4 +502,4 @@ footer .foot-link:hover{color:var(--accent);}
 /* Consulting page intro — centered heading + black subheader, same two-column body
    treatment as the About page. */
 .cons-intro-head{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(2rem,3.4vw,2.8rem);color:var(--accent);text-align:center;margin:0 0 18px;}
-.cons-intro-sub{font-family:'Jost',sans-serif;font-weight:300;font-size:clamp(.85rem,1vw,.95rem);line-height:1.6;color:var(--ink);text-align:center;max-width:600px;margin:0 auto;}
+.cons-intro-sub{font-family:'Jost',sans-serif;font-weight:300;font-size:clamp(1rem,1.4vw,1.15rem);line-height:1.6;color:var(--ink);text-align:center;max-width:680px;margin:0 auto;}

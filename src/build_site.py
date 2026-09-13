@@ -20,6 +20,7 @@ body=body.replace('data:image/jpeg;base64,__PCIRCLE__',f'assets/portrait-circle.
 body=body.replace('data:image/jpeg;base64,__FACE__',f'assets/face.jpg?v={IMG_VERSION}')
 body=body.replace('data:image/jpeg;base64,__CONSULTHERO__',f'assets/consulting-hero.jpg?v={IMG_VERSION}')
 body=body.replace('data:image/jpeg;base64,__PPHIL__',f'assets/philosophy-photo.jpg?v={IMG_VERSION}')
+body=body.replace('data:image/jpeg;base64,__CONSULTSPLIT__',f'assets/consulting-split-photo.jpg?v={IMG_VERSION}')
 
 # extract each page's inner content
 def page_inner(pid):

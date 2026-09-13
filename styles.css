@@ -210,7 +210,7 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 .split-body{display:flex;align-items:stretch;}
 .split-photo{flex:0 0 50%;position:relative;overflow:hidden;background:#1C1916;aspect-ratio:2345/2950;}
 .split-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 75%;display:block;}
-.split-text{flex:0 0 50%;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:4rem clamp(2rem,4vw,3.5rem);}
+.split-text{flex:0 0 50%;display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;padding:4rem clamp(2rem,4vw,3.5rem);}
 .split-text.prose p{text-align:left;}
 .split-text h2{position:relative;display:inline-block;padding-bottom:12px;}
 
@@ -372,7 +372,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 .contact-direct .cd-sep{color:var(--ink3);}
 .inline-link{display:inline;background:none;padding:0;border-radius:0;text-transform:none;letter-spacing:normal;font-family:'Jost',sans-serif;font-weight:400;font-size:inherit;color:#8C6A2E;text-decoration:none;border-bottom:1px solid rgba(140,106,46,.4);white-space:nowrap;}
 .inline-link:hover{border-bottom-color:#8C6A2E;}
-.btn-solid{display:inline-block;font-family:'Jost',sans-serif;font-weight:500;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);background:transparent;border:1px solid var(--ink);padding:.95rem 2.3rem;border-radius:999px;text-decoration:none;transition:background .2s, color .2s;}
+.btn-solid{display:inline-block;text-align:center;font-family:'Jost',sans-serif;font-weight:500;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);background:transparent;border:1px solid var(--ink);padding:.95rem 2.3rem;border-radius:999px;text-decoration:none;transition:background .2s, color .2s;}
 .btn-solid:hover{background:var(--ink);color:#FCFBF8;}
 @media(max-width:520px){.contact-direct{flex-direction:column;gap:6px;}.contact-direct .cd-sep{display:none;}}
 
@@ -424,7 +424,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   .split-text{padding:2.5rem 1.5rem 3rem;}
   .rhp-row{flex-direction:column;gap:16px;}
   .rhp-heading{margin-bottom:4px;}
-  .cf-row{flex-direction:column;gap:24px;}
+  .cf-row{flex-direction:column;gap:40px;}
   .cf-photo{flex:none;width:100%;max-width:280px;margin:0 auto;}
   /* the nav's readability gradient is sized for desktop's tall hero photo; on mobile
      the photo panel is much shorter, so that same gradient height washes out her face */

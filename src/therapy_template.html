@@ -154,14 +154,15 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 .eh-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 100%;display:block;}
 .eh-divider{border:none;height:1px;background:rgba(169,132,63,.42);width:100vw;position:relative;left:50%;margin-left:-50vw;margin-top:0;}
 
-/* closing "excellence" band — photo blending into the page on one side, headline + CTA on the other */
-.excellence-band{display:flex;align-items:stretch;min-height:260px;background:var(--bg);}
+/* closing "excellence" band (About page) — photo strip blending into the page on one side,
+   headline + CTA centered in the remaining space on the other */
+.excellence-band{display:flex;align-items:stretch;min-height:190px;background:var(--bg);}
 .xb-photo{flex:0 0 42%;position:relative;overflow:hidden;}
 .xb-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 12%;display:block;
   -webkit-mask-image:linear-gradient(to right, black 72%, transparent 96%);
   mask-image:linear-gradient(to right, black 72%, transparent 96%);}
-.xb-text{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:1.5rem clamp(1.5rem,6vw,5rem);margin-left:-6%;}
-.xb-text h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(1.6rem,2.6vw,2.2rem);line-height:1.18;color:var(--ink);max-width:400px;margin-bottom:22px;}
+.xb-text{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:1.5rem clamp(1.5rem,6vw,5rem);}
+.xb-text h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(2rem,3.2vw,2.8rem);line-height:1.2;color:var(--accent);max-width:520px;margin:0 auto 24px;}
 
 /* trusted split with circle portrait */
 .trust-split{display:flex;gap:56px;align-items:center;margin-bottom:14px;}
@@ -206,29 +207,38 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 .help-list li{position:relative;padding:10px 0 10px 26px;font-size:16px;color:var(--ink2);}
 .help-list li::before{content:"";position:absolute;left:0;top:15px;width:5px;height:5px;border-radius:50%;background:var(--accent);}
 @media(max-width:600px){.help-cols{flex-direction:column;gap:0;max-width:340px;transform:none;}}
-/* philosophy band — full-bleed photo + text, same editorial format as the hero (.eh) but mirrored:
-   photo on the left, text on the right, left-aligned body copy instead of a short centered tagline. */
+.cf-text h2{position:relative;display:inline-block;padding-bottom:12px;}
+.cf-text h2::after,.split-text h2::after,.helpwith h2::after,.svc-teaser h2::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--accent);transform-origin:left;transform:scaleX(0);transition:transform 1s cubic-bezier(.2,.7,.2,1) .2s;}
+.cf-text.is-visible h2::after,.split-text.is-visible h2::after,.helpwith .container.is-visible h2::after,.svc-teaser .container.is-visible h2::after{transform:scaleX(1);}
+@media(prefers-reduced-motion:reduce){.cf-text h2::after,.split-text h2::after,.helpwith h2::after,.svc-teaser h2::after{transform:scaleX(1);transition:none;}}
+
+/* My Philosophy (homepage) — back to the full-bleed editorial format, same idea as the hero (.eh)
+   but mirrored: photo on the left, text on the right. align-items:stretch so the photo always fills
+   the full row height regardless of text length (avoids a blank gap above/below a shorter photo). */
 .split-band{position:relative;background:#FCFBF8;}
-/* continues the section-break line from the row above, but only over the text column — stops
-   at the photo's edge instead of crossing over it, since the photo is meant to read edge-to-edge */
 .split-divider{border:none;height:1px;background:rgba(169,132,63,.42);width:50%;margin:0;}
 .split-divider-right{margin-left:auto;}
-.split-photo img.xh-consultsplit-img{object-position:53% 22%;}
-.split-body{display:flex;align-items:center;}
+.split-body{display:flex;align-items:stretch;}
 .split-photo{flex:0 0 50%;position:relative;overflow:hidden;background:#1C1916;aspect-ratio:2345/2950;}
 .split-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 75%;display:block;}
-.split-text{flex:0 0 50%;display:flex;flex-direction:column;justify-content:center;padding:4rem clamp(2rem,4vw,3.5rem);}
+.split-text{flex:0 0 50%;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:4rem clamp(2rem,4vw,3.5rem);}
 .split-text.prose p{text-align:left;}
 .split-text h2{position:relative;display:inline-block;padding-bottom:12px;}
-.split-text h2::after,.helpwith h2::after,.svc-teaser h2::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--accent);transform-origin:left;transform:scaleX(0);transition:transform 1s cubic-bezier(.2,.7,.2,1) .2s;}
-.split-text.is-visible h2::after,.helpwith .container.is-visible h2::after,.svc-teaser .container.is-visible h2::after{transform:scaleX(1);}
-@media(prefers-reduced-motion:reduce){.split-text h2::after,.helpwith h2::after,.svc-teaser h2::after{transform:scaleX(1);transition:none;}}
 
 /* "Redefining High Performance" intro row — large left-side label, paragraphs on the right (Consulting) */
 .rhp-row{display:flex;gap:clamp(2.5rem,6vw,5rem);align-items:flex-start;}
 .rhp-heading{flex:0 0 34%;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(1.9rem,3vw,2.5rem);line-height:1.22;color:var(--accent);margin:0;}
 .rhp-text{flex:1;}
 .rhp-text.prose p{text-align:left;}
+
+/* second Consulting row — a contained, moderately-sized photo (not full-bleed) beside the closing
+   paragraphs, matching the "Redefining High Performance" row's container width and whitespace
+   instead of the earlier edge-to-edge treatment, which read as too large/dominant. */
+.cf-row{display:flex;gap:clamp(2.5rem,6vw,5rem);align-items:center;}
+.cf-photo{flex:0 0 34%;position:relative;overflow:hidden;border-radius:16px;aspect-ratio:3/4;background:#1C1916;}
+.cf-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block;}
+.cf-text{flex:1;}
+.cf-text.prose p{text-align:left;}
 /* founder callout — clean centered note on white, hairline-framed */
 /* founder — full-width charcoal "chapter break" band */
 .founder{background:#1B1A18;padding:40px 0;text-align:center;margin-top:12px;}
@@ -413,11 +423,10 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   .eh-body{flex-direction:column;}
   .eh-photo{aspect-ratio:2345/1900;order:-1;}
   .eh-photo img{object-position:50% 60%;}
-  /* philosophy band — same stacking treatment, photo is already first in DOM so no reordering needed.
-     .top stays position:fixed for the whole homepage (it's keyed off .eh existing anywhere on the
-     page, not scroll position), so it can float over whatever section happens to be scrolled to the
-     very top of the viewport. Most sections have enough of their own padding to absorb that; this one
-     didn't, so the nav was covering the top of the photo. A small top margin gives it that buffer. */
+  /* .top stays position:fixed for the whole homepage (keyed off .eh existing anywhere on the page,
+     not scroll position), so it can float over whatever section happens to be scrolled to the very
+     top of the viewport. Most sections have their own padding to absorb that; this one didn't, so
+     the nav was covering the top of the photo. A small top margin gives it that buffer. */
   .split-band{margin-top:28px;}
   .split-divider{width:100%;}
   .split-body{flex-direction:column;}
@@ -426,6 +435,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   .split-text{padding:2.5rem 1.5rem 3rem;}
   .rhp-row{flex-direction:column;gap:16px;}
   .rhp-heading{margin-bottom:4px;}
+  .cf-row{flex-direction:column;gap:24px;}
+  .cf-photo{flex:none;width:100%;max-width:280px;margin:0 auto;}
   /* the nav's readability gradient is sized for desktop's tall hero photo; on mobile
      the photo panel is much shorter, so that same gradient height washes out her face */
   .top:has(~ .eh, ~ .page.active .eh)::before{height:90%;background:linear-gradient(to bottom, rgba(252,251,248,.55) 0%, transparent 100%);}
@@ -434,7 +445,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   /* excellence band — stack, drop the side-fade mask (nothing to blend into once stacked) */
   .excellence-band{flex-direction:column;min-height:0;}
   .xb-photo{aspect-ratio:16/11;-webkit-mask-image:none;mask-image:none;}
-  .xb-photo img{-webkit-mask-image:none;mask-image:none;object-position:50% 15%;}
+  .xb-photo img{-webkit-mask-image:none;mask-image:none;object-position:50% 50%;}
   .xb-text{margin-left:0;align-items:center;text-align:center;padding:2.5rem 1.5rem 3rem;}
   .xb-text h2{max-width:none;}
   .begin .steps{flex-direction:column;gap:26px;}
@@ -636,13 +647,7 @@ footer .foot-link:hover{color:var(--accent);}
     </div>
   </section>
 
-  <section class="excellence-band">
-    <div class="xb-photo"><img src="data:image/jpeg;base64,__PABOUT__" alt="Dr. Alina Schulhofer" /></div>
-    <div class="xb-text">
-      <h2>For Those Who Demand Excellence.</h2>
-      <a href="#contact" class="eh-btn">Begin the Conversation</a>
-    </div>
-  </section>
+
 </div>
 
 <!-- ================= ABOUT ================= -->
@@ -672,6 +677,14 @@ footer .foot-link:hover{color:var(--accent);}
 
       <p class="eyebrow" style="display:block;margin:40px 0 14px;">Personal</p>
       <p>Before my career in psychology, I competed as an athlete at the international and collegiate levels. My lived experience continues to inform my understanding of the unique demands faced by high performing individuals and organizations. Having lived across the United States and Europe, including Miami, New York City, Austria, and Portugal, I bring a global and multicultural perspective to my work.</p>
+    </div>
+  </section>
+
+  <section class="excellence-band">
+    <div class="xb-photo"><img src="data:image/jpeg;base64,__PABOUT__" alt="Dr. Alina Schulhofer" /></div>
+    <div class="xb-text">
+      <h2>For Those Who Demand Excellence.</h2>
+      <a href="index.html#contact" class="eh-btn">Begin the Conversation</a>
     </div>
   </section>
 </div>
@@ -805,17 +818,18 @@ footer .foot-link:hover{color:var(--accent);}
     </div>
   </section>
 
-  <section class="split-band">
-    <hr class="split-divider" />
-    <div class="split-body">
-      <div class="split-text prose">
-        <p>Through a framework that integrates psychological depth with high-performance strategy, I focus on developing the people and social processes that form the foundations of effective leadership, high-performing teams, and sustainable organizations. This work is informed by my clinical background, my experience working with high performers across industries, and my own background as a former elite athlete.</p>
-        <p>My executive coaching and consulting services are distinct from clinical therapy. Rather than the diagnosis or treatment of mental health conditions, this work focuses on leadership development, performance, interpersonal and organizational effectiveness, and the conditions that enable individuals and organizations to perform and develop sustainably.</p>
-        <div style="margin-top:24px;">
-          <a href="https://architectureofexcellence.com" target="_blank" rel="noopener" class="btn-solid">Visit Architecture of Excellence →</a>
+  <section class="section" style="padding-top:8px;padding-bottom:64px;">
+    <div class="container">
+      <div class="cf-row">
+        <div class="cf-photo"><img src="data:image/jpeg;base64,__CONSULTSPLIT__" alt="Dr. Alina Schulhofer" /></div>
+        <div class="cf-text prose">
+          <p>Through a framework that integrates psychological depth with high-performance strategy, I focus on developing the people and social processes that form the foundations of effective leadership, high-performing teams, and sustainable organizations. This work is informed by my clinical background, my experience working with high performers across industries, and my own background as a former elite athlete.</p>
+          <p>My executive coaching and consulting services are distinct from clinical therapy. Rather than the diagnosis or treatment of mental health conditions, this work focuses on leadership development, performance, interpersonal and organizational effectiveness, and the conditions that enable individuals and organizations to perform and develop sustainably.</p>
+          <div style="margin-top:24px;">
+            <a href="https://architectureofexcellence.com" target="_blank" rel="noopener" class="btn-solid">Visit Architecture of Excellence →</a>
+          </div>
         </div>
       </div>
-      <div class="split-photo"><img src="data:image/jpeg;base64,__CONSULTSPLIT__" alt="Dr. Alina Schulhofer" class="xh-consultsplit-img" /></div>
     </div>
   </section>
 </div>

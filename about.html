@@ -13,7 +13,7 @@
 <meta property="og:image" content="https://www.dralinaschulhofer.com/assets/portrait-about.jpg?v=7" />
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=44" />
+<link rel="stylesheet" href="styles.css?v=45" />
 
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VXF1MBZZHC"></script>
@@ -67,6 +67,14 @@
       <p>Before my career in psychology, I competed as an athlete at the international and collegiate levels. My lived experience continues to inform my understanding of the unique demands faced by high performing individuals and organizations. Having lived across the United States and Europe, including Miami, New York City, Austria, and Portugal, I bring a global and multicultural perspective to my work.</p>
     </div>
   </section>
+
+  <section class="excellence-band">
+    <div class="xb-photo"><img src="assets/portrait-about.jpg?v=7" alt="Dr. Alina Schulhofer" /></div>
+    <div class="xb-text">
+      <h2>For Those Who Demand Excellence.</h2>
+      <a href="index.html#contact" class="eh-btn">Begin the Conversation</a>
+    </div>
+  </section>
 <footer>
   <div class="container">
     <p class="fnote">
@@ -113,7 +121,7 @@
     .catch(function(){ var body='Name: '+name+'%0D%0AEmail: '+email+'%0D%0APhone: '+phone+(service?'%0D%0ALooking for: '+encodeURIComponent(service):'')+'%0D%0A%0D%0A'+encodeURIComponent(msg); window.location.href='mailto:alina@dralinaschulhofer.com?subject='+encodeURIComponent('Free Consultation Request \u2014 '+name)+'&body='+body; btn.disabled=false; btn.textContent='Request Consultation'; });
   }); }
   document.body.classList.add('anim');
-  var revealSel=['.trust3','.svc-teaser .container','.helpwith .container','.split-text','.rhp-row','.featured-post .container','.founder .container','.contact-band .container','.about-head-row','#about .prose','.pg-head','.container.narrow'];
+  var revealSel=['.trust3','.svc-teaser .container','.helpwith .container','.split-text','.cf-text','.rhp-row','.featured-post .container','.founder .container','.contact-band .container','.about-head-row','#about .prose','.pg-head','.container.narrow'];
   revealSel.forEach(function(sel){ document.querySelectorAll(sel).forEach(function(el){ el.classList.add('reveal'); }); });
   document.querySelectorAll('.tphoto img, .about-face').forEach(function(el){ el.classList.add('reveal-img'); });
   if('IntersectionObserver' in window){

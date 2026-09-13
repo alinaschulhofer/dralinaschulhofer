@@ -219,6 +219,7 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
    left-aligned gold pull-quote instead of the centered eyebrow/headline/button. */
 .eh-text.ab-hero-text{align-items:flex-start;text-align:left;}
 .ab-hero-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:clamp(1.75rem,2.7vw,2.45rem);line-height:1.4;color:var(--accent);margin:0;max-width:480px;}
+.ab-hero-sub{font-family:'Jost',sans-serif;font-weight:300;font-size:clamp(.95rem,1.3vw,1.05rem);line-height:1.65;color:var(--accent);margin:22px 0 0;max-width:440px;}
 
 /* "Redefining High Performance" intro row — large left-side label, paragraphs on the right (Consulting) */
 .rhp-row{display:flex;gap:clamp(2.5rem,6vw,5rem);align-items:flex-start;}

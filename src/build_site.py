@@ -18,6 +18,7 @@ body=re.search(r'<body>(.*?)</body>', src, re.S).group(1)
 body=body.replace('data:image/jpeg;base64,__PABOUT__',f'assets/portrait-about.jpg?v={IMG_VERSION}')
 body=body.replace('data:image/jpeg;base64,__PCIRCLE__',f'assets/portrait-circle.jpg?v={IMG_VERSION}')
 body=body.replace('data:image/jpeg;base64,__FACE__',f'assets/face.jpg?v={IMG_VERSION}')
+body=body.replace('data:image/jpeg;base64,__CONSULTHERO__',f'assets/consulting-hero.jpg?v={IMG_VERSION}')
 
 # extract each page's inner content
 def page_inner(pid):

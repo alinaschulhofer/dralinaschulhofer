@@ -24,6 +24,18 @@ em{font-style:italic;}
 .top:has(~ .eh, ~ .page.active .eh)::before{content:'';position:absolute;inset:0;height:220%;background:linear-gradient(to bottom, rgba(252,251,248,.72) 0%, transparent 100%);pointer-events:none;z-index:-1;opacity:1;transition:opacity .4s ease;}
 .top:has(~ .eh, ~ .page.active .eh).scrolled{background:rgba(252,251,248,.94);backdrop-filter:blur(8px);border-bottom-color:var(--line);box-shadow:0 1px 0 var(--line);}
 .top:has(~ .eh, ~ .page.active .eh).scrolled::before{opacity:0;}
+/* same idea for the photo page-headers (Services/Executive Coaching/Consulting) — the nav floats
+   over the photo instead of sitting in its own solid bar above it. Unlike the home hero, .pg-hero's
+   photo is dark with its own permanent scrim, so no extra gradient is needed here — just switch the
+   nav's own text/icon color to light while unscrolled, back to normal ink once solid. */
+.top:has(~ .pg-hero, ~ .page.active .pg-hero){position:fixed;top:0;left:0;right:0;border-bottom-color:transparent;background:transparent;backdrop-filter:none;transition:background .4s ease, backdrop-filter .4s ease, border-color .4s ease, box-shadow .4s ease;}
+.top:has(~ .pg-hero, ~ .page.active .pg-hero).scrolled{background:rgba(252,251,248,.94);backdrop-filter:blur(8px);border-bottom-color:var(--line);box-shadow:0 1px 0 var(--line);}
+.top:has(~ .pg-hero, ~ .page.active .pg-hero):not(.scrolled) .wordmark{color:#FCFBF8;}
+.top:has(~ .pg-hero, ~ .page.active .pg-hero):not(.scrolled) .nav a{color:rgba(252,251,248,.92);}
+.top:has(~ .pg-hero, ~ .page.active .pg-hero):not(.scrolled) .nav a.active{color:#D8B876;}
+.top:has(~ .pg-hero, ~ .page.active .pg-hero):not(.scrolled) .nav a.btn{border-color:#FCFBF8;color:#FCFBF8;}
+.top:has(~ .pg-hero, ~ .page.active .pg-hero):not(.scrolled) .nav a.btn:hover{background:#FCFBF8;color:#1C1916;}
+.top:has(~ .pg-hero, ~ .page.active .pg-hero):not(.scrolled) .nav-toggle span{background:#FCFBF8;}
 .top .container{display:flex;align-items:center;justify-content:space-between;}
 .wordmark{font-family:'Cormorant Garamond',serif;font-size:23px;color:var(--ink);text-decoration:none;letter-spacing:.5px;cursor:pointer;}
 .nav{display:flex;gap:28px;align-items:center;}
@@ -131,6 +143,15 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 .eh-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 100%;display:block;}
 .eh-divider{border:none;height:1px;background:rgba(169,132,63,.42);width:100vw;position:relative;left:50%;margin-left:-50vw;margin-top:0;}
 
+/* closing "excellence" band — photo blending into the page on one side, headline + CTA on the other */
+.excellence-band{display:flex;align-items:stretch;min-height:260px;background:var(--bg);}
+.xb-photo{flex:0 0 42%;position:relative;overflow:hidden;}
+.xb-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 12%;display:block;
+  -webkit-mask-image:linear-gradient(to right, black 72%, transparent 96%);
+  mask-image:linear-gradient(to right, black 72%, transparent 96%);}
+.xb-text{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:1.5rem clamp(1.5rem,6vw,5rem);margin-left:-6%;}
+.xb-text h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(1.6rem,2.6vw,2.2rem);line-height:1.18;color:var(--ink);max-width:400px;margin-bottom:22px;}
+
 /* trusted split with circle portrait */
 .trust-split{display:flex;gap:56px;align-items:center;margin-bottom:14px;}
 .trust-txt{flex:1;}
@@ -193,6 +214,20 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 .contact-band p{font-size:16px;color:var(--ink2);max-width:560px;margin:0 auto 30px;}
 .contact-band a{display:inline-block;font-family:'Jost',sans-serif;font-weight:500;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);background:transparent;border:1px solid var(--ink);padding:.95rem 2.3rem;border-radius:999px;text-decoration:none;transition:background .2s, color .2s;}
 .contact-band a:hover{background:var(--ink);color:#FCFBF8;}
+
+/* photo page-header — full-bleed image + dark scrim, headline over it (Services/Executive Coaching/Consulting) */
+.pg-hero{position:relative;min-height:440px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:#1C1916;padding:150px 0 64px;}
+.pg-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 18%;display:block;}
+.pg-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(21,20,18,.62) 0%, rgba(21,20,18,.74) 100%);}
+.pg-hero .container{position:relative;z-index:1;}
+.pg-hero h1{font-family:'Cormorant Garamond',serif;font-weight:400;color:#FCFBF8;font-size:clamp(2.6rem,5vw,4.1rem);line-height:1.14;margin:0 0 20px;}
+.pg-hero .sub{font-family:'Jost',sans-serif;font-weight:300;font-size:17px;color:rgba(252,251,248,.88);max-width:640px;margin:0 auto;}
+.pg-hero .pg-hero-note{font-family:'Jost',sans-serif;font-weight:400;font-size:14px;letter-spacing:.4px;color:#D8B876;margin-top:14px;}
+/* taller variant — for a portrait-style photo where the subject needs more room to clear the headline.
+   Text anchors near the top of the box, clear of the subject's face which sits in the lower-middle
+   of this particular frame. */
+.pg-hero-tall{min-height:920px;align-items:flex-start;padding-top:180px;}
+.xh-consult-img{object-position:62% 40%;}
 
 /* about */
 .pg-head{padding:76px 0 8px;text-align:center;background:linear-gradient(180deg, var(--bg2) 0%, var(--bg) 78%);}
@@ -333,6 +368,13 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
      that only while the menu is open. --nav-h is measured in JS to the real header height. */
   .nav.open{display:flex;position:fixed;top:var(--nav-h,90px);left:0;right:0;bottom:0;overflow-y:auto;}
   .top:has(.nav.open){backdrop-filter:none!important;}
+  /* the open dropdown always has its own solid cream background regardless of what's behind
+     the header bar, so its links must stay normal ink — the light/white nav-over-photo
+     styling (for .eh and .pg-hero) is only for the closed top bar, never for this panel */
+  .nav.open a{color:var(--ink2)!important;}
+  .nav.open a.active,.nav.open a:hover{color:#8C6A2E!important;}
+  .nav.open a.btn{border-color:var(--ink)!important;color:var(--ink)!important;}
+  .nav.open a.btn:hover{background:var(--ink)!important;color:#FCFBF8!important;}
   .nav a{padding:14px 0;border-top:1px solid var(--line);width:100%;}
   .nav a.btn{text-align:center;margin-top:10px;border-top:1px solid var(--ink);}
   .top .container{position:relative;}
@@ -349,11 +391,24 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   .top:has(~ .eh, ~ .page.active .eh)::before{height:90%;background:linear-gradient(to bottom, rgba(252,251,248,.55) 0%, transparent 100%);}
   .eh-text{padding:2.5rem 1.5rem 3rem;}
   .eh-headline{font-size:clamp(2.4rem,9vw,3rem)!important;}
+  /* excellence band — stack, drop the side-fade mask (nothing to blend into once stacked) */
+  .excellence-band{flex-direction:column;min-height:0;}
+  .xb-photo{aspect-ratio:16/11;-webkit-mask-image:none;mask-image:none;}
+  .xb-photo img{-webkit-mask-image:none;mask-image:none;object-position:50% 15%;}
+  .xb-text{margin-left:0;align-items:center;text-align:center;padding:2.5rem 1.5rem 3rem;}
+  .xb-text h2{max-width:none;}
   .begin .steps{flex-direction:column;gap:26px;}
   .prose p.lead{font-size:23px;}
   .pg-head h1,.about-head-row h1{font-size:40px!important;}
   .pg-head{padding-top:32px;}
   .pg-head-simple{padding-top:56px;}
+  .pg-hero{min-height:380px;padding:110px 0 40px;}
+  .pg-hero h1{font-size:clamp(2rem,8vw,2.6rem);}
+  .pg-hero .sub{font-size:15.5px;}
+  /* mobile keeps the original centered composition for this photo — only desktop needs the
+     top-anchored text (to clear her face) and the extra height (to fit the desk/laptop too) */
+  .pg-hero-tall{min-height:400px;align-items:center;padding-top:110px;}
+  .xh-consult-img{object-position:65% 65%;}
   .contact-band{padding:56px 0;}
   .section{padding:44px 0;}
 }

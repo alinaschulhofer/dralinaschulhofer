@@ -92,6 +92,13 @@ def render_index(posts):
   <div class="container">
 {grid_html}
   </div>
+</section>
+<section class="excellence-band">
+  <div class="xb-photo"><img src="assets/portrait-about.jpg?v={IMG_VERSION}" alt="Dr. Alina Schulhofer" /></div>
+  <div class="xb-text">
+    <h2>For Those Who Demand Excellence.</h2>
+    <a href="index.html#contact" class="eh-btn">Begin the Conversation</a>
+  </div>
 </section>'''
     title = 'Blog — Dr. Alina Schulhofer'
     desc = 'Insights on psychology, high performance, and the inner work behind lasting change, from Dr. Alina Schulhofer.'

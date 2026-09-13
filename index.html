@@ -10,10 +10,10 @@
 <meta property="og:description" content="Depth-oriented virtual psychotherapy for high achievers — executives, entrepreneurs, creatives, and professional athletes. Licensed clinical psychologist in Florida & New York." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.dralinaschulhofer.com/" />
-<meta property="og:image" content="https://www.dralinaschulhofer.com/assets/portrait-about.jpg?v=5" />
+<meta property="og:image" content="https://www.dralinaschulhofer.com/assets/portrait-about.jpg?v=6" />
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=42" />
+<link rel="stylesheet" href="styles.css?v=43" />
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":["Psychologist","MedicalBusiness"],"name":"Dr. Alina Schulhofer — Concierge Psychological Services","description":"Depth-oriented virtual psychotherapy for high achievers — executives, entrepreneurs, creatives, founders, and professional athletes. Licensed clinical psychologist in Florida and New York.","url":"https://www.dralinaschulhofer.com","telephone":"+1-786-671-4945","email":"alina@dralinaschulhofer.com","areaServed":[{"@type":"State","name":"Florida"},{"@type":"State","name":"New York"}],"availableService":[{"@type":"MedicalTherapy","name":"Individual Therapy"},{"@type":"MedicalTherapy","name":"Couples & Family Therapy"},{"@type":"MedicalTherapy","name":"Concierge Therapy"},{"@type":"MedicalTherapy","name":"Therapy Intensives"}],"founder":{"@type":"Person","name":"Dr. Alina Schulhofer","jobTitle":"Licensed Clinical Psychologist (PsyD)","alumniOf":"Nova Southeastern University"},"knowsAbout":["Psychotherapy","Trauma","Personality","Relationships","High Performance Psychology","Executive Wellbeing"]}
 </script>
@@ -52,7 +52,7 @@
         </div>
       </div>
       <div class="eh-photo" aria-hidden="true">
-        <img src="assets/portrait-about.jpg?v=5" alt="" />
+        <img src="assets/portrait-about.jpg?v=6" alt="" />
       </div>
     </div>
     <hr class="eh-divider" />
@@ -79,18 +79,19 @@
     </div>
   </section>
 
-  <section class="philosophy-band">
-    <div class="container">
-      <div class="prose" style="max-width:640px;margin:0 auto;text-align:center;">
-        <h2 class="trust-head" style="margin-bottom:34px;">My Philosophy</h2>
+  <section class="split-band">
+    <div class="split-body">
+      <div class="split-photo"><img src="assets/philosophy-photo.jpg?v=6" alt="Dr. Alina Schulhofer" /></div>
+      <div class="split-text prose">
+        <h2 class="trust-head" style="margin-bottom:8px;">My Philosophy</h2>
         <p>To me, good psychotherapy is a form of art. While my way of working is informed by many years of education, training, and clinical experience, it also has an intuitive component&mdash;what happens within and between people, in my experience, often transcends ordinary logic or understanding.</p>
         <p>My approach is relational psychoanalytic, which means that I make use of what takes place between me and my clients to better understand how they relate to other people in their lives&mdash;what goes well, and where they may inadvertently create or replay painful dynamics.</p>
         <p>I believe meaningful growth begins with a deeper understanding of ourselves: the experiences that have shaped us, our patterns, the ways we relate to ourselves and others, and the unconscious forces that influence how we see and navigate the world.</p>
         <p>I take a holistic perspective that sees and treats the person as an interconnected being&mdash;including mind, body, spirit, and the broader systems in which we live and work. Understanding what gets in our way is important, but so is recognizing the strengths, possibilities, and meaning within our stories.</p>
-        <a href="services.html" class="btn-solid" style="margin-top:12px;">Explore</a>
+        <a href="services.html" class="btn-solid" style="margin-top:0;">Explore</a>
       </div>
-      <hr class="divider-full" style="margin-top:40px;margin-bottom:0;" />
     </div>
+    <hr class="eh-divider" />
   </section>
 
   <section class="section svc-teaser">
@@ -151,7 +152,7 @@
   </section>
 
   <section class="excellence-band">
-    <div class="xb-photo"><img src="assets/portrait-about.jpg?v=5" alt="Dr. Alina Schulhofer" /></div>
+    <div class="xb-photo"><img src="assets/portrait-about.jpg?v=6" alt="Dr. Alina Schulhofer" /></div>
     <div class="xb-text">
       <h2>For Those Who Demand Excellence.</h2>
       <a href="#contact" class="eh-btn">Begin the Conversation</a>
@@ -203,7 +204,7 @@
     .catch(function(){ var body='Name: '+name+'%0D%0AEmail: '+email+'%0D%0APhone: '+phone+(service?'%0D%0ALooking for: '+encodeURIComponent(service):'')+'%0D%0A%0D%0A'+encodeURIComponent(msg); window.location.href='mailto:alina@dralinaschulhofer.com?subject='+encodeURIComponent('Free Consultation Request \u2014 '+name)+'&body='+body; btn.disabled=false; btn.textContent='Request Consultation'; });
   }); }
   document.body.classList.add('anim');
-  var revealSel=['.trust3','.svc-teaser .container','.helpwith .container','.philosophy-band .prose','.featured-post .container','.founder .container','.contact-band .container','.about-head-row','#about .prose','.pg-head','.container.narrow'];
+  var revealSel=['.trust3','.svc-teaser .container','.helpwith .container','.split-text','.rhp-row','.featured-post .container','.founder .container','.contact-band .container','.about-head-row','#about .prose','.pg-head','.container.narrow'];
   revealSel.forEach(function(sel){ document.querySelectorAll(sel).forEach(function(el){ el.classList.add('reveal'); }); });
   document.querySelectorAll('.tphoto img, .about-face').forEach(function(el){ el.classList.add('reveal-img'); });
   if('IntersectionObserver' in window){

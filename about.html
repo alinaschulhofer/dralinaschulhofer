@@ -10,10 +10,10 @@
 <meta property="og:description" content="Meet Dr. Alina Schulhofer, PsyD — a licensed clinical psychologist offering depth-oriented virtual therapy for high performers in Florida and New York." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.dralinaschulhofer.com/about.html" />
-<meta property="og:image" content="https://www.dralinaschulhofer.com/assets/portrait-about.jpg?v=5" />
+<meta property="og:image" content="https://www.dralinaschulhofer.com/assets/portrait-about.jpg?v=6" />
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=42" />
+<link rel="stylesheet" href="styles.css?v=43" />
 
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VXF1MBZZHC"></script>
@@ -46,7 +46,7 @@
         <h1 style="font-size:54px;margin:12px 0 10px;">Dr. Alina Schulhofer</h1>
         <p class="sub">Licensed Clinical Psychologist · Florida &amp; New York</p>
       </div>
-      <img class="about-face" src="assets/face.jpg?v=5" alt="Dr. Alina Schulhofer" />
+      <img class="about-face" src="assets/face.jpg?v=6" alt="Dr. Alina Schulhofer" />
     </div>
   </section>
   <section class="section" style="padding-top:14px;">
@@ -113,7 +113,7 @@
     .catch(function(){ var body='Name: '+name+'%0D%0AEmail: '+email+'%0D%0APhone: '+phone+(service?'%0D%0ALooking for: '+encodeURIComponent(service):'')+'%0D%0A%0D%0A'+encodeURIComponent(msg); window.location.href='mailto:alina@dralinaschulhofer.com?subject='+encodeURIComponent('Free Consultation Request \u2014 '+name)+'&body='+body; btn.disabled=false; btn.textContent='Request Consultation'; });
   }); }
   document.body.classList.add('anim');
-  var revealSel=['.trust3','.svc-teaser .container','.helpwith .container','.philosophy-band .prose','.featured-post .container','.founder .container','.contact-band .container','.about-head-row','#about .prose','.pg-head','.container.narrow'];
+  var revealSel=['.trust3','.svc-teaser .container','.helpwith .container','.split-text','.rhp-row','.featured-post .container','.founder .container','.contact-band .container','.about-head-row','#about .prose','.pg-head','.container.narrow'];
   revealSel.forEach(function(sel){ document.querySelectorAll(sel).forEach(function(el){ el.classList.add('reveal'); }); });
   document.querySelectorAll('.tphoto img, .about-face').forEach(function(el){ el.classList.add('reveal-img'); });
   if('IntersectionObserver' in window){

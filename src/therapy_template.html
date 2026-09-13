@@ -220,7 +220,9 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 .split-divider-right{margin-left:auto;}
 .split-body{display:flex;align-items:center;}
 .split-photo{flex:0 0 50%;position:relative;overflow:hidden;background:#1C1916;aspect-ratio:2345/2950;}
+.split-photo.ec-photo{aspect-ratio:2345/2300;}
 .split-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 75%;display:block;}
+.split-photo img.ec-img{object-position:50% 8%;}
 .split-text{flex:0 0 50%;display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;padding:4rem clamp(2rem,4vw,3.5rem);}
 .split-text.prose p{text-align:left;}
 .split-text h2{position:relative;display:inline-block;padding-bottom:6px;}
@@ -856,7 +858,7 @@ footer .foot-link:hover{color:var(--accent);}
 
   <section class="split-band">
     <div class="split-body">
-      <div class="split-photo"><img src="data:image/jpeg;base64,__ECPHOTO__" alt="Dr. Alina Schulhofer" /></div>
+      <div class="split-photo ec-photo"><img class="ec-img" src="data:image/jpeg;base64,__ECPHOTO__" alt="Dr. Alina Schulhofer" /></div>
       <div class="split-text prose">
         <h2 class="trust-head" style="margin-bottom:24px;">Designed for Those Who Demand Excellence</h2>
         <p>One-on-one engagements go far beyond strategy and skill-building. This work is designed to address the internal structures&mdash;including psychological patterns and relational dynamics&mdash;that can either accelerate or constrain what an individual is able to achieve, while shaping their wellbeing, relationships, and personal life.</p>
@@ -869,26 +871,16 @@ footer .foot-link:hover{color:var(--accent);}
           <li>Clarification of vision, values, and legacy</li>
           <li>Ongoing strategic support and accountability</li>
         </ul>
+        <h3 style="margin-top:26px;">What to Expect</h3>
+        <p>Each engagement is highly individualized. We begin with an in-depth conversation to understand your current context, your goals, and the specific obstacles shaping your performance, wellbeing, relationships, and leadership.</p>
+        <p>From there, the work unfolds according to your unique needs. Engagements are retainer-based and structured over a minimum of three months, allowing for the depth, continuity, and trust that meaningful transformation requires.</p>
       </div>
     </div>
   </section>
 
-  <section class="section" style="padding-top:64px;">
+  <section class="section" style="padding-top:56px;">
     <div class="container">
-      <div class="ab-two-col">
-        <div class="ab-col prose">
-          <h3>What to Expect</h3>
-          <p>Each engagement is highly individualized. We begin with an in-depth conversation to understand your current context, your goals, and the specific obstacles shaping your performance, wellbeing, relationships, and leadership.</p>
-          <p>From there, the work unfolds according to your unique needs. Engagements are retainer-based and structured over a minimum of three months, allowing for the depth, continuity, and trust that meaningful transformation requires.</p>
-        </div>
-        <div class="ab-col prose">
-          <h3>Who This Is For</h3>
-          <p>Designed for those who demand excellence — executives, founders, professional athletes, and other high performers committed to closing the gap between where they are and their highest potential.</p>
-          <p>All individual services are delivered by Dr. Schulhofer directly. She accepts a limited number of 1:1 clients at any given time, to give each individual the highest quality of attention, depth, and continuity.</p>
-        </div>
-      </div>
-
-      <div style="text-align:center;margin-top:56px;">
+      <div style="text-align:center;">
         <p style="color:var(--accent);font-style:italic;font-size:15px;margin-bottom:20px;">All coaching engagements are available internationally and are structured as private retainers. Investment details are discussed during the initial consultation.</p>
         <a href="index.html#contact" class="btn-solid">Inquire</a>
       </div>

@@ -215,7 +215,7 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 .split-text{flex:0 0 50%;display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;padding:4rem clamp(2rem,4vw,3.5rem);}
 .split-text.prose p{text-align:left;}
 .split-text h2{position:relative;display:inline-block;padding-bottom:6px;}
-.split-band.ec-band .split-body,.split-band.th-band .split-body{align-items:flex-start;}
+.split-band.th-band .split-body{align-items:flex-start;}
 .split-text.ec-text{align-items:center;text-align:center;}
 .ec-text h2::after{display:none;}
 .ec-text ul{text-align:left;}

@@ -2,7 +2,7 @@ import re, pathlib, sys, html
 HERE=pathlib.Path(__file__).resolve().parent
 ROOT=HERE.parent  # deploy files live at repo root; master source lives in src/
 sys.path.insert(0, str(HERE))
-from common import DOMAIN, FONTS, NAV, SCRIPT, CSS_LINK, GA_SCRIPT, VISITOR_LOGGER_SCRIPT, IMG_VERSION
+from common import DOMAIN, FONTS, NAV, SCRIPT, CSS_LINK, GA_SCRIPT, VISITOR_LOGGER_SCRIPT, IMG_VERSION, FAVICON, NOSCRIPT_FALLBACK
 from build_blog import load_posts, human_date
 src=open(HERE/'therapy_template.html',encoding='utf-8').read()
 
@@ -109,8 +109,10 @@ for pid,content in pages.items():
 <meta property="og:url" content="{canon}" />
 <meta property="og:image" content="{DOMAIN}/assets/portrait-about.jpg?v={IMG_VERSION}" />
 <meta name="twitter:card" content="summary_large_image" />
+{FAVICON}
 {FONTS}
 {CSS_LINK}
+{NOSCRIPT_FALLBACK}
 {extra_ldjson}
 {GA_SCRIPT}
 </head>
@@ -126,7 +128,39 @@ for pid,content in pages.items():
     print('wrote', fn, len(head), 'bytes')
 print('css bytes', len(css))
 
-# --- 3. robots.txt + sitemap.xml (regenerated every build so new blog posts are always included) ---
+# --- 3. custom 404 page (GitHub Pages serves 404.html automatically for any unmatched path) ---
+not_found_body='''<section class="pg-head">
+  <div class="container">
+    <h1>Page Not Found</h1>
+    <p class="sub">The page you're looking for doesn't exist or may have moved.</p>
+    <a href="index.html" class="btn-solid" style="margin-top:26px;display:inline-block;">Return Home</a>
+  </div>
+</section>'''
+not_found_head=f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Page Not Found | Dr. Alina Schulhofer</title>
+<meta name="robots" content="noindex" />
+{FAVICON}
+{FONTS}
+{CSS_LINK}
+{NOSCRIPT_FALLBACK}
+{GA_SCRIPT}
+</head>
+<body>
+{NAV('')}
+{not_found_body}
+{footer}
+{SCRIPT}
+{VISITOR_LOGGER_SCRIPT}
+</body>
+</html>'''
+open(ROOT/'404.html','w',encoding='utf-8').write(not_found_head)
+print('wrote 404.html')
+
+# --- 4. robots.txt + sitemap.xml (regenerated every build so new blog posts are always included) ---
 open(ROOT/'robots.txt','w',encoding='utf-8').write(
     f'User-agent: *\nAllow: /\n\nSitemap: {DOMAIN}/sitemap.xml\n'
 )

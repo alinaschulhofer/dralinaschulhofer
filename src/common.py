@@ -6,7 +6,7 @@ DOMAIN = 'https://www.dralinaschulhofer.com'
 
 # Bump this on every deploy that changes styles.css — the link tag below embeds it as
 # ?v=N so browsers/CDNs treat it as a new URL instead of serving a stale cached copy.
-CSS_VERSION = 68
+CSS_VERSION = 69
 CSS_LINK = f'<link rel="stylesheet" href="styles.css?v={CSS_VERSION}" />'
 
 # Bump this whenever a file in assets/ changes (photos, etc.) — same cache-busting trick as
@@ -22,6 +22,12 @@ def get_footer():
     return '<footer>' + re.search(r'<footer>(.*?)</footer>', src, re.S).group(1) + '</footer>'
 
 FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;500&display=swap" rel="stylesheet">'
+
+FAVICON = '<link rel="icon" href="favicon.ico" sizes="any" /><link rel="icon" href="favicon.png" type="image/png" /><link rel="apple-touch-icon" href="apple-touch-icon.png" />'
+
+# Fallback for the body-fade-in polish (body starts at opacity:0, JS adds .anim to fade it in) —
+# without this, a page would stay invisible forever if JavaScript is blocked or fails to run.
+NOSCRIPT_FALLBACK = '<noscript><style>body{opacity:1 !important;}</style></noscript>'
 
 # Traffic tracking — mirrors the setup on architectureofexcellence.com (see visitor-logger/SETUP.md).
 GA_MEASUREMENT_ID = 'G-VXF1MBZZHC'

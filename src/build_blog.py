@@ -11,7 +11,7 @@ import json, pathlib, sys, datetime, html
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parent
 sys.path.insert(0, str(HERE))
-from common import DOMAIN, FONTS, NAV, SCRIPT, get_footer, CSS_LINK, GA_SCRIPT, VISITOR_LOGGER_SCRIPT, IMG_VERSION
+from common import DOMAIN, FONTS, NAV, SCRIPT, get_footer, CSS_LINK, GA_SCRIPT, VISITOR_LOGGER_SCRIPT, IMG_VERSION, FAVICON, NOSCRIPT_FALLBACK
 
 POSTS_DIR = HERE / 'posts'
 FOOTER = get_footer()
@@ -49,8 +49,10 @@ def page_shell(active, title, desc, canonical, body_html, extra_head=''):
 <meta property="og:url" content="{canonical}" />
 <meta property="og:image" content="{DOMAIN}/assets/portrait-about.jpg?v={IMG_VERSION}" />
 <meta name="twitter:card" content="summary_large_image" />
+{FAVICON}
 {FONTS}
 {CSS_LINK}
+{NOSCRIPT_FALLBACK}
 {extra_head}
 {GA_SCRIPT}
 </head>

@@ -96,16 +96,19 @@ def render_index(posts):
   </div>
 </section>
 <section class="excellence-band">
-  <div class="xb-photo"><img src="assets/portrait-about.jpg?v={IMG_VERSION}" alt="Dr. Alina Schulhofer" /></div>
+  <div class="xb-photo"><img src="assets/portrait-about.jpg?v={IMG_VERSION}" alt="Dr. Alina Schulhofer, founder of Architecture of Excellence" /></div>
   <div class="xb-text">
     <h2>For Those Who Demand Excellence.</h2>
     <a href="index.html#contact" class="eh-btn">Begin the Conversation</a>
   </div>
 </section>'''
-    title = 'Blog — Dr. Alina Schulhofer'
-    desc = 'Insights on psychology, high performance, and the inner work behind lasting change, from Dr. Alina Schulhofer.'
+    title = 'Psychology, Leadership & Performance Insights | Dr. Schulhofer'
+    desc = 'Insights at the intersection of psychology, relationships, leadership, and organizational behavior, from Dr. Alina Schulhofer.'
     canon = DOMAIN + '/blog.html'
-    return page_shell('blog', title, desc, canon, body)
+    breadcrumb = f'''<script type="application/ld+json">
+{{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{{"@type":"ListItem","position":1,"name":"Home","item":"{DOMAIN}/"}},{{"@type":"ListItem","position":2,"name":"Insights","item":"{canon}"}}]}}
+</script>'''
+    return page_shell('blog', title, desc, canon, body, extra_head=breadcrumb)
 
 
 def render_post(post):
@@ -142,6 +145,9 @@ def render_post(post):
     ldjson = f'''<meta name="author" content="Dr. Alina Schulhofer" />
 <script type="application/ld+json">
 {{"@context":"https://schema.org","@type":"BlogPosting","headline":{json.dumps(post['title'])},"description":{json.dumps(post['excerpt'])},"datePublished":"{post['date']}","url":"{canon}","image":"{DOMAIN}/assets/portrait-about.jpg","author":{{"@type":"Person","name":"Dr. Alina Schulhofer"}},"publisher":{{"@type":"Person","name":"Dr. Alina Schulhofer"}}}}
+</script>
+<script type="application/ld+json">
+{{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{{"@type":"ListItem","position":1,"name":"Home","item":"{DOMAIN}/"}},{{"@type":"ListItem","position":2,"name":"Insights","item":"{DOMAIN}/blog.html"}},{{"@type":"ListItem","position":3,"name":{json.dumps(post['title'])},"item":"{canon}"}}]}}
 </script>'''
     return page_shell('blog', title, desc, canon, body, extra_head=ldjson)
 

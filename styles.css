@@ -256,7 +256,8 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
    Text anchors near the top of the box, clear of the subject's face which sits in the lower-middle
    of this particular frame. */
 .pg-hero-tall{min-height:920px;align-items:flex-start;padding-top:180px;}
-.xh-consult-img{object-position:62% 40%;}
+.pg-hero img.xh-consult-img{object-position:62% 40%;}
+.pg-hero img.xh-ec-img{object-position:50% 5%;}
 
 /* about */
 .pg-head{padding:76px 0 8px;text-align:center;background:linear-gradient(180deg, var(--bg2) 0%, var(--bg) 78%);}
@@ -452,7 +453,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   /* mobile keeps the original centered composition for this photo — only desktop needs the
      top-anchored text (to clear her face) and the extra height (to fit the desk/laptop too) */
   .pg-hero-tall{min-height:400px;align-items:center;padding-top:110px;}
-  .xh-consult-img{object-position:65% 65%;}
+  .pg-hero img.xh-consult-img{object-position:65% 65%;}
+  .pg-hero img.xh-ec-img{object-position:50% 15%;}
   .contact-band{padding:56px 0;}
   .section{padding:44px 0;}
 }

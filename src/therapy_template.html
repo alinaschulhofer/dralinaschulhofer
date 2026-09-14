@@ -476,8 +476,13 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   .section{padding:44px 0;}
 }
 
-footer{margin-top:0;padding:44px 0;border-top:1px solid var(--line);text-align:center;background:var(--bg);}
-footer .fnote{font-size:12px;color:var(--ink3);letter-spacing:.5px;line-height:1.9;}
+footer{margin-top:0;padding:56px 0 40px;border-top:1px solid var(--line);text-align:center;background:var(--bg);}
+.foot-wordmark{display:inline-block;font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--ink);text-decoration:none;letter-spacing:.3px;margin-bottom:24px;}
+.foot-wordmark:hover{color:var(--accent);}
+.foot-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 28px;margin-bottom:28px;}
+.foot-nav a{font-family:'Jost',sans-serif;font-weight:500;font-size:11.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink2);text-decoration:none;transition:color .2s;}
+.foot-nav a:hover{color:var(--accent);}
+footer .fnote{font-size:12px;color:var(--ink3);letter-spacing:.5px;line-height:1.9;padding-top:26px;border-top:1px solid var(--line);}
 footer .foot-link{color:#8C6A2E;text-decoration:none;}
 footer .foot-link:hover{color:var(--accent);}
 
@@ -927,6 +932,16 @@ footer .foot-link:hover{color:var(--accent);}
 
 <footer>
   <div class="container">
+    <a href="index.html" class="foot-wordmark">Dr. Alina Schulhofer</a>
+    <nav class="foot-nav" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Therapy</a>
+      <a href="executive-coaching.html">Executive Coaching</a>
+      <a href="coaching.html">Consulting</a>
+      <a href="blog.html">Blog</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
     <p class="fnote">
       <a href="mailto:alina@dralinaschulhofer.com" class="foot-link">alina@dralinaschulhofer.com</a> &nbsp;·&nbsp; +1 786-671-4945<br />
       <a href="https://architectureofexcellence.com" target="_blank" rel="noopener" class="foot-link">Architecture of Excellence ↗</a><br />

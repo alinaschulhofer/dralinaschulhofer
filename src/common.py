@@ -6,7 +6,7 @@ DOMAIN = 'https://www.dralinaschulhofer.com'
 
 # Bump this on every deploy that changes styles.css — the link tag below embeds it as
 # ?v=N so browsers/CDNs treat it as a new URL instead of serving a stale cached copy.
-CSS_VERSION = 71
+CSS_VERSION = 72
 CSS_LINK = f'<link rel="stylesheet" href="styles.css?v={CSS_VERSION}" />'
 
 # Bump this whenever a file in assets/ changes (photos, etc.) — same cache-busting trick as
@@ -28,6 +28,13 @@ FAVICON = '<link rel="icon" href="favicon.ico" sizes="any" /><link rel="icon" hr
 # Fallback for the body-fade-in polish (body starts at opacity:0, JS adds .anim to fade it in) —
 # without this, a page would stay invisible forever if JavaScript is blocked or fails to run.
 NOSCRIPT_FALLBACK = '<noscript><style>body{opacity:1 !important;}</style></noscript>'
+
+# Floating "Book a Consultation" button — present on every page, links out to Calendly.
+CALENDLY_URL = 'https://calendly.com/dralinaschulhofer/consultation-15min'
+FAB_BOOK = f'''<a href="{CALENDLY_URL}" target="_blank" rel="noopener" class="fab-book" aria-label="Book a consultation on Calendly">
+  <svg viewBox="0 0 40 40"><rect x="7" y="9" width="26" height="24" rx="4"/><path d="M7 17h26"/><path d="M14 5v6M26 5v6" stroke-linecap="round"/><path d="M15 24l3.2 3.2L26 19" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <span>Book Consultation</span>
+</a>'''
 
 # Traffic tracking — mirrors the setup on architectureofexcellence.com (see visitor-logger/SETUP.md).
 GA_MEASUREMENT_ID = 'G-VXF1MBZZHC'

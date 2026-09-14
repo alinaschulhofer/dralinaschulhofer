@@ -388,6 +388,14 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 .inline-link:hover{border-bottom-color:#8C6A2E;}
 .btn-solid{display:inline-block;text-align:center;font-family:'Jost',sans-serif;font-weight:500;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);background:transparent;border:1px solid var(--ink);padding:.95rem 2.3rem;border-radius:999px;text-decoration:none;transition:background .2s, color .2s;}
 .btn-solid:hover{background:var(--ink);color:#FCFBF8;}
+
+/* floating Calendly button — fixed pill CTA, present on every page */
+.fab-book{position:fixed;right:24px;bottom:24px;z-index:60;display:inline-flex;align-items:center;gap:10px;height:54px;padding:0 22px 0 18px;border-radius:999px;background:linear-gradient(150deg,#FFFDF8 0%,#F3E1BC 100%);border:1px solid rgba(169,132,63,.45);box-shadow:0 8px 22px rgba(21,21,26,.18);color:#A9843F;text-decoration:none;transition:transform .25s cubic-bezier(.25,.46,.45,.94), box-shadow .25s ease, border-color .25s ease;}
+.fab-book svg{flex:0 0 auto;width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.fab-book span{font-family:'Jost',sans-serif;font-size:.76rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;color:#8C6A2E;}
+.fab-book:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(21,21,26,.24);border-color:rgba(169,132,63,.7);}
+@media(max-width:640px){.fab-book{right:16px;bottom:16px;height:48px;padding:0 18px 0 14px;gap:8px;}.fab-book svg{width:19px;height:19px;}.fab-book span{font-size:.68rem;}}
+@media(prefers-reduced-motion:reduce){.fab-book{transition:none;}}
 @media(max-width:520px){.contact-direct{flex-direction:column;gap:6px;}.contact-direct .cd-sep{display:none;}}
 
 /* ── responsive / mobile ── */

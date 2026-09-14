@@ -2,7 +2,7 @@ import re, pathlib, sys, html
 HERE=pathlib.Path(__file__).resolve().parent
 ROOT=HERE.parent  # deploy files live at repo root; master source lives in src/
 sys.path.insert(0, str(HERE))
-from common import DOMAIN, FONTS, NAV, SCRIPT, CSS_LINK, GA_SCRIPT, VISITOR_LOGGER_SCRIPT, IMG_VERSION, FAVICON, NOSCRIPT_FALLBACK
+from common import DOMAIN, FONTS, NAV, SCRIPT, CSS_LINK, GA_SCRIPT, VISITOR_LOGGER_SCRIPT, IMG_VERSION, FAVICON, NOSCRIPT_FALLBACK, FAB_BOOK
 from build_blog import load_posts, human_date
 src=open(HERE/'therapy_template.html',encoding='utf-8').read()
 
@@ -120,6 +120,7 @@ for pid,content in pages.items():
 {NAV(pid)}
 {content}
 {footer}
+{FAB_BOOK}
 {SCRIPT}
 {VISITOR_LOGGER_SCRIPT}
 </body>
@@ -153,6 +154,7 @@ not_found_head=f'''<!DOCTYPE html>
 {NAV('')}
 {not_found_body}
 {footer}
+{FAB_BOOK}
 {SCRIPT}
 {VISITOR_LOGGER_SCRIPT}
 </body>

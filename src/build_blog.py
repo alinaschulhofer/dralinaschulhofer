@@ -97,7 +97,7 @@ def render_index(posts):
   <div class="split-body">
     <div class="split-photo blog-note-photo"><img class="blog-note-img" src="assets/blog-note-photo.jpg?v={IMG_VERSION}" alt="Dr. Alina Schulhofer, writing" /></div>
     <div class="split-text prose">
-      <h2 class="trust-head" style="margin-bottom:40px;">TBD</h2>
+      <h2 class="trust-head" style="margin-bottom:40px;">Beyond Mindset</h2>
       <p>As a psychologist specializing in working with professional athletes and other high performers, people often expect me to provide quick tips and tricks for improving mindset.</p>
       <p>Yet my approach to understanding and working with people is more complex. The truth is that no one is exempt from the challenges and vulnerabilities of being human, no matter the accolades, wealth, or success one has attained. Relationship problems, sexual difficulties, insecurities, and many other fears and predicaments do not disappear with money, status, or achievement.</p>
       <p>Much of what I write, therefore, is intended to help people develop a deeper understanding of the psychological, emotional, and relational factors that may contribute to the challenges they face. My writing draws on my training, clinical observations, and other professional experiences. On occasion, I also integrate composite, de-identified clinical examples to illustrate some of the dynamics I explore in my one-on-one work.</p>

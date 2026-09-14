@@ -215,6 +215,7 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 .split-photo.ec-photo{aspect-ratio:2345/2300;}
 .split-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 75%;display:block;}
 .split-photo img.ec-img{object-position:50% 8%;}
+.split-photo img.blog-note-img{object-position:58% 15%;}
 .split-text{flex:0 0 50%;display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;padding:4rem clamp(2rem,4vw,3.5rem);}
 .split-text.prose p{text-align:left;}
 .split-text h2{position:relative;display:inline-block;padding-bottom:6px;}
@@ -436,6 +437,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   .split-photo.ec-photo{order:1;}
   .split-photo img{object-position:50% 75%;}
   .split-photo img.th-phil-img{object-position:50% 12%;}
+  .split-photo img.blog-note-img{object-position:58% 20%;}
   .split-text{padding:2.5rem 1.5rem 3rem;}
   .ab-two-col{flex-direction:column;gap:8px;}
   /* the nav's readability gradient is sized for desktop's tall hero photo; on mobile

@@ -83,9 +83,11 @@ def render_index(posts):
     else:
         grid_html = '    <p class="blog-empty">New reflections are on their way — check back soon.</p>'
 
-    body = f'''<section class="pg-head">
+    body = f'''<section class="pg-hero">
+  <img class="th-hero-img" src="assets/portrait-about.jpg?v={IMG_VERSION}" alt="" />
   <div class="container">
-    <h1>Insights</h1>
+    <h1>Where Excellence Meets Wellbeing</h1>
+    <p class="sub">Insights at the Intersection of Psychology, Relationships, Leadership, and Organizational Behavior</p>
   </div>
 </section>
 <section class="section" style="padding-top:14px;">

@@ -67,8 +67,8 @@ def page_shell(active, title, desc, canonical, body_html, extra_head=''):
 </html>'''
 
 
-def render_card(post):
-    return f'''      <a href="{post['slug']}.html" class="blog-card">
+def render_row(post):
+    return f'''      <a href="{post['slug']}.html" class="blog-row">
         <div class="blog-meta">
           <span class="blog-tag">{html.escape(post['tag'])}</span>
           <span class="blog-date">{human_date(post['date'])}</span>
@@ -81,10 +81,10 @@ def render_card(post):
 
 def render_index(posts):
     if posts:
-        grid = '\n'.join(render_card(p) for p in posts)
-        grid_html = f'    <div class="blog-grid">\n{grid}\n    </div>'
+        rows = '\n'.join(render_row(p) for p in posts)
+        list_html = f'    <div class="blog-list">\n{rows}\n    </div>'
     else:
-        grid_html = '    <p class="blog-empty">New reflections are on their way — check back soon.</p>'
+        list_html = '    <p class="blog-empty">New reflections are on their way — check back soon.</p>'
 
     body = f'''<section class="pg-hero">
   <img class="th-hero-img" src="assets/portrait-about.jpg?v={IMG_VERSION}" alt="" />
@@ -95,7 +95,7 @@ def render_index(posts):
 </section>
 <section class="section" style="padding-top:14px;">
   <div class="container">
-{grid_html}
+{list_html}
   </div>
 </section>
 <section class="excellence-band">

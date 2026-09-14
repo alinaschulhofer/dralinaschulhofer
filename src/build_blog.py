@@ -93,18 +93,7 @@ def render_index(posts):
     <p class="sub">Insights at the Intersection of Psychology, Relationships, Leadership, and Organizational Behavior</p>
   </div>
 </section>
-<section class="split-band blog-note-band">
-  <div class="split-body">
-    <div class="split-photo blog-note-photo"><img class="blog-note-img" src="assets/blog-note-photo.jpg?v={IMG_VERSION}" alt="Dr. Alina Schulhofer, writing" /></div>
-    <div class="split-text blog-note-text prose">
-      <h2 class="trust-head" style="margin-bottom:14px;font-size:26px;">Beyond Mindset</h2>
-      <p>As a psychologist specializing in working with professional athletes and other high performers, people often expect me to provide quick tips and tricks for improving mindset.</p>
-      <p>Yet my approach to understanding and working with people is more complex. The truth is that no one is exempt from the challenges and vulnerabilities of being human, no matter the accolades, wealth, or success one has attained. Relationship problems, sexual difficulties, insecurities, and many other fears and predicaments do not disappear with money, status, or achievement.</p>
-      <p>Much of what I write, therefore, is intended to help people develop a deeper understanding of the psychological, emotional, and relational factors that may contribute to the challenges they face. My writing draws on my training, clinical observations, and other professional experiences. On occasion, I also integrate composite, de-identified clinical examples to illustrate some of the dynamics I explore in my one-on-one work.</p>
-    </div>
-  </div>
-</section>
-<section class="section" style="padding-top:56px;">
+<section class="section" style="padding-top:14px;">
   <div class="container">
 {grid_html}
   </div>

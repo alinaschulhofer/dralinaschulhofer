@@ -207,9 +207,9 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 .help-list li{position:relative;padding:10px 0 10px 26px;font-size:16px;color:var(--ink2);}
 .help-list li::before{content:"";position:absolute;left:0;top:15px;width:5px;height:5px;border-radius:50%;background:var(--accent);}
 @media(max-width:600px){.help-cols{flex-direction:column;gap:0;max-width:340px;transform:none;}}
-.split-text h2::after,.helpwith h2::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--accent);transform-origin:left;transform:scaleX(0);transition:transform 1s cubic-bezier(.2,.7,.2,1) .2s;}
-.split-text.is-visible h2::after,.helpwith .container.is-visible h2::after{transform:scaleX(1);}
-@media(prefers-reduced-motion:reduce){.split-text h2::after,.helpwith h2::after{transform:scaleX(1);transition:none;}}
+.helpwith h2::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--accent);transform-origin:left;transform:scaleX(0);transition:transform 1s cubic-bezier(.2,.7,.2,1) .2s;}
+.helpwith .container.is-visible h2::after{transform:scaleX(1);}
+@media(prefers-reduced-motion:reduce){.helpwith h2::after{transform:scaleX(1);transition:none;}}
 
 /* My Philosophy (homepage) — back to the full-bleed editorial format, same idea as the hero (.eh)
    but mirrored: photo on the left, text on the right. align-items:flex-start (not stretch) so both

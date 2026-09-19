@@ -435,6 +435,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   .split-photo.th-phil-photo{aspect-ratio:2345/2500;order:1;}
   .split-photo.ec-photo{order:1;}
   .split-photo img{object-position:50% 75%;}
+  .split-photo img.home-phil-img{object-position:50% 59%;}
   .split-photo img.th-phil-img{object-position:50% 12%;}
   .split-text{padding:2.5rem 1.5rem 3rem;}
   .ab-two-col{flex-direction:column;gap:8px;}

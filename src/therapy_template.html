@@ -214,25 +214,18 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 .helpwith .container.is-visible h2::after{transform:scaleX(1);}
 @media(prefers-reduced-motion:reduce){.helpwith h2::after{transform:scaleX(1);transition:none;}}
 
-/* My Philosophy (homepage) — full-bleed editorial format, same idea as the hero (.eh) but
-   mirrored: photo on the left, text on the right. Only the photo stretches (align-self:stretch,
-   no fixed aspect-ratio) to match the text column's natural height — .split-body itself stays
-   align-items:flex-start so .split-text is never force-stretched (that previously triggered
-   .trust-head's flex:1 rule, meant for a different horizontal-flex context, ballooning the
-   heading). This keeps the photo's top/bottom edges flush with the gold divider lines regardless
-   of copy length, without touching the text column's own sizing. */
+/* My Philosophy (homepage) — back to the full-bleed editorial format, same idea as the hero (.eh)
+   but mirrored: photo on the left, text on the right. align-items:flex-start (not stretch) so both
+   columns start flush at the top — stretching the photo to match text height via aspect-ratio was
+   rendering inconsistently and creating a large gap under the heading. */
 .split-band{position:relative;background:#FCFBF8;}
 .split-divider{border:none;height:1px;background:rgba(169,132,63,.42);width:50%;margin:0;}
 .split-divider-right{margin-left:auto;}
 .split-body{display:flex;align-items:center;}
-.split-band.home-phil-band .split-body{align-items:flex-start;}
 .split-photo{flex:0 0 50%;position:relative;overflow:hidden;background:#1C1916;aspect-ratio:2345/2950;}
-.split-band.home-phil-band .split-photo{aspect-ratio:auto;align-self:stretch;}
-.split-band.home-phil-band .split-text{padding-top:2.5rem;padding-bottom:2.5rem;}
 .split-photo.ec-photo{aspect-ratio:2345/2300;}
-.split-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 75%;display:block;}
+.split-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 75%;display:block;}
 .split-photo img.ec-img{object-position:50% 8%;}
-.split-photo img.home-phil-img{object-position:50% 20%;}
 .split-text{flex:0 0 50%;display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;padding:4rem clamp(2rem,4vw,3.5rem);}
 .split-text.prose p{text-align:left;}
 .split-text h2{position:relative;display:inline-block;padding-bottom:6px;}
@@ -450,11 +443,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   .split-divider-top{display:none;}
   .split-body{flex-direction:column;}
   .split-photo{aspect-ratio:2345/1900;}
-  .split-band.home-phil-band .split-photo{aspect-ratio:2345/2800;}
   .split-photo.th-phil-photo{aspect-ratio:2345/2500;order:1;}
   .split-photo.ec-photo{order:1;}
   .split-photo img{object-position:50% 75%;}
-  .split-photo img.home-phil-img{object-position:50% 15%;}
   .split-photo img.th-phil-img{object-position:50% 12%;}
   .split-text{padding:2.5rem 1.5rem 3rem;}
   .ab-two-col{flex-direction:column;gap:8px;}
@@ -622,16 +613,16 @@ footer .foot-link:hover{color:var(--accent);}
     </div>
   </section>
 
-  <section class="split-band home-phil-band">
+  <section class="split-band">
     <hr class="split-divider split-divider-right split-divider-top" />
     <div class="split-body">
-      <div class="split-photo"><img class="home-phil-img" src="data:image/jpeg;base64,__PPHIL__" alt="Dr. Alina Schulhofer, licensed clinical psychologist" /></div>
+      <div class="split-photo"><img src="data:image/jpeg;base64,__PPHIL__" alt="Dr. Alina Schulhofer, licensed clinical psychologist" /></div>
       <div class="split-text prose">
-        <h2 class="trust-head" style="margin-bottom:28px;">My Philosophy</h2>
+        <h2 class="trust-head" style="margin-bottom:62px;">My Philosophy</h2>
         <p>To me, good psychotherapy is a form of art. While my way of working is informed by many years of education, training, and clinical experience, it also has an intuitive component&mdash;what happens within and between people, in my experience, often transcends ordinary logic or understanding.</p>
         <p>My approach is relational psychoanalytic, which means that I make use of what takes place between me and my clients to better understand how they relate to other people in their lives&mdash;what goes well, and where they may inadvertently create or replay painful dynamics.</p>
         <p>I believe meaningful growth begins with a deeper understanding of ourselves: the experiences that have shaped us, our patterns, the ways we relate to ourselves and others, and the unconscious forces that influence how we see and navigate the world.</p>
-        <p>This philosophy extends beyond my clinical work, informing how I understand leadership, performance, and organizational life. Whether working with an individual or an organization, I am interested in understanding what gets in the way, as well as the strengths, possibilities, and meaning that can support growth and meaningful change.</p>
+        <p>I take a holistic perspective that sees and treats the person as an interconnected being&mdash;including mind, body, spirit, and the broader systems in which we live and work. Understanding what gets in our way is important, but so is recognizing the strengths, possibilities, and meaning within our stories.</p>
         <a href="about.html" class="btn-solid" style="margin-top:26px;">About</a>
       </div>
     </div>

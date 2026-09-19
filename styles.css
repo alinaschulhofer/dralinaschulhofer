@@ -438,6 +438,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   .split-photo img.home-phil-img{object-position:50% 59%;}
   .split-photo img.th-phil-img{object-position:50% 12%;}
   .split-text{padding:2.5rem 1.5rem 3rem;}
+  .home-phil-band .btn-solid{align-self:center;}
   .ab-two-col{flex-direction:column;gap:8px;}
   /* the nav's readability gradient is sized for desktop's tall hero photo; on mobile
      the photo panel is much shorter, so that same gradient height washes out her face */

@@ -214,15 +214,17 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 .helpwith .container.is-visible h2::after{transform:scaleX(1);}
 @media(prefers-reduced-motion:reduce){.helpwith h2::after{transform:scaleX(1);transition:none;}}
 
-/* My Philosophy (homepage) — back to the full-bleed editorial format, same idea as the hero (.eh)
-   but mirrored: photo on the left, text on the right. align-items:flex-start (not stretch) so both
-   columns start flush at the top — stretching the photo to match text height via aspect-ratio was
-   rendering inconsistently and creating a large gap under the heading. */
+/* My Philosophy (homepage) — full-bleed editorial format, same idea as the hero (.eh) but
+   mirrored: photo on the left, text on the right. The photo stretches (flex align-items:stretch,
+   no fixed aspect-ratio) to always match the text column's height, so its top/bottom edges stay
+   flush with the gold divider lines above/below regardless of how long the copy is. */
 .split-band{position:relative;background:#FCFBF8;}
 .split-divider{border:none;height:1px;background:rgba(169,132,63,.42);width:50%;margin:0;}
 .split-divider-right{margin-left:auto;}
 .split-body{display:flex;align-items:center;}
+.split-band.home-phil-band .split-body{align-items:stretch;}
 .split-photo{flex:0 0 50%;position:relative;overflow:hidden;background:#1C1916;aspect-ratio:2345/2950;}
+.split-band.home-phil-band .split-photo{aspect-ratio:auto;}
 .split-photo.ec-photo{aspect-ratio:2345/2300;}
 .split-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 75%;display:block;}
 .split-photo img.ec-img{object-position:50% 8%;}
@@ -443,6 +445,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   .split-divider-top{display:none;}
   .split-body{flex-direction:column;}
   .split-photo{aspect-ratio:2345/1900;}
+  .split-band.home-phil-band .split-photo{aspect-ratio:2345/1900;}
   .split-photo.th-phil-photo{aspect-ratio:2345/2500;order:1;}
   .split-photo.ec-photo{order:1;}
   .split-photo img{object-position:50% 75%;}
@@ -606,7 +609,7 @@ footer .foot-link:hover{color:var(--accent);}
       <div class="prose" style="max-width:640px;margin:0 auto;text-align:center;">
         <h2 style="font-size:32px;margin-bottom:32px;">Trusted by Professional Athletes, Executives &amp; Other High Performers</h2>
         <p style="text-align:center;">I'm a licensed psychologist in Florida and New York, executive coach, and organizational consultant. My work spans clinical practice, leadership development, and organizational consulting, with a particular focus on professional athletes, executives, entrepreneurs, and other individuals operating in high-stakes environments.</p>
-        <p style="text-align:center;">Across these different settings, my work is grounded in understanding the person behind the performance. I help individuals and organizations examine the psychological, relational, and organizational dynamics that shape how people lead, perform, make decisions, navigate relationships, and respond to pressure and change.</p>
+        <p style="text-align:center;">Across these different settings, my work is grounded in understanding the person behind the performance. I help individuals and organizations examine the psychological, relational, and systemic dynamics that shape how people lead, perform, make decisions, navigate relationships, and respond to pressure and change.</p>
         <p style="text-align:center;">For my clinical clients, this often means creating a confidential space to explore what lies beneath the surface of outward success: chronic pressure, self-doubt, relationship difficulties, or a sense of disconnection from themselves and their values. My approach goes beyond symptom management, supporting long-lasting transformation and overall wellbeing.</p>
         <p style="text-align:center;">Within my coaching and consulting work, I bring this same philosophy and my psychoanalytic background to issues related to leadership, high performance, organizational culture, and the human dynamics that influence how individuals and systems function.</p>
         <a href="about.html" class="eh-btn" style="margin-top:8px;">About Me</a>
@@ -614,7 +617,7 @@ footer .foot-link:hover{color:var(--accent);}
     </div>
   </section>
 
-  <section class="split-band">
+  <section class="split-band home-phil-band">
     <hr class="split-divider split-divider-right split-divider-top" />
     <div class="split-body">
       <div class="split-photo"><img src="data:image/jpeg;base64,__PPHIL__" alt="Dr. Alina Schulhofer, licensed clinical psychologist" /></div>

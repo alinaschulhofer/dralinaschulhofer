@@ -203,15 +203,20 @@ body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 .helpwith .container.is-visible h2::after{transform:scaleX(1);}
 @media(prefers-reduced-motion:reduce){.helpwith h2::after{transform:scaleX(1);transition:none;}}
 
-/* My Philosophy (homepage) — back to the full-bleed editorial format, same idea as the hero (.eh)
-   but mirrored: photo on the left, text on the right. align-items:flex-start (not stretch) so both
-   columns start flush at the top — stretching the photo to match text height via aspect-ratio was
-   rendering inconsistently and creating a large gap under the heading. */
+/* My Philosophy (homepage) — full-bleed editorial format, same idea as the hero (.eh) but
+   mirrored: photo on the left, text on the right. Only the photo stretches (align-self:stretch,
+   no fixed aspect-ratio) to match the text column's natural height — .split-body itself stays
+   align-items:flex-start so .split-text is never force-stretched (that previously triggered
+   .trust-head's flex:1 rule, meant for a different horizontal-flex context, ballooning the
+   heading). This keeps the photo's top/bottom edges flush with the gold divider lines regardless
+   of copy length, without touching the text column's own sizing. */
 .split-band{position:relative;background:#FCFBF8;}
 .split-divider{border:none;height:1px;background:rgba(169,132,63,.42);width:50%;margin:0;}
 .split-divider-right{margin-left:auto;}
 .split-body{display:flex;align-items:center;}
+.split-band.home-phil-band .split-body{align-items:flex-start;}
 .split-photo{flex:0 0 50%;position:relative;overflow:hidden;background:#1C1916;aspect-ratio:2345/2950;}
+.split-band.home-phil-band .split-photo{aspect-ratio:auto;align-self:stretch;}
 .split-photo.ec-photo{aspect-ratio:2345/2300;}
 .split-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 75%;display:block;}
 .split-photo img.ec-img{object-position:50% 8%;}
@@ -432,6 +437,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   .split-divider-top{display:none;}
   .split-body{flex-direction:column;}
   .split-photo{aspect-ratio:2345/1900;}
+  .split-band.home-phil-band .split-photo{aspect-ratio:2345/1900;}
   .split-photo.th-phil-photo{aspect-ratio:2345/2500;order:1;}
   .split-photo.ec-photo{order:1;}
   .split-photo img{object-position:50% 75%;}

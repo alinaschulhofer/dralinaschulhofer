@@ -6,7 +6,7 @@ DOMAIN = 'https://www.dralinaschulhofer.com'
 
 # Bump this on every deploy that changes styles.css — the link tag below embeds it as
 # ?v=N so browsers/CDNs treat it as a new URL instead of serving a stale cached copy.
-CSS_VERSION = 98
+CSS_VERSION = 99
 CSS_LINK = f'<link rel="stylesheet" href="styles.css?v={CSS_VERSION}" />'
 
 # Bump this whenever a file in assets/ changes (photos, etc.) — same cache-busting trick as
@@ -118,11 +118,15 @@ SCRIPT = '''<script>
     .catch(function(){ var body='Name: '+name+'%0D%0AEmail: '+email+'%0D%0APhone: '+phone+(service?'%0D%0ALooking for: '+encodeURIComponent(service):'')+'%0D%0A%0D%0A'+encodeURIComponent(msg); window.location.href='mailto:alina@dralinaschulhofer.com?subject='+encodeURIComponent('Free Consultation Request \\u2014 '+name)+'&body='+body; btn.disabled=false; btn.textContent='Request Consultation'; });
   }); }
   document.body.classList.add('anim');
-  var revealSel=['.trust3','.svc-teaser .container','.helpwith .container','.split-text','.cf-text','.rhp-row','.featured-post .container','.founder .container','.contact-band .container','.about-head-row','#about .prose','.pg-head','.container.narrow'];
+  var revealSel=['.trust3','.svc-teaser .container','.helpwith .container','.cf-text','.rhp-row','.featured-post .container','.founder .container','.contact-band .container','.about-head-row','#about .prose','.pg-head','.container.narrow'];
   revealSel.forEach(function(sel){ document.querySelectorAll(sel).forEach(function(el){ el.classList.add('reveal'); }); });
-  document.querySelectorAll('.tphoto img, .about-face').forEach(function(el){ el.classList.add('reveal-img'); });
+  // groups whose direct children (heading, paragraphs, button) fade up one after another
+  // instead of all at once — see .reveal-stagger in the CSS.
+  var staggerSel=['.split-text','.home-trust-intro'];
+  staggerSel.forEach(function(sel){ document.querySelectorAll(sel).forEach(function(el){ el.classList.add('reveal-stagger'); }); });
+  document.querySelectorAll('.tphoto img, .about-face, .split-photo img, .eh-photo img, .xb-photo img').forEach(function(el){ el.classList.add('reveal-img'); });
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(en){ en.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target);} }); },{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
-    document.querySelectorAll('.reveal,.reveal-img').forEach(function(el){ io.observe(el); });
-  } else { document.querySelectorAll('.reveal,.reveal-img').forEach(function(el){ el.classList.add('is-visible'); }); }
+    document.querySelectorAll('.reveal,.reveal-img,.reveal-stagger,.split-divider').forEach(function(el){ io.observe(el); });
+  } else { document.querySelectorAll('.reveal,.reveal-img,.reveal-stagger,.split-divider').forEach(function(el){ el.classList.add('is-visible'); }); }
 </script>'''

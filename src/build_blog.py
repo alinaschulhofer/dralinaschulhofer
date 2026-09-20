@@ -75,7 +75,7 @@ def render_card(post):
         </div>
         <h2 class="blog-title">{html.escape(post['title'])}</h2>
         <p class="blog-excerpt">{html.escape(post['excerpt'])}</p>
-        <span class="blog-read">Read →</span>
+        <span class="blog-read">Read <span class="arrow">&rarr;</span></span>
       </a>'''
 
 

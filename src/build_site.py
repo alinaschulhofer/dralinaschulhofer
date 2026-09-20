@@ -40,7 +40,7 @@ if posts:
       <p class="fp-meta"><span class="fp-tag">{html.escape(latest['tag'])}</span>{human_date(latest['date'])}</p>
       <h2><a href="{latest['slug']}.html">{html.escape(latest['title'])}</a></h2>
       <p class="fp-excerpt">{html.escape(latest['excerpt'])}</p>
-      <a href="{latest['slug']}.html" class="fp-link">Read the Full Post →</a>'''
+      <a href="{latest['slug']}.html" class="fp-link">Read the Full Post <span class="arrow">&rarr;</span></a>'''
     pages['home']=pages['home'].replace('<!-- __FEATURED_POST__ -->', fp_html)
 
 # footer

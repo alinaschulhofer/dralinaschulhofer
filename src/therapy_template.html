@@ -252,8 +252,10 @@ section.home-trust-detail{padding-top:40px;padding-bottom:48px;}
    height. The img is taken out of flow (position:absolute) so it can't feed its own intrinsic
    aspect ratio back into the box's height — without that, the browser falls back to sizing the
    box from the image's own aspect ratio instead of stretching, breaking the match. */
-.split-band.home-phil-band .split-photo{aspect-ratio:auto;align-self:stretch;}
-.split-band.home-phil-band .split-photo img{position:absolute;inset:0;}
+@media(min-width:761px){
+  .split-band.home-phil-band .split-photo{aspect-ratio:auto;align-self:stretch;}
+  .split-band.home-phil-band .split-photo img{position:absolute;inset:0;}
+}
 .split-text.ec-text{align-items:center;text-align:center;}
 .ec-text h2::after{display:none;}
 .ec-text ul{text-align:left;}

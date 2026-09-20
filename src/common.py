@@ -65,7 +65,7 @@ def NAV(active):
     blog_link = ''
     if SHOW_BLOG_NAV:
         blog_cls = ' class="active"' if active == 'blog' else ''
-        blog_link = f'<a href="blog.html"{blog_cls}>Blog</a>\n      '
+        blog_link = f'<a href="blog.html"{blog_cls}>Insights</a>\n      '
     return f'''<header class="top">
   <div class="container">
     <a href="index.html" class="wordmark">Dr. Alina Schulhofer</a>

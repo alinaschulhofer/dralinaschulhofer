@@ -243,12 +243,17 @@ section.home-trust-detail{padding-top:40px;padding-bottom:48px;}
 .split-text h2{position:relative;display:inline-block;padding-bottom:6px;}
 .split-band.ec-band .split-body{align-items:flex-start;}
 .split-band.th-band .split-body{align-items:center;}
-/* home-phil-band: align-items:center (the .split-body default) vertically centers the photo
-   against the text column whenever the text is taller than the photo's fixed aspect-ratio box —
-   at some widths that leaves the photo (and the top/bottom gold dividers, which track the row's
-   full height) visibly out of alignment. flex-start keeps both columns flush at the top instead,
-   so the top divider always matches the photo's top edge regardless of text length/width. */
-.split-band.home-phil-band .split-body{align-items:flex-start;}
+/* home-phil-band: keeps the default align-items:center (so the text reads as vertically
+   centered against the photo, as intended) — but that only ever looks right, and only ever
+   keeps the gold dividers flush with the photo's edges, if the photo and text are EXACTLY the
+   same height, since any height difference is what creates the off-center/misaligned look at
+   some widths. So instead of centering two different-height boxes, the photo is stretched
+   (aspect-ratio:auto + align-self:stretch) to always exactly match the text column's natural
+   height. The img is taken out of flow (position:absolute) so it can't feed its own intrinsic
+   aspect ratio back into the box's height — without that, the browser falls back to sizing the
+   box from the image's own aspect ratio instead of stretching, breaking the match. */
+.split-band.home-phil-band .split-photo{aspect-ratio:auto;align-self:stretch;}
+.split-band.home-phil-band .split-photo img{position:absolute;inset:0;}
 .split-text.ec-text{align-items:center;text-align:center;}
 .ec-text h2::after{display:none;}
 .ec-text ul{text-align:left;}

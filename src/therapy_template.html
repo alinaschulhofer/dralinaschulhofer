@@ -243,11 +243,14 @@ section.home-trust-detail{padding-top:40px;padding-bottom:80px;}
 .help-list li{position:relative;padding:10px 0 10px 26px;font-size:16px;color:var(--ink2);}
 .help-list li::before{content:"";position:absolute;left:0;top:15px;width:5px;height:5px;border-radius:50%;background:var(--accent);}
 /* two balanced columns instead of one long centered list — reads as more structured/considered
-   for an even number of short items like "Common Areas of Focus". */
-.ec-focus-grid{display:grid;grid-template-columns:repeat(2,1fr);column-gap:40px;row-gap:0;max-width:660px;margin:0 auto;}
-.ec-focus-grid li{font-size:14.5px;}
+   for an even number of short items like "Common Areas of Focus". Each item has a manual <br>
+   at a natural break instead of relying on the column width to wrap every item to the same
+   line count — auto-wrapping is too sensitive to font rendering differences between browsers to
+   reliably land on 2 lines for every item, so the break point is set explicitly instead. */
+.ec-focus-grid{display:grid;grid-template-columns:repeat(2,1fr);column-gap:40px;row-gap:0;max-width:720px;margin:0 auto;}
+.ec-focus-grid li{font-size:15px;}
 @media(max-width:600px){.help-cols{flex-direction:column;gap:0;max-width:340px;transform:none;}}
-@media(max-width:640px){.ec-focus-grid{grid-template-columns:1fr;max-width:400px;}}
+@media(max-width:640px){.ec-focus-grid{grid-template-columns:1fr;max-width:420px;}}
 .helpwith h2::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--accent);transform-origin:left;transform:scaleX(0);transition:transform 1s cubic-bezier(.2,.7,.2,1) .2s;}
 .helpwith .container.is-visible h2::after{transform:scaleX(1);}
 @media(prefers-reduced-motion:reduce){.helpwith h2::after{transform:scaleX(1);transition:none;}}
@@ -273,19 +276,17 @@ section.home-trust-detail{padding-top:40px;padding-bottom:80px;}
 .split-band.ec-band .split-text p{text-align:center;}
 .split-band.th-band .split-text p{text-align:center;}
 /* ec-band / home-phil-band: the photo needs to always exactly equal the text column's height
-   (so the text can be vertically centered against the photo, and the split-divider above it
-   stays flush with the photo's top edge, at every width) — rebuilt on CSS Grid instead of
-   flexbox, since flexbox's align-self:stretch + position:absolute combination (percentage
-   height on an absolutely-positioned, fully-inset replaced element) isn't fully interoperable
-   and rendered a visible gap under the photo in Safari; Grid's row-stretch is simpler and more
-   consistent across browsers. align-items:start keeps the row from also stretching .split-text
-   (which would balloon its heading — the .split-text column must size to its own content).
-   align-self:stretch is applied only to .split-photo, and the <img> stays out of flow
-   (position:absolute) so its own intrinsic aspect ratio can't feed back into the container's
-   height before the stretch is applied. */
+   (so the text is vertically centered against the photo, and the split-divider above it stays
+   flush with the photo's top edge, at every width). Pure-CSS stretch tricks (flexbox align-self,
+   then a CSS Grid row-stretch) both proved unreliable in real-world browser testing, so this is
+   now driven by JS instead (see syncSplitPhotoHeights in the shared script): it measures
+   .split-text's rendered height and sets that as an explicit inline height on .split-photo,
+   which is exact in every browser since it isn't relying on any stretch/aspect-ratio algorithm
+   at all. The aspect-ratio below is only the pre-JS placeholder so the photo isn't collapsed
+   before the script runs; the <img> stays out of flow (position:absolute) so it always fills
+   whatever height ends up set on its container. */
 @media(min-width:761px){
   .split-band.ec-band .split-body, .split-band.home-phil-band .split-body{display:grid;grid-template-columns:1fr 1fr;align-items:start;}
-  .split-band.ec-band .split-photo, .split-band.home-phil-band .split-photo{aspect-ratio:auto;align-self:stretch;}
   .split-band.ec-band .split-photo img, .split-band.home-phil-band .split-photo img{position:absolute;inset:0;}
 }
 .split-text.ec-text{align-items:center;text-align:center;}
@@ -983,12 +984,12 @@ footer .foot-link:hover{color:var(--accent);}
       <hr style="border:none;height:1px;width:80px;background:rgba(169,132,63,.42);margin:32px auto;" />
       <p style="text-align:center;margin:0 0 32px;font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2.4vw,26px);font-weight:400;color:var(--accent);">Common Areas of Focus</p>
       <ul class="help-list ec-focus-grid">
-        <li>Identification of patterns limiting leadership and performance growth</li>
-        <li>Relational challenges and emotional intelligence</li>
-        <li>Leadership presence, clarity, and decision-making</li>
-        <li>Navigating pressure, burnout, and complex organizational demands</li>
-        <li>Clarification of vision, values, and legacy</li>
-        <li>Ongoing strategic support and accountability</li>
+        <li>Identification of patterns limiting<br>leadership and performance growth</li>
+        <li>Relational challenges and<br>emotional intelligence</li>
+        <li>Leadership presence, clarity,<br>and decision-making</li>
+        <li>Navigating pressure, burnout, and<br>complex organizational demands</li>
+        <li>Clarification of vision, values,<br>and legacy</li>
+        <li>Ongoing strategic support<br>and accountability</li>
       </ul>
     </div>
   </section>

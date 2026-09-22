@@ -250,6 +250,8 @@ section.home-trust-detail{padding-top:40px;padding-bottom:80px;}
 .split-text h2{position:relative;display:inline-block;padding-bottom:6px;}
 .split-band.ec-band .split-body{align-items:flex-start;}
 .split-band.th-band .split-body{align-items:center;}
+.split-band.th-band .split-text{align-items:center;text-align:center;}
+.split-band.th-band .split-text p{text-align:center;}
 /* home-phil-band: keeps the default align-items:center (so the text reads as vertically
    centered against the photo, as intended) — but that only ever looks right, and only ever
    keeps the gold dividers flush with the photo's edges, if the photo and text are EXACTLY the

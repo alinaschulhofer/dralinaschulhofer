@@ -259,9 +259,18 @@ section.home-trust-detail{padding-top:40px;padding-bottom:80px;}
 .split-text{flex:0 0 50%;display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;padding:4rem clamp(2rem,4vw,3.5rem);}
 .split-text.prose p{text-align:left;}
 .split-text h2{position:relative;display:inline-block;padding-bottom:6px;}
-.split-band.ec-band .split-body{align-items:flex-start;}
 .split-band.th-band .split-body{align-items:center;}
 .split-band.th-band .split-text{align-items:center;text-align:center;}
+.split-band.ec-band .split-text{align-items:center;text-align:center;}
+.split-band.ec-band .split-text p{text-align:center;}
+/* ec-band: same height-matching approach used for My Philosophy — the photo stretches to
+   always exactly equal the text column's height, so the text can be vertically centered
+   against the photo AND the split-divider above it stays flush with the photo's top edge at
+   every width, instead of choosing one or the other. */
+@media(min-width:761px){
+  .split-band.ec-band .split-photo{aspect-ratio:auto;align-self:stretch;}
+  .split-band.ec-band .split-photo img{position:absolute;inset:0;}
+}
 .split-band.th-band .split-text p{text-align:center;}
 /* home-phil-band: keeps the default align-items:center (so the text reads as vertically
    centered against the photo, as intended) — but that only ever looks right, and only ever
@@ -968,7 +977,8 @@ footer .foot-link:hover{color:var(--accent);}
     <div class="container narrow prose" style="text-align:center;">
       <h3 style="text-align:center;margin:0 0 32px;font-size:clamp(28px,3.4vw,38px);font-weight:400;line-height:1.15;color:var(--accent);">Designed for Those Who Demand Excellence</h3>
       <p style="text-align:center;">One-on-one engagements go far beyond strategy and skill-building. This work is designed to address the internal structures&mdash;including psychological patterns and relational dynamics&mdash;that can either accelerate or constrain what an individual is able to achieve, while shaping their wellbeing, relationships, and personal life.</p>
-      <p style="margin-top:26px;text-align:center;"><span class="b">Common Areas of Focus:</span></p>
+      <hr style="border:none;height:1px;width:80px;background:rgba(169,132,63,.42);margin:32px auto;" />
+      <p style="text-align:center;margin:0 0 32px;font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2.4vw,26px);font-weight:400;color:var(--accent);">Common Areas of Focus</p>
       <ul style="text-align:center;list-style-position:inside;padding-left:0;">
         <li>Identification of patterns limiting leadership and performance growth</li>
         <li>Relational challenges and emotional intelligence</li>
@@ -980,27 +990,22 @@ footer .foot-link:hover{color:var(--accent);}
     </div>
   </section>
 
-  <section class="section" style="padding-top:36px;padding-bottom:0;">
+  <section class="section" style="padding-top:36px;padding-bottom:64px;">
     <div class="container">
       <div class="arrow-cue" style="margin-top:0;"><a href="#ec-expect" aria-label="Continue to What to Expect"><span class="chev"></span></a></div>
     </div>
   </section>
 
   <section class="split-band ec-band" id="ec-expect">
+    <hr class="split-divider split-divider-right split-divider-top" />
     <div class="split-body">
       <div class="split-photo ec-photo"><img class="ec-img" src="data:image/jpeg;base64,__ECPHOTO__" alt="Dr. Alina Schulhofer, executive coach, working with a client" /></div>
       <div class="split-text prose ec-text">
         <h2 class="trust-head" style="margin-bottom:40px;">What to Expect</h2>
         <p>Each engagement is highly individualized. We begin with an in-depth conversation to understand your current context, your goals, and the specific obstacles shaping your performance, wellbeing, relationships, and leadership.</p>
         <p>From there, the work unfolds according to your unique needs. Engagements are retainer-based and structured over a minimum of three months, allowing for the depth, continuity, and trust that meaningful transformation requires.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" style="padding-top:16px;">
-    <div class="container">
-      <div style="text-align:center;">
-        <a href="index.html#contact" class="btn-solid">Inquire</a>
+        <p>1:1 coaching is available for clients worldwide. Sessions are generally held via Zoom. In-person intensives are available on a limited basis upon request.</p>
+        <a href="index.html#contact" class="btn-solid" style="margin-top:26px;">Inquire</a>
       </div>
     </div>
   </section>

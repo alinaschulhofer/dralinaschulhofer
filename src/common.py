@@ -6,7 +6,7 @@ DOMAIN = 'https://www.dralinaschulhofer.com'
 
 # Bump this on every deploy that changes styles.css — the link tag below embeds it as
 # ?v=N so browsers/CDNs treat it as a new URL instead of serving a stale cached copy.
-CSS_VERSION = 102
+CSS_VERSION = 103
 CSS_LINK = f'<link rel="stylesheet" href="styles.css?v={CSS_VERSION}" />'
 
 # Bump this whenever a file in assets/ changes (photos, etc.) — same cache-busting trick as
@@ -126,7 +126,7 @@ SCRIPT = '''<script>
   staggerSel.forEach(function(sel){ document.querySelectorAll(sel).forEach(function(el){ el.classList.add('reveal-stagger'); }); });
   document.querySelectorAll('.tphoto img, .about-face, .split-photo img, .eh-photo img, .xb-photo img').forEach(function(el){ el.classList.add('reveal-img'); });
   if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(en){ en.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target);} }); },{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+    var io=new IntersectionObserver(function(en){ en.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target);} }); },{threshold:0,rootMargin:'0px 0px 800px 0px'});
     document.querySelectorAll('.reveal,.reveal-img,.reveal-stagger,.split-divider').forEach(function(el){ io.observe(el); });
   } else { document.querySelectorAll('.reveal,.reveal-img,.reveal-stagger,.split-divider').forEach(function(el){ el.classList.add('is-visible'); }); }
 </script>'''

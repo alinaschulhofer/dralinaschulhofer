@@ -83,27 +83,30 @@ body.anim .eh .reveal.is-visible{opacity:1;transform:none;}
 .eh .reveal[data-delay="2"]{transition-delay:.65s;}
 .eh .reveal[data-delay="3"]{transition-delay:.95s;}
 .eh .t-eyebrow.reveal{transition-delay:.1s;}
-/* scroll-reveal fade-ups */
-.reveal{transition:opacity .7s ease, transform .7s ease;}
+/* scroll-reveal fade-ups — the IntersectionObserver trigger (see common.py SCRIPT) fires well
+   before the element is actually visible (large positive rootMargin), so these animations are
+   sized to comfortably finish scrolling that remaining distance before the user's eye gets there,
+   rather than being caught mid-transition. */
+.reveal{transition:opacity .45s ease, transform .45s ease;}
 body.anim .reveal{opacity:0;transform:translateY(22px);}
 body.anim .reveal.is-visible{opacity:1;transform:none;}
 /* image reveal (fade + scale) */
-.reveal-img{transition:opacity .9s ease, transform .9s ease;}
+.reveal-img{transition:opacity .5s ease, transform .5s ease;}
 body.anim .reveal-img{opacity:0;transform:scale(.97);}
 body.anim .reveal-img.is-visible{opacity:1;transform:none;}
 /* staggered group reveal — direct children fade up one after another instead of as one block.
    Capped at 5 staggered steps; anything past the 5th child shares the last delay so a long list
    doesn't make the reader wait too long for the final item. */
-body.anim .reveal-stagger>*{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+body.anim .reveal-stagger>*{opacity:0;transform:translateY(18px);transition:opacity .4s ease, transform .4s ease;}
 body.anim .reveal-stagger.is-visible>*{opacity:1;transform:none;}
-body.anim .reveal-stagger>*:nth-child(2){transition-delay:.12s;}
-body.anim .reveal-stagger>*:nth-child(3){transition-delay:.24s;}
-body.anim .reveal-stagger>*:nth-child(4){transition-delay:.36s;}
-body.anim .reveal-stagger>*:nth-child(n+5){transition-delay:.48s;}
+body.anim .reveal-stagger>*:nth-child(2){transition-delay:.08s;}
+body.anim .reveal-stagger>*:nth-child(3){transition-delay:.16s;}
+body.anim .reveal-stagger>*:nth-child(4){transition-delay:.24s;}
+body.anim .reveal-stagger>*:nth-child(n+5){transition-delay:.32s;}
 /* gold divider draw-in — the hairline dividers on split-photo sections draw left-to-right when
    scrolled into view, echoing the .helpwith h2::after underline effect used elsewhere. */
 body.anim .split-divider{transform:scaleX(0);transform-origin:left;}
-body.anim .split-divider.is-visible{transform:scaleX(1);transition:transform 1s cubic-bezier(.2,.7,.2,1);}
+body.anim .split-divider.is-visible{transform:scaleX(1);transition:transform .6s cubic-bezier(.2,.7,.2,1);}
 /* button lift micro-interaction */
 .cform button{transition:background .25s ease, transform .25s ease, box-shadow .25s ease;}
 .cform button:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(21,21,26,.16);}
@@ -239,7 +242,11 @@ section.home-trust-detail{padding-top:40px;padding-bottom:80px;}
 .help-list{list-style:none;flex:1;text-align:left;}
 .help-list li{position:relative;padding:10px 0 10px 26px;font-size:16px;color:var(--ink2);}
 .help-list li::before{content:"";position:absolute;left:0;top:15px;width:5px;height:5px;border-radius:50%;background:var(--accent);}
+/* two balanced columns instead of one long centered list — reads as more structured/considered
+   for an even number of short items like "Common Areas of Focus". */
+.ec-focus-grid{display:grid;grid-template-columns:repeat(2,1fr);column-gap:48px;row-gap:0;max-width:760px;margin:0 auto;}
 @media(max-width:600px){.help-cols{flex-direction:column;gap:0;max-width:340px;transform:none;}}
+@media(max-width:640px){.ec-focus-grid{grid-template-columns:1fr;max-width:400px;}}
 .helpwith h2::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--accent);transform-origin:left;transform:scaleX(0);transition:transform 1s cubic-bezier(.2,.7,.2,1) .2s;}
 .helpwith .container.is-visible h2::after{transform:scaleX(1);}
 @media(prefers-reduced-motion:reduce){.helpwith h2::after{transform:scaleX(1);transition:none;}}
@@ -979,7 +986,7 @@ footer .foot-link:hover{color:var(--accent);}
       <p style="text-align:center;">One-on-one engagements go far beyond strategy and skill-building. This work is designed to address the internal structures&mdash;including psychological patterns and relational dynamics&mdash;that can either accelerate or constrain what an individual is able to achieve, while shaping their wellbeing, relationships, and personal life.</p>
       <hr style="border:none;height:1px;width:80px;background:rgba(169,132,63,.42);margin:32px auto;" />
       <p style="text-align:center;margin:0 0 32px;font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2.4vw,26px);font-weight:400;color:var(--accent);">Common Areas of Focus</p>
-      <ul class="help-list" style="max-width:460px;margin:0 auto;">
+      <ul class="help-list ec-focus-grid">
         <li>Identification of patterns limiting leadership and performance growth</li>
         <li>Relational challenges and emotional intelligence</li>
         <li>Leadership presence, clarity, and decision-making</li>

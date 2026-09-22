@@ -13,7 +13,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="icon" href="favicon.ico" sizes="any" /><link rel="icon" href="favicon.png" type="image/png" /><link rel="apple-touch-icon" href="apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=102" />
+<link rel="stylesheet" href="styles.css?v=103" />
 <noscript><style>body{opacity:1 !important;}</style></noscript>
 <meta name="author" content="Dr. Alina Schulhofer" />
 <script type="application/ld+json">
@@ -179,7 +179,7 @@
   staggerSel.forEach(function(sel){ document.querySelectorAll(sel).forEach(function(el){ el.classList.add('reveal-stagger'); }); });
   document.querySelectorAll('.tphoto img, .about-face, .split-photo img, .eh-photo img, .xb-photo img').forEach(function(el){ el.classList.add('reveal-img'); });
   if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(en){ en.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target);} }); },{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+    var io=new IntersectionObserver(function(en){ en.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target);} }); },{threshold:0,rootMargin:'0px 0px 800px 0px'});
     document.querySelectorAll('.reveal,.reveal-img,.reveal-stagger,.split-divider').forEach(function(el){ io.observe(el); });
   } else { document.querySelectorAll('.reveal,.reveal-img,.reveal-stagger,.split-divider').forEach(function(el){ el.classList.add('is-visible'); }); }
 </script>

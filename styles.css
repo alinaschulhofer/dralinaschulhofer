@@ -253,34 +253,27 @@ section.home-trust-detail{padding-top:40px;padding-bottom:80px;}
 .split-divider-right{margin-left:auto;}
 .split-body{display:flex;align-items:center;}
 .split-photo{flex:0 0 50%;position:relative;overflow:hidden;background:#1C1916;aspect-ratio:2345/2950;}
-.split-photo.ec-photo{aspect-ratio:2345/2300;}
 .split-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 75%;display:block;}
-.split-photo img.ec-img{object-position:50% 8%;}
 .split-text{flex:0 0 50%;display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;padding:4rem clamp(2rem,4vw,3.5rem);}
 .split-text.prose p{text-align:left;}
 .split-text h2{position:relative;display:inline-block;padding-bottom:6px;}
 .split-band.th-band .split-body{align-items:center;}
 .split-band.th-band .split-text{align-items:center;text-align:center;}
-.split-band.ec-band .split-text{align-items:center;text-align:center;}
-.split-band.ec-band .split-text p{text-align:center;}
 .split-band.th-band .split-text p{text-align:center;}
-/* ec-band / home-phil-band: the photo needs to always exactly equal the text column's height
-   (so the text is vertically centered against the photo, and the split-divider above it stays
-   flush with the photo's top edge, at every width). Pure-CSS stretch tricks (flexbox align-self,
-   then a CSS Grid row-stretch) both proved unreliable in real-world browser testing, so this is
-   now driven by JS instead (see syncSplitPhotoHeights in the shared script): it measures
-   .split-text's rendered height and sets that as an explicit inline height on .split-photo,
-   which is exact in every browser since it isn't relying on any stretch/aspect-ratio algorithm
-   at all. The aspect-ratio below is only the pre-JS placeholder so the photo isn't collapsed
-   before the script runs; the <img> stays out of flow (position:absolute) so it always fills
-   whatever height ends up set on its container. */
+/* home-phil-band: the photo needs to always exactly equal the text column's height (so the text
+   is vertically centered against the photo, and the split-divider above it stays flush with the
+   photo's top edge, at every width). Pure-CSS stretch tricks (flexbox align-self, then a CSS
+   Grid row-stretch) both proved unreliable in real-world browser testing, so this is now driven
+   by JS instead (see syncSplitPhotoHeights in the shared script): it measures .split-text's
+   rendered height and sets that as an explicit inline height on .split-photo, which is exact in
+   every browser since it isn't relying on any stretch/aspect-ratio algorithm at all. The
+   aspect-ratio above is only the pre-JS placeholder so the photo isn't collapsed before the
+   script runs; the <img> stays out of flow (position:absolute) so it always fills whatever
+   height ends up set on its container. */
 @media(min-width:761px){
-  .split-band.ec-band .split-body, .split-band.home-phil-band .split-body{display:grid;grid-template-columns:1fr 1fr;align-items:start;}
-  .split-band.ec-band .split-photo img, .split-band.home-phil-band .split-photo img{position:absolute;inset:0;}
+  .split-band.home-phil-band .split-body{display:grid;grid-template-columns:1fr 1fr;align-items:start;}
+  .split-band.home-phil-band .split-photo img{position:absolute;inset:0;}
 }
-.split-text.ec-text{align-items:center;text-align:center;}
-.ec-text h2::after{display:none;}
-.ec-text ul{text-align:left;}
 
 /* About page hero — reuses the homepage .eh hero (photo right, nav floats over it) but with a
    left-aligned gold pull-quote instead of the centered eyebrow/headline/button. */
@@ -511,7 +504,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   .split-body{flex-direction:column;}
   .split-photo{aspect-ratio:2345/1900;}
   .split-photo.th-phil-photo{aspect-ratio:2345/2500;order:1;}
-  .split-photo.ec-photo{order:1;}
   .split-photo img{object-position:50% 75%;}
   .split-photo img.home-phil-img{object-position:50% 59%;}
   .split-photo img.th-phil-img{object-position:50% 12%;}

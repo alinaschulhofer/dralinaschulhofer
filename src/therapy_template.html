@@ -264,34 +264,27 @@ section.home-trust-detail{padding-top:40px;padding-bottom:80px;}
 .split-divider-right{margin-left:auto;}
 .split-body{display:flex;align-items:center;}
 .split-photo{flex:0 0 50%;position:relative;overflow:hidden;background:#1C1916;aspect-ratio:2345/2950;}
-.split-photo.ec-photo{aspect-ratio:2345/2300;}
 .split-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 75%;display:block;}
-.split-photo img.ec-img{object-position:50% 8%;}
 .split-text{flex:0 0 50%;display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;padding:4rem clamp(2rem,4vw,3.5rem);}
 .split-text.prose p{text-align:left;}
 .split-text h2{position:relative;display:inline-block;padding-bottom:6px;}
 .split-band.th-band .split-body{align-items:center;}
 .split-band.th-band .split-text{align-items:center;text-align:center;}
-.split-band.ec-band .split-text{align-items:center;text-align:center;}
-.split-band.ec-band .split-text p{text-align:center;}
 .split-band.th-band .split-text p{text-align:center;}
-/* ec-band / home-phil-band: the photo needs to always exactly equal the text column's height
-   (so the text is vertically centered against the photo, and the split-divider above it stays
-   flush with the photo's top edge, at every width). Pure-CSS stretch tricks (flexbox align-self,
-   then a CSS Grid row-stretch) both proved unreliable in real-world browser testing, so this is
-   now driven by JS instead (see syncSplitPhotoHeights in the shared script): it measures
-   .split-text's rendered height and sets that as an explicit inline height on .split-photo,
-   which is exact in every browser since it isn't relying on any stretch/aspect-ratio algorithm
-   at all. The aspect-ratio below is only the pre-JS placeholder so the photo isn't collapsed
-   before the script runs; the <img> stays out of flow (position:absolute) so it always fills
-   whatever height ends up set on its container. */
+/* home-phil-band: the photo needs to always exactly equal the text column's height (so the text
+   is vertically centered against the photo, and the split-divider above it stays flush with the
+   photo's top edge, at every width). Pure-CSS stretch tricks (flexbox align-self, then a CSS
+   Grid row-stretch) both proved unreliable in real-world browser testing, so this is now driven
+   by JS instead (see syncSplitPhotoHeights in the shared script): it measures .split-text's
+   rendered height and sets that as an explicit inline height on .split-photo, which is exact in
+   every browser since it isn't relying on any stretch/aspect-ratio algorithm at all. The
+   aspect-ratio above is only the pre-JS placeholder so the photo isn't collapsed before the
+   script runs; the <img> stays out of flow (position:absolute) so it always fills whatever
+   height ends up set on its container. */
 @media(min-width:761px){
-  .split-band.ec-band .split-body, .split-band.home-phil-band .split-body{display:grid;grid-template-columns:1fr 1fr;align-items:start;}
-  .split-band.ec-band .split-photo img, .split-band.home-phil-band .split-photo img{position:absolute;inset:0;}
+  .split-band.home-phil-band .split-body{display:grid;grid-template-columns:1fr 1fr;align-items:start;}
+  .split-band.home-phil-band .split-photo img{position:absolute;inset:0;}
 }
-.split-text.ec-text{align-items:center;text-align:center;}
-.ec-text h2::after{display:none;}
-.ec-text ul{text-align:left;}
 
 /* About page hero — reuses the homepage .eh hero (photo right, nav floats over it) but with a
    left-aligned gold pull-quote instead of the centered eyebrow/headline/button. */
@@ -522,7 +515,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   .split-body{flex-direction:column;}
   .split-photo{aspect-ratio:2345/1900;}
   .split-photo.th-phil-photo{aspect-ratio:2345/2500;order:1;}
-  .split-photo.ec-photo{order:1;}
   .split-photo img{object-position:50% 75%;}
   .split-photo img.home-phil-img{object-position:50% 59%;}
   .split-photo img.th-phil-img{object-position:50% 12%;}
@@ -994,23 +986,13 @@ footer .foot-link:hover{color:var(--accent);}
     </div>
   </section>
 
-  <section class="section" style="padding-top:36px;padding-bottom:64px;">
-    <div class="container">
-      <div class="arrow-cue" style="margin-top:0;"><a href="#ec-expect" aria-label="Continue to What to Expect"><span class="chev"></span></a></div>
-    </div>
-  </section>
-
-  <section class="split-band ec-band" id="ec-expect">
-    <hr class="split-divider split-divider-right split-divider-top" />
-    <div class="split-body">
-      <div class="split-photo ec-photo"><img class="ec-img" src="data:image/jpeg;base64,__ECPHOTO__" alt="Dr. Alina Schulhofer, executive coach, working with a client" /></div>
-      <div class="split-text prose ec-text">
-        <h2 class="trust-head" style="margin-bottom:40px;">What to Expect</h2>
-        <p>Each engagement is highly individualized. We begin with an in-depth conversation to understand your current context, your goals, and the specific obstacles shaping your performance, wellbeing, relationships, and leadership.</p>
-        <p>From there, the work unfolds according to your unique needs. Engagements are retainer-based and structured over a minimum of three months, allowing for the depth, continuity, and trust that meaningful transformation requires.</p>
-        <p>1:1 coaching is available for clients worldwide. Sessions are generally held via Zoom. In-person intensives are available on a limited basis upon request.</p>
-        <a href="index.html#contact" class="btn-solid" style="margin-top:26px;">Inquire</a>
-      </div>
+  <section class="section" style="padding-top:16px;padding-bottom:64px;" id="ec-expect">
+    <div class="container narrow prose" style="text-align:center;">
+      <h3 style="text-align:center;margin:0 0 32px;font-size:clamp(28px,3.4vw,38px);font-weight:400;line-height:1.15;color:var(--accent);">What to Expect</h3>
+      <p style="text-align:center;">Each engagement is highly individualized. We begin with an in-depth conversation to understand your current context, your goals, and the specific obstacles shaping your performance, wellbeing, relationships, and leadership.</p>
+      <p style="text-align:center;">From there, the work unfolds according to your unique needs. Engagements are retainer-based and structured over a minimum of three months, allowing for the depth, continuity, and trust that meaningful transformation requires.</p>
+      <p style="text-align:center;">1:1 coaching is available for clients worldwide. Sessions are generally held via Zoom. In-person intensives are available on a limited basis upon request.</p>
+      <a href="index.html#contact" class="btn-solid" style="margin-top:26px;">Inquire</a>
     </div>
   </section>
 

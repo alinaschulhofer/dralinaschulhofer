@@ -14,7 +14,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="icon" href="favicon.ico" sizes="any" /><link rel="icon" href="favicon.png" type="image/png" /><link rel="apple-touch-icon" href="apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=105" />
+<link rel="stylesheet" href="styles.css?v=106" />
 <noscript><style>body{opacity:1 !important;}</style></noscript>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Service","serviceType":"Executive Coaching","name":"Executive Coaching — Dr. Alina Schulhofer","provider":{"@type":"Person","name":"Dr. Alina Schulhofer"},"audience":{"@type":"Audience","audienceType":"Executives, founders, leaders, and professional athletes"},"areaServed":"Worldwide"}
@@ -72,23 +72,13 @@
     </div>
   </section>
 
-  <section class="section" style="padding-top:36px;padding-bottom:64px;">
-    <div class="container">
-      <div class="arrow-cue" style="margin-top:0;"><a href="#ec-expect" aria-label="Continue to What to Expect"><span class="chev"></span></a></div>
-    </div>
-  </section>
-
-  <section class="split-band ec-band" id="ec-expect">
-    <hr class="split-divider split-divider-right split-divider-top" />
-    <div class="split-body">
-      <div class="split-photo ec-photo"><img class="ec-img" src="assets/executive-coaching-photo.jpg?v=14" alt="Dr. Alina Schulhofer, executive coach, working with a client" /></div>
-      <div class="split-text prose ec-text">
-        <h2 class="trust-head" style="margin-bottom:40px;">What to Expect</h2>
-        <p>Each engagement is highly individualized. We begin with an in-depth conversation to understand your current context, your goals, and the specific obstacles shaping your performance, wellbeing, relationships, and leadership.</p>
-        <p>From there, the work unfolds according to your unique needs. Engagements are retainer-based and structured over a minimum of three months, allowing for the depth, continuity, and trust that meaningful transformation requires.</p>
-        <p>1:1 coaching is available for clients worldwide. Sessions are generally held via Zoom. In-person intensives are available on a limited basis upon request.</p>
-        <a href="index.html#contact" class="btn-solid" style="margin-top:26px;">Inquire</a>
-      </div>
+  <section class="section" style="padding-top:16px;padding-bottom:64px;" id="ec-expect">
+    <div class="container narrow prose" style="text-align:center;">
+      <h3 style="text-align:center;margin:0 0 32px;font-size:clamp(28px,3.4vw,38px);font-weight:400;line-height:1.15;color:var(--accent);">What to Expect</h3>
+      <p style="text-align:center;">Each engagement is highly individualized. We begin with an in-depth conversation to understand your current context, your goals, and the specific obstacles shaping your performance, wellbeing, relationships, and leadership.</p>
+      <p style="text-align:center;">From there, the work unfolds according to your unique needs. Engagements are retainer-based and structured over a minimum of three months, allowing for the depth, continuity, and trust that meaningful transformation requires.</p>
+      <p style="text-align:center;">1:1 coaching is available for clients worldwide. Sessions are generally held via Zoom. In-person intensives are available on a limited basis upon request.</p>
+      <a href="index.html#contact" class="btn-solid" style="margin-top:26px;">Inquire</a>
     </div>
   </section>
 
@@ -166,10 +156,10 @@
     .then(function(r){ if(!r.ok){throw new Error('x');} cf.style.display='none'; var s=document.getElementById('cf-success'); if(s){s.style.display='block';} })
     .catch(function(){ var body='Name: '+name+'%0D%0AEmail: '+email+'%0D%0APhone: '+phone+(service?'%0D%0ALooking for: '+encodeURIComponent(service):'')+'%0D%0A%0D%0A'+encodeURIComponent(msg); window.location.href='mailto:alina@dralinaschulhofer.com?subject='+encodeURIComponent('Free Consultation Request \u2014 '+name)+'&body='+body; btn.disabled=false; btn.textContent='Request Consultation'; });
   }); }
-  // ec-band / home-phil-band: sets the photo's height to exactly match the text column's
-  // rendered height, in JS rather than CSS, since pure-CSS stretch techniques (flexbox
-  // align-self, CSS Grid row-stretch) both proved unreliable across real-world browsers.
-  var splitBands=document.querySelectorAll('.split-band.ec-band, .split-band.home-phil-band');
+  // home-phil-band: sets the photo's height to exactly match the text column's rendered
+  // height, in JS rather than CSS, since pure-CSS stretch techniques (flexbox align-self,
+  // CSS Grid row-stretch) both proved unreliable across real-world browsers.
+  var splitBands=document.querySelectorAll('.split-band.home-phil-band');
   function syncSplitPhotoHeights(){
     splitBands.forEach(function(band){
       var text=band.querySelector('.split-text'), photo=band.querySelector('.split-photo');

@@ -233,7 +233,8 @@ section.home-trust-detail{padding-top:40px;padding-bottom:80px;}
 .help-list li::before{content:"";position:absolute;left:0;top:15px;width:5px;height:5px;border-radius:50%;background:var(--accent);}
 /* two balanced columns instead of one long centered list — reads as more structured/considered
    for an even number of short items like "Common Areas of Focus". */
-.ec-focus-grid{display:grid;grid-template-columns:repeat(2,1fr);column-gap:48px;row-gap:0;max-width:760px;margin:0 auto;}
+.ec-focus-grid{display:grid;grid-template-columns:repeat(2,1fr);column-gap:40px;row-gap:0;max-width:660px;margin:0 auto;}
+.ec-focus-grid li{font-size:14.5px;}
 @media(max-width:600px){.help-cols{flex-direction:column;gap:0;max-width:340px;transform:none;}}
 @media(max-width:640px){.ec-focus-grid{grid-template-columns:1fr;max-width:400px;}}
 .helpwith h2::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--accent);transform-origin:left;transform:scaleX(0);transition:transform 1s cubic-bezier(.2,.7,.2,1) .2s;}
@@ -259,27 +260,22 @@ section.home-trust-detail{padding-top:40px;padding-bottom:80px;}
 .split-band.th-band .split-text{align-items:center;text-align:center;}
 .split-band.ec-band .split-text{align-items:center;text-align:center;}
 .split-band.ec-band .split-text p{text-align:center;}
-/* ec-band: same height-matching approach used for My Philosophy — the photo stretches to
-   always exactly equal the text column's height, so the text can be vertically centered
-   against the photo AND the split-divider above it stays flush with the photo's top edge at
-   every width, instead of choosing one or the other. */
-@media(min-width:761px){
-  .split-band.ec-band .split-photo{aspect-ratio:auto;align-self:stretch;}
-  .split-band.ec-band .split-photo img{position:absolute;inset:0;}
-}
 .split-band.th-band .split-text p{text-align:center;}
-/* home-phil-band: keeps the default align-items:center (so the text reads as vertically
-   centered against the photo, as intended) — but that only ever looks right, and only ever
-   keeps the gold dividers flush with the photo's edges, if the photo and text are EXACTLY the
-   same height, since any height difference is what creates the off-center/misaligned look at
-   some widths. So instead of centering two different-height boxes, the photo is stretched
-   (aspect-ratio:auto + align-self:stretch) to always exactly match the text column's natural
-   height. The img is taken out of flow (position:absolute) so it can't feed its own intrinsic
-   aspect ratio back into the box's height — without that, the browser falls back to sizing the
-   box from the image's own aspect ratio instead of stretching, breaking the match. */
+/* ec-band / home-phil-band: the photo needs to always exactly equal the text column's height
+   (so the text can be vertically centered against the photo, and the split-divider above it
+   stays flush with the photo's top edge, at every width) — rebuilt on CSS Grid instead of
+   flexbox, since flexbox's align-self:stretch + position:absolute combination (percentage
+   height on an absolutely-positioned, fully-inset replaced element) isn't fully interoperable
+   and rendered a visible gap under the photo in Safari; Grid's row-stretch is simpler and more
+   consistent across browsers. align-items:start keeps the row from also stretching .split-text
+   (which would balloon its heading — the .split-text column must size to its own content).
+   align-self:stretch is applied only to .split-photo, and the <img> stays out of flow
+   (position:absolute) so its own intrinsic aspect ratio can't feed back into the container's
+   height before the stretch is applied. */
 @media(min-width:761px){
-  .split-band.home-phil-band .split-photo{aspect-ratio:auto;align-self:stretch;}
-  .split-band.home-phil-band .split-photo img{position:absolute;inset:0;}
+  .split-band.ec-band .split-body, .split-band.home-phil-band .split-body{display:grid;grid-template-columns:1fr 1fr;align-items:start;}
+  .split-band.ec-band .split-photo, .split-band.home-phil-band .split-photo{aspect-ratio:auto;align-self:stretch;}
+  .split-band.ec-band .split-photo img, .split-band.home-phil-band .split-photo img{position:absolute;inset:0;}
 }
 .split-text.ec-text{align-items:center;text-align:center;}
 .ec-text h2::after{display:none;}

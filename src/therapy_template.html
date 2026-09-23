@@ -255,10 +255,11 @@ section.home-trust-detail{padding-top:40px;padding-bottom:80px;}
 .helpwith .container.is-visible h2::after{transform:scaleX(1);}
 @media(prefers-reduced-motion:reduce){.helpwith h2::after{transform:scaleX(1);transition:none;}}
 
-/* My Philosophy (homepage) — back to the full-bleed editorial format, same idea as the hero (.eh)
-   but mirrored: photo on the left, text on the right. align-items:flex-start (not stretch) so both
-   columns start flush at the top — stretching the photo to match text height via aspect-ratio was
-   rendering inconsistently and creating a large gap under the heading. */
+/* My Philosophy (homepage) — full-bleed editorial format, same idea as the hero (.eh) but
+   mirrored: photo on the left, text on the right. align-items:center on .split-body keeps the
+   photo (fixed aspect-ratio) and text vertically centered against each other — no height-matching
+   trick, which repeatedly proved unreliable across real browsers when tried for the Executive
+   Coaching page's now-removed photo section. */
 .split-band{position:relative;background:#FCFBF8;}
 .split-divider{border:none;height:1px;background:rgba(169,132,63,.42);width:50%;margin:0;}
 .split-divider-right{margin-left:auto;}
@@ -271,20 +272,6 @@ section.home-trust-detail{padding-top:40px;padding-bottom:80px;}
 .split-band.th-band .split-body{align-items:center;}
 .split-band.th-band .split-text{align-items:center;text-align:center;}
 .split-band.th-band .split-text p{text-align:center;}
-/* home-phil-band: the photo needs to always exactly equal the text column's height (so the text
-   is vertically centered against the photo, and the split-divider above it stays flush with the
-   photo's top edge, at every width). Pure-CSS stretch tricks (flexbox align-self, then a CSS
-   Grid row-stretch) both proved unreliable in real-world browser testing, so this is now driven
-   by JS instead (see syncSplitPhotoHeights in the shared script): it measures .split-text's
-   rendered height and sets that as an explicit inline height on .split-photo, which is exact in
-   every browser since it isn't relying on any stretch/aspect-ratio algorithm at all. The
-   aspect-ratio above is only the pre-JS placeholder so the photo isn't collapsed before the
-   script runs; the <img> stays out of flow (position:absolute) so it always fills whatever
-   height ends up set on its container. */
-@media(min-width:761px){
-  .split-band.home-phil-band .split-body{display:grid;grid-template-columns:1fr 1fr;align-items:start;}
-  .split-band.home-phil-band .split-photo img{position:absolute;inset:0;}
-}
 
 /* About page hero — reuses the homepage .eh hero (photo right, nav floats over it) but with a
    left-aligned gold pull-quote instead of the centered eyebrow/headline/button. */

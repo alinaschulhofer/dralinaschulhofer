@@ -6,7 +6,7 @@ DOMAIN = 'https://www.dralinaschulhofer.com'
 
 # Bump this on every deploy that changes styles.css — the link tag below embeds it as
 # ?v=N so browsers/CDNs treat it as a new URL instead of serving a stale cached copy.
-CSS_VERSION = 106
+CSS_VERSION = 107
 CSS_LINK = f'<link rel="stylesheet" href="styles.css?v={CSS_VERSION}" />'
 
 # Bump this whenever a file in assets/ changes (photos, etc.) — same cache-busting trick as
@@ -117,26 +117,6 @@ SCRIPT = '''<script>
     .then(function(r){ if(!r.ok){throw new Error('x');} cf.style.display='none'; var s=document.getElementById('cf-success'); if(s){s.style.display='block';} })
     .catch(function(){ var body='Name: '+name+'%0D%0AEmail: '+email+'%0D%0APhone: '+phone+(service?'%0D%0ALooking for: '+encodeURIComponent(service):'')+'%0D%0A%0D%0A'+encodeURIComponent(msg); window.location.href='mailto:alina@dralinaschulhofer.com?subject='+encodeURIComponent('Free Consultation Request \\u2014 '+name)+'&body='+body; btn.disabled=false; btn.textContent='Request Consultation'; });
   }); }
-  // home-phil-band: sets the photo's height to exactly match the text column's rendered
-  // height, in JS rather than CSS, since pure-CSS stretch techniques (flexbox align-self,
-  // CSS Grid row-stretch) both proved unreliable across real-world browsers.
-  var splitBands=document.querySelectorAll('.split-band.home-phil-band');
-  function syncSplitPhotoHeights(){
-    splitBands.forEach(function(band){
-      var text=band.querySelector('.split-text'), photo=band.querySelector('.split-photo');
-      if(!text||!photo) return;
-      if(window.innerWidth<761){ photo.style.height=''; return; }
-      photo.style.height=text.offsetHeight+'px';
-    });
-  }
-  if(splitBands.length){
-    syncSplitPhotoHeights();
-    setTimeout(syncSplitPhotoHeights,60);
-    window.addEventListener('load',syncSplitPhotoHeights);
-    if(document.fonts&&document.fonts.ready){ document.fonts.ready.then(syncSplitPhotoHeights); }
-    var resizeTimer;
-    window.addEventListener('resize',function(){ clearTimeout(resizeTimer); resizeTimer=setTimeout(syncSplitPhotoHeights,120); });
-  }
   document.body.classList.add('anim');
   var revealSel=['.trust3','.svc-teaser .container','.helpwith .container','.cf-text','.rhp-row','.featured-post .container','.founder .container','.contact-band .container','.about-head-row','#about .prose','.pg-head','.container.narrow'];
   revealSel.forEach(function(sel){ document.querySelectorAll(sel).forEach(function(el){ el.classList.add('reveal'); }); });

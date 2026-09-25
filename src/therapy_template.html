@@ -280,10 +280,11 @@ section.home-trust-detail{padding-top:40px;padding-bottom:80px;}
 .eh-text.ab-hero-text{align-items:flex-start;text-align:left;padding-left:calc(max(0px, (100vw - 1320px)/2) + clamp(1.5rem, 5vw, 5rem));}
 /* IMG_1639 is a wide landscape shot (4000x2667) — the default .eh-photo box is a tall portrait
    crop (2345/2950) built for portrait source photos, which on a landscape source forces a ~53%
-   width crop to fill that height, zooming in tight. Instead the box here takes on the source's
-   own ratio, so the photo shows close to full-frame (and the hero section reads shorter as a
-   result, since row height follows the now-shorter photo instead of the tall default). */
-.ab-hero .eh-photo{aspect-ratio:4000/2667;}
+   width crop to fill that height, reading as too zoomed in. 1.15:1 is a middle ground: keeps
+   ~87% of the photo's width (laptop, phone, and most of the chair still visible) while giving
+   the section a taller, more substantial presence closer to the homepage hero's. Mobile keeps
+   the source's own ratio (near-zero crop) since that wasn't part of the complaint. */
+.ab-hero .eh-photo{aspect-ratio:1.15/1;}
 .ab-hero-img{object-position:50% 50% !important;}
 @media(max-width:760px){.ab-hero .eh-photo{aspect-ratio:4000/2667;}}
 .ab-hero-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:clamp(1.75rem,2.7vw,2.45rem);line-height:1.4;color:var(--accent);margin:0;max-width:480px;}

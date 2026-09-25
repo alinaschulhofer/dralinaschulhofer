@@ -278,19 +278,13 @@ section.home-trust-detail{padding-top:40px;padding-bottom:80px;}
 /* About page hero — reuses the homepage .eh hero (photo right, nav floats over it) but with a
    left-aligned gold pull-quote instead of the centered eyebrow/headline/button. */
 .eh-text.ab-hero-text{align-items:flex-start;text-align:left;padding-left:calc(max(0px, (100vw - 1320px)/2) + clamp(1.5rem, 5vw, 5rem));}
-/* IMG_1639 is a wide landscape shot (4000x2667) — the default .eh-photo box is a tall portrait
-   crop (2345/2950) built for portrait source photos, which on a landscape source forces a ~53%
-   width crop to fill that height, reading as too zoomed in. 0.95:1 is a middle ground: keeps
-   most of the photo's width while giving the section a taller presence closer to the homepage
-   hero's — and critically, tall enough that her face clears the fixed/blurred nav bar that
-   floats over the hero once the page is scrolled (at the shorter 1.15:1 box, her face sat right
-   under that nav strip, reading as a foggy overlay on scroll). object-position-x is shifted
-   below 50% so more of the blank wall (not the chair) gets cropped from the right, positioning
-   her a bit right-of-center with visible breathing room on the left. Mobile keeps the source's
-   own ratio (near-zero crop) since none of this was part of the complaint there. */
-.ab-hero .eh-photo{aspect-ratio:0.95/1;}
-.ab-hero-img{object-position:30% 50% !important;}
-@media(max-width:760px){.ab-hero .eh-photo{aspect-ratio:4000/2667;}}
+/* IMG_1397 (3461x4351, ratio ~0.795) is a near-perfect match for the default .eh-photo box
+   ratio (2345/2950 = 0.795), so it uses that box as-is — essentially no crop, full body in
+   frame, same tall presence as the homepage hero. On mobile the box is shorter/wider than the
+   photo (2345/1900), which crops some height off top or bottom; bottom-anchoring (the site's
+   usual default) cut into her hairline, so this is anchored higher instead to keep her whole
+   head clear with headroom to spare. */
+@media(max-width:760px){.ab-hero-img{object-position:50% 22% !important;}}
 .ab-hero-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:clamp(1.75rem,2.7vw,2.45rem);line-height:1.4;color:var(--accent);margin:0;max-width:480px;}
 .ab-hero-sub{font-family:'Jost',sans-serif;font-weight:300;font-size:clamp(.95rem,1.3vw,1.05rem);line-height:1.65;color:var(--ink);margin:22px 0 0;max-width:440px;}
 

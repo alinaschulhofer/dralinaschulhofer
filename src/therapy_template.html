@@ -278,6 +278,12 @@ section.home-trust-detail{padding-top:40px;padding-bottom:80px;}
 /* About page hero — reuses the homepage .eh hero (photo right, nav floats over it) but with a
    left-aligned gold pull-quote instead of the centered eyebrow/headline/button. */
 .eh-text.ab-hero-text{align-items:flex-start;text-align:left;padding-left:calc(max(0px, (100vw - 1320px)/2) + clamp(1.5rem, 5vw, 5rem));}
+/* IMG_1639 is a wide landscape shot (she sits left-of-center against a lot of blank wall on the
+   right), being cropped into the tall .eh-photo box — object-fit:cover ends up matching the
+   box's height exactly (no vertical crop) and cropping width down to ~53%, so object-position-x
+   is shifted left of center to keep her in frame instead of centering on the empty wall. */
+.ab-hero-img{object-position:38% 50% !important;}
+@media(max-width:760px){.ab-hero-img{object-position:38% 50% !important;}}
 .ab-hero-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:clamp(1.75rem,2.7vw,2.45rem);line-height:1.4;color:var(--accent);margin:0;max-width:480px;}
 .ab-hero-sub{font-family:'Jost',sans-serif;font-weight:300;font-size:clamp(.95rem,1.3vw,1.05rem);line-height:1.65;color:var(--ink);margin:22px 0 0;max-width:440px;}
 
@@ -764,7 +770,7 @@ footer .foot-link:hover{color:var(--accent);}
         <p class="ab-hero-sub reveal">My philosophy is that actualizing wellbeing and potential is an art form&mdash;an ongoing process of creative self-discovery, shaped by the interplay of our internal world and environment.</p>
       </div>
       <div class="eh-photo" aria-hidden="true">
-        <img src="data:image/jpeg;base64,__ABOUTHERO__" alt="" />
+        <img class="ab-hero-img" src="data:image/jpeg;base64,__ABOUTHERO__" alt="" />
       </div>
     </div>
     <hr class="eh-divider" />

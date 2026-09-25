@@ -23,7 +23,7 @@ body=body.replace('data:image/jpeg;base64,__PPHIL__',f'assets/about-hero-photo.j
 body=body.replace('data:image/jpeg;base64,__THERAPYPHIL__',f'assets/therapy-philosophy-photo.jpg?v={IMG_VERSION}')
 body=body.replace('data:image/jpeg;base64,__THERAPYHERO__',f'assets/therapy-hero-photo.jpg?v={IMG_VERSION}')
 body=body.replace('data:image/jpeg;base64,__CONSULTSPLIT__',f'assets/consulting-split-photo.jpg?v={IMG_VERSION}')
-body=body.replace('data:image/jpeg;base64,__ABOUTHERO__',f'assets/philosophy-photo.jpg?v={IMG_VERSION}')
+body=body.replace('data:image/jpeg;base64,__ABOUTHERO__',f'assets/about-hero-photo.jpg?v={IMG_VERSION}')
 
 # extract each page's inner content
 def page_inner(pid):

@@ -278,13 +278,6 @@ section.home-trust-detail{padding-top:40px;padding-bottom:80px;}
 /* About page hero — reuses the homepage .eh hero (photo right, nav floats over it) but with a
    left-aligned gold pull-quote instead of the centered eyebrow/headline/button. */
 .eh-text.ab-hero-text{align-items:flex-start;text-align:left;padding-left:calc(max(0px, (100vw - 1320px)/2) + clamp(1.5rem, 5vw, 5rem));}
-/* IMG_1397 (3461x4351, ratio ~0.795) is a near-perfect match for the default .eh-photo box
-   ratio (2345/2950 = 0.795), so it uses that box as-is — essentially no crop, full body in
-   frame, same tall presence as the homepage hero. On mobile the box is shorter/wider than the
-   photo (2345/1900), which crops some height off top or bottom; bottom-anchoring (the site's
-   usual default) cut into her hairline, so this is anchored higher instead to keep her whole
-   head clear with headroom to spare. */
-@media(max-width:760px){.ab-hero-img{object-position:50% 22% !important;}}
 .ab-hero-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:clamp(1.75rem,2.7vw,2.45rem);line-height:1.4;color:var(--accent);margin:0;max-width:480px;}
 .ab-hero-sub{font-family:'Jost',sans-serif;font-weight:300;font-size:clamp(.95rem,1.3vw,1.05rem);line-height:1.65;color:var(--ink);margin:22px 0 0;max-width:440px;}
 
@@ -771,7 +764,7 @@ footer .foot-link:hover{color:var(--accent);}
         <p class="ab-hero-sub reveal">My philosophy is that actualizing wellbeing and potential is an art form&mdash;an ongoing process of creative self-discovery, shaped by the interplay of our internal world and environment.</p>
       </div>
       <div class="eh-photo" aria-hidden="true">
-        <img class="ab-hero-img" src="data:image/jpeg;base64,__ABOUTHERO__" alt="" />
+        <img src="data:image/jpeg;base64,__ABOUTHERO__" alt="" />
       </div>
     </div>
     <hr class="eh-divider" />

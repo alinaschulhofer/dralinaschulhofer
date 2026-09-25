@@ -261,6 +261,8 @@ section.home-trust-detail{padding-top:40px;padding-bottom:80px;}
 .split-band.th-band .split-body{align-items:center;}
 .split-band.th-band .split-text{align-items:center;text-align:center;}
 .split-band.th-band .split-text p{text-align:center;}
+.split-band.home-phil-band .split-text{align-items:center;text-align:center;}
+.split-band.home-phil-band .split-text p{text-align:center;}
 
 /* About page hero — reuses the homepage .eh hero (photo right, nav floats over it) but with a
    left-aligned gold pull-quote instead of the centered eyebrow/headline/button. */

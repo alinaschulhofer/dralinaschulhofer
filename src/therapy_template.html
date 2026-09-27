@@ -242,15 +242,7 @@ section.home-trust-detail{padding-top:40px;padding-bottom:80px;}
 .help-list{list-style:none;flex:1;text-align:left;}
 .help-list li{position:relative;padding:10px 0 10px 26px;font-size:16px;color:var(--ink2);}
 .help-list li::before{content:"";position:absolute;left:0;top:15px;width:5px;height:5px;border-radius:50%;background:var(--accent);}
-/* two balanced columns instead of one long centered list — reads as more structured/considered
-   for an even number of short items like "Common Areas of Focus". Each item has a manual <br>
-   at a natural break instead of relying on the column width to wrap every item to the same
-   line count — auto-wrapping is too sensitive to font rendering differences between browsers to
-   reliably land on 2 lines for every item, so the break point is set explicitly instead. */
-.ec-focus-grid{display:grid;grid-template-columns:repeat(2,1fr);column-gap:40px;row-gap:0;max-width:720px;margin:0 auto;}
-.ec-focus-grid li{font-size:15px;}
 @media(max-width:600px){.help-cols{flex-direction:column;gap:0;max-width:340px;transform:none;}}
-@media(max-width:640px){.ec-focus-grid{grid-template-columns:1fr;max-width:420px;}}
 .helpwith h2::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--accent);transform-origin:left;transform:scaleX(0);transition:transform 1s cubic-bezier(.2,.7,.2,1) .2s;}
 .helpwith .container.is-visible h2::after{transform:scaleX(1);}
 @media(prefers-reduced-motion:reduce){.helpwith h2::after{transform:scaleX(1);transition:none;}}
@@ -294,7 +286,7 @@ section.home-trust-detail{padding-top:40px;padding-bottom:80px;}
 .contact-band a{position:relative;overflow:hidden;z-index:1;display:inline-block;font-family:'Jost',sans-serif;font-weight:500;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);background:transparent;border:1px solid var(--ink);padding:.95rem 2.3rem;border-radius:999px;text-decoration:none;transition:color .2s;}
 .contact-band a:hover{color:#FCFBF8;}
 
-/* photo page-header — full-bleed image + dark scrim, headline over it (Services/Executive Coaching/Consulting) */
+/* photo page-header — full-bleed image + dark scrim, headline over it (Therapy Services) */
 .pg-hero{position:relative;min-height:440px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:#1C1916;padding:150px 0 64px;}
 .pg-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 18%;display:block;}
 .pg-hero img.th-hero-img{object-position:50% 100%;}
@@ -303,11 +295,6 @@ section.home-trust-detail{padding-top:40px;padding-bottom:80px;}
 .pg-hero h1{font-family:'Cormorant Garamond',serif;font-weight:400;color:#FCFBF8;font-size:clamp(2.6rem,5vw,4.1rem);line-height:1.14;margin:0 0 20px;}
 .pg-hero .sub{font-family:'Jost',sans-serif;font-weight:300;font-size:17px;color:rgba(252,251,248,.88);max-width:640px;margin:0 auto;}
 .pg-hero .pg-hero-note{font-family:'Jost',sans-serif;font-weight:400;font-size:14px;letter-spacing:.4px;color:#D8B876;margin-top:14px;}
-/* taller variant — for a portrait-style photo where the subject needs more room to clear the headline.
-   Text anchors near the top of the box, clear of the subject's face which sits in the lower-middle
-   of this particular frame. */
-.pg-hero-tall{min-height:920px;align-items:flex-start;padding-top:180px;}
-.pg-hero img.xh-consult-img{object-position:62% 40%;}
 
 /* about */
 .pg-head{padding:76px 0 8px;text-align:center;background:linear-gradient(180deg, var(--bg2) 0%, var(--bg) 78%);}
@@ -424,8 +411,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 .contact-band .email-link:hover{color:var(--accent);}
 .contact-direct{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;}
 .contact-direct .cd-sep{color:var(--ink3);}
-.inline-link{display:inline;background:none;padding:0;border-radius:0;text-transform:none;letter-spacing:normal;font-family:'Jost',sans-serif;font-weight:400;font-size:inherit;color:#8C6A2E;text-decoration:none;border-bottom:1px solid rgba(140,106,46,.4);white-space:nowrap;}
-.inline-link:hover{border-bottom-color:#8C6A2E;}
 .btn-solid{position:relative;overflow:hidden;z-index:1;display:inline-block;text-align:center;font-family:'Jost',sans-serif;font-weight:500;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);background:transparent;border:1px solid var(--ink);padding:.95rem 2.3rem;border-radius:999px;text-decoration:none;transition:color .2s;}
 .btn-solid:hover{color:#FCFBF8;}
 /* shared fill-sweep hover for all outlined pill buttons/links above — replaces an instant
@@ -529,10 +514,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   .pg-hero{min-height:380px;padding:110px 0 40px;}
   .pg-hero h1{font-size:clamp(2rem,8vw,2.6rem);}
   .pg-hero .sub{font-size:15.5px;}
-  /* mobile keeps the original centered composition for this photo — only desktop needs the
-     top-anchored text (to clear her face) and the extra height (to fit the desk/laptop too) */
-  .pg-hero-tall{min-height:400px;align-items:center;padding-top:110px;}
-  .pg-hero img.xh-consult-img{object-position:65% 65%;}
   .contact-band{padding:56px 0;}
   .section{padding:44px 0;}
 }
@@ -601,10 +582,6 @@ footer .foot-link:hover{color:var(--accent);}
 .ab-two-col{display:flex;gap:clamp(2.5rem,6vw,5rem);align-items:flex-start;}
 .ab-col{flex:1;min-width:0;}
 
-/* Consulting page intro — centered heading + black subheader, same two-column body
-   treatment as the About page. */
-.cons-intro-head{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(2rem,3.4vw,2.8rem);color:var(--accent);text-align:center;margin:0 0 18px;}
-.cons-intro-sub{font-family:'Jost',sans-serif;font-weight:300;font-size:clamp(1rem,1.4vw,1.15rem);line-height:1.6;color:var(--ink);text-align:center;max-width:680px;margin:0 auto;}
 </style>
 </head>
 <body>
@@ -635,8 +612,7 @@ footer .foot-link:hover{color:var(--accent);}
       <a data-go="home" class="active">Home</a>
       <a data-go="about">About</a>
       <a data-go="services">Therapy</a>
-      <a data-go="execcoaching">Executive Coaching</a>
-      <a data-go="coaching">Consulting</a>
+      <a href="https://architectureofexcellence.com" target="_blank" rel="noopener">Performance &amp; Consulting</a>
       <a href="blog.html">Blog</a>
       <a href="mailto:alina@dralinaschulhofer.com?subject=Therapy%20Inquiry" class="btn">Contact</a>
     </nav>
@@ -707,8 +683,7 @@ footer .foot-link:hover{color:var(--accent);}
         <a href="services.html#svc-individual" class="svc-menu-item"><span class="svc-menu-icon"><svg viewBox="0 0 40 40"><circle cx="20" cy="13" r="6.5"/><path d="M8 33c0-8 5.4-13 12-13s12 5 12 13"/></svg></span><span class="svc-menu-label">Individual<br />Therapy</span></a>
         <a href="services.html#svc-couples" class="svc-menu-item"><span class="svc-menu-icon"><svg viewBox="0 0 40 40"><circle cx="15" cy="12" r="5.5"/><circle cx="26" cy="12" r="5.5"/><path d="M6 33c0-6.5 4.3-10.5 9.5-10.5S25 26.5 25 33"/><path d="M18 33c0-6.5 4-10.5 9-10.5s9 4 9 10.5"/></svg></span><span class="svc-menu-label">Couples &amp; Family<br />Therapy</span></a>
         <a href="services.html#svc-intensives" class="svc-menu-item"><span class="svc-menu-icon"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="13"/><path d="M20 12v8l6 4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="svc-menu-label">Intensive<br />Sessions</span></a>
-        <a href="executive-coaching.html" class="svc-menu-item"><span class="svc-menu-icon"><svg viewBox="0 0 40 40"><path d="M7 28l8-8 6 6 12-14" stroke-linecap="round" stroke-linejoin="round"/><path d="M25 12h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="svc-menu-label">Executive<br />Coaching</span></a>
-        <a href="coaching.html" class="svc-menu-item"><span class="svc-menu-icon"><svg viewBox="0 0 40 40"><circle cx="20" cy="9" r="4"/><circle cx="10" cy="30" r="4"/><circle cx="30" cy="30" r="4"/><path d="M20 13v6M20 19l-8 7M20 19l8 7"/></svg></span><span class="svc-menu-label">Organizational<br />Consulting</span></a>
+        <a href="https://architectureofexcellence.com" target="_blank" rel="noopener" class="svc-menu-item"><span class="svc-menu-icon"><svg viewBox="0 0 40 40"><path d="M7 28l8-8 6 6 12-14" stroke-linecap="round" stroke-linejoin="round"/><path d="M25 12h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="svc-menu-label">Performance &amp;<br />Consulting</span></a>
       </nav>
       <div class="arrow-cue"><a href="#contact" aria-label="Continue to booking"><span class="chev"></span></a></div>
     </div>
@@ -727,8 +702,6 @@ footer .foot-link:hover{color:var(--accent);}
           <option value="Individual Therapy">Individual Therapy</option>
           <option value="Couples & Family Therapy">Couples &amp; Family Therapy</option>
           <option value="Intensive Sessions">Intensive Sessions</option>
-          <option value="Executive Coaching">Executive Coaching</option>
-          <option value="Organizational Consulting">Organizational Consulting</option>
           <option value="Speaking">Speaking</option>
         </select>
         <textarea id="cf-msg" placeholder="Share a little bit about yourself and how you're hoping I can help" aria-label="Message" required></textarea>
@@ -748,7 +721,7 @@ footer .foot-link:hover{color:var(--accent);}
 
   <section class="founder">
     <div class="container">
-      <p class="founder-line"><strong>Looking for leadership development, executive coaching, or organizational consulting rather than therapy?</strong> Dr. Schulhofer also partners with teams and organizations through <a href="https://architectureofexcellence.com" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline;text-underline-offset:.15em;">Architecture of Excellence™ →</a></p>
+      <p class="founder-line"><strong>Looking for leadership development, executive coaching, or organizational consulting rather than clinical services?</strong> Dr. Schulhofer also works with high-performing individuals, teams, and organizations through <a href="https://architectureofexcellence.com" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline;text-underline-offset:.15em;">Architecture of Excellence™ →</a></p>
     </div>
   </section>
 
@@ -915,87 +888,7 @@ footer .foot-link:hover{color:var(--accent);}
 
   <section class="founder">
     <div class="container">
-      <p class="founder-line"><strong>Looking for leadership development, executive coaching, or organizational consulting rather than therapy?</strong> Dr. Schulhofer also partners with teams and organizations through <a href="https://architectureofexcellence.com" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline;text-underline-offset:.15em;">Architecture of Excellence™ →</a></p>
-    </div>
-  </section>
-</div>
-
-<!-- ================= COACHING & CONSULTING ================= -->
-<div class="page" id="coaching">
-  <section class="pg-hero pg-hero-tall">
-    <img src="data:image/jpeg;base64,__CONSULTHERO__" alt="" class="xh-consult-img" />
-    <div class="container">
-      <h1>Organizational Consulting</h1>
-      <p class="sub">Consulting, education, and leadership advisory — for teams and organizations seeking sustainable excellence and wellbeing.</p>
-    </div>
-  </section>
-  <section class="section" style="padding-top:64px;padding-bottom:64px;">
-    <div class="container">
-      <h2 class="cons-intro-head reveal">Redefining High Performance</h2>
-      <p class="cons-intro-sub reveal">Actualizing potential demands more than strategy or skill.</p>
-      <div class="ab-two-col" style="margin-top:48px;">
-        <div class="ab-col prose">
-          <p>Alongside my clinical practice, I am the founder of <a href="https://architectureofexcellence.com" target="_blank" rel="noopener" class="inline-link">Architecture of Excellence™</a>, offering organizational consulting, education, leadership advisory, and executive coaching for high-performing individuals, teams, and organizations worldwide. Architecture of Excellence is grounded in the understanding that there is often more to organizational behavior than meets the eye.</p>
-          <p>Drawing on psychoanalytic ideas alongside principles of organizational behavior and high performance, my approach examines both individual and systemic factors that influence how people function at work: from leadership and personality dynamics to communication, conflict, organizational culture, and the quality of relationships within teams.</p>
-        </div>
-        <div class="ab-col prose">
-          <p>By integrating psychoanalytic depth with high-performance strategy, I focus on developing the people and social processes that form the foundations of effective leadership, teams, and high-performing organizations. This work is informed by my clinical background, my experience working with high performers across industries, and my own background as a former elite athlete.</p>
-          <p>Rather than the diagnosis or treatment of mental health conditions, this work focuses on leadership development, performance, interpersonal and organizational effectiveness, and the conditions that enable individuals and organizations to perform and develop sustainably.</p>
-        </div>
-      </div>
-      <div style="text-align:center;margin-top:40px;">
-        <a href="https://architectureofexcellence.com" target="_blank" rel="noopener" class="btn-solid">Learn More</a>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- ================= EXECUTIVE COACHING ================= -->
-<div class="page" id="execcoaching">
-  <section class="pg-hero pg-hero-tall">
-    <img src="data:image/jpeg;base64,__CONSULTHERO__" alt="" class="xh-consult-img" />
-    <div class="container">
-      <h1>Executive Coaching</h1>
-      <p class="sub">Private, 1:1 coaching for those operating at the highest levels of their field — executives, founders, leaders, professional athletes, and others committed to closing the gap between where they are and what they're truly capable of.</p>
-    </div>
-  </section>
-
-  <section class="section" style="padding-top:64px;padding-bottom:0;">
-    <div class="container narrow prose" style="text-align:center;">
-      <h3 style="text-align:center;margin:0 0 32px;font-size:clamp(28px,3.4vw,38px);font-weight:400;line-height:1.15;color:var(--accent);">Designed for Those Who Demand Excellence</h3>
-      <p style="text-align:center;">One-on-one engagements go far beyond strategy and skill-building. This work is designed to address the internal structures&mdash;including psychological patterns and relational dynamics&mdash;that can either accelerate or constrain what an individual is able to achieve, while shaping their wellbeing, relationships, and personal life.</p>
-      <hr style="border:none;height:1px;width:80px;background:rgba(169,132,63,.42);margin:32px auto 56px;" />
-      <p style="text-align:center;margin:0 0 32px;font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.4vw,38px);line-height:1.15;font-weight:400;color:var(--accent);">Common Areas of Focus</p>
-      <ul class="help-list ec-focus-grid">
-        <li>Identification of patterns limiting<br>leadership and performance growth</li>
-        <li>Relational challenges and<br>emotional intelligence</li>
-        <li>Leadership presence, clarity,<br>and decision-making</li>
-        <li>Navigating pressure, burnout, and<br>complex organizational demands</li>
-        <li>Clarification of vision, values,<br>and legacy</li>
-        <li>Ongoing strategic support<br>and accountability</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="section" style="padding-top:48px;padding-bottom:40px;">
-    <div class="container">
-      <div class="arrow-cue" style="margin-top:0;"><a href="#ec-expect" aria-label="Continue to What to Expect"><span class="chev"></span></a></div>
-    </div>
-  </section>
-
-  <section class="section" style="padding-top:32px;padding-bottom:64px;" id="ec-expect">
-    <div class="container narrow prose" style="text-align:center;">
-      <h3 style="text-align:center;margin:0 0 32px;font-size:clamp(28px,3.4vw,38px);font-weight:400;line-height:1.15;color:var(--accent);">What to Expect</h3>
-      <p style="text-align:center;">Each engagement is highly individualized. We begin with an in-depth conversation to understand your current context, your goals, and the specific obstacles shaping your performance, wellbeing, relationships, and leadership.</p>
-      <p style="text-align:center;">From there, the work unfolds according to your unique needs. Engagements are retainer-based and structured over a minimum of three months, allowing for the depth, continuity, and trust that meaningful transformation requires.</p>
-      <p style="text-align:center;">1:1 coaching is available for clients worldwide. Sessions are generally held via Zoom. In-person intensives are available on a limited basis upon request.</p>
-      <a href="index.html#contact" class="btn-solid" style="margin-top:26px;">Inquire</a>
-    </div>
-  </section>
-
-  <section class="founder">
-    <div class="container">
-      <p class="founder-line"><strong>Looking for leadership development, executive coaching, or organizational consulting rather than therapy?</strong> Dr. Schulhofer also partners with teams and organizations through <a href="https://architectureofexcellence.com" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline;text-underline-offset:.15em;">Architecture of Excellence™ →</a></p>
+      <p class="founder-line"><strong>Looking for leadership development, executive coaching, or organizational consulting rather than clinical services?</strong> Dr. Schulhofer also works with high-performing individuals, teams, and organizations through <a href="https://architectureofexcellence.com" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline;text-underline-offset:.15em;">Architecture of Excellence™ →</a></p>
     </div>
   </section>
 </div>
@@ -1012,8 +905,7 @@ footer .foot-link:hover{color:var(--accent);}
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="services.html">Therapy</a>
-      <a href="executive-coaching.html">Executive Coaching</a>
-      <a href="coaching.html">Consulting</a>
+      <a href="https://architectureofexcellence.com" target="_blank" rel="noopener">Performance &amp; Consulting</a>
       <a href="blog.html">Insights</a>
       <a href="index.html#contact">Contact</a>
     </nav>

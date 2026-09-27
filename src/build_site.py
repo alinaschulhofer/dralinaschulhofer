@@ -18,18 +18,16 @@ body=re.search(r'<body>(.*?)</body>', src, re.S).group(1)
 body=body.replace('data:image/jpeg;base64,__PABOUT__',f'assets/portrait-about.jpg?v={IMG_VERSION}')
 body=body.replace('data:image/jpeg;base64,__PCIRCLE__',f'assets/portrait-circle.jpg?v={IMG_VERSION}')
 body=body.replace('data:image/jpeg;base64,__FACE__',f'assets/face.jpg?v={IMG_VERSION}')
-body=body.replace('data:image/jpeg;base64,__CONSULTHERO__',f'assets/consulting-hero.jpg?v={IMG_VERSION}')
 body=body.replace('data:image/jpeg;base64,__PPHIL__',f'assets/about-hero-photo.jpg?v={IMG_VERSION}')
 body=body.replace('data:image/jpeg;base64,__THERAPYPHIL__',f'assets/therapy-philosophy-photo.jpg?v={IMG_VERSION}')
 body=body.replace('data:image/jpeg;base64,__THERAPYHERO__',f'assets/therapy-hero-photo.jpg?v={IMG_VERSION}')
-body=body.replace('data:image/jpeg;base64,__CONSULTSPLIT__',f'assets/consulting-split-photo.jpg?v={IMG_VERSION}')
 body=body.replace('data:image/jpeg;base64,__ABOUTHERO__',f'assets/about-hero-photo.jpg?v={IMG_VERSION}')
 
 # extract each page's inner content
 def page_inner(pid):
     m=re.search(r'<div class="page[^"]*" id="'+pid+r'">(.*?)</div>\s*(?=<!-- =+ |<footer>)', body, re.S)
     return m.group(1).strip()
-pages={pid:page_inner(pid) for pid in ['home','about','services','coaching','execcoaching']}
+pages={pid:page_inner(pid) for pid in ['home','about','services']}
 
 # homepage — inject the newest blog post into the featured-post teaser
 posts=load_posts()
@@ -62,12 +60,6 @@ SERVICE_LDJSON={
  'services':'''<script type="application/ld+json">
 {"@context":"https://schema.org","@type":"MedicalBusiness","name":"Therapy Services — Dr. Alina Schulhofer","description":"Individual, couples & family therapy, concierge care, and intensives.","areaServed":[{"@type":"State","name":"Florida"},{"@type":"State","name":"New York"}],"provider":{"@type":"Person","name":"Dr. Alina Schulhofer"}}
 </script>''',
- 'coaching':'''<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Service","serviceType":"Organizational Consulting","name":"Organizational Consulting — Architecture of Excellence","provider":{"@type":"Organization","name":"Architecture of Excellence","url":"https://architectureofexcellence.com"},"areaServed":"Worldwide"}
-</script>''',
- 'execcoaching':'''<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Service","serviceType":"Executive Coaching","name":"Executive Coaching — Dr. Alina Schulhofer","provider":{"@type":"Person","name":"Dr. Alina Schulhofer"},"audience":{"@type":"Audience","audienceType":"Executives, founders, leaders, and professional athletes"},"areaServed":"Worldwide"}
-</script>''',
 }
 
 # NAV, FONTS, DOMAIN, SCRIPT now come from common.py (shared with build_blog.py).
@@ -79,12 +71,8 @@ META={
           'Meet Dr. Alina Schulhofer, PsyD, a licensed clinical psychologist providing depth-oriented virtual therapy for high performers in Florida and New York.'),
  'services':('services.html','Therapy Services & Investment | Dr. Alina Schulhofer, PsyD',
              'Individual, couples, and concierge therapy plus intensives, private-pay virtual care for high-demand lives in Florida and New York.'),
- 'coaching':('coaching.html','Organizational Consulting & Leadership Advisory | AOE',
-             'Organizational consulting, education, and executive coaching for teams, through Architecture of Excellence, founded by Dr. Alina Schulhofer.'),
- 'execcoaching':('executive-coaching.html','Executive Coaching for Leaders & Founders | Dr. Schulhofer',
-             'Private, 1:1 executive coaching for executives, founders, leaders, and professional athletes committed to sustainable high performance.'),
 }
-PAGE_NAME={'about':'About','services':'Therapy Services','coaching':'Organizational Consulting','execcoaching':'Executive Coaching'}
+PAGE_NAME={'about':'About','services':'Therapy Services'}
 
 for pid,content in pages.items():
     fn,title,desc=META[pid]

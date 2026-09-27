@@ -6,7 +6,7 @@ DOMAIN = 'https://www.dralinaschulhofer.com'
 
 # Bump this on every deploy that changes styles.css — the link tag below embeds it as
 # ?v=N so browsers/CDNs treat it as a new URL instead of serving a stale cached copy.
-CSS_VERSION = 112
+CSS_VERSION = 113
 CSS_LINK = f'<link rel="stylesheet" href="styles.css?v={CSS_VERSION}" />'
 
 # Bump this whenever a file in assets/ changes (photos, etc.) — same cache-busting trick as
@@ -73,8 +73,7 @@ def NAV(active):
       <a href="index.html"{' class="active"' if active=="home" else ''}>Home</a>
       <a href="about.html"{' class="active"' if active=="about" else ''}>About</a>
       <a href="services.html"{' class="active"' if active=="services" else ''}>Therapy</a>
-      <a href="executive-coaching.html"{' class="active"' if active=="execcoaching" else ''}>Executive Coaching</a>
-      <a href="coaching.html"{' class="active"' if active=="coaching" else ''}>Consulting</a>
+      <a href="https://architectureofexcellence.com" target="_blank" rel="noopener">Performance &amp; Consulting</a>
       {blog_link}<a href="index.html#contact" class="btn">Contact</a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>

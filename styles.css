@@ -322,13 +322,13 @@ section.home-trust-detail{padding-top:40px;padding-bottom:80px;}
 
 
 /* services menu — jump links down to each accordion item */
-.svc-menu{display:flex;justify-content:center;gap:52px;flex-wrap:wrap;max-width:960px;margin:36px auto 0;padding:0 40px;}
-.svc-menu-item{display:flex;flex-direction:column;align-items:center;gap:16px;width:134px;text-decoration:none;}
-.svc-menu-icon{width:48px;height:48px;display:flex;align-items:center;justify-content:center;transition:transform .25s ease;}
+.svc-menu{display:flex;justify-content:center;gap:76px;flex-wrap:wrap;max-width:960px;margin:36px auto 0;padding:0 40px;}
+.svc-menu-item{display:flex;flex-direction:column;align-items:center;gap:20px;width:170px;text-decoration:none;}
+.svc-menu-icon{width:62px;height:62px;display:flex;align-items:center;justify-content:center;transition:transform .25s ease;}
 .svc-menu-icon svg{width:100%;height:100%;fill:none;stroke:var(--accent);stroke-width:1.1;}
 .svc-menu-item:hover .svc-menu-icon{transform:translateY(-3px);}
-.svc-menu-label{font-family:'Jost',sans-serif;font-weight:300;font-size:15px;color:var(--ink2);text-align:center;line-height:1.5;}
-@media(max-width:760px){.svc-menu{gap:30px;padding:0 24px;}.svc-menu-item{width:110px;}.svc-menu-icon{width:40px;height:40px;}.svc-menu-label{font-size:13.5px;}}
+.svc-menu-label{font-family:'Jost',sans-serif;font-weight:300;font-size:18px;color:var(--ink2);text-align:center;line-height:1.5;}
+@media(max-width:760px){.svc-menu{gap:40px;padding:0 24px;}.svc-menu-item{width:130px;}.svc-menu-icon{width:50px;height:50px;}.svc-menu-label{font-size:15.5px;}}
 details{border-top:1px solid var(--line);}
 details:last-of-type{border-bottom:1px solid var(--line);}
 summary{list-style:none;cursor:pointer;padding:24px 4px;display:flex;justify-content:space-between;align-items:center;font-family:'Cormorant Garamond',serif;font-size:25px;color:var(--ink);}
@@ -388,11 +388,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 
 /* contact form */
 .cform{max-width:480px;margin:0 auto 22px;display:flex;flex-direction:column;gap:12px;text-align:left;}
-.cform input,.cform select,.cform textarea{font-family:'Jost',sans-serif;font-weight:300;font-size:15px;padding:14px 15px;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:2px;}
+.cform input,.cform textarea{font-family:'Jost',sans-serif;font-weight:300;font-size:15px;padding:14px 15px;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:2px;}
 .cform textarea{min-height:110px;resize:vertical;}
-.cform select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23494842' stroke-width='1.6'%3E%3Cpath d='M5 7.5l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:16px;padding-right:40px;color:var(--ink3);}
-.cform select.chosen{color:var(--ink);}
-.cform select option{color:var(--ink);}
 .cform button{position:relative;overflow:hidden;z-index:1;align-self:center;font-family:'Jost',sans-serif;font-weight:500;font-size:13px;letter-spacing:2px;text-transform:uppercase;background:transparent;color:var(--ink);border:1px solid var(--ink);padding:15px 34px;border-radius:999px;cursor:pointer;transition:color .2s;margin-top:10px;white-space:nowrap;}
 .cform button:hover{color:#fff;}
 .contact-band .or{font-size:13px;letter-spacing:1px;color:var(--ink3);margin:0 0 8px;}

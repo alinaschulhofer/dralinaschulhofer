@@ -44,7 +44,7 @@ if posts:
 footer='<footer>'+re.search(r'<footer>(.*?)</footer>', body, re.S).group(1)+'</footer>'
 
 JSONLD='''<script type="application/ld+json">
-{"@context":"https://schema.org","@type":["Psychologist","MedicalBusiness"],"name":"Dr. Alina Schulhofer — Concierge Psychological Services","description":"Depth-oriented virtual psychotherapy for high achievers — executives, entrepreneurs, creatives, founders, and professional athletes. Licensed clinical psychologist in Florida and New York.","url":"https://www.dralinaschulhofer.com","telephone":"+1-786-671-4945","email":"alina@dralinaschulhofer.com","areaServed":[{"@type":"State","name":"Florida"},{"@type":"State","name":"New York"}],"availableService":[{"@type":"MedicalTherapy","name":"Individual Therapy"},{"@type":"MedicalTherapy","name":"Couples & Family Therapy"},{"@type":"MedicalTherapy","name":"Concierge Therapy"},{"@type":"MedicalTherapy","name":"Therapy Intensives"}],"founder":{"@type":"Person","name":"Dr. Alina Schulhofer","jobTitle":"Licensed Clinical Psychologist (PsyD)","alumniOf":"Nova Southeastern University"},"knowsAbout":["Psychotherapy","Trauma","Personality","Relationships","High Performance Psychology","Executive Wellbeing"],"sameAs":["https://architectureofexcellence.com"]}
+{"@context":"https://schema.org","@type":["Psychologist","MedicalBusiness"],"name":"Dr. Alina Schulhofer — Concierge Psychological Services","description":"Depth-oriented virtual psychotherapy for high achievers — executives, entrepreneurs, creatives, founders, and professional athletes. Licensed clinical psychologist in Florida and New York.","url":"https://www.dralinaschulhofer.com","telephone":"+1-786-671-4945","email":"alina@dralinaschulhofer.com","areaServed":[{"@type":"State","name":"Florida"},{"@type":"State","name":"New York"}],"availableService":[{"@type":"MedicalTherapy","name":"Individual Therapy"},{"@type":"MedicalTherapy","name":"Couples & Family Therapy"},{"@type":"MedicalTherapy","name":"Therapy Intensives"}],"founder":{"@type":"Person","name":"Dr. Alina Schulhofer","jobTitle":"Licensed Clinical Psychologist (PsyD)","alumniOf":"Nova Southeastern University"},"knowsAbout":["Psychotherapy","Trauma","Personality","Relationships","High Performance Psychology","Executive Wellbeing"],"sameAs":["https://architectureofexcellence.com"]}
 </script>'''
 
 def breadcrumb(name, canon):
@@ -58,7 +58,7 @@ PERSON_LDJSON='''<script type="application/ld+json">
 
 SERVICE_LDJSON={
  'services':'''<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"MedicalBusiness","name":"Therapy Services — Dr. Alina Schulhofer","description":"Individual, couples & family therapy, concierge care, and intensives.","areaServed":[{"@type":"State","name":"Florida"},{"@type":"State","name":"New York"}],"provider":{"@type":"Person","name":"Dr. Alina Schulhofer"}}
+{"@context":"https://schema.org","@type":"MedicalBusiness","name":"Therapy Services — Dr. Alina Schulhofer","description":"Individual therapy, couples & family therapy, and intensives.","areaServed":[{"@type":"State","name":"Florida"},{"@type":"State","name":"New York"}],"provider":{"@type":"Person","name":"Dr. Alina Schulhofer"}}
 </script>''',
 }
 
@@ -70,7 +70,7 @@ META={
  'about':('about.html','About Dr. Alina Schulhofer, PsyD | Licensed Psychologist',
           'Meet Dr. Alina Schulhofer, PsyD, a licensed clinical psychologist providing depth-oriented virtual therapy for high performers in Florida and New York.'),
  'services':('services.html','Therapy Services & Investment | Dr. Alina Schulhofer, PsyD',
-             'Individual, couples, and concierge therapy plus intensives, private-pay virtual care for high-demand lives in Florida and New York.'),
+             'Individual and couples therapy plus intensives, private-pay virtual care for high-demand lives in Florida and New York.'),
 }
 PAGE_NAME={'about':'About','services':'Therapy Services'}
 

@@ -269,11 +269,11 @@ section.home-trust-detail{padding-top:40px;padding-bottom:80px;}
 .ab-hero .eh-photo img{object-position:50% 50%;}
 /* the photo currently in this slot is a tall portrait shot — the default mobile hero box
    (2345/1900, wide and short) only shows ~54% of the photo's height, cropping well above her
-   waist. Taller box shows more of her body; object-position keeps the visible window anchored
-   near the top so her face/torso stay in frame instead of sliding down toward her hands. */
+   waist. Taller box + centered position shows more of her body (crossed arm and knees included)
+   instead of stopping at her chin/hand. */
 @media(max-width:760px){
   .ab-hero .eh-photo{aspect-ratio:2345/2450;}
-  .ab-hero-img{object-position:50% 15% !important;}
+  .ab-hero-img{object-position:50% 50% !important;}
 }
 
 /* founder callout — clean centered note on white, hairline-framed */
@@ -500,10 +500,10 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   .split-photo.th-phil-photo{aspect-ratio:2345/2500;order:1;}
   .split-photo img{object-position:50% 75%;}
   /* IMG_1395 is a tall portrait shot — the default mobile split-photo box (2345/1900, wide and
-     short) only shows ~54% of the photo's height. Taller box + top-anchored position shows more
-     of her body, matching the same fix used for this photo on the About page hero. */
+     short) only shows ~54% of the photo's height. Taller box + centered position shows more
+     of her body (laptop and hands included), matching the same fix used on the About page hero. */
   .split-band.home-phil-band .split-photo{aspect-ratio:2345/2450;}
-  .split-photo img.home-phil-img{object-position:50% 15% !important;}
+  .split-photo img.home-phil-img{object-position:50% 50% !important;}
   .split-photo img.th-phil-img{object-position:50% 12%;}
   .split-text{padding:2.5rem 1.5rem 3rem;}
   .home-phil-band .btn-solid{align-self:center;}

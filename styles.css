@@ -504,7 +504,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
      of her body (laptop and hands included), matching the same fix used on the About page hero. */
   .split-band.home-phil-band .split-photo{aspect-ratio:2345/2450;}
   .split-photo img.home-phil-img{object-position:50% 50% !important;}
-  .split-photo img.th-phil-img{object-position:50% 12%;}
+  /* same top-anchored-crop-cuts-off-too-soon issue as home-phil-img above — centering shows
+     both hands on the laptop instead of stopping at her face/shoulders. */
+  .split-photo img.th-phil-img{object-position:50% 50%;}
   .split-text{padding:2.5rem 1.5rem 3rem;}
   .home-phil-band .btn-solid{align-self:center;}
   .ab-two-col{flex-direction:column;gap:8px;}

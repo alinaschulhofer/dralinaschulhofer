@@ -255,12 +255,15 @@ section.home-trust-detail{padding-top:40px;padding-bottom:80px;}
 .split-band.th-band .split-text p{text-align:center;}
 .split-band.home-phil-band .split-text{align-items:center;text-align:center;}
 .split-band.home-phil-band .split-text p{text-align:center;}
+.split-band.th-band .trust-head,
+.split-band.home-phil-band .trust-head{font-size:clamp(32px,3.9vw,44px);}
 
 /* About page hero — reuses the homepage .eh hero (photo right, nav floats over it) but with a
    left-aligned gold pull-quote instead of the centered eyebrow/headline/button. */
 .eh-text.ab-hero-text{align-items:flex-start;text-align:left;padding-left:calc(max(0px, (100vw - 1320px)/2) + clamp(1.5rem, 5vw, 5rem));}
 .ab-hero-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:clamp(1.75rem,2.7vw,2.45rem);line-height:1.4;color:var(--accent);margin:0;max-width:480px;}
 .ab-hero-sub{font-family:'Jost',sans-serif;font-weight:300;font-size:clamp(.95rem,1.3vw,1.05rem);line-height:1.65;color:var(--ink);margin:22px 0 0;max-width:440px;}
+.ab-hero-btn{margin-top:28px;}
 /* Shorter, closer-to-square box than the default hero photo (2345/2950) — ends the crop around
    the knee instead of running all the way down to her feet, so the whole hero fits without
    scrolling. Centered object-position crops evenly off the top and bottom of the source photo,

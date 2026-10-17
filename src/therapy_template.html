@@ -261,13 +261,16 @@ section.home-trust-detail{padding-top:40px;padding-bottom:80px;}
 .split-text{flex:0 0 50%;display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;padding:4rem clamp(2rem,4vw,3.5rem);}
 .split-text.prose p{text-align:left;}
 .split-text h2{position:relative;display:inline-block;padding-bottom:6px;}
-.split-band.th-band .split-body{align-items:center;}
-.split-band.th-band .split-text{align-items:center;text-align:center;}
-.split-band.th-band .split-text p{text-align:center;}
 .split-band.home-phil-band .split-text{align-items:center;text-align:center;}
 .split-band.home-phil-band .split-text p{text-align:center;}
-.split-band.th-band .trust-head,
 .split-band.home-phil-band .trust-head{font-size:clamp(32px,3.9vw,44px);}
+
+/* Therapy page Philosophy section — plain centered text block (photo removed), matching
+   the Services section's single-column layout below it. */
+.philosophy-band{text-align:center;}
+.philosophy-band p{text-align:center;}
+.philosophy-band .trust-head{font-size:clamp(32px,3.9vw,44px);}
+.philosophy-band .btn-solid{display:inline-block;}
 
 /* About page hero — reuses the homepage .eh hero (photo right, nav floats over it) but with a
    left-aligned gold pull-quote instead of the centered eyebrow/headline/button. */
@@ -511,16 +514,12 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   .split-divider-top{display:none;}
   .split-body{flex-direction:column;}
   .split-photo{aspect-ratio:2345/1900;}
-  .split-photo.th-phil-photo{aspect-ratio:2345/2500;order:1;}
   .split-photo img{object-position:50% 75%;}
   /* IMG_1395 is a tall portrait shot — the default mobile split-photo box (2345/1900, wide and
      short) only shows ~54% of the photo's height. Taller box + centered position shows more
      of her body (laptop and hands included), matching the same fix used on the About page hero. */
   .split-band.home-phil-band .split-photo{aspect-ratio:2345/2450;}
   .split-photo img.home-phil-img{object-position:50% 50% !important;}
-  /* same top-anchored-crop-cuts-off-too-soon issue as home-phil-img above — centering shows
-     both hands on the laptop instead of stopping at her face/shoulders. */
-  .split-photo img.th-phil-img{object-position:50% 50%;}
   .split-text{padding:2.5rem 1.5rem 3rem;}
   .home-phil-band .btn-solid{align-self:center;}
   .ab-two-col{flex-direction:column;gap:8px;}
@@ -805,17 +804,14 @@ footer .foot-link:hover{color:var(--accent);}
       <p class="pg-hero-note">Available for clients across Florida and New York.</p>
     </div>
   </section>
-  <section class="split-band th-band" id="philosophy">
-    <div class="split-body">
-      <div class="split-photo th-phil-photo"><img class="th-phil-img" src="data:image/jpeg;base64,__THERAPYPHIL__" alt="Dr. Alina Schulhofer, psychotherapist, in a virtual therapy session" /></div>
-      <div class="split-text prose">
-        <h2 class="trust-head" style="margin-bottom:40px;">Philosophy</h2>
-        <p>To me, good psychotherapy is a form of art. While my way of working is informed by many years of education, training, and clinical experience, it also has an intuitive component&mdash;what happens within and between people, in my experience, often transcends ordinary logic or understanding.</p>
-        <p>My approach is relational psychoanalytic, which means that I make use of what takes place between me and my clients to better understand how they relate to other people in their lives&mdash;what goes well, and where they may inadvertently create or replay painful dynamics.</p>
-        <p>I believe meaningful growth begins with a deeper understanding of ourselves: the experiences that have shaped us, our patterns, the ways we relate to ourselves and others, and the unconscious forces that influence how we see and navigate the world.</p>
-        <p>I take a holistic perspective that sees and treats the person as an interconnected being&mdash;including mind, body, spirit, and the broader systems in which we live and work. Understanding what gets in our way is important, but so is recognizing the strengths, possibilities, and meaning within our stories.</p>
-        <a href="index.html#contact" class="btn-solid" style="margin-top:26px;">Get Started</a>
-      </div>
+  <section class="section philosophy-band" id="philosophy">
+    <div class="container narrow prose">
+      <h2 class="trust-head" style="margin-bottom:40px;">Philosophy</h2>
+      <p>To me, good psychotherapy is a form of art. While my way of working is informed by many years of education, training, and clinical experience, it also has an intuitive component&mdash;what happens within and between people, in my experience, often transcends ordinary logic or understanding.</p>
+      <p>My approach is relational psychoanalytic, which means that I make use of what takes place between me and my clients to better understand how they relate to other people in their lives&mdash;what goes well, and where they may inadvertently create or replay painful dynamics.</p>
+      <p>I believe meaningful growth begins with a deeper understanding of ourselves: the experiences that have shaped us, our patterns, the ways we relate to ourselves and others, and the unconscious forces that influence how we see and navigate the world.</p>
+      <p>I take a holistic perspective that sees and treats the person as an interconnected being&mdash;including mind, body, spirit, and the broader systems in which we live and work. Understanding what gets in our way is important, but so is recognizing the strengths, possibilities, and meaning within our stories.</p>
+      <a href="index.html#contact" class="btn-solid" style="margin-top:26px;">Get Started</a>
     </div>
   </section>
 

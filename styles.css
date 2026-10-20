@@ -130,6 +130,10 @@ body.anim .split-divider.is-visible{transform:scaleX(1);transition:transform .6s
 .prose ul li::before{content:"";position:absolute;left:0;top:15px;width:5px;height:5px;border-radius:50%;background:var(--accent);}
 .prose ul li strong{color:var(--ink);font-weight:500;}
 .prose-refs{margin-top:36px;padding-top:24px;border-top:1px solid var(--line);}
+.focus-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px 36px;margin:0 auto;padding:0;max-width:640px;}
+.focus-list li{position:relative;padding:4px 0 4px 22px;font-family:'Jost',sans-serif;font-weight:300;font-size:15.5px;line-height:1.5;color:var(--ink2);text-align:left;}
+.focus-list li::before{content:"";position:absolute;left:0;top:13px;width:5px;height:5px;border-radius:50%;background:var(--accent);}
+@media(max-width:620px){.focus-list{grid-template-columns:1fr;}}
 .prose-refs .eyebrow{display:block;margin-bottom:14px;}
 .prose-refs p{font-size:13.5px;color:var(--ink3);margin-bottom:10px;text-align:left;}
 

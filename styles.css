@@ -360,7 +360,7 @@ section.home-trust-detail{padding-top:40px;padding-bottom:80px;}
 .svc-tab-nav label:hover{border-color:var(--accent);color:var(--ink);}
 .svc-tab-panels{margin-top:48px;text-align:left;min-height:240px;}
 .svc-tab-panel{display:none;}
-.svc-tab-panel .svc-panel-head{display:flex;align-items:center;gap:16px;margin-bottom:22px;}
+.svc-tab-panel .svc-panel-head{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:22px;}
 .svc-tab-panel .svc-icon{flex:none;width:34px;height:34px;}
 .svc-tab-panel .svc-icon svg{width:100%;height:100%;fill:none;stroke:var(--accent);stroke-width:1.15;}
 .svc-tab-panel .svc-name{font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--ink);}

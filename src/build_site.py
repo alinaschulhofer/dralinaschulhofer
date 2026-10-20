@@ -44,7 +44,7 @@ if posts:
 footer='<footer>'+re.search(r'<footer>(.*?)</footer>', body, re.S).group(1)+'</footer>'
 
 JSONLD='''<script type="application/ld+json">
-{"@context":"https://schema.org","@type":["Psychologist","MedicalBusiness"],"name":"Dr. Alina Schulhofer — Concierge Psychological Services","description":"Depth-oriented virtual psychotherapy for high achievers — executives, entrepreneurs, creatives, founders, high net worth individuals, high-profile clients, and professional athletes. Licensed clinical psychologist in Florida and New York.","url":"https://www.dralinaschulhofer.com","telephone":"+1-786-671-4945","email":"alina@dralinaschulhofer.com","areaServed":[{"@type":"State","name":"Florida"},{"@type":"State","name":"New York"}],"availableService":[{"@type":"MedicalTherapy","name":"Individual Therapy"},{"@type":"MedicalTherapy","name":"Couples & Family Therapy"},{"@type":"MedicalTherapy","name":"Therapy Intensives"}],"founder":{"@type":"Person","name":"Dr. Alina Schulhofer","jobTitle":"Licensed Clinical Psychologist (PsyD)","alumniOf":"Nova Southeastern University"},"knowsAbout":["Psychotherapy","Trauma","Personality","Relationships","High Performance Psychology","Executive Wellbeing","High Net Worth Individuals"],"sameAs":["https://architectureofexcellence.com"]}
+{"@context":"https://schema.org","@type":["Psychologist","MedicalBusiness"],"name":"Dr. Alina Schulhofer — Concierge Psychological Services","description":"Depth-oriented virtual psychotherapy for high achievers — executives, entrepreneurs, creatives, founders, high-net-worth individuals, high-profile clients, and professional athletes. Licensed clinical psychologist in Florida and New York.","url":"https://www.dralinaschulhofer.com","telephone":"+1-786-671-4945","email":"alina@dralinaschulhofer.com","areaServed":[{"@type":"State","name":"Florida"},{"@type":"State","name":"New York"}],"availableService":[{"@type":"MedicalTherapy","name":"Individual Therapy"},{"@type":"MedicalTherapy","name":"Couples & Family Therapy"},{"@type":"MedicalTherapy","name":"Therapy Intensives"}],"founder":{"@type":"Person","name":"Dr. Alina Schulhofer","jobTitle":"Licensed Clinical Psychologist (PsyD)","alumniOf":"Nova Southeastern University"},"knowsAbout":["Psychotherapy","Trauma","Personality","Relationships","High Performance Psychology","Executive Wellbeing","High-Net-Worth Individuals"],"sameAs":["https://architectureofexcellence.com"]}
 </script>'''
 
 def breadcrumb(name, canon):
@@ -53,12 +53,12 @@ def breadcrumb(name, canon):
 </script>'''
 
 PERSON_LDJSON='''<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"Dr. Alina Schulhofer","jobTitle":"Licensed Clinical Psychologist (PsyD)","alumniOf":"Nova Southeastern University","url":"https://www.dralinaschulhofer.com/about.html","image":"https://www.dralinaschulhofer.com/assets/portrait-about.jpg","worksFor":[{"@type":"MedicalBusiness","name":"Dr. Alina Schulhofer — Concierge Psychological Services"},{"@type":"Organization","name":"Architecture of Excellence","url":"https://architectureofexcellence.com"}],"knowsAbout":["Psychotherapy","Trauma","Relationships","High Performance Psychology","Executive Coaching","High Net Worth Individuals"]}
+{"@context":"https://schema.org","@type":"Person","name":"Dr. Alina Schulhofer","jobTitle":"Licensed Clinical Psychologist (PsyD)","alumniOf":"Nova Southeastern University","url":"https://www.dralinaschulhofer.com/about.html","image":"https://www.dralinaschulhofer.com/assets/portrait-about.jpg","worksFor":[{"@type":"MedicalBusiness","name":"Dr. Alina Schulhofer — Concierge Psychological Services"},{"@type":"Organization","name":"Architecture of Excellence","url":"https://architectureofexcellence.com"}],"knowsAbout":["Psychotherapy","Trauma","Relationships","High Performance Psychology","Executive Coaching","High-Net-Worth Individuals"]}
 </script>'''
 
 SERVICE_LDJSON={
  'services':'''<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"MedicalBusiness","name":"Therapy Services — Dr. Alina Schulhofer","description":"Individual therapy, couples & family therapy, and intensives for high achievers, high net worth individuals, and high-profile clients.","areaServed":[{"@type":"State","name":"Florida"},{"@type":"State","name":"New York"}],"provider":{"@type":"Person","name":"Dr. Alina Schulhofer"}}
+{"@context":"https://schema.org","@type":"MedicalBusiness","name":"Therapy Services — Dr. Alina Schulhofer","description":"Individual therapy, couples & family therapy, and intensives for high achievers, high-net-worth individuals, and high-profile clients.","areaServed":[{"@type":"State","name":"Florida"},{"@type":"State","name":"New York"}],"provider":{"@type":"Person","name":"Dr. Alina Schulhofer"}}
 </script>''',
 }
 
@@ -66,11 +66,11 @@ SERVICE_LDJSON={
 # the home content still has id references (#about etc via data-go?) none now. It uses hero cta href="#contact" and about page as separate file.
 META={
  'home':('index.html','Dr. Alina Schulhofer, PsyD | Therapy for High Achievers, FL & NY',
-         'Depth-oriented virtual psychotherapy for executives, entrepreneurs, high net worth and high-profile individuals in Florida and New York. Private-pay, concierge care.'),
+         'Depth-oriented virtual psychotherapy for executives, entrepreneurs, high-net-worth and high-profile individuals in Florida and New York. Private-pay, concierge care.'),
  'about':('about.html','About Dr. Alina Schulhofer, PsyD | Licensed Psychologist',
-          'Meet Dr. Alina Schulhofer, PsyD, a licensed clinical psychologist providing depth-oriented virtual therapy for high performers, high net worth, and high-profile individuals in Florida and New York.'),
+          'Meet Dr. Alina Schulhofer, PsyD, a licensed clinical psychologist providing depth-oriented virtual therapy for high performers, high-net-worth, and high-profile individuals in Florida and New York.'),
  'services':('services.html','Therapy Services & Investment | Dr. Alina Schulhofer, PsyD',
-             'Individual and couples therapy plus intensives, private-pay virtual care for high-demand, high net worth, and high-profile lives in Florida and New York.'),
+             'Individual and couples therapy plus intensives, private-pay virtual care for high-demand, high-net-worth, and high-profile lives in Florida and New York.'),
 }
 PAGE_NAME={'about':'About','services':'Therapy Services'}
 

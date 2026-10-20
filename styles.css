@@ -351,7 +351,7 @@ section.home-trust-detail{padding-top:40px;padding-bottom:80px;}
 
 
 /* services menu — jump links down to each accordion item */
-.svc-menu{display:flex;justify-content:center;gap:76px;flex-wrap:wrap;max-width:960px;margin:36px auto 0;padding:0 40px;}
+.svc-menu{display:flex;justify-content:center;gap:56px;flex-wrap:wrap;max-width:1040px;margin:36px auto 0;padding:0 40px;}
 .svc-menu-item{display:flex;flex-direction:column;align-items:center;gap:20px;width:170px;text-decoration:none;}
 .svc-menu-icon{width:62px;height:62px;display:flex;align-items:center;justify-content:center;transition:transform .25s ease;}
 .svc-menu-icon svg{width:100%;height:100%;fill:none;stroke:var(--accent);stroke-width:1.1;}

@@ -364,6 +364,29 @@ section.home-trust-detail{padding-top:40px;padding-bottom:80px;}
 .svc-acc .svc-toggle .chev2{width:11px;height:11px;border-right:1.4px solid var(--accent);border-bottom:1.4px solid var(--accent);transform:rotate(45deg);transition:transform .25s ease;}
 .svc-acc details[open] .svc-toggle .chev2{transform:rotate(-135deg);}
 @media(max-width:640px){.svc-acc summary{gap:14px;}}
+.svc-tabs{margin-top:46px;}
+.svc-tab-radio{position:absolute;opacity:0;pointer-events:none;}
+.svc-tab-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;}
+.svc-tab-nav label{cursor:pointer;padding:.75rem 1.4rem;border:1px solid var(--line);border-radius:999px;font-family:'Jost',sans-serif;font-weight:500;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);transition:all .2s;white-space:nowrap;}
+.svc-tab-nav label:hover{border-color:var(--accent);color:var(--ink);}
+.svc-tab-panels{margin-top:48px;text-align:left;min-height:240px;}
+.svc-tab-panel{display:none;}
+.svc-tab-panel .svc-panel-head{display:flex;align-items:center;gap:16px;margin-bottom:22px;}
+.svc-tab-panel .svc-icon{flex:none;width:34px;height:34px;}
+.svc-tab-panel .svc-icon svg{width:100%;height:100%;fill:none;stroke:var(--accent);stroke-width:1.15;}
+.svc-tab-panel .svc-name{font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--ink);}
+.svc-tab-inline-link{cursor:pointer;color:var(--accent);text-decoration:underline;text-underline-offset:.15em;}
+#tabr-ind:checked ~ .svc-tab-panels #tabp-ind,
+#tabr-cou:checked ~ .svc-tab-panels #tabp-cou,
+#tabr-con:checked ~ .svc-tab-panels #tabp-con,
+#tabr-int:checked ~ .svc-tab-panels #tabp-int,
+#tabr-inv:checked ~ .svc-tab-panels #tabp-inv{display:block;}
+#tabr-ind:checked ~ .svc-tab-nav label[for="tabr-ind"],
+#tabr-cou:checked ~ .svc-tab-nav label[for="tabr-cou"],
+#tabr-con:checked ~ .svc-tab-nav label[for="tabr-con"],
+#tabr-int:checked ~ .svc-tab-nav label[for="tabr-int"],
+#tabr-inv:checked ~ .svc-tab-nav label[for="tabr-inv"]{background:var(--ink);border-color:var(--ink);color:#FCFBF8;}
+@media(max-width:640px){.svc-tab-nav{gap:8px;}.svc-tab-nav label{padding:.6rem 1rem;font-size:.66rem;}}
 
 
 /* services menu — jump links down to each accordion item */
@@ -827,27 +850,35 @@ footer .foot-link:hover{color:var(--accent);}
     <div class="container narrow">
       <h2 style="text-align:center;margin-bottom:8px;font-size:clamp(28px,3.4vw,38px);color:var(--accent);">Services</h2>
       <p style="text-align:center;font-family:'Jost',sans-serif;font-weight:300;font-size:16px;color:var(--ink2);max-width:560px;margin:0 auto 56px;">I work with individuals, couples, and families across a wide range of life experiences, though I specialize in working with high achievers, high-net-worth individuals, and high-profile clients.</p>
-      <div class="acc svc-acc">
-        <details id="svc-individual">
-          <summary>
-            <span class="svc-icon"><svg viewBox="0 0 40 40"><circle cx="20" cy="13" r="6.5"/><path d="M8 33c0-8 5.4-13 12-13s12 5 12 13"/></svg></span>
-            <span class="svc-head"><span class="svc-name">Individual Therapy</span><span class="svc-desc">Designed to address your unique story and specific goals.</span></span>
-            <span class="svc-toggle"><span class="chev2"></span></span>
-          </summary>
-          <div class="acc-body">
+      <div class="svc-tabs">
+        <input type="radio" name="svctab" id="tabr-ind" class="svc-tab-radio" checked>
+        <input type="radio" name="svctab" id="tabr-cou" class="svc-tab-radio">
+        <input type="radio" name="svctab" id="tabr-con" class="svc-tab-radio">
+        <input type="radio" name="svctab" id="tabr-int" class="svc-tab-radio">
+        <input type="radio" name="svctab" id="tabr-inv" class="svc-tab-radio">
+        <div class="svc-tab-nav">
+          <label for="tabr-ind">Individual Therapy</label>
+          <label for="tabr-cou">Couples &amp; Family</label>
+          <label for="tabr-con">Concierge</label>
+          <label for="tabr-int">Intensive Sessions</label>
+          <label for="tabr-inv">Investment</label>
+        </div>
+        <div class="svc-tab-panels">
+          <div class="svc-tab-panel" id="tabp-ind">
+            <div class="svc-panel-head">
+              <span class="svc-icon"><svg viewBox="0 0 40 40"><circle cx="20" cy="13" r="6.5"/><path d="M8 33c0-8 5.4-13 12-13s12 5 12 13"/></svg></span>
+              <span class="svc-name">Individual Therapy</span>
+            </div>
             <p>Designed to address your unique story and specific goals, we will explore the experiences that have shaped you, identify the cycles you feel stuck in, and help you gain a deeper understanding of yourself.</p>
             <p>For your initial session, we will meet for 60-minutes to establish an understanding of who you are, your past and present, current concerns, and what you hope to gain from therapy. This initial meeting is also an opportunity to determine goodness of fit between us.</p>
             <p>Therapy sessions are typically held on a weekly basis, though frequency will be determined collaboratively based on your individual needs and desires. For various reasons, some may benefit from deeper, more intensive treatment where sessions take place multiple times per week.</p>
             <p>I generally do not recommend meeting less than once per week, as infrequent sessions make it more difficult to facilitate change and experience notable improvements. While standard therapy sessions are 50-minutes in length, extended sessions may be preferable and can be arranged on a case-by-case basis.</p>
           </div>
-        </details>
-        <details id="svc-couples">
-          <summary>
-            <span class="svc-icon"><svg viewBox="0 0 40 40"><circle cx="15" cy="12" r="5.5"/><circle cx="26" cy="12" r="5.5"/><path d="M6 33c0-6.5 4.3-10.5 9.5-10.5S25 26.5 25 33"/><path d="M18 33c0-6.5 4-10.5 9-10.5s9 4 9 10.5"/></svg></span>
-            <span class="svc-head"><span class="svc-name">Couples &amp; Family Therapy</span><span class="svc-desc">Intended to address your current issues while also promoting long-term relational growth and greater intimacy.</span></span>
-            <span class="svc-toggle"><span class="chev2"></span></span>
-          </summary>
-          <div class="acc-body">
+          <div class="svc-tab-panel" id="tabp-cou">
+            <div class="svc-panel-head">
+              <span class="svc-icon"><svg viewBox="0 0 40 40"><circle cx="15" cy="12" r="5.5"/><circle cx="26" cy="12" r="5.5"/><path d="M6 33c0-6.5 4.3-10.5 9.5-10.5S25 26.5 25 33"/><path d="M18 33c0-6.5 4-10.5 9-10.5s9 4 9 10.5"/></svg></span>
+              <span class="svc-name">Couples &amp; Family Therapy</span>
+            </div>
             <p>Understanding that every relationship comes with its unique challenges, my approach focuses on your current issues while also promoting long-term relational growth and greater intimacy.</p>
             <p>I also work with high-net-worth couples and families, including those who own and run businesses together, where personal relationships and professional life are often closely intertwined.</p>
             <p>We will begin with a comprehensive initial evaluation, designed to help me understand your relationship dynamic and determine the most effective path forward. This process consists of:</p>
@@ -856,27 +887,21 @@ footer .foot-link:hover{color:var(--accent);}
             <p>Following the initial evaluation, couples or families typically meet with me weekly for 50-minute sessions. Extended sessions (90-minutes) or intensives may also be arranged for those seeking more support or accelerated progress.</p>
             <p>I draw from a variety of approaches, including psychodynamic therapy, systems and attachment theory, and emotionally-focused therapy (EFT), to help couples and families understand their patterns, communicate more effectively, and build a stronger, more connected relationship.</p>
           </div>
-        </details>
-        <details id="svc-concierge">
-          <summary>
-            <span class="svc-icon"><svg viewBox="0 0 40 40"><path d="M20 6l3 11 11 3-11 3-3 11-3-11-11-3 11-3z" stroke-linejoin="round"/></svg></span>
-            <span class="svc-head"><span class="svc-name">Concierge Services</span><span class="svc-desc">An elevated level of access and support, available through a monthly subscription.</span></span>
-            <span class="svc-toggle"><span class="chev2"></span></span>
-          </summary>
-          <div class="acc-body">
+          <div class="svc-tab-panel" id="tabp-con">
+            <div class="svc-panel-head">
+              <span class="svc-icon"><svg viewBox="0 0 40 40"><path d="M20 6l3 11 11 3-11 3-3 11-3-11-11-3 11-3z" stroke-linejoin="round"/></svg></span>
+              <span class="svc-name">Concierge Services</span>
+            </div>
             <p>For those who want a higher level of accessibility and support, I offer concierge-style care through a monthly subscription.</p>
             <p>This includes extended session options, priority scheduling, and the ability to reach me directly between sessions for guidance during moments that can't wait for your next appointment.</p>
             <p>Concierge care is designed for individuals, couples, and families who want consistent, readily available support integrated into their lives.</p>
             <p>Please inquire directly to discuss whether this level of care is the right fit for you.</p>
           </div>
-        </details>
-        <details id="svc-intensives">
-          <summary>
-            <span class="svc-icon"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="13"/><path d="M20 12v8l6 4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            <span class="svc-head"><span class="svc-name">Intensive Sessions</span><span class="svc-desc">A focused, transformative alternative to weekly sessions — for depth, momentum, or a demanding schedule.</span></span>
-            <span class="svc-toggle"><span class="chev2"></span></span>
-          </summary>
-          <div class="acc-body">
+          <div class="svc-tab-panel" id="tabp-int">
+            <div class="svc-panel-head">
+              <span class="svc-icon"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="13"/><path d="M20 12v8l6 4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="svc-name">Intensive Sessions</span>
+            </div>
             <p>Therapy intensives offer a more focused and transformative experience than standard weekly sessions. Designed for individuals and couples seeking greater depth or momentum, intensives allow us to work for extended periods in a contained way.</p>
             <p><span class="b">An intensive may be helpful if you are experiencing:</span></p>
             <ul><li>A significant life transition</li><li>An interpersonal crisis</li><li>Trauma that feels difficult to approach in shorter sessions</li><li>Feeling stuck in ongoing patterns</li><li>A desire for accelerated personal or relational growth</li><li>A schedule that makes weekly therapy challenging</li></ul>
@@ -885,19 +910,16 @@ footer .foot-link:hover{color:var(--accent);}
             <p>Intensives are available for both individuals and couples and are tailored to your goals. They can be scheduled as standalone experiences or integrated into ongoing therapy.</p>
             <p>Please inquire directly for a quote.</p>
           </div>
-        </details>
-        <details id="svc-investment">
-          <summary>
-            <span class="svc-icon"><svg viewBox="0 0 40 40"><path d="M20 6l4 8.5 9 1.3-6.5 6.3 1.5 9-8-4.2-8 4.2 1.5-9L7 15.8l9-1.3z" stroke-linejoin="round"/></svg></span>
-            <span class="svc-head"><span class="svc-name">Investment</span><span class="svc-desc">Private pay care.</span></span>
-            <span class="svc-toggle"><span class="chev2"></span></span>
-          </summary>
-          <div class="acc-body">
+          <div class="svc-tab-panel" id="tabp-inv">
+            <div class="svc-panel-head">
+              <span class="svc-icon"><svg viewBox="0 0 40 40"><path d="M20 6l4 8.5 9 1.3-6.5 6.3 1.5 9-8-4.2-8 4.2 1.5-9L7 15.8l9-1.3z" stroke-linejoin="round"/></svg></span>
+              <span class="svc-name">Investment</span>
+            </div>
             <p>Therapy is an investment in yourself—your inner world, your relationships, your long-term wellbeing, and the quality of your success.</p>
-            <p><a href="#svc-concierge">Concierge-style care</a> is also available through a monthly subscription, for those who want a higher level of accessibility and support.</p>
+            <p><label for="tabr-con" class="svc-tab-inline-link">Concierge-style care</label> is also available through a monthly subscription, for those who want a higher level of accessibility and support.</p>
             <p>Please inquire directly for details regarding fees and availability.</p>
           </div>
-        </details>
+        </div>
       </div>
     </div>
   </section>
@@ -906,7 +928,7 @@ footer .foot-link:hover{color:var(--accent);}
 
   <section class="section problems-band">
     <div class="container narrow">
-      <h2 style="text-align:center;margin-bottom:28px;font-size:clamp(28px,3.4vw,38px);color:var(--accent);">Areas of Expertise</h2>
+      <h2 style="text-align:center;margin-bottom:48px;font-size:clamp(28px,3.4vw,38px);color:var(--accent);">Areas of Expertise</h2>
       <ul class="focus-list">
         <li>Trauma</li>
         <li>Imposter syndrome and perfectionism</li>
@@ -919,6 +941,7 @@ footer .foot-link:hover{color:var(--accent);}
         <li>Burnout and stress</li>
         <li>Meaning and legacy</li>
       </ul>
+      <div style="text-align:center;margin-top:40px;"><a href="index.html#contact" class="btn-solid">Get Started</a></div>
     </div>
   </section>
 

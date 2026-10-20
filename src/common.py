@@ -66,14 +66,15 @@ def NAV(active):
     if SHOW_BLOG_NAV:
         blog_cls = ' class="active"' if active == 'blog' else ''
         blog_link = f'<a href="blog.html"{blog_cls}>Insights</a>\n      '
+    faq_cls = ' class="active"' if active == 'faq' else ''
     return f'''<header class="top">
   <div class="container">
     <a href="index.html" class="wordmark">Dr. Alina Schulhofer</a>
     <nav class="nav" id="nav">
-      <a href="index.html"{' class="active"' if active=="home" else ''}>Home</a>
       <a href="about.html"{' class="active"' if active=="about" else ''}>About</a>
       <a href="services.html"{' class="active"' if active=="services" else ''}>Therapy</a>
       <a href="https://architectureofexcellence.com" target="_blank" rel="noopener">Performance &amp; Consulting</a>
+      <a href="faq.html"{faq_cls}>FAQ</a>
       {blog_link}<a href="index.html#contact" class="btn">Contact</a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>

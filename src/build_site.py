@@ -1,4 +1,4 @@
-import re, pathlib, sys, html
+import re, pathlib, sys, html, json
 HERE=pathlib.Path(__file__).resolve().parent
 ROOT=HERE.parent  # deploy files live at repo root; master source lives in src/
 sys.path.insert(0, str(HERE))
@@ -27,7 +27,7 @@ body=body.replace('data:image/jpeg;base64,__ABOUTHERO__',f'assets/philosophy-pho
 def page_inner(pid):
     m=re.search(r'<div class="page[^"]*" id="'+pid+r'">(.*?)</div>\s*(?=<!-- =+ |<footer>)', body, re.S)
     return m.group(1).strip()
-pages={pid:page_inner(pid) for pid in ['home','about','services']}
+pages={pid:page_inner(pid) for pid in ['home','about','services','faq']}
 
 # homepage — inject the newest blog post into the featured-post teaser
 posts=load_posts()
@@ -62,6 +62,23 @@ SERVICE_LDJSON={
 </script>''',
 }
 
+FAQ_ITEMS=[
+ ("Do you accept insurance?","No. I am a private-pay provider and do not accept insurance, which means no mental health diagnosis has to be placed on your record. Your care is guided entirely by your needs and goals, rather than limited by the session frequency, length, or duration an insurance company might otherwise dictate."),
+ ("What states are you licensed in?","I am a licensed clinical psychologist in Florida and New York, and I work with clients across both states through secure, confidential virtual sessions."),
+ ("Are sessions in-person or virtual?","All sessions are conducted virtually—secure, confidential online sessions that meet you where you are, available for clients across Florida and New York."),
+ ("Who do you typically work with?","I work with individuals, couples, and families across a wide range of life experiences, though I specialize in working with high achievers, high-net-worth individuals, and high-profile clients—including executives, entrepreneurs, creatives, founders, professional athletes, academics, and medical professionals."),
+ ("What is your therapeutic approach?","My approach is relational psychoanalytic, which means I make use of what takes place between me and my clients to better understand how they relate to other people in their lives—what goes well, and where they may inadvertently create or replay painful dynamics. I take a holistic perspective that sees and treats the person as an interconnected being, including mind, body, spirit, and the broader systems in which we live and work."),
+ ("How long are sessions, and how often do we meet?","Standard individual sessions are 50 minutes, typically held weekly, though frequency is determined collaboratively based on your needs. Extended sessions can be arranged on a case-by-case basis. Couples and families begin with a comprehensive initial evaluation—one 90-minute joint session followed by individual 60-minute sessions—then typically meet weekly for 50-minute sessions, with extended 90-minute sessions available."),
+ ("What's the difference between therapy with you and coaching/consulting through Architecture of Excellence?","Therapy addresses your inner world, mental health, and relationships, and is clinical in nature. Through Architecture of Excellence™, I also offer private coaching, educational engagements, and organizational consulting designed to support high-performing individuals, teams, and organizations with leadership, performance, and organizational effectiveness—distinct from clinical psychotherapy."),
+ ("Do you offer couples or family therapy?","Yes. I work with couples and families, including high-net-worth couples and families who own and run businesses together, where personal relationships and professional life are often closely intertwined. My approach focuses on your current issues while also promoting long-term relational growth and greater intimacy."),
+ ("What is a therapy intensive, and is it right for me?","Therapy intensives offer a more focused and transformative experience than standard weekly sessions, allowing us to work for extended periods in a contained way. They may be helpful if you're navigating a significant life transition, an interpersonal crisis, trauma that feels difficult to approach in shorter sessions, feeling stuck in ongoing patterns, a desire for accelerated growth, or a schedule that makes weekly therapy challenging. Intensives can take place as extended 90-minute or 2-hour sessions, or as full-day (4–5 hour) intensives with breaks."),
+ ("What are Concierge Services, and how do they work?","For those who want a higher level of accessibility and support, I offer concierge-style care through a monthly subscription. This includes extended session options, priority scheduling, and the ability to reach me directly between sessions for guidance during moments that can't wait for your next appointment. Please inquire directly to discuss whether this level of care is the right fit for you."),
+ ("Is what I share with you confidential?","Yes. Your privacy and discretion are of the utmost importance to me. As a private-pay provider, your sessions are not reported to insurance and no diagnosis has to be placed on your record."),
+ ("How do I get started?","Reach out through the contact form to share a little about what brings you here, and I will respond personally to arrange your complimentary consultation."),
+]
+_faq_entities=[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in FAQ_ITEMS]
+FAQ_LDJSON='<script type="application/ld+json">\n'+json.dumps({"@context":"https://schema.org","@type":"FAQPage","mainEntity":_faq_entities})+'\n</script>'
+
 # NAV, FONTS, DOMAIN, SCRIPT now come from common.py (shared with build_blog.py).
 # the home content still has id references (#about etc via data-go?) none now. It uses hero cta href="#contact" and about page as separate file.
 META={
@@ -71,8 +88,10 @@ META={
           'Meet Dr. Alina Schulhofer, PsyD, a licensed clinical psychologist providing depth-oriented virtual therapy for high performers, high-net-worth, and high-profile individuals in Florida and New York.'),
  'services':('services.html','Therapy Services & Investment | Dr. Alina Schulhofer, PsyD',
              'Individual and couples therapy plus intensives, private-pay virtual care for high-demand, high-net-worth, and high-profile lives in Florida and New York.'),
+ 'faq':('faq.html','Frequently Asked Questions | Dr. Alina Schulhofer, PsyD',
+        'Answers to common questions about private-pay therapy, licensing, confidentiality, concierge services, and intensives with Dr. Alina Schulhofer.'),
 }
-PAGE_NAME={'about':'About','services':'Therapy Services'}
+PAGE_NAME={'about':'About','services':'Therapy Services','faq':'FAQ'}
 
 for pid,content in pages.items():
     fn,title,desc=META[pid]
@@ -82,6 +101,8 @@ for pid,content in pages.items():
         extra_ldjson=PERSON_LDJSON+'\n'+breadcrumb(PAGE_NAME[pid], canon)
     elif pid in SERVICE_LDJSON:
         extra_ldjson=SERVICE_LDJSON[pid]+'\n'+breadcrumb(PAGE_NAME[pid], canon)
+    elif pid=='faq':
+        extra_ldjson=FAQ_LDJSON+'\n'+breadcrumb(PAGE_NAME[pid], canon)
     head=f'''<!DOCTYPE html>
 <html lang="en">
 <head>

@@ -13,7 +13,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="icon" href="favicon.ico" sizes="any" /><link rel="icon" href="favicon.png" type="image/png" /><link rel="apple-touch-icon" href="apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=140" />
+<link rel="stylesheet" href="styles.css?v=143" />
 <noscript><style>body{opacity:1 !important;}</style></noscript>
 <meta name="author" content="Dr. Alina Schulhofer" />
 <script type="application/ld+json">
@@ -97,7 +97,7 @@
   <div class="container">
     <h2>Ready to Begin?</h2>
     <p>Book a free 15-minute consultation to see if working together is the right fit.</p>
-    <a href="index.html#contact">Book a Free Consultation</a>
+    <a href="https://cal.com/dralinaschulhofer/free-15-minute-consultation" data-book="dralinaschulhofer/free-15-minute-consultation">Book a Free Consultation</a>
   </div>
 </section>
 <footer>
@@ -125,13 +125,14 @@
         <span class="foot-sep">·</span>
         <a href="tel:+17866714945" class="foot-link">+1 786-671-4945</a>
       </span><br />
+      <a href="book.html" class="foot-link">See all booking options &rarr;</a><br />
       © 2026 Dr. Alina Schulhofer. All rights reserved.
     </p>
   </div>
 </footer>
-<a href="https://calendly.com/dralinaschulhofer/consultation-15min" target="_blank" rel="noopener" class="fab-book" aria-label="Book a consultation on Calendly">
+<a href="https://cal.com/dralinaschulhofer" data-book="dralinaschulhofer" class="fab-book" aria-label="Book an appointment">
   <svg viewBox="0 0 40 40"><rect x="7" y="9" width="26" height="24" rx="4"/><path d="M7 17h26"/><path d="M14 5v6M26 5v6" stroke-linecap="round"/><path d="M15 24l3.2 3.2L26 19" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  <span>Book Consultation</span>
+  <span>Book Appointment</span>
 </a>
 <div class="iag-overlay" id="iagOverlay">
   <div class="iag-modal">
@@ -159,11 +160,13 @@
       var hash=a.getAttribute('href').split('#')[1];
       var target=hash && document.getElementById(hash);
       if(target && target.tagName==='DETAILS'){ target.open=true; }
+      if(target && target.tagName==='INPUT' && target.type==='radio'){ target.checked=true; }
     });
   });
   if(location.hash){
     var hashTarget=document.getElementById(location.hash.slice(1));
     if(hashTarget && hashTarget.tagName==='DETAILS'){ hashTarget.open=true; }
+    if(hashTarget && hashTarget.tagName==='INPUT' && hashTarget.type==='radio'){ hashTarget.checked=true; }
   }
   var cf=document.getElementById('contactForm');
   if(cf){ cf.addEventListener('submit',function(e){
@@ -211,6 +214,33 @@
       fetch('https://formspree.io/f/xzdwqnvk',{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify({email:email,_subject:'Free Guide Signup \u2014 '+email,message:'New opt-in for The Inner Alignment Guide: '+email})})
       .then(go).catch(go);
     }); }
+  })();
+</script>
+<script>
+  (function () {
+    var triggers = document.querySelectorAll('[data-book]');
+    if (!triggers.length) return;
+
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+
+    var ready = false;
+    Cal('init', { origin: 'https://cal.com' });
+    Cal('ui', {
+      theme: 'light',
+      cssVarsPerTheme: { light: { 'cal-brand': '#A9843F' } },
+      hideEventTypeDetails: false,
+      layout: 'month_view'
+    });
+    var s = document.querySelector('script[src="https://app.cal.com/embed/embed.js"]');
+    if (s) { s.addEventListener('load', function () { ready = true; }); }
+
+    triggers.forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        if (!ready) return; // embed not loaded yet (or blocked): let the normal link open Cal.com
+        e.preventDefault();
+        Cal('modal', { calLink: el.getAttribute('data-book'), config: { layout: 'month_view' } });
+      });
+    });
   })();
 </script>
 <script>

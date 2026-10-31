@@ -2,7 +2,7 @@ import re, pathlib, sys, html, json
 HERE=pathlib.Path(__file__).resolve().parent
 ROOT=HERE.parent  # deploy files live at repo root; master source lives in src/
 sys.path.insert(0, str(HERE))
-from common import DOMAIN, FONTS, NAV, SCRIPT, CSS_LINK, GA_SCRIPT, VISITOR_LOGGER_SCRIPT, IMG_VERSION, FAVICON, NOSCRIPT_FALLBACK, FAB_BOOK, IAG_POPUP
+from common import DOMAIN, FONTS, NAV, SCRIPT, CSS_LINK, GA_SCRIPT, VISITOR_LOGGER_SCRIPT, IMG_VERSION, FAVICON, NOSCRIPT_FALLBACK, FAB_BOOK, IAG_POPUP, CAL_SCRIPT, CAL_FREE_CONSULT_SLUG, CAL_INTAKE_SLUG, CAL_INTENSIVE_SLUG, CAL_ALL_URL, cal_book_attrs
 from build_blog import load_posts, human_date
 src=open(HERE/'therapy_template.html',encoding='utf-8').read()
 
@@ -126,6 +126,7 @@ for pid,content in pages.items():
 {FAB_BOOK}
 {IAG_POPUP}
 {SCRIPT}
+{CAL_SCRIPT}
 {VISITOR_LOGGER_SCRIPT}
 </body>
 </html>'''
@@ -160,6 +161,7 @@ not_found_head=f'''<!DOCTYPE html>
 {footer}
 {FAB_BOOK}
 {SCRIPT}
+{CAL_SCRIPT}
 {VISITOR_LOGGER_SCRIPT}
 </body>
 </html>'''
@@ -200,11 +202,63 @@ iag_head=f'''<!DOCTYPE html>
 {footer}
 {FAB_BOOK}
 {SCRIPT}
+{CAL_SCRIPT}
 {VISITOR_LOGGER_SCRIPT}
 </body>
 </html>'''
 open(ROOT/'inner-alignment-guide.html','w',encoding='utf-8').write(iag_head)
 print('wrote inner-alignment-guide.html')
+
+# --- 3c. unlisted all-options booking page (not in NAV, not in sitemap — linked from the
+# footer's "See all booking options" link). Embeds the full Cal.com booking page inline so
+# visitors can see every event type without leaving the site. ---
+book_body='''<section class="pg-head">
+  <div class="container narrow">
+    <p class="eyebrow">Schedule Online</p>
+    <h1>Book a Session</h1>
+    <p class="sub">Choose the option that fits where you are right now.</p>
+    <p class="svc-booking-area">Available to clients located in Florida and New York.</p>
+  </div>
+</section>
+<section class="section" style="padding:24px 0 110px;">
+  <div class="container narrow">
+    <div id="calBookingInline" style="width:100%;min-height:700px;overflow:auto;"></div>
+    <p style="text-align:center;font-size:13px;color:var(--ink3);margin-top:18px;">If the calendar doesn&rsquo;t load, <a href="https://cal.com/dralinaschulhofer" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline;text-underline-offset:.15em;">view booking options directly on Cal.com &rarr;</a></p>
+  </div>
+</section>'''
+# Runs after CAL_SCRIPT (which defines window.Cal as a queuing stub synchronously, even before
+# the actual embed.js has finished loading) so the inline-embed call is always safe to make here.
+book_inline_script='''<script>
+  if (window.Cal) {
+    Cal("inline", { elementOrSelector: "#calBookingInline", calLink: "dralinaschulhofer", layout: "month_view" });
+  }
+</script>'''
+book_head=f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Book a Session | Dr. Alina Schulhofer</title>
+<meta name="robots" content="noindex" />
+{FAVICON}
+{FONTS}
+{CSS_LINK}
+{NOSCRIPT_FALLBACK}
+{GA_SCRIPT}
+</head>
+<body>
+{NAV('')}
+{book_body}
+{footer}
+{FAB_BOOK}
+{SCRIPT}
+{CAL_SCRIPT}
+{book_inline_script}
+{VISITOR_LOGGER_SCRIPT}
+</body>
+</html>'''
+open(ROOT/'book.html','w',encoding='utf-8').write(book_head)
+print('wrote book.html')
 
 # --- 4. robots.txt + sitemap.xml (regenerated every build so new blog posts are always included) ---
 open(ROOT/'robots.txt','w',encoding='utf-8').write(

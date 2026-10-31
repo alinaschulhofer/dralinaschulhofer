@@ -11,7 +11,7 @@ import json, pathlib, sys, datetime, html
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parent
 sys.path.insert(0, str(HERE))
-from common import DOMAIN, FONTS, NAV, SCRIPT, get_footer, CSS_LINK, GA_SCRIPT, VISITOR_LOGGER_SCRIPT, IMG_VERSION, FAVICON, NOSCRIPT_FALLBACK, FAB_BOOK, IAG_POPUP
+from common import DOMAIN, FONTS, NAV, SCRIPT, get_footer, CSS_LINK, GA_SCRIPT, VISITOR_LOGGER_SCRIPT, IMG_VERSION, FAVICON, NOSCRIPT_FALLBACK, FAB_BOOK, IAG_POPUP, CAL_SCRIPT, CAL_FREE_CONSULT_SLUG, cal_book_attrs
 
 POSTS_DIR = HERE / 'posts'
 FOOTER = get_footer()
@@ -63,6 +63,7 @@ def page_shell(active, title, desc, canonical, body_html, extra_head=''):
 {FAB_BOOK}
 {IAG_POPUP}
 {SCRIPT}
+{CAL_SCRIPT}
 {VISITOR_LOGGER_SCRIPT}
 </body>
 </html>'''
@@ -103,7 +104,7 @@ def render_index(posts):
   <div class="xb-photo"><img src="assets/portrait-about.jpg?v={IMG_VERSION}" alt="Dr. Alina Schulhofer, founder of Architecture of Excellence" /></div>
   <div class="xb-text">
     <h2>For Those Who Demand Excellence.</h2>
-    <a href="index.html#contact" class="eh-btn">Begin the Conversation</a>
+    <a {cal_book_attrs(CAL_FREE_CONSULT_SLUG)} class="eh-btn">Begin the Conversation</a>
   </div>
 </section>'''
     title = 'Psychology, Leadership & Performance Insights | Dr. Schulhofer'
@@ -140,7 +141,7 @@ def render_post(post):
   <div class="container">
     <h2>Ready to Begin?</h2>
     <p>Book a free 15-minute consultation to see if working together is the right fit.</p>
-    <a href="index.html#contact">Book a Free Consultation</a>
+    <a {cal_book_attrs(CAL_FREE_CONSULT_SLUG)}>Book a Free Consultation</a>
   </div>
 </section>'''
     title = f'{html.escape(post["title"])} — Dr. Alina Schulhofer'

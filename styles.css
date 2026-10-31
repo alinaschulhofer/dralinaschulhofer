@@ -449,7 +449,22 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 .cform textarea{min-height:110px;resize:vertical;}
 .cform button{position:relative;overflow:hidden;z-index:1;align-self:center;font-family:'Jost',sans-serif;font-weight:500;font-size:13px;letter-spacing:2px;text-transform:uppercase;background:transparent;color:var(--ink);border:1px solid var(--ink);padding:15px 34px;border-radius:999px;cursor:pointer;transition:color .2s;margin-top:10px;white-space:nowrap;}
 .cform button:hover{color:#fff;}
-.contact-band .or{font-size:13px;letter-spacing:1px;color:var(--ink3);margin:0 0 8px;}
+.contact-band .or{font-size:13px;letter-spacing:1px;color:var(--ink3);margin:10px auto 24px;display:block;cursor:pointer;text-decoration:underline;text-underline-offset:.2em;transition:color .2s;}
+.contact-band .or:hover{color:var(--accent);}
+.contact-form-toggle{position:absolute;opacity:0;pointer-events:none;}
+.contact-form-toggle ~ .cform{display:none;}
+.contact-form-toggle:checked ~ .cform{display:flex;}
+.contact-form-toggle:checked ~ .or{text-decoration:none;cursor:default;}
+.contact-band .cal-link-area{display:block;font-size:12.5px;color:var(--ink3);margin-top:16px;}
+.contact-band .cal-link-area a{color:var(--accent);text-decoration:underline;text-underline-offset:.15em;}
+.contact-band .cal-link-area a:hover{color:var(--ink);}
+.svc-booking-cta{text-align:center;margin-top:44px;display:flex;flex-direction:column;align-items:center;gap:14px;}
+.svc-booking-link{display:inline-block;font-family:'Jost',sans-serif;font-weight:500;font-size:13.5px;color:var(--accent);text-decoration:underline;text-underline-offset:.15em;cursor:pointer;}
+.svc-booking-link:hover{color:var(--ink);}
+.svc-booking-note{font-family:'Jost',sans-serif;font-weight:300;font-size:13.5px;color:var(--ink2);margin:0;}
+.svc-booking-note a{color:var(--accent);text-decoration:underline;text-underline-offset:.15em;cursor:pointer;}
+.svc-booking-note a:hover{color:var(--ink);}
+.svc-booking-area{font-family:'Jost',sans-serif;font-weight:400;font-size:13px;letter-spacing:.3px;color:#8C6A2E;margin:2px 0 0;}
 .contact-band .email-link{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:#8C6A2E;text-decoration:none;}
 .contact-band .email-link:hover{color:var(--accent);}
 .contact-direct{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;}

@@ -460,7 +460,22 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 .cform textarea{min-height:110px;resize:vertical;}
 .cform button{position:relative;overflow:hidden;z-index:1;align-self:center;font-family:'Jost',sans-serif;font-weight:500;font-size:13px;letter-spacing:2px;text-transform:uppercase;background:transparent;color:var(--ink);border:1px solid var(--ink);padding:15px 34px;border-radius:999px;cursor:pointer;transition:color .2s;margin-top:10px;white-space:nowrap;}
 .cform button:hover{color:#fff;}
-.contact-band .or{font-size:13px;letter-spacing:1px;color:var(--ink3);margin:0 0 8px;}
+.contact-band .or{font-size:13px;letter-spacing:1px;color:var(--ink3);margin:10px auto 24px;display:block;cursor:pointer;text-decoration:underline;text-underline-offset:.2em;transition:color .2s;}
+.contact-band .or:hover{color:var(--accent);}
+.contact-form-toggle{position:absolute;opacity:0;pointer-events:none;}
+.contact-form-toggle ~ .cform{display:none;}
+.contact-form-toggle:checked ~ .cform{display:flex;}
+.contact-form-toggle:checked ~ .or{text-decoration:none;cursor:default;}
+.contact-band .cal-link-area{display:block;font-size:12.5px;color:var(--ink3);margin-top:16px;}
+.contact-band .cal-link-area a{color:var(--accent);text-decoration:underline;text-underline-offset:.15em;}
+.contact-band .cal-link-area a:hover{color:var(--ink);}
+.svc-booking-cta{text-align:center;margin-top:44px;display:flex;flex-direction:column;align-items:center;gap:14px;}
+.svc-booking-link{display:inline-block;font-family:'Jost',sans-serif;font-weight:500;font-size:13.5px;color:var(--accent);text-decoration:underline;text-underline-offset:.15em;cursor:pointer;}
+.svc-booking-link:hover{color:var(--ink);}
+.svc-booking-note{font-family:'Jost',sans-serif;font-weight:300;font-size:13.5px;color:var(--ink2);margin:0;}
+.svc-booking-note a{color:var(--accent);text-decoration:underline;text-underline-offset:.15em;cursor:pointer;}
+.svc-booking-note a:hover{color:var(--ink);}
+.svc-booking-area{font-family:'Jost',sans-serif;font-weight:400;font-size:13px;letter-spacing:.3px;color:#8C6A2E;margin:2px 0 0;}
 .contact-band .email-link{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:#8C6A2E;text-decoration:none;}
 .contact-band .email-link:hover{color:var(--accent);}
 .contact-direct{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;}
@@ -700,7 +715,7 @@ footer .foot-link:hover{color:var(--accent);}
         <p class="t-eyebrow reveal">Licensed Psychologist</p>
         <h1 class="eh-headline reveal" data-delay="1">Where Excellence Meets Wellbeing.</h1>
         <div class="eh-actions reveal" data-delay="2">
-          <a href="#contact" class="eh-btn">Request a Consultation</a>
+          <a href="https://cal.com/dralinaschulhofer/free-15-minute-consultation" data-book="dralinaschulhofer/free-15-minute-consultation" class="eh-btn">Request a Consultation</a>
         </div>
       </div>
       <div class="eh-photo" aria-hidden="true">
@@ -752,12 +767,17 @@ footer .foot-link:hover{color:var(--accent);}
       <h2>Clinical Services</h2>
       <p class="sub">I offer concierge-style, private pay therapy services and only accept a limited number of clients at a time. I primarily work with high-performers and high-profile individuals, couples, and families.</p>
       <nav class="svc-menu" aria-label="Explore a service">
-        <a href="services.html#svc-individual" class="svc-menu-item"><span class="svc-menu-icon"><svg viewBox="0 0 40 40"><circle cx="20" cy="13" r="6.5"/><path d="M8 33c0-8 5.4-13 12-13s12 5 12 13"/></svg></span><span class="svc-menu-label">Individual<br />Therapy</span></a>
-        <a href="services.html#svc-couples" class="svc-menu-item"><span class="svc-menu-icon"><svg viewBox="0 0 40 40"><circle cx="15" cy="12" r="5.5"/><circle cx="26" cy="12" r="5.5"/><path d="M6 33c0-6.5 4.3-10.5 9.5-10.5S25 26.5 25 33"/><path d="M18 33c0-6.5 4-10.5 9-10.5s9 4 9 10.5"/></svg></span><span class="svc-menu-label">Couples &amp; Family<br />Therapy</span></a>
-        <a href="services.html#svc-concierge" class="svc-menu-item"><span class="svc-menu-icon"><svg viewBox="0 0 40 40"><path d="M20 6l3 11 11 3-11 3-3 11-3-11-11-3 11-3z" stroke-linejoin="round"/></svg></span><span class="svc-menu-label">Concierge<br />Services</span></a>
-        <a href="services.html#svc-intensives" class="svc-menu-item"><span class="svc-menu-icon"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="13"/><path d="M20 12v8l6 4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="svc-menu-label">Intensive<br />Sessions</span></a>
+        <a href="services.html#tabr-ind" class="svc-menu-item"><span class="svc-menu-icon"><svg viewBox="0 0 40 40"><circle cx="20" cy="13" r="6.5"/><path d="M8 33c0-8 5.4-13 12-13s12 5 12 13"/></svg></span><span class="svc-menu-label">Individual<br />Therapy</span></a>
+        <a href="services.html#tabr-cou" class="svc-menu-item"><span class="svc-menu-icon"><svg viewBox="0 0 40 40"><circle cx="15" cy="12" r="5.5"/><circle cx="26" cy="12" r="5.5"/><path d="M6 33c0-6.5 4.3-10.5 9.5-10.5S25 26.5 25 33"/><path d="M18 33c0-6.5 4-10.5 9-10.5s9 4 9 10.5"/></svg></span><span class="svc-menu-label">Couples &amp; Family<br />Therapy</span></a>
+        <a href="services.html#tabr-con" class="svc-menu-item"><span class="svc-menu-icon"><svg viewBox="0 0 40 40"><path d="M20 6l3 11 11 3-11 3-3 11-3-11-11-3 11-3z" stroke-linejoin="round"/></svg></span><span class="svc-menu-label">Concierge<br />Services</span></a>
+        <a href="services.html#tabr-int" class="svc-menu-item"><span class="svc-menu-icon"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="13"/><path d="M20 12v8l6 4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="svc-menu-label">Intensive<br />Sessions</span></a>
       </nav>
-      <div style="text-align:center;margin-top:48px;"><a href="services.html" class="eh-btn">Learn More</a></div>
+      <div class="svc-booking-cta">
+        <a href="https://cal.com/dralinaschulhofer/initial-90-minute-intake" data-book="dralinaschulhofer/initial-90-minute-intake" class="btn-solid">Book Your 90&#8209;Minute Intake</a>
+        <a href="https://cal.com/dralinaschulhofer/free-15-minute-consultation" data-book="dralinaschulhofer/free-15-minute-consultation" class="svc-booking-link">Not sure yet? Book a free 15&#8209;minute call</a>
+        <p class="svc-booking-note">Returning clients: <a href="https://cal.com/dralinaschulhofer/intensive-session-returning-clients" data-book="dralinaschulhofer/intensive-session-returning-clients">Book an Intensive Session</a></p>
+        <p class="svc-booking-area">Available to clients located in Florida and New York.</p>
+      </div>
     </div>
   </section>
 
@@ -772,7 +792,10 @@ footer .foot-link:hover{color:var(--accent);}
   <section class="contact-band" id="contact">
     <div class="container">
       <h2>Book a 15-Minute Consultation</h2>
-      <p>Please share a little about what brings you here, and I will respond personally to arrange your complimentary consultation.</p>
+      <p>Book a complimentary call directly, or reach out through the form below.</p>
+      <a href="https://cal.com/dralinaschulhofer/free-15-minute-consultation" data-book="dralinaschulhofer/free-15-minute-consultation">Book a Free 15&#8209;Minute Call</a>
+      <input type="checkbox" id="showContactForm" class="contact-form-toggle" />
+      <label for="showContactForm" class="or">or send a private message</label>
       <form class="cform" id="contactForm">
         <input type="text" id="cf-name" placeholder="Your name" aria-label="Your name" required />
         <input type="email" id="cf-email" placeholder="Your email" aria-label="Your email" required />
@@ -801,7 +824,7 @@ footer .foot-link:hover{color:var(--accent);}
       <div class="eh-text ab-hero-text">
         <p class="ab-hero-quote reveal">True success is not simply a matter of accolades.</p>
         <p class="ab-hero-sub reveal">My philosophy is that actualizing wellbeing and potential is an art form&mdash;an ongoing process of creative self-discovery, shaped by the interplay of our internal world and environment.</p>
-        <a href="index.html#contact" class="eh-btn ab-hero-btn reveal">Get Started</a>
+        <a href="https://cal.com/dralinaschulhofer/free-15-minute-consultation" data-book="dralinaschulhofer/free-15-minute-consultation" class="eh-btn ab-hero-btn reveal">Get Started</a>
       </div>
       <div class="eh-photo" aria-hidden="true">
         <img class="ab-hero-img" src="data:image/jpeg;base64,__ABOUTHERO__" alt="" />
@@ -835,7 +858,7 @@ footer .foot-link:hover{color:var(--accent);}
     <div class="xb-photo"><img src="data:image/jpeg;base64,__PABOUT__" alt="Dr. Alina Schulhofer, founder of Architecture of Excellence" /></div>
     <div class="xb-text">
       <h2>For Those Who Demand Excellence.</h2>
-      <a href="index.html#contact" class="eh-btn">Begin the Conversation</a>
+      <a href="https://cal.com/dralinaschulhofer/free-15-minute-consultation" data-book="dralinaschulhofer/free-15-minute-consultation" class="eh-btn">Begin the Conversation</a>
     </div>
   </section>
 </div>
@@ -857,7 +880,7 @@ footer .foot-link:hover{color:var(--accent);}
       <p>My approach is relational psychoanalytic, which means that I make use of what takes place between me and my clients to better understand how they relate to other people in their lives&mdash;what goes well, and where they may inadvertently create or replay painful dynamics.</p>
       <p>I believe meaningful growth begins with a deeper understanding of ourselves: the experiences that have shaped us, our patterns, the ways we relate to ourselves and others, and the unconscious forces that influence how we see and navigate the world.</p>
       <p>I take a holistic perspective that sees and treats the person as an interconnected being&mdash;including mind, body, spirit, and the broader systems in which we live and work. Understanding what gets in our way is important, but so is recognizing the strengths, possibilities, and meaning within our stories.</p>
-      <a href="index.html#contact" class="btn-solid" style="margin-top:26px;">Get Started</a>
+      <a href="https://cal.com/dralinaschulhofer/free-15-minute-consultation" data-book="dralinaschulhofer/free-15-minute-consultation" class="btn-solid" style="margin-top:26px;">Get Started</a>
     </div>
   </section>
 
@@ -938,6 +961,12 @@ footer .foot-link:hover{color:var(--accent);}
           </div>
         </div>
       </div>
+      <div class="svc-booking-cta">
+        <a href="https://cal.com/dralinaschulhofer/initial-90-minute-intake" data-book="dralinaschulhofer/initial-90-minute-intake" class="btn-solid">Book Your 90&#8209;Minute Intake</a>
+        <a href="https://cal.com/dralinaschulhofer/free-15-minute-consultation" data-book="dralinaschulhofer/free-15-minute-consultation" class="svc-booking-link">Not sure yet? Book a free 15&#8209;minute call</a>
+        <p class="svc-booking-note">Returning clients: <a href="https://cal.com/dralinaschulhofer/intensive-session-returning-clients" data-book="dralinaschulhofer/intensive-session-returning-clients">Book an Intensive Session</a></p>
+        <p class="svc-booking-area">Available to clients located in Florida and New York.</p>
+      </div>
     </div>
   </section>
 
@@ -958,7 +987,7 @@ footer .foot-link:hover{color:var(--accent);}
         <li>Burnout and stress</li>
         <li>Meaning and legacy</li>
       </ul>
-      <div style="text-align:center;margin-top:40px;"><a href="index.html#contact" class="btn-solid">Get Started</a></div>
+      <div style="text-align:center;margin-top:40px;"><a href="https://cal.com/dralinaschulhofer/free-15-minute-consultation" data-book="dralinaschulhofer/free-15-minute-consultation" class="btn-solid">Get Started</a></div>
     </div>
   </section>
 
@@ -1015,7 +1044,7 @@ footer .foot-link:hover{color:var(--accent);}
     <div class="container">
       <h2>Ready to Begin?</h2>
       <p>Book a free 15-minute consultation to see if working together is the right fit.</p>
-      <a href="index.html#contact">Book a Free Consultation</a>
+      <a href="https://cal.com/dralinaschulhofer/free-15-minute-consultation" data-book="dralinaschulhofer/free-15-minute-consultation">Book a Free Consultation</a>
     </div>
   </section>
 </div>
@@ -1045,6 +1074,7 @@ footer .foot-link:hover{color:var(--accent);}
         <span class="foot-sep">·</span>
         <a href="tel:+17866714945" class="foot-link">+1 786-671-4945</a>
       </span><br />
+      <a href="book.html" class="foot-link">See all booking options &rarr;</a><br />
       © 2026 Dr. Alina Schulhofer. All rights reserved.
     </p>
   </div>

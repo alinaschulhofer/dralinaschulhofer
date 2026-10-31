@@ -11,7 +11,7 @@ import json, pathlib, sys, datetime, html
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parent
 sys.path.insert(0, str(HERE))
-from common import DOMAIN, FONTS, NAV, SCRIPT, get_footer, CSS_LINK, GA_SCRIPT, VISITOR_LOGGER_SCRIPT, IMG_VERSION, FAVICON, NOSCRIPT_FALLBACK, FAB_BOOK, IAG_POPUP, CAL_SCRIPT, CAL_FREE_CONSULT_SLUG, CAL_INTAKE_SLUG, cal_book_attrs
+from common import DOMAIN, FONTS, NAV, SCRIPT, get_footer, CSS_LINK, GA_SCRIPT, VISITOR_LOGGER_SCRIPT, IMG_VERSION, FAVICON, NOSCRIPT_FALLBACK, FAB_BOOK, IAG_POPUP, CAL_SCRIPT, CAL_FREE_CONSULT_SLUG, CAL_INTAKE_SLUG, CAL_ALL_SLUG, cal_book_attrs
 
 POSTS_DIR = HERE / 'posts'
 FOOTER = get_footer()
@@ -104,7 +104,7 @@ def render_index(posts):
   <div class="xb-photo"><img src="assets/portrait-about.jpg?v={IMG_VERSION}" alt="Dr. Alina Schulhofer, founder of Architecture of Excellence" /></div>
   <div class="xb-text">
     <h2>For Those Who Demand Excellence.</h2>
-    <a {cal_book_attrs(CAL_FREE_CONSULT_SLUG)} class="eh-btn">Begin the Conversation</a>
+    <a {cal_book_attrs(CAL_ALL_SLUG)} class="eh-btn">Begin the Conversation</a>
   </div>
 </section>'''
     title = 'Psychology, Leadership & Performance Insights | Dr. Schulhofer'

@@ -6,7 +6,7 @@ DOMAIN = 'https://www.dralinaschulhofer.com'
 
 # Bump this on every deploy that changes styles.css — the link tag below embeds it as
 # ?v=N so browsers/CDNs treat it as a new URL instead of serving a stale cached copy.
-CSS_VERSION = 140
+CSS_VERSION = 143
 CSS_LINK = f'<link rel="stylesheet" href="styles.css?v={CSS_VERSION}" />'
 
 # Bump this whenever a file in assets/ changes (photos, etc.) — same cache-busting trick as
@@ -29,12 +29,59 @@ FAVICON = '<link rel="icon" href="favicon.ico" sizes="any" /><link rel="icon" hr
 # without this, a page would stay invisible forever if JavaScript is blocked or fails to run.
 NOSCRIPT_FALLBACK = '<noscript><style>body{opacity:1 !important;}</style></noscript>'
 
-# Floating "Book a Consultation" button — present on every page, links out to Calendly.
-CALENDLY_URL = 'https://calendly.com/dralinaschulhofer/consultation-15min'
-FAB_BOOK = f'''<a href="{CALENDLY_URL}" target="_blank" rel="noopener" class="fab-book" aria-label="Book a consultation on Calendly">
+# Cal.com booking links — every button opens a pop-up (see CAL_SCRIPT below) via its
+# data-book attribute, and falls back to a normal link to the same page if the embed is blocked.
+CAL_FREE_CONSULT_SLUG = 'dralinaschulhofer/free-15-minute-consultation'
+CAL_INTAKE_SLUG = 'dralinaschulhofer/initial-90-minute-intake'
+CAL_INTENSIVE_SLUG = 'dralinaschulhofer/intensive-session-returning-clients'
+CAL_FREE_CONSULT_URL = f'https://cal.com/{CAL_FREE_CONSULT_SLUG}'
+CAL_INTAKE_URL = f'https://cal.com/{CAL_INTAKE_SLUG}'
+CAL_INTENSIVE_URL = f'https://cal.com/{CAL_INTENSIVE_SLUG}'
+CAL_ALL_SLUG = 'dralinaschulhofer'
+CAL_ALL_URL = f'https://cal.com/{CAL_ALL_SLUG}'
+
+def cal_book_attrs(slug):
+    """href+data-book pair for a Cal.com pop-up trigger — href alone still works if the embed is blocked."""
+    return f'href="https://cal.com/{slug}" data-book="{slug}"'
+
+# Floating "Book Appointment" button — present on every page, opens the full Cal.com booking
+# page (all event types) as a pop-up (falls back to a normal link if the embed can't load).
+FAB_BOOK = f'''<a {cal_book_attrs(CAL_ALL_SLUG)} class="fab-book" aria-label="Book an appointment">
   <svg viewBox="0 0 40 40"><rect x="7" y="9" width="26" height="24" rx="4"/><path d="M7 17h26"/><path d="M14 5v6M26 5v6" stroke-linecap="round"/><path d="M15 24l3.2 3.2L26 19" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  <span>Book Consultation</span>
+  <span>Book Appointment</span>
 </a>'''
+
+# Cal.com embed: any element with data-book="<cal link slug>" opens that booking page in a
+# pop-up, styled to match the site's accent color. Its href points straight to the same
+# Cal.com page, so the button still works as a normal link if the embed script is blocked
+# (ad blockers, etc.) or hasn't finished loading yet.
+CAL_SCRIPT = '''<script>
+  (function () {
+    var triggers = document.querySelectorAll('[data-book]');
+    if (!triggers.length) return;
+
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+
+    var ready = false;
+    Cal('init', { origin: 'https://cal.com' });
+    Cal('ui', {
+      theme: 'light',
+      cssVarsPerTheme: { light: { 'cal-brand': '#A9843F' } },
+      hideEventTypeDetails: false,
+      layout: 'month_view'
+    });
+    var s = document.querySelector('script[src="https://app.cal.com/embed/embed.js"]');
+    if (s) { s.addEventListener('load', function () { ready = true; }); }
+
+    triggers.forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        if (!ready) return; // embed not loaded yet (or blocked): let the normal link open Cal.com
+        e.preventDefault();
+        Cal('modal', { calLink: el.getAttribute('data-book'), config: { layout: 'month_view' } });
+      });
+    });
+  })();
+</script>'''
 
 # Free-ebook lead-capture popup — appears site-wide (via SCRIPT below) 5s after page load,
 # skipped on the gated download page itself and suppressed after a visitor has already opted in.
@@ -113,11 +160,13 @@ SCRIPT = '''<script>
       var hash=a.getAttribute('href').split('#')[1];
       var target=hash && document.getElementById(hash);
       if(target && target.tagName==='DETAILS'){ target.open=true; }
+      if(target && target.tagName==='INPUT' && target.type==='radio'){ target.checked=true; }
     });
   });
   if(location.hash){
     var hashTarget=document.getElementById(location.hash.slice(1));
     if(hashTarget && hashTarget.tagName==='DETAILS'){ hashTarget.open=true; }
+    if(hashTarget && hashTarget.tagName==='INPUT' && hashTarget.type==='radio'){ hashTarget.checked=true; }
   }
   var cf=document.getElementById('contactForm');
   if(cf){ cf.addEventListener('submit',function(e){

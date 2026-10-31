@@ -217,7 +217,6 @@ book_body='''<section class="pg-head">
     <p class="eyebrow">Schedule Online</p>
     <h1>Book a Session</h1>
     <p class="sub">Choose the option that fits where you are right now.</p>
-    <p class="svc-booking-area">Available to clients located in Florida and New York.</p>
   </div>
 </section>
 <section class="section" style="padding:24px 0 110px;">

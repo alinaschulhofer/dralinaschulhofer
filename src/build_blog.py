@@ -11,7 +11,7 @@ import json, pathlib, sys, datetime, html
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parent
 sys.path.insert(0, str(HERE))
-from common import DOMAIN, FONTS, NAV, SCRIPT, get_footer, CSS_LINK, GA_SCRIPT, VISITOR_LOGGER_SCRIPT, IMG_VERSION, FAVICON, NOSCRIPT_FALLBACK, FAB_BOOK, IAG_POPUP, CAL_SCRIPT, CAL_FREE_CONSULT_SLUG, cal_book_attrs
+from common import DOMAIN, FONTS, NAV, SCRIPT, get_footer, CSS_LINK, GA_SCRIPT, VISITOR_LOGGER_SCRIPT, IMG_VERSION, FAVICON, NOSCRIPT_FALLBACK, FAB_BOOK, IAG_POPUP, CAL_SCRIPT, CAL_FREE_CONSULT_SLUG, CAL_INTAKE_SLUG, cal_book_attrs
 
 POSTS_DIR = HERE / 'posts'
 FOOTER = get_footer()
@@ -142,6 +142,7 @@ def render_post(post):
     <h2>Ready to Begin?</h2>
     <p>Book a free 15-minute consultation to see if working together is the right fit.</p>
     <a {cal_book_attrs(CAL_FREE_CONSULT_SLUG)}>Book a Free Consultation</a>
+    <p style="margin-top:14px;"><a {cal_book_attrs(CAL_INTAKE_SLUG)} class="svc-booking-link">Ready now? Book your intake directly</a></p>
   </div>
 </section>'''
     title = f'{html.escape(post["title"])} — Dr. Alina Schulhofer'

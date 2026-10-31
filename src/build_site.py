@@ -2,7 +2,7 @@ import re, pathlib, sys, html, json
 HERE=pathlib.Path(__file__).resolve().parent
 ROOT=HERE.parent  # deploy files live at repo root; master source lives in src/
 sys.path.insert(0, str(HERE))
-from common import DOMAIN, FONTS, NAV, SCRIPT, CSS_LINK, GA_SCRIPT, VISITOR_LOGGER_SCRIPT, IMG_VERSION, FAVICON, NOSCRIPT_FALLBACK, FAB_BOOK
+from common import DOMAIN, FONTS, NAV, SCRIPT, CSS_LINK, GA_SCRIPT, VISITOR_LOGGER_SCRIPT, IMG_VERSION, FAVICON, NOSCRIPT_FALLBACK, FAB_BOOK, IAG_POPUP
 from build_blog import load_posts, human_date
 src=open(HERE/'therapy_template.html',encoding='utf-8').read()
 
@@ -124,6 +124,7 @@ for pid,content in pages.items():
 {content}
 {footer}
 {FAB_BOOK}
+{IAG_POPUP}
 {SCRIPT}
 {VISITOR_LOGGER_SCRIPT}
 </body>
@@ -164,6 +165,46 @@ not_found_head=f'''<!DOCTYPE html>
 </html>'''
 open(ROOT/'404.html','w',encoding='utf-8').write(not_found_head)
 print('wrote 404.html')
+
+# --- 3b. unlisted free-guide download page (not in NAV, not in sitemap — reached only after
+# submitting an email in the IAG_POPUP lead-capture form) ---
+iag_body=f'''<section class="pg-head">
+  <div class="container narrow">
+    <p class="eyebrow">Free Mini E-Book</p>
+    <h1>The Inner Alignment Guide</h1>
+    <p class="sub">Thank you &mdash; your copy is ready. Click below to download.</p>
+  </div>
+</section>
+<section class="section" style="padding:40px 0 110px;">
+  <div class="container narrow" style="max-width:420px;text-align:center;">
+    <img src="assets/inner-alignment-guide-cover.jpg?v={IMG_VERSION}" alt="Lead From Within: The Inner Alignment Guide for High Performers" style="width:100%;max-width:280px;margin:0 auto 36px;display:block;border-radius:4px;box-shadow:0 20px 50px rgba(21,21,26,.18);" />
+    <a href="assets/inner-alignment-guide.pdf?v={IMG_VERSION}" download class="btn-solid">Download the Guide</a>
+  </div>
+</section>'''
+iag_head=f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Inner Alignment Guide | Dr. Alina Schulhofer</title>
+<meta name="robots" content="noindex" />
+{FAVICON}
+{FONTS}
+{CSS_LINK}
+{NOSCRIPT_FALLBACK}
+{GA_SCRIPT}
+</head>
+<body>
+{NAV('')}
+{iag_body}
+{footer}
+{FAB_BOOK}
+{SCRIPT}
+{VISITOR_LOGGER_SCRIPT}
+</body>
+</html>'''
+open(ROOT/'inner-alignment-guide.html','w',encoding='utf-8').write(iag_head)
+print('wrote inner-alignment-guide.html')
 
 # --- 4. robots.txt + sitemap.xml (regenerated every build so new blog posts are always included) ---
 open(ROOT/'robots.txt','w',encoding='utf-8').write(

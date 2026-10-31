@@ -9,11 +9,11 @@
 <meta property="og:title" content="Why We Wait Until a Crisis to Look Within — Dr. Alina Schulhofer" />
 <meta property="og:description" content="On why inner work so often begins only when the ways we have learned to function start to fail." />
 <meta property="og:url" content="https://www.dralinaschulhofer.com/why-we-wait-until-a-crisis-to-look-within.html" />
-<meta property="og:image" content="https://www.dralinaschulhofer.com/assets/portrait-about.jpg?v=19" />
+<meta property="og:image" content="https://www.dralinaschulhofer.com/assets/portrait-about.jpg?v=20" />
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="icon" href="favicon.ico" sizes="any" /><link rel="icon" href="favicon.png" type="image/png" /><link rel="apple-touch-icon" href="apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=139" />
+<link rel="stylesheet" href="styles.css?v=140" />
 <noscript><style>body{opacity:1 !important;}</style></noscript>
 <meta name="author" content="Dr. Alina Schulhofer" />
 <script type="application/ld+json">
@@ -115,6 +115,18 @@
   <svg viewBox="0 0 40 40"><rect x="7" y="9" width="26" height="24" rx="4"/><path d="M7 17h26"/><path d="M14 5v6M26 5v6" stroke-linecap="round"/><path d="M15 24l3.2 3.2L26 19" stroke-linecap="round" stroke-linejoin="round"/></svg>
   <span>Book Consultation</span>
 </a>
+<div class="iag-overlay" id="iagOverlay">
+  <div class="iag-modal">
+    <button type="button" class="iag-close" id="iagClose" aria-label="Close">&times;</button>
+    <p class="eyebrow">Free Mini E-Book</p>
+    <h3 class="iag-title">The Inner Alignment Guide</h3>
+    <p class="iag-sub">A free guide from Architecture of Excellence&trade; on leading and living from greater alignment within.</p>
+    <form id="iagForm" class="iag-form">
+      <input type="email" id="iagEmail" placeholder="Your email address" required />
+      <button type="submit">Send Me the Guide</button>
+    </form>
+  </div>
+</div>
 <script>
   var nav=document.getElementById('nav'), navToggle=document.getElementById('navToggle');
   var topBar=document.querySelector('.top');
@@ -159,6 +171,29 @@
     var io=new IntersectionObserver(function(en){ en.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target);} }); },{threshold:0,rootMargin:'0px 0px 800px 0px'});
     document.querySelectorAll('.reveal,.reveal-img,.reveal-stagger,.split-divider').forEach(function(el){ io.observe(el); });
   } else { document.querySelectorAll('.reveal,.reveal-img,.reveal-stagger,.split-divider').forEach(function(el){ el.classList.add('is-visible'); }); }
+  (function(){
+    var overlay=document.getElementById('iagOverlay');
+    if(!overlay || location.pathname.indexOf('inner-alignment-guide')>-1) return;
+    try{
+      if(localStorage.getItem('iagSubscribed') || sessionStorage.getItem('iagPopupShown')) return;
+    }catch(e){}
+    setTimeout(function(){
+      overlay.classList.add('open');
+      try{ sessionStorage.setItem('iagPopupShown','1'); }catch(e){}
+    }, 5000);
+    var closeBtn=document.getElementById('iagClose');
+    if(closeBtn){ closeBtn.addEventListener('click', function(){ overlay.classList.remove('open'); }); }
+    overlay.addEventListener('click', function(e){ if(e.target===overlay){ overlay.classList.remove('open'); } });
+    var form=document.getElementById('iagForm');
+    if(form){ form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var email=(document.getElementById('iagEmail').value||'').trim();
+      var btn=form.querySelector('button'); btn.disabled=true; btn.textContent='Sending\u2026';
+      var go=function(){ try{ localStorage.setItem('iagSubscribed','1'); }catch(e){} window.location.href='inner-alignment-guide.html'; };
+      fetch('https://formspree.io/f/xzdwqnvk',{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify({email:email,_subject:'Free Guide Signup \u2014 '+email,message:'New opt-in for The Inner Alignment Guide: '+email})})
+      .then(go).catch(go);
+    }); }
+  })();
 </script>
 <script>
   (function(){

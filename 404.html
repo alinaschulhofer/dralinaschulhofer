@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex" />
 <link rel="icon" href="favicon.ico" sizes="any" /><link rel="icon" href="favicon.png" type="image/png" /><link rel="apple-touch-icon" href="apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=139" />
+<link rel="stylesheet" href="styles.css?v=140" />
 <noscript><style>body{opacity:1 !important;}</style></noscript>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VXF1MBZZHC"></script>
@@ -117,6 +117,29 @@
     var io=new IntersectionObserver(function(en){ en.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target);} }); },{threshold:0,rootMargin:'0px 0px 800px 0px'});
     document.querySelectorAll('.reveal,.reveal-img,.reveal-stagger,.split-divider').forEach(function(el){ io.observe(el); });
   } else { document.querySelectorAll('.reveal,.reveal-img,.reveal-stagger,.split-divider').forEach(function(el){ el.classList.add('is-visible'); }); }
+  (function(){
+    var overlay=document.getElementById('iagOverlay');
+    if(!overlay || location.pathname.indexOf('inner-alignment-guide')>-1) return;
+    try{
+      if(localStorage.getItem('iagSubscribed') || sessionStorage.getItem('iagPopupShown')) return;
+    }catch(e){}
+    setTimeout(function(){
+      overlay.classList.add('open');
+      try{ sessionStorage.setItem('iagPopupShown','1'); }catch(e){}
+    }, 5000);
+    var closeBtn=document.getElementById('iagClose');
+    if(closeBtn){ closeBtn.addEventListener('click', function(){ overlay.classList.remove('open'); }); }
+    overlay.addEventListener('click', function(e){ if(e.target===overlay){ overlay.classList.remove('open'); } });
+    var form=document.getElementById('iagForm');
+    if(form){ form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var email=(document.getElementById('iagEmail').value||'').trim();
+      var btn=form.querySelector('button'); btn.disabled=true; btn.textContent='Sending\u2026';
+      var go=function(){ try{ localStorage.setItem('iagSubscribed','1'); }catch(e){} window.location.href='inner-alignment-guide.html'; };
+      fetch('https://formspree.io/f/xzdwqnvk',{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify({email:email,_subject:'Free Guide Signup \u2014 '+email,message:'New opt-in for The Inner Alignment Guide: '+email})})
+      .then(go).catch(go);
+    }); }
+  })();
 </script>
 <script>
   (function(){

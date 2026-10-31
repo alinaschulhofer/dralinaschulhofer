@@ -46,7 +46,7 @@ IAG_POPUP = '''<div class="iag-overlay" id="iagOverlay">
     <button type="button" class="iag-close" id="iagClose" aria-label="Close">&times;</button>
     <p class="eyebrow">Free Mini E-Book</p>
     <h3 class="iag-title">The Inner Alignment Guide</h3>
-    <p class="iag-sub">A free guide from Architecture of Excellence&trade; on leading and living from greater alignment within.</p>
+    <p class="iag-sub">A free guide from Dr. Alina Schulhofer on leading and living from greater alignment within.</p>
     <form id="iagForm" class="iag-form">
       <input type="email" id="iagEmail" placeholder="Your email address" required />
       <button type="submit">Send Me the Guide</button>

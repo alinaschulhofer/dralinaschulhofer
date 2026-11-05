@@ -32,9 +32,11 @@ NOSCRIPT_FALLBACK = '<noscript><style>body{opacity:1 !important;}</style></noscr
 # Cal.com booking links — every button opens a pop-up (see CAL_SCRIPT below) via its
 # data-book attribute, and falls back to a normal link to the same page if the embed is blocked.
 CAL_FREE_CONSULT_SLUG = 'dralinaschulhofer/free-15-minute-consultation'
+CAL_INTAKE60_SLUG = 'dralinaschulhofer/initial-intake-60-min'
 CAL_INTAKE_SLUG = 'dralinaschulhofer/initial-90-minute-intake'
 CAL_INTENSIVE_SLUG = 'dralinaschulhofer/intensive-session-returning-clients'
 CAL_FREE_CONSULT_URL = f'https://cal.com/{CAL_FREE_CONSULT_SLUG}'
+CAL_INTAKE60_URL = f'https://cal.com/{CAL_INTAKE60_SLUG}'
 CAL_INTAKE_URL = f'https://cal.com/{CAL_INTAKE_SLUG}'
 CAL_INTENSIVE_URL = f'https://cal.com/{CAL_INTENSIVE_SLUG}'
 CAL_ALL_SLUG = 'dralinaschulhofer'

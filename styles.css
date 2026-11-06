@@ -465,7 +465,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 .svc-booking-note a{color:var(--accent);text-decoration:underline;text-underline-offset:.15em;cursor:pointer;}
 .svc-booking-note a:hover{color:var(--ink);}
 .svc-booking-area{font-family:'Jost',sans-serif;font-weight:400;font-size:13px;letter-spacing:.3px;color:#8C6A2E;margin:2px 0 0;}
-.svc-coaching-note{max-width:620px;margin:56px auto 0;text-align:center;}
+.svc-coaching-divider{border:none;height:1px;width:70px;margin:48px auto 0;background:rgba(169,132,63,.5);}
+.svc-coaching-note{max-width:620px;margin:28px auto 0;text-align:center;}
 .svc-coaching-note .eyebrow{display:block;margin-bottom:12px;}
 .svc-coaching-note p:not(.eyebrow){font-family:'Jost',sans-serif;font-weight:300;font-size:13px;line-height:1.75;letter-spacing:.2px;color:#8C6A2E;margin:0 0 10px;}
 .svc-coaching-note p:last-child{margin-bottom:0;}

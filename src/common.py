@@ -6,7 +6,7 @@ DOMAIN = 'https://www.dralinaschulhofer.com'
 
 # Bump this on every deploy that changes styles.css — the link tag below embeds it as
 # ?v=N so browsers/CDNs treat it as a new URL instead of serving a stale cached copy.
-CSS_VERSION = 147
+CSS_VERSION = 148
 CSS_LINK = f'<link rel="stylesheet" href="styles.css?v={CSS_VERSION}" />'
 
 # Bump this whenever a file in assets/ changes (photos, etc.) — same cache-busting trick as
@@ -84,24 +84,6 @@ CAL_SCRIPT = '''<script>
     });
   })();
 </script>'''
-
-# Free-ebook lead-capture popup — appears site-wide (via SCRIPT below) 5s after page load,
-# skipped on the gated download page itself and suppressed after a visitor has already opted in.
-# Submits to the same Formspree endpoint as the contact form (tagged with a distinct _subject
-# so Alina can tell lead-magnet signups apart from consultation requests), then redirects to
-# the unlisted inner-alignment-guide.html page where the PDF can be downloaded.
-IAG_POPUP = '''<div class="iag-overlay" id="iagOverlay">
-  <div class="iag-modal">
-    <button type="button" class="iag-close" id="iagClose" aria-label="Close">&times;</button>
-    <p class="eyebrow">Free Mini E-Book</p>
-    <h3 class="iag-title">The Inner Alignment Guide</h3>
-    <p class="iag-sub">A free guide from Dr. Alina Schulhofer on leading and living from greater alignment within.</p>
-    <form id="iagForm" class="iag-form">
-      <input type="email" id="iagEmail" placeholder="Your email address" required />
-      <button type="submit">Send Me the Guide</button>
-    </form>
-  </div>
-</div>'''
 
 # Traffic tracking — mirrors the setup on architectureofexcellence.com (see visitor-logger/SETUP.md).
 GA_MEASUREMENT_ID = 'G-VXF1MBZZHC'
@@ -194,27 +176,4 @@ SCRIPT = '''<script>
     var io=new IntersectionObserver(function(en){ en.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target);} }); },{threshold:0,rootMargin:'0px 0px 800px 0px'});
     document.querySelectorAll('.reveal,.reveal-img,.reveal-stagger,.split-divider').forEach(function(el){ io.observe(el); });
   } else { document.querySelectorAll('.reveal,.reveal-img,.reveal-stagger,.split-divider').forEach(function(el){ el.classList.add('is-visible'); }); }
-  (function(){
-    var overlay=document.getElementById('iagOverlay');
-    if(!overlay || location.pathname.indexOf('inner-alignment-guide')>-1) return;
-    try{
-      if(localStorage.getItem('iagSubscribed') || sessionStorage.getItem('iagPopupShown')) return;
-    }catch(e){}
-    setTimeout(function(){
-      overlay.classList.add('open');
-      try{ sessionStorage.setItem('iagPopupShown','1'); }catch(e){}
-    }, 5000);
-    var closeBtn=document.getElementById('iagClose');
-    if(closeBtn){ closeBtn.addEventListener('click', function(){ overlay.classList.remove('open'); }); }
-    overlay.addEventListener('click', function(e){ if(e.target===overlay){ overlay.classList.remove('open'); } });
-    var form=document.getElementById('iagForm');
-    if(form){ form.addEventListener('submit', function(e){
-      e.preventDefault();
-      var email=(document.getElementById('iagEmail').value||'').trim();
-      var btn=form.querySelector('button'); btn.disabled=true; btn.textContent='Sending\\u2026';
-      var go=function(){ try{ localStorage.setItem('iagSubscribed','1'); }catch(e){} window.location.href='inner-alignment-guide.html'; };
-      fetch('https://formspree.io/f/xzdwqnvk',{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify({email:email,_subject:'Free Guide Signup \\u2014 '+email,message:'New opt-in for The Inner Alignment Guide: '+email})})
-      .then(go).catch(go);
-    }); }
-  })();
 </script>'''
